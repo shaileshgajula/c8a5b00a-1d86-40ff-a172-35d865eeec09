@@ -1,0 +1,65 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="OrgSite.master.cs" Inherits="Tourna.OrganisationSite.OrgSite" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .style1
+        {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+
+    
+
+</head>
+<body>
+<script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+    try {
+        var pageTracker = _gat._getTracker("UA-10085548-1");
+        pageTracker._trackPageview();
+    } catch (err) { }</script>
+    <form id="form1" runat="server">
+    <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
+    </telerik:RadScriptManager>
+    <div>
+        <table class="style1">
+            <tr>
+                <td>
+                    <asp:Label ID="lblOrgLotoText" runat="server" Text=""></asp:Label>
+                    <asp:Image ID="imgOrgLogo" runat="server" ImageUrl="" />
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
+                    <asp:Menu ID="Menu1" runat="server" DataSourceID="SiteMapDataSource1" Orientation="Horizontal"
+                        OnMenuItemDataBound="Menu1_MenuItemDataBound" StaticItemFormatString="{0}  |">
+                    </asp:Menu>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    All Rights Reserved. | Terms of Use | Trademarks | Privacy Statement © 2009 USHA
+                    Corporation.
+                </td>
+            </tr>
+        </table>
+        <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" ShowStartingNode="false"
+            StartingNodeUrl="~/OrganisationSite.aspx" />
+    </div>
+    </form>
+</body>
+</html>

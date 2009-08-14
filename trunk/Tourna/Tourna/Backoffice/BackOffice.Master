@@ -1,0 +1,89 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="BackOffice.master.cs"
+    Inherits="Tourna.Backoffice.BackOffice" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <link href="../Styles.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
+    </telerik:RadScriptManager>
+    <div id="header">
+        <span class="title">Management Platform [alfa] </span><br />
+        <asp:Label ID="lblOrganisationName" runat="server"></asp:Label>
+        <asp:HyperLink ID="hlOrganisationSite" runat="server" 
+            ToolTip="Open organisation site" Target="_blank">...</asp:HyperLink>
+        <asp:Label ID="lblOrganisationId" runat="server" ForeColor="White"></asp:Label>
+    </div>
+    <table class="style1">
+        <tr>
+            <td colspan="2">
+                <asp:LoginView ID="LoginView1" runat="server">
+                    <LoggedInTemplate>
+                        Welcome back,
+                        <asp:LoginName ID="LoginName1" runat="server" />
+                        .
+                    </LoggedInTemplate>
+                    <AnonymousTemplate>
+                        Hello, stranger.
+                    </AnonymousTemplate>
+                </asp:LoginView>
+                <asp:LoginStatus ID="LoginStatus1" runat="server" />
+            </td>
+        </tr>
+        <tr>
+            <td class="style2">
+                <ul>
+                    <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SiteMapDataSource1">
+                        <ItemTemplate>
+                            <li>
+                                <asp:HyperLink ID="lnkMenuItem" runat="server" NavigateUrl='<%# Eval("Url") %>'><%# Eval("Title") %></asp:HyperLink>
+                            </li>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                    <asp:LoginView ID="LoginView2" runat="server">
+                        <RoleGroups>
+                            <asp:RoleGroup Roles="Administrator">
+                                <ContentTemplate>
+                                    <asp:Repeater ID="Repeater2" runat="server" DataSourceID="SiteMapDataSource2">
+                                        <ItemTemplate>
+                                            <li style="color:Red">
+                                                <asp:HyperLink ID="lnkMenuItemAdmin" runat="server" NavigateUrl='<%# Eval("Url") %>'><%# Eval("Title") %></asp:HyperLink>
+                                            </li>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+                                </ContentTemplate>
+                            </asp:RoleGroup>
+                        </RoleGroups>
+                    </asp:LoginView>
+                </ul>
+                <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" StartingNodeUrl="~/Login.aspx"
+                    ShowStartingNode="false" />
+                <asp:SiteMapDataSource ID="SiteMapDataSource2" runat="server" StartingNodeUrl="~/AdminSection.aspx"
+                    ShowStartingNode="false" />
+            </td>
+            <td>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                All Rights Reserved. | Terms of Use | Trademarks | 
+                <a href="http://www.google.com/analytics/" target="_blank">Google Analytics</a> |
+                Privacy Statement © 2009 USHA Corporation.
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <iframe src="http://www.google.com/talk/service/badge/Show?tk=z01q6amlqgej3viuot0n4t2ov3qn81sd1mapmrg91shvc1a4atu1s2pgtd211sgq3inbm0a04baktkf26av728cvc86k9rjbal5shmna0ef91ius49v6mb22rdsmjvtsuc93ot9uuguic0qjjerknplb79bnglr2qkou4idka&amp;w=300&amp;h=18" allowtransparency="true" width="300" frameborder="0" height="18"></iframe>
+            </td>
+        </tr>
+    </table>
+    </form>
+</body>
+</html>
