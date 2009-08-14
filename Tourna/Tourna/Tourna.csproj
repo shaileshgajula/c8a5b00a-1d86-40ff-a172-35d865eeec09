@@ -1,0 +1,484 @@
+﻿<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{03F91329-4C4C-489B-9A40-EAE09778C9BD}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Tourna</RootNamespace>
+    <AssemblyName>Tourna</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.DataVisualization, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\WINDOWS\assembly\GAC_MSIL\System.Web.DataVisualization\3.5.0.0__31bf3856ad364e35\System.Web.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="Telerik.Web.UI, Version=2009.2.701.35, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Telerik\RadControls for ASP.NET AJAX Q2 2009\Bin35\Telerik.Web.UI.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Backoffice\TournamentBuilder.aspx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Backoffice\BackOffice.Master.cs">
+      <DependentUpon>BackOffice.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backoffice\BackOffice.Master.designer.cs">
+      <DependentUpon>BackOffice.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Backoffice\ControlPanel.aspx.cs">
+      <DependentUpon>ControlPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backoffice\ControlPanel.aspx.designer.cs">
+      <DependentUpon>ControlPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backoffice\CreateClientAccount.aspx.cs">
+      <DependentUpon>CreateClientAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backoffice\CreateClientAccount.aspx.designer.cs">
+      <DependentUpon>CreateClientAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backoffice\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backoffice\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backoffice\Entities\GameStanding.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GameStanding.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Backoffice\Entities\OrganisationInfo.cs" />
+    <Compile Include="Backoffice\Entities\OrganisationInfo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OrganisationInfo.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Backoffice\Entities\PairsAlgo.cs" />
+    <Compile Include="Backoffice\Entities\PlayersManager.cs" />
+    <Compile Include="Backoffice\Entities\SchedulerAlgo.cs" />
+    <Compile Include="Backoffice\Entities\SchedulesBL.cs" />
+    <Compile Include="Backoffice\Entities\Standings.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Standings.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Backoffice\Entities\TextContentManager.cs" />
+    <Compile Include="Backoffice\Entities\TournamentManager.cs" />
+    <Compile Include="Backoffice\Games.aspx.cs">
+      <DependentUpon>Games.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backoffice\Games.aspx.designer.cs">
+      <DependentUpon>Games.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backoffice\Games2Organisation.aspx.cs">
+      <DependentUpon>Games2Organisation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backoffice\Games2Organisation.aspx.designer.cs">
+      <DependentUpon>Games2Organisation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backoffice\InvitToTournament.aspx.cs">
+      <DependentUpon>InvitToTournament.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backoffice\InvitToTournament.aspx.designer.cs">
+      <DependentUpon>InvitToTournament.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backoffice\ManageUsers.aspx.cs">
+      <DependentUpon>ManageUsers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backoffice\ManageUsers.aspx.designer.cs">
+      <DependentUpon>ManageUsers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backoffice\MarketingMaterials.aspx.cs">
+      <DependentUpon>MarketingMaterials.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backoffice\MarketingMaterials.aspx.designer.cs">
+      <DependentUpon>MarketingMaterials.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backoffice\OrganisationPlayers.aspx.cs">
+      <DependentUpon>OrganisationPlayers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backoffice\OrganisationPlayers.aspx.designer.cs">
+      <DependentUpon>OrganisationPlayers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backoffice\Organisations.aspx.cs">
+      <DependentUpon>Organisations.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backoffice\Organisations.aspx.designer.cs">
+      <DependentUpon>Organisations.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backoffice\PaymentsManagement.aspx.cs">
+      <DependentUpon>PaymentsManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backoffice\PaymentsManagement.aspx.designer.cs">
+      <DependentUpon>PaymentsManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backoffice\PlayersChart.aspx.cs">
+      <DependentUpon>PlayersChart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backoffice\PlayersChart.aspx.designer.cs">
+      <DependentUpon>PlayersChart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backoffice\PotentialClients.aspx.cs">
+      <DependentUpon>PotentialClients.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backoffice\PotentialClients.aspx.designer.cs">
+      <DependentUpon>PotentialClients.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backoffice\Rules.aspx.cs">
+      <DependentUpon>Rules.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backoffice\Rules.aspx.designer.cs">
+      <DependentUpon>Rules.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backoffice\Schedules.aspx.cs">
+      <DependentUpon>Schedules.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backoffice\Schedules.aspx.designer.cs">
+      <DependentUpon>Schedules.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backoffice\Standings.aspx.cs">
+      <DependentUpon>Standings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backoffice\Standings.aspx.designer.cs">
+      <DependentUpon>Standings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backoffice\Tournaments.aspx.cs">
+      <DependentUpon>Tournaments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backoffice\Tournaments.aspx.designer.cs">
+      <DependentUpon>Tournaments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backoffice\UnscheduledPlayers.aspx.cs">
+      <DependentUpon>UnscheduledPlayers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backoffice\UnscheduledPlayers.aspx.designer.cs">
+      <DependentUpon>UnscheduledPlayers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backoffice\WhoIsOnline.aspx.cs">
+      <DependentUpon>WhoIsOnline.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backoffice\WhoIsOnline.aspx.designer.cs">
+      <DependentUpon>WhoIsOnline.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DummyPage.aspx.cs">
+      <DependentUpon>DummyPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DummyPage.aspx.designer.cs">
+      <DependentUpon>DummyPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrontSite.Master.cs">
+      <DependentUpon>FrontSite.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrontSite.Master.designer.cs">
+      <DependentUpon>FrontSite.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backoffice\TournamentBuilder.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>TournamentBuilder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backoffice\TournamentBuilder.aspx.designer.cs">
+      <DependentUpon>TournamentBuilder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login\LoginAsOtherUser.aspx.cs">
+      <DependentUpon>LoginAsOtherUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login\LoginAsOtherUser.aspx.designer.cs">
+      <DependentUpon>LoginAsOtherUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login\PasswordRecover.aspx.cs">
+      <DependentUpon>PasswordRecover.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login\PasswordRecover.aspx.designer.cs">
+      <DependentUpon>PasswordRecover.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backoffice\Entities\ManageUsers.cs" />
+    <Compile Include="Login\SetUp.aspx.cs">
+      <DependentUpon>SetUp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login\SetUp.aspx.designer.cs">
+      <DependentUpon>SetUp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OrganisationSite\ContactModerator.aspx.cs">
+      <DependentUpon>ContactModerator.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrganisationSite\ContactModerator.aspx.designer.cs">
+      <DependentUpon>ContactModerator.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OrganisationSite\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrganisationSite\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OrganisationSite\Leagues.aspx.cs">
+      <DependentUpon>Leagues.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrganisationSite\Leagues.aspx.designer.cs">
+      <DependentUpon>Leagues.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OrganisationSite\OrgSite.Master.cs">
+      <DependentUpon>OrgSite.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrganisationSite\OrgSite.Master.designer.cs">
+      <DependentUpon>OrgSite.Master</DependentUpon>
+    </Compile>
+    <Compile Include="OrganisationSite\PlayerSubscription.aspx.cs">
+      <DependentUpon>PlayerSubscription.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrganisationSite\PlayerSubscription.aspx.designer.cs">
+      <DependentUpon>PlayerSubscription.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OrganisationSite\Rules.aspx.cs">
+      <DependentUpon>Rules.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrganisationSite\Rules.aspx.designer.cs">
+      <DependentUpon>Rules.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OrganisationSite\Schedules.aspx.cs">
+      <DependentUpon>Schedules.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrganisationSite\Schedules.aspx.designer.cs">
+      <DependentUpon>Schedules.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OrganisationSite\Standings.aspx.cs">
+      <DependentUpon>Standings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrganisationSite\Standings.aspx.designer.cs">
+      <DependentUpon>Standings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OrganisationSite\StandingUpdate.aspx.cs">
+      <DependentUpon>StandingUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrganisationSite\StandingUpdate.aspx.designer.cs">
+      <DependentUpon>StandingUpdate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Backoffice\SiteMap.aspx.cs">
+      <DependentUpon>SiteMap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backoffice\SiteMap.aspx.designer.cs">
+      <DependentUpon>SiteMap.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App_Data\RadSpell\de-DE.tdf" />
+    <None Include="App_Data\RadSpell\en-US.tdf" />
+    <None Include="App_Data\RadSpell\fr-FR.tdf" />
+    <None Include="Backoffice\Entities\OrganisationInfo.xsc">
+      <DependentUpon>OrganisationInfo.xsd</DependentUpon>
+    </None>
+    <None Include="Backoffice\Entities\OrganisationInfo.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>OrganisationInfo.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Backoffice\Entities\OrganisationInfo.xss">
+      <DependentUpon>OrganisationInfo.xsd</DependentUpon>
+    </None>
+    <None Include="Backoffice\Entities\Standings.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Standings.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ClassDiagram1.cd" />
+    <Content Include="App_Data\RadEditor\BasicTools.xml" />
+    <Content Include="App_Data\RadEditor\FullSetOfTools.xml" />
+    <Content Include="Backoffice\InvitToTournament.aspx" />
+    <Content Include="Backoffice\MarketingMaterials.aspx" />
+    <Content Include="Backoffice\OrganisationPlayers.aspx" />
+    <Content Include="Backoffice\Rules.aspx" />
+    <Content Include="Backoffice\Schedules.aspx" />
+    <Content Include="Backoffice\UnscheduledPlayers.aspx" />
+    <Content Include="Backoffice\WhoIsOnline.aspx" />
+    <Content Include="Default.aspx" />
+    <Content Include="DummyPage.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Images\Icons\exportButton.gif" />
+    <Content Include="Images\Icons\Outlook.gif" />
+    <Content Include="Images\Icons\scheduler.gif" />
+    <Content Include="Images\Icons\smallOutlook.gif" />
+    <Content Include="Login\SetUp.aspx" />
+    <Content Include="OrganisationLogos\amdocs_logo.gif" />
+    <Content Include="OrganisationSite\ContactModerator.aspx" />
+    <Content Include="OrganisationSite\Default.aspx" />
+    <Content Include="OrganisationSite\Leagues.aspx" />
+    <Content Include="OrganisationSite\OrgSite.Master" />
+    <Content Include="Backoffice\ControlPanel.aspx" />
+    <Content Include="Backoffice\Games2Organisation.aspx" />
+    <Content Include="Backoffice\PlayersChart.aspx" />
+    <Content Include="Backoffice\Standings.aspx" />
+    <Content Include="Backoffice\Tournaments.aspx" />
+    <Content Include="FrontSite.Master" />
+    <Content Include="Backoffice\BackOffice.Master" />
+    <Content Include="Backoffice\Default.aspx" />
+    <Content Include="Backoffice\Games.aspx" />
+    <Content Include="Backoffice\ManageUsers.aspx" />
+    <Content Include="Backoffice\Organisations.aspx" />
+    <Content Include="Backoffice\PaymentsManagement.aspx" />
+    <Content Include="Backoffice\PotentialClients.aspx" />
+    <Content Include="Backoffice\Web.config" />
+    <Content Include="Backoffice\CreateClientAccount.aspx" />
+    <Content Include="Login.aspx" />
+    <Content Include="Backoffice\SiteMap.aspx" />
+    <Content Include="Login\LoginAsOtherUser.aspx" />
+    <Content Include="Login\PasswordRecover.aspx" />
+    <Content Include="OrganisationSite\PlayerSubscription.aspx" />
+    <Content Include="OrganisationSite\Rules.aspx" />
+    <Content Include="OrganisationSite\Schedules.aspx" />
+    <Content Include="OrganisationSite\Standings.aspx" />
+    <Content Include="OrganisationSite\StandingUpdate.aspx" />
+    <Content Include="Passwords.txt" />
+    <Content Include="Styles.css" />
+    <Content Include="Web.sitemap" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Backoffice\Entities\GameStanding.xsc">
+      <DependentUpon>GameStanding.xsd</DependentUpon>
+    </None>
+    <None Include="Backoffice\Entities\GameStanding.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GameStanding.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Backoffice\Entities\GameStanding.xss">
+      <DependentUpon>GameStanding.xsd</DependentUpon>
+    </None>
+    <None Include="Backoffice\Entities\Standings.dbml.layout">
+      <DependentUpon>Standings.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>21106</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
