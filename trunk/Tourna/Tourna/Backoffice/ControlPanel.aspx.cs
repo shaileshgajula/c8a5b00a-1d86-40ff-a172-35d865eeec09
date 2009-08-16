@@ -98,7 +98,7 @@ namespace Tourna.Backoffice
 
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
-            List<PairsAlgo.PlayersEntity> playersPairs = PairsAlgo.BuildPairs(new Guid(this.ddlTournament.SelectedValue));
+            List<PlayersEntity> playersPairs = PairsAlgo.BuildPairs(new Guid(this.ddlTournament.SelectedValue));
             this.gvPairs.DataSource = playersPairs;
             this.gvPairs.DataBind();
         }
