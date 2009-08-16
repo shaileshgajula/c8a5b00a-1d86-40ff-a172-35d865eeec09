@@ -237,6 +237,13 @@
     <Compile Include="FrontSitePages\About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
+    <Compile Include="FrontSitePages\API.aspx.cs">
+      <DependentUpon>API.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrontSitePages\API.aspx.designer.cs">
+      <DependentUpon>API.aspx</DependentUpon>
+    </Compile>
     <Compile Include="FrontSitePages\Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -272,6 +279,13 @@
     <Compile Include="FrontSite.Master.designer.cs">
       <DependentUpon>FrontSite.Master</DependentUpon>
     </Compile>
+    <Compile Include="FrontSitePages\FAQ.aspx.cs">
+      <DependentUpon>FAQ.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrontSitePages\FAQ.aspx.designer.cs">
+      <DependentUpon>FAQ.aspx</DependentUpon>
+    </Compile>
     <Compile Include="FrontSitePages\Join.aspx.cs">
       <DependentUpon>Join.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -285,6 +299,13 @@
     </Compile>
     <Compile Include="FrontSitePages\Products.aspx.designer.cs">
       <DependentUpon>Products.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrontSitePages\TermOfUser.aspx.cs">
+      <DependentUpon>TermOfUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrontSitePages\TermOfUser.aspx.designer.cs">
+      <DependentUpon>TermOfUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -429,20 +450,29 @@
     <Content Include="Backoffice\UnscheduledPlayers.aspx" />
     <Content Include="Backoffice\WhoIsOnline.aspx" />
     <Content Include="FrontSitePages\About.aspx" />
+    <Content Include="FrontSitePages\API.aspx" />
     <Content Include="FrontSitePages\Contact.aspx" />
     <Content Include="FrontSitePages\Customers.aspx" />
     <Content Include="FrontSitePages\Default.aspx" />
     <Content Include="DummyPage.aspx" />
+    <Content Include="FrontSitePages\FAQ.aspx" />
     <Content Include="FrontSitePages\Join.aspx" />
     <Content Include="FrontSitePages\Products.aspx" />
+    <Content Include="FrontSitePages\TermOfUser.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Images\aboutus.gif" />
+    <Content Include="Images\APITitle.gif" />
     <Content Include="Images\b2bgame.gif" />
     <Content Include="Images\B2BGames.gif" />
+    <Content Include="Images\ContactTitle.gif" />
+    <Content Include="Images\CustomersTitle.gif" />
+    <Content Include="Images\FaqTitle.gif" />
     <Content Include="Images\headerBackground.gif" />
     <Content Include="Images\Icons\exportButton.gif" />
     <Content Include="Images\Icons\Outlook.gif" />
     <Content Include="Images\Icons\scheduler.gif" />
     <Content Include="Images\Icons\smallOutlook.gif" />
+    <Content Include="Images\JoinTitle.gif" />
     <Content Include="Images\LadyWithLaptop.jpg" />
     <Content Include="Images\LeaguePlan.gif" />
     <Content Include="Images\LeaguePlanPrice-46.gif" />
@@ -455,8 +485,10 @@
     <Content Include="Images\OnlinePlan.gif" />
     <Content Include="Images\OnlinePlanPrice.gif" />
     <Content Include="Images\PlanArrow.gif" />
+    <Content Include="Images\ProductsTitle.gif" />
     <Content Include="Images\StrongerOrgLogo.gif" />
     <Content Include="Images\successStories.gif" />
+    <Content Include="Images\TermsOfUseTitle.gif" />
     <Content Include="Login\SetUp.aspx" />
     <Content Include="OrganisationLogos\amdocs_logo.gif" />
     <Content Include="OrganisationSite\ContactModerator.aspx" />
