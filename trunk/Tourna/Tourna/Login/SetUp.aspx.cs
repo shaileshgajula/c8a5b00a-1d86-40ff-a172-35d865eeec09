@@ -56,6 +56,7 @@ namespace Tourna.Login
         {
             try
             {
+                
                 Roles.AddUserToRole("pini", "Administrator");
             }
             catch (Exception ex)

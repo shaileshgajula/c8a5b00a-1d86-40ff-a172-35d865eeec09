@@ -230,11 +230,32 @@
     <Compile Include="Backoffice\WhoIsOnline.aspx.designer.cs">
       <DependentUpon>WhoIsOnline.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Default.aspx.cs">
+    <Compile Include="FrontSitePages\About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrontSitePages\About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrontSitePages\Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrontSitePages\Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrontSitePages\Customers.aspx.cs">
+      <DependentUpon>Customers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrontSitePages\Customers.aspx.designer.cs">
+      <DependentUpon>Customers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrontSitePages\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Default.aspx.designer.cs">
+    <Compile Include="FrontSitePages\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="DummyPage.aspx.cs">
@@ -250,6 +271,20 @@
     </Compile>
     <Compile Include="FrontSite.Master.designer.cs">
       <DependentUpon>FrontSite.Master</DependentUpon>
+    </Compile>
+    <Compile Include="FrontSitePages\Join.aspx.cs">
+      <DependentUpon>Join.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrontSitePages\Join.aspx.designer.cs">
+      <DependentUpon>Join.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrontSitePages\Products.aspx.cs">
+      <DependentUpon>Products.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrontSitePages\Products.aspx.designer.cs">
+      <DependentUpon>Products.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -383,6 +418,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="ClassDiagram1.cd" />
+    <Content Include="01_home1_1.html" />
     <Content Include="App_Data\RadEditor\BasicTools.xml" />
     <Content Include="App_Data\RadEditor\FullSetOfTools.xml" />
     <Content Include="Backoffice\InvitToTournament.aspx" />
@@ -392,13 +428,35 @@
     <Content Include="Backoffice\Schedules.aspx" />
     <Content Include="Backoffice\UnscheduledPlayers.aspx" />
     <Content Include="Backoffice\WhoIsOnline.aspx" />
-    <Content Include="Default.aspx" />
+    <Content Include="FrontSitePages\About.aspx" />
+    <Content Include="FrontSitePages\Contact.aspx" />
+    <Content Include="FrontSitePages\Customers.aspx" />
+    <Content Include="FrontSitePages\Default.aspx" />
     <Content Include="DummyPage.aspx" />
+    <Content Include="FrontSitePages\Join.aspx" />
+    <Content Include="FrontSitePages\Products.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Images\b2bgame.gif" />
+    <Content Include="Images\B2BGames.gif" />
+    <Content Include="Images\headerBackground.gif" />
     <Content Include="Images\Icons\exportButton.gif" />
     <Content Include="Images\Icons\Outlook.gif" />
     <Content Include="Images\Icons\scheduler.gif" />
     <Content Include="Images\Icons\smallOutlook.gif" />
+    <Content Include="Images\LadyWithLaptop.jpg" />
+    <Content Include="Images\LeaguePlan.gif" />
+    <Content Include="Images\LeaguePlanPrice-46.gif" />
+    <Content Include="Images\LeaguePlanPrice.gif" />
+    <Content Include="Images\LogInButton.gif" />
+    <Content Include="Images\more.gif" />
+    <Content Include="Images\NavigationBarBackground.gif" />
+    <Content Include="Images\offlinePlan.gif" />
+    <Content Include="Images\OfflinePlanPrice.gif" />
+    <Content Include="Images\OnlinePlan.gif" />
+    <Content Include="Images\OnlinePlanPrice.gif" />
+    <Content Include="Images\PlanArrow.gif" />
+    <Content Include="Images\StrongerOrgLogo.gif" />
+    <Content Include="Images\successStories.gif" />
     <Content Include="Login\SetUp.aspx" />
     <Content Include="OrganisationLogos\amdocs_logo.gif" />
     <Content Include="OrganisationSite\ContactModerator.aspx" />
@@ -430,6 +488,7 @@
     <Content Include="OrganisationSite\Standings.aspx" />
     <Content Include="OrganisationSite\StandingUpdate.aspx" />
     <Content Include="Passwords.txt" />
+    <Content Include="SetUp.txt" />
     <Content Include="Styles.css" />
     <Content Include="Web.sitemap" />
   </ItemGroup>

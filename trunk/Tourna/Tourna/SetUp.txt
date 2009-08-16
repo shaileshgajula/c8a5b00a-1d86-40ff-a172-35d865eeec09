@@ -1,0 +1,12 @@
+﻿insert into dbo.aspnet_SchemaVersions values ('common1',	1,	'True')
+go
+insert into dbo.aspnet_SchemaVersions values ('health monitoring',	1,	'True')
+go 
+insert into dbo.aspnet_SchemaVersions values ('membership',	1,	'True')
+GO
+insert into dbo.aspnet_SchemaVersions values ('personalization',	1,	'True')
+GO
+insert into dbo.aspnet_SchemaVersions values ('profile',	1,	'True')
+GO
+insert into dbo.aspnet_SchemaVersions values ('role manager',	1,	'True')
+GO
