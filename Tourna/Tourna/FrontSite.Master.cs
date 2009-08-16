@@ -13,5 +13,30 @@ namespace Tourna
         {
 
         }
+
+        public void ActiveHomeHyperLink()
+        {
+            this.hlHome.CssClass = "NavigaionSelected";
+        }
+        public void ActiveProductsHyperLink()
+        {
+            this.hlProducts.CssClass = "NavigaionSelected";
+        }
+        public void ActiveCustomersHyperLink()
+        {
+            this.hlCustomers.CssClass = "NavigaionSelected";
+        }
+        public void ActiveJoinHyperLink()
+        {
+            this.hlJoin.CssClass = "NavigaionSelected";
+        }
+        public void ActiveAboutHyperLink()
+        {
+            this.hlAbout.CssClass = "NavigaionSelected";
+        }
+        public void ActiveContactHyperLink()
+        {
+            this.hlContact.CssClass = "NavigaionSelected";
+        }
     }
 }

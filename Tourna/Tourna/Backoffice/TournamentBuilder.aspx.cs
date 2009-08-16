@@ -14,10 +14,11 @@ namespace Tourna
                                                         {0} is happy to invite you to participate in our {1}.<br>
                                                         If you care to join please click the following link<br>
                                                         <a href='../OrganisationSite/PlayerSubscription.aspx?OrgId={2}'>join to tournament</a><br>
+                                                        The tournoment is open between {3}:{4}<br> in {5}
                                                         The prizes are:<br>
-                                                        Prize I:{3}<br>
-                                                        Prize II:{4}<br>
-                                                        Prize III:{5}<br>";
+                                                        Prize I:{6}<br>
+                                                        Prize II:{7}<br>
+                                                        Prize III:{8}<br>";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -46,7 +47,8 @@ namespace Tourna
             string tournamentId = TournamentManager.BuildTournament(tournamentName, tournamentAbstract, locations, numberOfPlayersLimit, gameId, matchingAlog, timeWindowStart,
                 timeWindowEnd, isOpenAllDay, firstPrize, secondPrize, thirdPrize, startDate);
             string emailTemplate = string.Format(joinTournamentTemplate, Master.OrganisationName, tournamentName,
-                                                    Master.OrganisationId, this.txtFirstPrize.Text, this.txtSecondPrize.Text, this.txtThirdPrize.Text);
+                                                    Master.OrganisationId, timeWindowStart.ToString(), timeWindowEnd.ToString(),locations,
+                                                    this.txtFirstPrize.Text, this.txtSecondPrize.Text, this.txtThirdPrize.Text);
             TournamentManager.UpdateEmailTemplate(tournamentId, emailTemplate);
             Response.Redirect(@"~/backoffice/InvitToTournament.aspx?TournamentId=" + tournamentId);
         }

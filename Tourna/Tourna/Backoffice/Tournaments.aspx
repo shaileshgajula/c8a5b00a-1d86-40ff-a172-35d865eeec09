@@ -10,7 +10,7 @@
         <Columns>
             <asp:BoundField DataField="TournamentName" HeaderText="TournamentName" ReadOnly="True"
                 SortExpression="TournamentName" />
-            <asp:BoundField DataField="StartDate" HeaderText="StartDate" SortExpression="StartDate" />
+            <asp:BoundField DataField="StartDate" HeaderText="StartDate" SortExpression="StartDate" DataFormatString="{0:d}" />
             <asp:BoundField DataField="Title" HeaderText="Game Title" SortExpression="Title" />
             <asp:BoundField DataField="NumberOfPlayersLimit" HeaderText="Players Limit" SortExpression="NumberOfPlayersLimit" />
             <asp:HyperLinkField DataNavigateUrlFields="Id,TournamentName" DataNavigateUrlFormatString="OrganisationPlayers.aspx?TournamentId={0}&TournamentName={1}"
