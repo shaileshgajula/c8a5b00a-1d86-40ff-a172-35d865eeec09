@@ -33,33 +33,65 @@
             border-width: 0px;
             margin: 0 0 0 0;
         }
-        /*Navigaion urls*/
-        .NavigaionSelected
+        .GrayText
         {
-        	color:#00ccff;
-        	font-size:18px;
-        	text-decoration:none;
-        	font-family:Arial;
-        	font-weight:bold;
-        	}
-        	
-        	a.Navigaion
+            color: #a0a0a0;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .GrayTextNormal
         {
-        	color:#cccccc;
-        	font-size:18px;
-        	text-decoration:none;
-        	font-family:Arial;
-        	font-weight:bold;
-        	}
-        	a.Navigaion:hover
+            color: #a0a0a0;
+            font-size: 14px;
+        }
+        .AzureText
         {
-        	color:#999999;
+            color: #01baec;
+            font-size: 16px;
+            text-decoration: underline;
+        }
+        .RedTextSmall
+        {
+        	color: #ed1066;
+            font-size: 11px;
         	}
+        a.FooterLinks
+        {
+            color: #0f1014;
+            text-decoration: none;
+            font-size: 13px;
+        }
+        a.FooterLinks:hover
+        {
+            color: #0f1014;
+            text-decoration: underline;
+            font-size: 13px;
+        }
+        /*Navigaion urls*/.NavigaionSelected
+        {
+            color: #00ccff;
+            font-size: 18px;
+            text-decoration: none;
+            font-family: Arial;
+            font-weight: bold;
+        }
+        a.Navigaion
+        {
+            color: #cccccc;
+            font-size: 18px;
+            text-decoration: none;
+            font-family: Arial;
+            font-weight: bold;
+        }
+        a.Navigaion:hover
+        {
+            color: #999999;
+        }
         .NavigationSpliter
-    	{
-    		width:1px;
-    		background-color:#cccccc;
-    		}
+        {
+            width: 1px;
+            background-color: #cccccc;
+        }
         /*Rounded corners http://blog.benogle.com/2009/04/29/css-round-corners/ */.b1h, .b2h, .b3h, .b4h, .b2bh, .b3bh, .b4bh
         {
             font-size: 1px;
@@ -142,20 +174,26 @@
                     <table style="margin-bottom: -8px; margin-left: 10px; margin-right: 10px; margin-top: 0px">
                         <tr>
                             <td>
-                                <telerik:RadTextBox ID="RadTextBox1" runat="server" EmptyMessage="- User Name -"
+                                <telerik:RadTextBox ID="txtUserName" runat="server" EmptyMessage="- User Name -"
                                     Width="160px">
                                     <EmptyMessageStyle ForeColor="#66CCFF" />
                                 </telerik:RadTextBox>&nbsp;
                             </td>
                             <td>
-                                <telerik:RadTextBox ID="RadTextBox2" runat="server" EmptyMessage="- Password - "
-                                    Width="160px">
+                                <telerik:RadTextBox ID="txtPassword" runat="server" EmptyMessage="- Password - "
+                                    Width="160px" TextMode="Password">
+                                    <EnabledStyle BorderColor="#66CCFF" BorderStyle="Solid" />
                                     <EmptyMessageStyle ForeColor="#66CCFF" />
                                 </telerik:RadTextBox>
                             </td>
                             <td>
-                                <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Images/LogInButton.gif" />
+                                <asp:ImageButton ID="ImageButton1" runat="server" 
+                                    ImageUrl="~/Images/LogInButton.gif" onclick="ImageButton1_Click1" />
                             </td>
+                        </tr>
+                        <tr>
+                        <td colspan="3">
+                            <asp:Label ID="lblLoginMessage" runat="server" Text="" CssClass="RedTextSmall" > </asp:Label></td>
                         </tr>
                     </table>
                     <br />
@@ -167,48 +205,101 @@
             </td>
         </tr>
         <tr style="background-image: url('../Images/NavigationBarBackground.gif'); background-repeat: repeat-x">
-            <td >
+            <td>
             </td>
             <td colspan="2">
-                <table cellpadding="0" cellspacing="0" style="width:100%">
+                <table cellpadding="0" cellspacing="0" style="width: 100%">
                     <tr>
-                    <td class="NavigationSpliter"></td>
-                        <td style="width:16%;height:30px;text-align:center">
-                            <asp:HyperLink ID="hlHome" runat="server" CssClass="Navigaion" 
-                                NavigateUrl="~/FrontSitePages/Default.aspx">Home</asp:HyperLink>
+                        <td class="NavigationSpliter">
                         </td>
-                        <td class="NavigationSpliter"></td>
-                        <td style="width:16%;height:30px;text-align:center">
-                            <asp:HyperLink ID="hlProducts" NavigateUrl="~/FrontSitePages/Products.aspx" runat="server" CssClass="Navigaion">Products</asp:HyperLink>
+                        <td style="width: 16%; height: 30px; text-align: center">
+                            <asp:HyperLink ID="hlHome" runat="server" CssClass="Navigaion" NavigateUrl="~/FrontSitePages/Default.aspx">Home</asp:HyperLink>
                         </td>
-                        <td class="NavigationSpliter"></td>
-                        <td style="width:16%;height:30px;text-align:center">
-                           <asp:HyperLink ID="hlCustomers" NavigateUrl="~/FrontSitePages/Customers.aspx" runat="server" CssClass="Navigaion">Customers</asp:HyperLink>
+                        <td class="NavigationSpliter">
                         </td>
-                        <td class="NavigationSpliter"></td>
-                        <td style="width:17%;height:30px;text-align:center">
-                            <asp:HyperLink ID="hlJoin" NavigateUrl="~/FrontSitePages/Join.aspx" runat="server" CssClass="Navigaion">Join</asp:HyperLink>
+                        <td style="width: 16%; height: 30px; text-align: center">
+                            <asp:HyperLink ID="hlProducts" NavigateUrl="~/FrontSitePages/Products.aspx" runat="server"
+                                CssClass="Navigaion">Products</asp:HyperLink>
                         </td>
-                        <td class="NavigationSpliter"></td>
-                        <td style="width:17%;height:30px;text-align:center">
-                            <asp:HyperLink ID="hlAbout" NavigateUrl="~/FrontSitePages/About.aspx" runat="server" CssClass="Navigaion">About</asp:HyperLink>
+                        <td class="NavigationSpliter">
                         </td>
-                        <td class="NavigationSpliter"></td>
-                        <td style="width:17%;height:30px;text-align:center">
-                            <asp:HyperLink ID="hlContact" NavigateUrl="~/FrontSitePages/Contact.aspx" runat="server" CssClass="Navigaion">Contact</asp:HyperLink>
+                        <td style="width: 16%; height: 30px; text-align: center">
+                            <asp:HyperLink ID="hlCustomers" NavigateUrl="~/FrontSitePages/Customers.aspx" runat="server"
+                                CssClass="Navigaion">Customers</asp:HyperLink>
                         </td>
-                        <td class="NavigationSpliter"></td>
+                        <td class="NavigationSpliter">
+                        </td>
+                        <td style="width: 17%; height: 30px; text-align: center">
+                            <asp:HyperLink ID="hlJoin" NavigateUrl="~/FrontSitePages/Join.aspx" runat="server"
+                                CssClass="Navigaion">Join</asp:HyperLink>
+                        </td>
+                        <td class="NavigationSpliter">
+                        </td>
+                        <td style="width: 17%; height: 30px; text-align: center">
+                            <asp:HyperLink ID="hlAbout" NavigateUrl="~/FrontSitePages/About.aspx" runat="server"
+                                CssClass="Navigaion">About</asp:HyperLink>
+                        </td>
+                        <td class="NavigationSpliter">
+                        </td>
+                        <td style="width: 17%; height: 30px; text-align: center">
+                            <asp:HyperLink ID="hlContact" NavigateUrl="~/FrontSitePages/Contact.aspx" runat="server"
+                                CssClass="Navigaion">Contact</asp:HyperLink>
+                        </td>
+                        <td class="NavigationSpliter">
+                        </td>
                     </tr>
                 </table>
             </td>
-            <td >
+            <td>
             </td>
         </tr>
-        <tr><td class="NavigationSpliter" style="height:1px" colspan="16"></td></tr>
+        <tr>
+            <td class="NavigationSpliter" style="height: 1px" colspan="16">
+            </td>
+        </tr>
+        <tr>
+            <td style="height: 25px; background-color: #f7f7f6" colspan="16">
+            </td>
+        </tr>
+        <tr>
+            <td style="background-color: #f7f7f6">
+            </td>
+            <td colspan="2" style="height:550px;vertical-align:top; ">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </td>
+            <td style="background-color: #f7f7f6">
+            </td>
+        </tr>
+        <tr style="background-color: #f7f7f6; height: 40px">
+            <td colspan="5">
+            </td>
+            </tr>
+        <tr>
+            <td>
+            </td>
+            <td colspan="2" align="center">
+                <table border="0">
+                    <tr>
+                        <td style="width:200px;text-align:center;">
+                            <a href="About.aspx" class="FooterLinks" id="strongerorg">STRONGERORG.COM </a>
+                        </td>
+                        <td style="width:150px;text-align:center;">
+                            <a href="API.aspx" class="FooterLinks" id="A1">API</a>
+                        </td>
+                        <td style="width:150px;text-align:center;">
+                            <a href="FAQ.aspx" class="FooterLinks" id="A2">FAQ</a>
+                        </td>
+                        <td style="width:150px;text-align:center;">
+                            <a href="TermOfUser.aspx" class="FooterLinks" id="A3">TERMS OF USE</a>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+            </td>
+        </tr>
     </table>
-    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-    </asp:ContentPlaceHolder>
-    </div>
     </form>
 </body>
 </html>
