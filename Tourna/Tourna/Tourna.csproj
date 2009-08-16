@@ -41,10 +41,6 @@
     <Reference Include="System.Data.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="System.Web.DataVisualization, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\WINDOWS\assembly\GAC_MSIL\System.Web.DataVisualization\3.5.0.0__31bf3856ad364e35\System.Web.DataVisualization.dll</HintPath>
-    </Reference>
     <Reference Include="System.Web.Extensions">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -108,6 +104,9 @@
       <DependentUpon>OrganisationInfo.xsd</DependentUpon>
     </Compile>
     <Compile Include="Backoffice\Entities\PairsAlgo.cs" />
+    <Compile Include="Backoffice\Entities\PairsAlgo\AlphabeticalPairs.cs" />
+    <Compile Include="Backoffice\Entities\PairsAlgo\IPairsAlgo.cs" />
+    <Compile Include="Backoffice\Entities\PairsAlgo\RandomPairs.cs" />
     <Compile Include="Backoffice\Entities\PlayersManager.cs" />
     <Compile Include="Backoffice\Entities\SchedulerAlgo.cs" />
     <Compile Include="Backoffice\Entities\SchedulesBL.cs" />
@@ -558,7 +557,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>21106</DevelopmentServerPort>
+          <DevelopmentServerPort>13173</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

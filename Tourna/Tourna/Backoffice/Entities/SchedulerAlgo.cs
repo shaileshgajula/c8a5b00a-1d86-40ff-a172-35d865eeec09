@@ -6,14 +6,14 @@ using System.Configuration;
 using System.Data;
 public class SchedulerAlgo
 {
-    internal static void SchedulerGames(Guid tournamentId, List<PairsAlgo.PlayersEntity> playersPairs)
+    internal static void SchedulerGames(Guid tournamentId, List<PlayersEntity> playersPairs)
     {
         TournamentInfo tournamentInfo = GetTournamentStartDate(tournamentId);
         DateTime dts = new DateTime(tournamentInfo.StartDate.Year, tournamentInfo.StartDate.Month, tournamentInfo.StartDate.Day, tournamentInfo.TimeWindowStart, 0, 0);
         
         int i = 0 ;
         int numberOfGamesPerDay = 3;
-        foreach (PairsAlgo.PlayersEntity playerPair in playersPairs)
+        foreach (PlayersEntity playerPair in playersPairs)
         {
             if ((i % numberOfGamesPerDay) == 0)
             {
