@@ -5,15 +5,19 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Label ID="lblTitle" runat="server" Text="Standings" CssClass="GrayTitle"></asp:Label>
+    <br/><br/>
     <asp:DataList ID="dlTournaments" runat="server" DataSourceID="Tournaments" DataKeyField="Id"
-        OnItemDataBound="dlTournaments_ItemDataBound" GridLines="Vertical" RepeatColumns="2"
-        RepeatLayout="Table">
+        OnItemDataBound="dlTournaments_ItemDataBound" GridLines="None" RepeatColumns="2"
+        RepeatLayout="Table"  Width="80%" Height="550px">
+        <AlternatingItemStyle BackColor="#f7f7f6" VerticalAlign="Top" />
+        <ItemStyle VerticalAlign="Top" />
         <HeaderTemplate>
         </HeaderTemplate>
         <ItemTemplate>
             <asp:Label ID="Label1" runat="server" Text='<%#Eval("TournamentName") %>'></asp:Label>
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Id"
-                DataSourceID="SqlDataSource1">
+                DataSourceID="SqlDataSource1" GridLines="None">
                 <EmptyDataTemplate>
                     No Schedules yet !!!
                 </EmptyDataTemplate>

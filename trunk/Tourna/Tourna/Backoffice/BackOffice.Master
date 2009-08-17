@@ -13,15 +13,20 @@
     <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
     </telerik:RadScriptManager>
     <div id="header">
-        <span class="title">Management Platform [alfa] </span><br />
-        <asp:Label ID="lblOrganisationName" runat="server"></asp:Label>
-        <asp:HyperLink ID="hlOrganisationSite" runat="server" 
-            ToolTip="Open organisation site" Target="_blank">...</asp:HyperLink>
+        <img src="../Images/StrongerOrgLogoBackOffice.gif" />
+        <asp:Label ID="lblOrganisationName" runat="server" CssClass="GrayTitle"></asp:Label>
+        <asp:HyperLink ID="hlOrganisationSite" runat="server" ToolTip="Open organisation site"
+            Target="_blank">...</asp:HyperLink>
         <asp:Label ID="lblOrganisationId" runat="server" ForeColor="White"></asp:Label>
     </div>
-    <table class="style1">
+    <br />
+    <table style="width: 100%" border="0" cellpadding="0" cellspacing="0">
         <tr>
-            <td colspan="2">
+            <td colspan="3" style="background-color: #cccccc; height: 1px">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
                 <asp:LoginView ID="LoginView1" runat="server">
                     <LoggedInTemplate>
                         Welcome back,
@@ -36,7 +41,11 @@
             </td>
         </tr>
         <tr>
-            <td class="style2">
+            <td colspan="3" style="background-color: #cccccc; height: 1px">
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 20%; height: 650px; vertical-align: top">
                 <ul>
                     <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SiteMapDataSource1">
                         <ItemTemplate>
@@ -51,7 +60,7 @@
                                 <ContentTemplate>
                                     <asp:Repeater ID="Repeater2" runat="server" DataSourceID="SiteMapDataSource2">
                                         <ItemTemplate>
-                                            <li style="color:Red">
+                                            <li style="color: Red">
                                                 <asp:HyperLink ID="lnkMenuItemAdmin" runat="server" NavigateUrl='<%# Eval("Url") %>'><%# Eval("Title") %></asp:HyperLink>
                                             </li>
                                         </ItemTemplate>
@@ -66,21 +75,30 @@
                 <asp:SiteMapDataSource ID="SiteMapDataSource2" runat="server" StartingNodeUrl="~/AdminSection.aspx"
                     ShowStartingNode="false" />
             </td>
-            <td>
+            <td style="width:1px;background-color:#cccccc"></td>
+            <td style="vertical-align: top; padding:25px">
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 </asp:ContentPlaceHolder>
             </td>
         </tr>
         <tr>
-            <td colspan="2" align="center">
-                All Rights Reserved. | Terms of Use | Trademarks | 
-                <a href="http://www.google.com/analytics/" target="_blank">Google Analytics</a> |
-                Privacy Statement © 2009 USHA Corporation.
+            <td colspan="3" style="background-color: #cccccc; height: 1px">
             </td>
         </tr>
         <tr>
-            <td colspan="2" align="center">
-                <iframe src="http://www.google.com/talk/service/badge/Show?tk=z01q6amlqgej3viuot0n4t2ov3qn81sd1mapmrg91shvc1a4atu1s2pgtd211sgq3inbm0a04baktkf26av728cvc86k9rjbal5shmna0ef91ius49v6mb22rdsmjvtsuc93ot9uuguic0qjjerknplb79bnglr2qkou4idka&amp;w=300&amp;h=18" allowtransparency="true" width="300" frameborder="0" height="18"></iframe>
+            <td colspan="3" align="center">
+                All Rights Reserved. | <a href="">Terms of Use</a> | <a href="http://www.google.com/analytics/"
+                    target="_blank">Google Analytics</a> | <a href="">Privacy Statement © </a> 2009 STRONGERORG.COM Corporation.
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" align="center">
+                <iframe src="http://www.google.com/talk/service/badge/Show?tk=z01q6amlqgej3viuot0n4t2ov3qn81sd1mapmrg91shvc1a4atu1s2pgtd211sgq3inbm0a04baktkf26av728cvc86k9rjbal5shmna0ef91ius49v6mb22rdsmjvtsuc93ot9uuguic0qjjerknplb79bnglr2qkou4idka&amp;w=300&amp;h=18"
+                    allowtransparency="true" width="300" frameborder="0" height="18"></iframe>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" style="background-color: #dda2fe; height: 1px">
             </td>
         </tr>
     </table>

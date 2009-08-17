@@ -15,6 +15,10 @@ namespace Tourna.Backoffice
             {
                 this.lblTitle.Text = string.Format("Tournament name : {0}", Page.Request.QueryString["TournamentName"].ToString());
             }
+            else
+            {
+                this.lblTitle.Text = string.Format("{0} Players[from all tournaments]", Master.OrganisationName);
+            }
         }
         protected string BuildUrl()
         {
