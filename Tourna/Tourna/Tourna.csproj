@@ -486,6 +486,7 @@
     <Content Include="Images\PlanArrow.gif" />
     <Content Include="Images\ProductsTitle.gif" />
     <Content Include="Images\StrongerOrgLogo.gif" />
+    <Content Include="Images\StrongerOrgLogoBackOffice.gif" />
     <Content Include="Images\successStories.gif" />
     <Content Include="Images\TermsOfUseTitle.gif" />
     <Content Include="Login\SetUp.aspx" />

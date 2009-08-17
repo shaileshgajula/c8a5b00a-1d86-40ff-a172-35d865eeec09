@@ -6,12 +6,13 @@
     <title>Organisations</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <asp:Label ID="lblTitle" runat="server" Text="Organisation list" CssClass="GrayTitle"></asp:Label>
+    <br/><br/>
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" AutoGenerateEditButton="false"
         DataKeyNames="Id,Name" DataSourceID="SqlDataSource1" OnSelectedIndexChanging="GridView1_SelectedIndexChanging"
-        OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
-        <AlternatingRowStyle CssClass="AlternatingRowStyle" />
-        <RowStyle CssClass="RowStyle" />
-        <HeaderStyle CssClass="HeaderStyle" />
+        OnSelectedIndexChanged="GridView1_SelectedIndexChanged" GridLines="None" Width="80%">
+        <AlternatingRowStyle BackColor="#f7f7f6" />
+        <HeaderStyle HorizontalAlign="Left" BackColor="#afafae" ForeColor="white" />
         <SelectedRowStyle CssClass="SelectedRowStyle" />
         <Columns>
             <asp:CommandField ShowSelectButton="True" />
@@ -41,8 +42,9 @@
         </InsertParameters>
     </asp:SqlDataSource>
     <br />
-    <asp:DetailsView ID="DetailsView1" runat="server" DataSourceID="SqlDataSource2" Height="50px"
-        Width="491px" AutoGenerateRows="False" HeaderText="Organisation Details" OnItemUpdated="DetailsView1_ItemUpdated"
+    <br />
+    <asp:DetailsView ID="DetailsView1" runat="server" DataSourceID="SqlDataSource2"  GridLines="None" Width="80%"
+         AutoGenerateRows="False" HeaderStyle-BackColor="#afafae" HeaderStyle-ForeColor="White" HeaderText="Organisation Details" OnItemUpdated="DetailsView1_ItemUpdated"
         OnItemDeleted="DetailsView1_ItemDeleted" 
         OnItemInserted="DetailsView1_ItemInserted" 
         oniteminserting="DetailsView1_ItemInserting" 

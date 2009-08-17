@@ -1,19 +1,22 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Backoffice/BackOffice.Master" AutoEventWireup="true"
     CodeBehind="OrganisationPlayers.aspx.cs" Inherits="Tourna.Backoffice.OrganisationPlayers" %>
-
+<%@ MasterType VirtualPath="~/Backoffice/BackOffice.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Organisation Players</title>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Label ID="lblTitle" runat="server" Text=""></asp:Label>
+    <asp:Label ID="lblTitle" runat="server" Text="" CssClass="GrayTitle"></asp:Label>
+    <br /><br />
     <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False"
-        DataKeyNames="Id" DataSourceID="SqlDataSource1">
+        DataKeyNames="Id" DataSourceID="SqlDataSource1" GridLines="None" Width="80%">
+        <AlternatingRowStyle BackColor="#f7f7f6" />
+        <HeaderStyle HorizontalAlign="Left" BackColor="#afafae" ForeColor="white" />
         <Columns>
             <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
-            <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
-            <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
-            <asp:BoundField DataField="NickName" HeaderText="NickName" SortExpression="NickName" />
+            <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name"  />
+            <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email"  />
+            <asp:BoundField DataField="NickName" HeaderText="Nick Name" SortExpression="NickName"  />
             <asp:BoundField DataField="Department" HeaderText="Department" SortExpression="Department" />
         </Columns>
         <EmptyDataTemplate>
