@@ -441,11 +441,15 @@
     <Content Include="01_home1_1.html" />
     <Content Include="App_Data\RadEditor\BasicTools.xml" />
     <Content Include="App_Data\RadEditor\FullSetOfTools.xml" />
+    <Content Include="Backoffice\AccountantsStyle.css" />
+    <Content Include="Backoffice\ContentManagerStyle.css" />
+    <Content Include="Backoffice\Copy of AdministratorStyle.css" />
     <Content Include="Backoffice\InvitToTournament.aspx" />
     <Content Include="Backoffice\MarketingMaterials.aspx" />
     <Content Include="Backoffice\OrganisationPlayers.aspx" />
     <Content Include="Backoffice\Rules.aspx" />
     <Content Include="Backoffice\Schedules.aspx" />
+    <Content Include="Backoffice\ModeratorStyle.css" />
     <Content Include="Backoffice\UnscheduledPlayers.aspx" />
     <Content Include="Backoffice\WhoIsOnline.aspx" />
     <Content Include="FrontSitePages\About.aspx" />
@@ -521,7 +525,7 @@
     <Content Include="OrganisationSite\StandingUpdate.aspx" />
     <Content Include="Passwords.txt" />
     <Content Include="SetUp.txt" />
-    <Content Include="Styles.css" />
+    <Content Include="Backoffice\AdministratorStyle.css" />
     <Content Include="Web.sitemap" />
   </ItemGroup>
   <ItemGroup>
@@ -569,7 +573,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
+      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

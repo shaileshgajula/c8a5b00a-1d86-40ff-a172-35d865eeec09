@@ -8,14 +8,14 @@
 <asp:Label ID="lblTitle" runat="server" Text="Standings" CssClass="GrayTitle"></asp:Label>
     <br/><br/>
     <asp:DataList ID="dlTournaments" runat="server" DataSourceID="Tournaments" DataKeyField="Id"
-        OnItemDataBound="dlTournaments_ItemDataBound" GridLines="None" RepeatColumns="2"
-        RepeatLayout="Table"  Width="80%" Height="550px">
+        OnItemDataBound="dlTournaments_ItemDataBound" RepeatColumns="2"
+        RepeatLayout="Table"  GridLines="None" Width="80%" AlternatingRowStyle-CssClass="AlternatingRow" HeaderStyle-CssClass="HeaderStyle">
         <AlternatingItemStyle BackColor="#f7f7f6" VerticalAlign="Top" />
         <ItemStyle VerticalAlign="Top" />
         <HeaderTemplate>
         </HeaderTemplate>
         <ItemTemplate>
-            <asp:Label ID="Label1" runat="server" Text='<%#Eval("TournamentName") %>'></asp:Label>
+            <asp:Label ID="Label1" runat="server" Text='<%#Eval("TournamentName") %>' CssClass="GrayTitleNormal"></asp:Label>
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Id"
                 DataSourceID="SqlDataSource1" GridLines="None">
                 <EmptyDataTemplate>

@@ -14,6 +14,15 @@ namespace Tourna.Backoffice {
     public partial class ManageUsers {
         
         /// <summary>
+        /// lblTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTitle;
+        
+        /// <summary>
         /// ddlSearchBy control.
         /// </summary>
         /// <remarks>
@@ -32,13 +41,13 @@ namespace Tourna.Backoffice {
         protected global::System.Web.UI.WebControls.TextBox txtSearchParam;
         
         /// <summary>
-        /// btnFind control.
+        /// lbFind control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnFind;
+        protected global::System.Web.UI.WebControls.LinkButton lbFind;
         
         /// <summary>
         /// GridView1 control.
@@ -167,13 +176,13 @@ namespace Tourna.Backoffice {
         protected global::System.Web.UI.WebControls.RadioButtonList rbRoles;
         
         /// <summary>
-        /// btnCreateUser control.
+        /// lbCreateUser control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCreateUser;
+        protected global::System.Web.UI.WebControls.LinkButton lbCreateUser;
         
         /// <summary>
         /// ErrorMessage control.

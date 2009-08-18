@@ -4,7 +4,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <link href="../Styles.css" rel="stylesheet" type="text/css" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -34,7 +33,7 @@
                         .
                     </LoggedInTemplate>
                     <AnonymousTemplate>
-                        Hello, stranger.
+                        This is restricted area.
                     </AnonymousTemplate>
                 </asp:LoginView>
                 <asp:LoginStatus ID="LoginStatus1" runat="server" />
@@ -58,6 +57,7 @@
                         <RoleGroups>
                             <asp:RoleGroup Roles="Administrator">
                                 <ContentTemplate>
+                                    <link id="Link1" href="AdministratorStyle.css" rel="stylesheet" type="text/css" runat="server" />
                                     <asp:Repeater ID="Repeater2" runat="server" DataSourceID="SiteMapDataSource2">
                                         <ItemTemplate>
                                             <li style="color: Red">
@@ -65,6 +65,21 @@
                                             </li>
                                         </ItemTemplate>
                                     </asp:Repeater>
+                                </ContentTemplate>
+                            </asp:RoleGroup>
+                            <asp:RoleGroup Roles="Moderator">
+                                <ContentTemplate>
+                                    <link id="Link2" href="ModeratorStyle.css" rel="stylesheet" type="text/css" runat="server" />
+                                </ContentTemplate>
+                            </asp:RoleGroup>
+                            <asp:RoleGroup Roles="Accountants">
+                                <ContentTemplate>000
+                                    <link id="Link3" href="AccountantsStyle.css" rel="stylesheet" type="text/css" runat="server" />
+                                </ContentTemplate>
+                            </asp:RoleGroup>
+                            <asp:RoleGroup Roles="ContentManager">
+                                <ContentTemplate>
+                                    <link id="Link3" href="ContentManagerStyle.css" rel="stylesheet" type="text/css" runat="server" />
                                 </ContentTemplate>
                             </asp:RoleGroup>
                         </RoleGroups>
@@ -75,8 +90,9 @@
                 <asp:SiteMapDataSource ID="SiteMapDataSource2" runat="server" StartingNodeUrl="~/AdminSection.aspx"
                     ShowStartingNode="false" />
             </td>
-            <td style="width:1px;background-color:#cccccc"></td>
-            <td style="vertical-align: top; padding:25px">
+            <td style="width: 1px; background-color: #cccccc">
+            </td>
+            <td style="vertical-align: top; padding: 25px">
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 </asp:ContentPlaceHolder>
             </td>
@@ -88,7 +104,8 @@
         <tr>
             <td colspan="3" align="center">
                 All Rights Reserved. | <a href="">Terms of Use</a> | <a href="http://www.google.com/analytics/"
-                    target="_blank">Google Analytics</a> | <a href="">Privacy Statement © </a> 2009 STRONGERORG.COM Corporation.
+                    target="_blank">Google Analytics</a> | <a href="">Privacy Statement © </a>2009
+                STRONGERORG.COM Corporation.
             </td>
         </tr>
         <tr>
