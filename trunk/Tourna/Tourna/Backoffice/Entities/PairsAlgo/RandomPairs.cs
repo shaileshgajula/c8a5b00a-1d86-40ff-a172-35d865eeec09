@@ -5,6 +5,7 @@ using System.Web;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
+using Tourna.Backoffice.DataLayer;
 
 
     public class RandomPairs : IPairsAlgo
@@ -14,42 +15,37 @@ using System.Data;
         public List<PlayersEntity> Execute(Guid tournamentId)
         {
             //argument check
-            if (tournamentId == null)
+            if (tournamentId.Equals(Guid.Empty))
                 throw new ArgumentNullException("tournamentId");
 
             //use LINQ to order?
             //will we be using LINQ?
             //convert datareader to LINQ using yield keyword.
-
-            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["StrongerOrgString"].ConnectionString))
+            List<Guid> players;
+            using (TournaDataContext db = new TournaDataContext())
             {
-                SqlCommand command = new SqlCommand("PlayersGet", conn);
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add("@TournamentId", SqlDbType.UniqueIdentifier, 150).Value = tournamentId;
-                command.Parameters.Add("@OrganisationId", SqlDbType.UniqueIdentifier, 150).Value = DBNull.Value;
-                conn.Open();
-                SqlDataReader reader = command.ExecuteReader(System.Data.CommandBehavior.SequentialAccess);
-                
-                List<PlayersEntity> pairs = new List<PlayersEntity>(32);
-                while (reader.Read())
-                {
-                    Guid playerA = reader.GetGuid(0);
-                    string playerAName = reader.GetString(1);
-
-                    if (reader.Read())
-                    {
-                        Guid playerB = reader.GetGuid(0);
-                        string playerBName = reader.GetString(1);
-                        pairs.Add(new PlayersEntity() { PlayerAId = playerA, PlayerBId = playerB, PlayerAName = playerAName, PlayerBName = playerBName });
-                    }
-                    else
-                    {
-                        pairs.Add(new PlayersEntity() { PlayerAId = playerA, PlayerBId = Guid.Empty, PlayerAName = playerAName, PlayerBName = "Computer" });
-                    }
-                }
-                return pairs;
-
+                players = db.PlayersGet(null, tournamentId).OrderBy(x => x.Id).Select( p => p.Id).ToList();
             }
+
+            List<PlayersEntity> pairs = new List<PlayersEntity>();
+            int length = players.Count;
+            if (length % 2 != 0)
+                players.Add(Guid.Empty);
+            
+            int halfLength = players.Count / 2;
+            for (int i = 0; i < halfLength; i++)
+            {
+                PlayersEntity pair = new PlayersEntity()
+                {
+                    PlayerAId = players[i],
+                    PlayerBId = players[i + halfLength]
+                };
+
+                pairs.Add(pair);
+            }
+
+
+            return pairs;
         }
 
         #endregion
