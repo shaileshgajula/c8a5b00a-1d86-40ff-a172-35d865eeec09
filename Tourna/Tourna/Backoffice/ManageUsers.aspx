@@ -2,7 +2,7 @@
     CodeBehind="ManageUsers.aspx.cs" Inherits="Tourna.Backoffice.ManageUsers" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <style type="text/css">
+    <%--<style type="text/css">
         .style1
         {
             width: 100%;
@@ -18,20 +18,19 @@
         {
             width: 35px;
         }
-    </style>
+    </style>--%>
     <title>Manage users</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <table cellpadding="0" cellspacing="0" class="style1">
+    <asp:Label ID="lblTitle" runat="server" Text="Manage users" CssClass="GrayTitle"></asp:Label>
+<br/><br/>
+    <table cellpadding="2" cellspacing="2" style="width:50%">
         <tr>
-            <td class="style3" colspan="2">
+            <td class="HeaderStyle" colspan="2">
                 Search for Users
             </td>
         </tr>
         <tr>
-            <td class="style4">
-                &nbsp;
-            </td>
             <td>
                 Search by:
                 <asp:DropDownList ID="ddlSearchBy" runat="server">
@@ -41,48 +40,40 @@
                     <asp:ListItem Value="OrganisationName">Organisation Name</asp:ListItem>
                 </asp:DropDownList>
                 for:<asp:TextBox ID="txtSearchParam" runat="server"></asp:TextBox>
-                <asp:Button ID="btnFind" runat="server" Text="Find" OnClick="Button1_Click" />
+                
             </td>
+            <td><asp:LinkButton ID="lbFind" runat="server" OnClick="Button1_Click">Find</asp:LinkButton></td>
         </tr>
         <tr>
-            <td class="style4">
-                &nbsp;
-            </td>
-            <td>
+            <td class="GrayTextLight" colspan="2">
                 Wildcard characters * and ? are permitted.
             </td>
         </tr>
-        <tr>
-            <td class="style4">
-                &nbsp;
-            </td>
-            <td>
-                print a-z
-            </td>
-        </tr>
     </table>
-    &nbsp;<asp:GridView ID="GridView1" runat="server" DataSourceID="ObjectDataSource1"
-        AutoGenerateColumns="False" DataKeyNames="UserName">
+    <br />
+        <br />
+    <asp:GridView ID="GridView1" runat="server" DataSourceID="ObjectDataSource1" AutoGenerateColumns="False"
+        DataKeyNames="UserName" GridLines="None" Width="100%" AlternatingRowStyle-CssClass="AlternatingRow"
+        HeaderStyle-CssClass="HeaderStyle">
         <Columns>
             <asp:BoundField DataField="UserName" HeaderText="UserName" ReadOnly="True" SortExpression="UserName" />
             <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
             <asp:BoundField DataField="Comment" HeaderText="Comment" SortExpression="Comment" />
-            <asp:CheckBoxField DataField="IsApproved" HeaderText="IsApproved" SortExpression="IsApproved" />
-            <asp:CheckBoxField DataField="IsLockedOut" HeaderText="IsLockedOut" ReadOnly="True"
+            <asp:CheckBoxField DataField="IsApproved" HeaderText="Is Approved" SortExpression="IsApproved" />
+            <asp:CheckBoxField DataField="IsLockedOut" HeaderText="Is LockedOut" ReadOnly="True"
                 SortExpression="IsLockedOut" />
-            <asp:BoundField DataField="CreationDate" HeaderText="CreationDate" ReadOnly="True"
-                SortExpression="CreationDate" />
-            <asp:BoundField DataField="LastLoginDate" HeaderText="LastLoginDate" SortExpression="LastLoginDate" />
-            <asp:CheckBoxField DataField="IsOnline" HeaderText="IsOnline" ReadOnly="True" SortExpression="IsOnline" />
+            <asp:BoundField DataField="CreationDate" HeaderText="Creation Date" ReadOnly="True"
+                SortExpression="CreationDate" DataFormatString="{0:d}" />
+            <asp:BoundField DataField="LastLoginDate" HeaderText="Last Login Date" SortExpression="LastLoginDate"
+                DataFormatString="{0:d}" />
             <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" />
         </Columns>
         <EmptyDataTemplate>
             No Records found
         </EmptyDataTemplate>
     </asp:GridView>
-    <asp:ObjectDataSource ID="ObjectDataSource1" runat="server"
-        SelectMethod="FindUsers" TypeName="Tourna.Backoffice.Entities.ManageUsers" 
-        DeleteMethod="DeleteUser">
+    <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="FindUsers"
+        TypeName="Tourna.Backoffice.Entities.ManageUsers" DeleteMethod="DeleteUser">
         <DeleteParameters>
             <asp:Parameter Name="UserName" Type="String" />
         </DeleteParameters>
@@ -94,70 +85,67 @@
         </SelectParameters>
     </asp:ObjectDataSource>
     <br />
-    <table border="0">
-                            <tr>
-                                <td align="center" colspan="2">
-                                    Sign Up for Your New Account</td>
-                            </tr>
-                            <tr>
-                                <td align="right">
-                                    <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="txtUserName">User Name:</asp:Label>
-                                </td>
-                                <td>
-                                    <asp:TextBox ID="txtUserName" runat="server"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" 
-                                        ControlToValidate="txtUserName" ErrorMessage="User Name is required." 
-                                        ToolTip="User Name is required.">User Name is required</asp:RequiredFieldValidator>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align="right">
-                                    <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="txtPassword">Password:</asp:Label>
-                                </td>
-                                <td>
-                                    <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>
-                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" 
-                                        ControlToValidate="txtPassword" 
-                                        ErrorMessage="password must be betwenn 6-12 chars" 
-                                        ValidationExpression="[\S\s]{6,12}"></asp:RegularExpressionValidator>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align="right">
-                                    <asp:Label ID="EmailLabel" runat="server" AssociatedControlID="txtEmail">E-mail:</asp:Label>
-                                </td>
-                                <td>
-                                    <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="EmailRequired" runat="server" 
-                                        ControlToValidate="txtEmail" ErrorMessage="E-mail is required." 
-                                        ToolTip="E-mail is required." Display="Dynamic">*</asp:RequiredFieldValidator>
-                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
-                                        ControlToValidate="txtEmail" Display="Dynamic" 
-                                        ErrorMessage="Email is not valid" 
-                                        ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align="right">
-                                    <asp:Label ID="Label1" runat="server" >Role:</asp:Label>
-                                </td>
-                                <td>
-                                    <asp:RadioButtonList ID="rbRoles" runat="server">
-                                        <asp:ListItem Selected="True">Modrator</asp:ListItem>
-                                        <asp:ListItem>Accountants</asp:ListItem>
-                                        <asp:ListItem>Administrator</asp:ListItem>
-                                    </asp:RadioButtonList>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align="right" colspan="2">
-                                    <asp:Button ID="btnCreateUser" runat="server" Text="Button" 
-                                        onclick="btnCreateUser_Click" /></td>
-                            </tr>
-                            <tr>
-                                <td align="center" colspan="2" style="color:Red;">
-                                    <asp:Literal ID="ErrorMessage" runat="server" EnableViewState="False"></asp:Literal>
-                                </td>
-                            </tr>
-                        </table>
+    <table border="0" style="width:50%" cellpadding="2" cellspacing="2">
+        <tr>
+            <td colspan="2" class="HeaderStyle">
+                Sign Up for Your New Account
+            </td>
+        </tr>
+        <tr>
+            <td >
+                <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="txtUserName">User Name:</asp:Label>
+            </td>
+            <td>
+                <asp:TextBox ID="txtUserName" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="txtUserName"
+                    ErrorMessage="User Name is required." ToolTip="User Name is required.">User Name is required</asp:RequiredFieldValidator>
+            </td>
+        </tr>
+        <tr>
+            <td >
+                <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="txtPassword">Password:</asp:Label>
+            </td>
+            <td>
+                <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtPassword"
+                    ErrorMessage="password must be betwenn 6-12 chars" ValidationExpression="[\S\s]{6,12}"></asp:RegularExpressionValidator>
+            </td>
+        </tr>
+        <tr>
+            <td >
+                <asp:Label ID="EmailLabel" runat="server" AssociatedControlID="txtEmail">E-mail:</asp:Label>
+            </td>
+            <td>
+                <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="EmailRequired" runat="server" ControlToValidate="txtEmail"
+                    ErrorMessage="E-mail is required." ToolTip="E-mail is required." Display="Dynamic">*</asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtEmail"
+                    Display="Dynamic" ErrorMessage="Email is not valid" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+            </td>
+        </tr>
+        <tr>
+            <td >
+                <asp:Label ID="Label1" runat="server">Role:</asp:Label>
+            </td>
+            <td>
+                <asp:RadioButtonList ID="rbRoles" runat="server">
+                    <asp:ListItem>Administrator</asp:ListItem>
+                    <asp:ListItem Selected="True">Moderator</asp:ListItem>
+                    <asp:ListItem>Accountants</asp:ListItem>
+                    <asp:ListItem Value="ContentManager">Content manager</asp:ListItem>
+                </asp:RadioButtonList>
+            </td>
+        </tr>
+        <tr>
+            <td align="right" colspan="2">
+                <asp:LinkButton
+                    ID="lbCreateUser" runat="server" OnClick="btnCreateUser_Click">Create user</asp:LinkButton>
+            </td>
+        </tr>
+        <tr>
+            <td align="center" colspan="2" style="color: Red;">
+                <asp:Literal ID="ErrorMessage" runat="server" EnableViewState="False"></asp:Literal>
+            </td>
+        </tr>
+    </table>
 </asp:Content>

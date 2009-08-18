@@ -5,8 +5,10 @@
     <title>Games</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Label ID="lblTitle" runat="server" Text="Games" CssClass="GrayTitle"></asp:Label>
+<br/><br/>
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="GamesSqlDataSource"
-        ShowFooter="True" DataKeyNames="Id">
+        ShowFooter="True" DataKeyNames="Id" GridLines="None" Width="100%" AlternatingRowStyle-CssClass="AlternatingRow" HeaderStyle-CssClass="HeaderStyle">
         <Columns>
             <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
             <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" />
@@ -46,9 +48,9 @@
         </InsertParameters>
     </asp:SqlDataSource>
     <br />
-    Insert new Game<br />
+    <br />
     <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" DataKeyNames="Id"
-        DataSourceID="GamesSqlDataSource" DefaultMode="Insert" >
+        DataSourceID="GamesSqlDataSource" DefaultMode="Insert" HeaderText="Insert new Game" GridLines="None" Width="50%" AlternatingRowStyle-CssClass="AlternatingRow" HeaderStyle-CssClass="HeaderStyle">
         <Fields>
             <asp:TemplateField HeaderText="Title">
                 <InsertItemTemplate>
@@ -73,7 +75,7 @@
                     <asp:FileUpload ID="fuGameImage" runat="server" /> Not implemented
                 </InsertItemTemplate>
             </asp:TemplateField>
-            <asp:CommandField ShowInsertButton="True" />
+            <asp:CommandField ShowInsertButton="True" ItemStyle-HorizontalAlign="Right" />
         </Fields>
     </asp:DetailsView>
 </asp:Content>

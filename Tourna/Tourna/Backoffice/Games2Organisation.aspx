@@ -3,18 +3,15 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Games to Organisation</title>
-    <style type="text/css">
-        .style1
-        {
-            width: 100%;
-        }
-    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <table class="style1">
+    <asp:Label ID="lblTitle" runat="server" Text="Games to Organisation" CssClass="GrayTitle"></asp:Label>
+    <br />
+    <br />
+    <table>
         <tr>
-            <td>
-                Allowed games for company
+            <td class="HeaderStyle">
+                Allowed games for organisation
             </td>
         </tr>
         <tr>
@@ -23,8 +20,8 @@
             </td>
         </tr>
         <tr>
-            <td>
-                <asp:Button ID="Button1" runat="server" Text="Update" OnClick="Button1_Click" />
+            <td align="right">
+                <asp:LinkButton ID="lbUpdate" runat="server" OnClick="Button1_Click">Update</asp:LinkButton>
             </td>
         </tr>
     </table>

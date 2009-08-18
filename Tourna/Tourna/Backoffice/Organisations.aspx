@@ -10,9 +10,7 @@
     <br/><br/>
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" AutoGenerateEditButton="false"
         DataKeyNames="Id,Name" DataSourceID="SqlDataSource1" OnSelectedIndexChanging="GridView1_SelectedIndexChanging"
-        OnSelectedIndexChanged="GridView1_SelectedIndexChanged" GridLines="None" Width="80%">
-        <AlternatingRowStyle BackColor="#f7f7f6" />
-        <HeaderStyle HorizontalAlign="Left" BackColor="#afafae" ForeColor="white" />
+        OnSelectedIndexChanged="GridView1_SelectedIndexChanged" GridLines="None" Width="80%" AlternatingRowStyle-CssClass="AlternatingRow" HeaderStyle-CssClass="HeaderStyle">
         <SelectedRowStyle CssClass="SelectedRowStyle" />
         <Columns>
             <asp:CommandField ShowSelectButton="True" />

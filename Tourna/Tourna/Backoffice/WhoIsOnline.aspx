@@ -5,16 +5,23 @@
     <title>Who Is Online</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h2>Who is Online?</h2>
-    <p>There are currently
-    <asp:Label ID="NumOnline" runat="server"></asp:Label>
-    users logged on right now!
-    </p>
+    <table>
+        <tr>
+            <td class="GrayTitle">
+                Who is Online?
+            </td>
+        </tr>
+        <tr>
+            <td class="GrayTextLight">
+                There are currently
+                <asp:Label ID="NumOnline" runat="server"></asp:Label>
+                users logged on right now!
+            </td>
+        </tr>
+    </table>
     <asp:GridView ID="CurrentUserActivityGrid" runat="server" AutoGenerateColumns="False"
-        CellPadding="4" DataSourceID="CurrentActivityDataSource" ForeColor="#333333"
-        GridLines="None" Width="95%">
-        <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-        <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
+        DataSourceID="CurrentActivityDataSource" GridLines="None" Width="95%" AlternatingRowStyle-CssClass="AlternatingRow"
+        HeaderStyle-CssClass="HeaderStyle">
         <Columns>
             <asp:BoundField DataField="UserName" HeaderText="User" SortExpression="UserName" />
             <asp:BoundField DataField="Action" HeaderText="Action" SortExpression="Action" />
@@ -32,43 +39,51 @@
         <AlternatingRowStyle BackColor="White" />
     </asp:GridView>
     <asp:SqlDataSource ID="CurrentActivityDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:StrongerOrgString %>"
-        SelectCommand="sproc_GetUsersCurrentActivity" 
-    SelectCommandType="StoredProcedure" 
-    onselecting="CurrentActivityDataSource_Selecting">
+        SelectCommand="sproc_GetUsersCurrentActivity" SelectCommandType="StoredProcedure"
+        OnSelecting="CurrentActivityDataSource_Selecting">
         <SelectParameters>
             <asp:Parameter Name="ApplicationName" Type="String" />
             <asp:Parameter Name="MinutesSinceLastInActive" Type="Int32" />
             <asp:Parameter Name="CurrentTimeUtc" Type="DateTime" />
         </SelectParameters>
     </asp:SqlDataSource>
-    
-    <h2>
-        User List</h2>
-    <p>
-        Here is a list of the user accounts in the system.</p>
-    <p>
-        <asp:GridView ID="GridView1" runat="server" BackColor="#DEBA84" BorderColor="#DEBA84"
-            BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" Font-Names="Verdana" AllowPaging="True" AutoGenerateColumns="False" DataSourceID="allUsersDataSource" EmptyDataText="There are no users in the system..." Font-Italic="False">
-            <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
-            <RowStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
-            <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="White" />
-            <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
-            <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
-            <Columns>
-                <asp:BoundField DataField="UserName" HeaderText="UserName" ReadOnly="True" SortExpression="UserName" />
-                <asp:TemplateField HeaderText="Email">
-                    <ItemTemplate>
-                        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("Email", "mailto:{0}") %>'
-                            Text='<%# Eval("Email") %>'></asp:HyperLink>
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:BoundField DataField="CreationDate" HeaderText="Created On" ReadOnly="True"
-                    SortExpression="CreationDate" />
-                <asp:BoundField DataField="LastLoginDate" HeaderText="Last Login" SortExpression="LastLoginDate" />
-            </Columns>
-            <EmptyDataRowStyle Font-Italic="True" />
-        </asp:GridView>
-        <asp:ObjectDataSource ID="allUsersDataSource" runat="server" SelectMethod="GetAllUsers" TypeName="System.Web.Security.Membership"></asp:ObjectDataSource>
+    <br />
+    <br />
+    <table style="width:50%">
+        <tr>
+            <td class="GrayTitle">
+                User List
+            </td>
+        </tr>
+        <tr>
+            <td class="GrayTextLight">
+                Here is a list of the user accounts in the system.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <asp:GridView ID="GridView1" runat="server" GridLines="None" AllowPaging="True" AutoGenerateColumns="False"
+                    DataSourceID="allUsersDataSource" EmptyDataText="There are no users in the system..."
+                    AlternatingRowStyle-CssClass="AlternatingRow" HeaderStyle-CssClass="HeaderStyle"  Width="100%">
+                    <Columns>
+                        <asp:BoundField DataField="UserName" HeaderText="UserName" ReadOnly="True" SortExpression="UserName" />
+                        <asp:TemplateField HeaderText="Email">
+                            <ItemTemplate>
+                                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("Email", "mailto:{0}") %>'
+                                    Text='<%# Eval("Email") %>'></asp:HyperLink>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:BoundField DataField="CreationDate" HeaderText="Created On" ReadOnly="True"
+                            SortExpression="CreationDate" DataFormatString="{0:d}" />
+                        <asp:BoundField DataField="LastLoginDate" HeaderText="Last Login" SortExpression="LastLoginDate" DataFormatString="{0:d}" />
+                    </Columns>
+                    <EmptyDataRowStyle Font-Italic="True" />
+                </asp:GridView>
+            </td>
+        </tr>
+    </table>
+    <asp:ObjectDataSource ID="allUsersDataSource" runat="server" SelectMethod="GetAllUsers"
+        TypeName="System.Web.Security.Membership"></asp:ObjectDataSource>
     </p>
     <p>
         &nbsp;</p>

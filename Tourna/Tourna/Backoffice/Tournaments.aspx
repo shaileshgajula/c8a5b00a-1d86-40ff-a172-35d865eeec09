@@ -5,8 +5,10 @@
     <title>Tournaments</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Label ID="lblTitle" runat="server" Text="Tournaments" CssClass="GrayTitle"></asp:Label>
+<br/><br/>
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Id"
-        DataSourceID="SqlDataSource1">
+        DataSourceID="SqlDataSource1" GridLines="None" Width="100%" AlternatingRowStyle-CssClass="AlternatingRow" HeaderStyle-CssClass="HeaderStyle">
         <Columns>
             <asp:BoundField DataField="TournamentName" HeaderText="TournamentName" ReadOnly="True"
                 SortExpression="TournamentName" />

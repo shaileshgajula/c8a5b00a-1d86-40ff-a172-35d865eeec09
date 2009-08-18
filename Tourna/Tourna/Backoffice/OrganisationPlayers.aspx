@@ -9,9 +9,7 @@
     <asp:Label ID="lblTitle" runat="server" Text="" CssClass="GrayTitle"></asp:Label>
     <br /><br />
     <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False"
-        DataKeyNames="Id" DataSourceID="SqlDataSource1" GridLines="None" Width="80%">
-        <AlternatingRowStyle BackColor="#f7f7f6" />
-        <HeaderStyle HorizontalAlign="Left" BackColor="#afafae" ForeColor="white" />
+        DataKeyNames="Id" DataSourceID="SqlDataSource1" GridLines="None" Width="80%" AlternatingRowStyle-CssClass="AlternatingRow" HeaderStyle-CssClass="HeaderStyle">
         <Columns>
             <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
             <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name"  />

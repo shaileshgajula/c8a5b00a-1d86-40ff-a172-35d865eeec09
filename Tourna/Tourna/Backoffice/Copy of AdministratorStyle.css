@@ -1,0 +1,128 @@
+﻿/* 
+   The below CSS file was built using samples + techniques described by Rachel Andrew in her book:
+   The CSS Anthology: 101 Essential Tips, Tricks & Hacks
+*/
+
+/* Overall Page */
+
+body
+{
+	margin: 0;
+	padding-bottom: 2em;
+	background-color: #FFFFFF;
+	color: #43431f;
+	font-family: Verdana, Helvetica, sans-serif;
+	border-top: 3px solid #dda2fe;
+}
+a
+{
+	color: #01baec;
+	text-decoration: none;
+}
+a:hover
+{
+	text-decoration: underline;
+}
+a:visited
+{
+	color: #01baec;
+}
+a:active
+{
+	color: #027d9e;
+}
+
+.AlternatingRow
+{
+	background-color:#f7f7f6;
+	}
+	.HeaderStyle
+	{
+		text-align:left;
+		background-color:#afafae;
+		color:#FFFFFF;
+		}
+.SelectedRowStyle
+{
+	background-color:#f1e1fa;
+	}
+/*Rounded corners http://blog.benogle.com/2009/04/29/css-round-corners/ */
+.b1h, .b2h, .b3h, .b4h, .b2bh, .b3bh, .b4bh
+{
+	font-size: 1px;
+	overflow: hidden;
+	display: block;
+}
+.b1h
+{
+	height: 1px;
+	background: #aaa;
+	margin: 0 5px;
+}
+.b2h, .b2bh
+{
+	height: 1px;
+	background: #aaa;
+	border-right: 2px solid #aaa;
+	border-left: 2px solid #aaa;
+	margin: 0 3px;
+}
+.b3h, .b3bh
+{
+	height: 1px;
+	background: #aaa;
+	border-right: 1px solid #aaa;
+	border-left: 1px solid #aaa;
+	margin: 0 2px;
+}
+.b4h, .b4bh
+{
+	height: 2px;
+	background: #aaa;
+	border-right: 1px solid #aaa;
+	border-left: 1px solid #aaa;
+	margin: 0 1px;
+}
+.b2bh, .b3bh, .b4bh
+{
+	background: #ddd;
+}
+.headh
+{
+	background: #aaa;
+	border-right: 1px solid #aaa;
+	border-left: 1px solid #aaa;
+}
+.headh h3
+{
+	margin: 0px 10px 0px 10px;
+	padding-bottom: 3px;
+}
+.contenth
+{
+	background: #ddd;
+	border-right: 1px solid #aaa;
+	border-left: 1px solid #aaa;
+}
+.contenth div
+{
+	margin-left: 12px;
+	padding-top: 5px;
+}
+
+/*Back office style */
+.GrayTitle
+{
+	font-size: 17px;
+	font-weight: bold;
+}
+.GrayTitleNormal
+{
+	font-size: 15px;
+	font-weight: bold;
+}
+.GrayTextLight
+{
+	font-size: 13px;
+	font-style:italic;
+	}

@@ -12,27 +12,40 @@ body
 	background-color: #FFFFFF;
 	color: #43431f;
 	font-family: Verdana, Helvetica, sans-serif;
-	border-top: 3px solid #dda2fe;
+	border-top: 5px solid #fea5e8;
 }
 a
 {
 	color: #01baec;
-	text-decoration:none;
+	text-decoration: none;
 }
 a:hover
 {
-	text-decoration:underline;
+	text-decoration: underline;
 }
 a:visited
 {
-	color:#01baec;
-	}
+	color: #01baec;
+}
 a:active
 {
-	color:#027d9e;
+	color: #027d9e;
+}
+
+.AlternatingRow
+{
+	background-color:#f7f7f6;
 	}
-
-
+	.HeaderStyle
+	{
+		text-align:left;
+		background-color:#afafae;
+		color:#FFFFFF;
+		}
+.SelectedRowStyle
+{
+	background-color:#f1e1fa;
+	}
 /*Rounded corners http://blog.benogle.com/2009/04/29/css-round-corners/ */
 .b1h, .b2h, .b3h, .b4h, .b2bh, .b3bh, .b4bh
 {
@@ -100,7 +113,16 @@ a:active
 /*Back office style */
 .GrayTitle
 {
-	font-size: 16px;
+	font-size: 17px;
 	font-weight: bold;
 }
-
+.GrayTitleNormal
+{
+	font-size: 15px;
+	font-weight: bold;
+}
+.GrayTextLight
+{
+	font-size: 13px;
+	font-style:italic;
+	}
