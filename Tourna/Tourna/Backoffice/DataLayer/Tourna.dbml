@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="Tourna" Class="TournaDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=SHAKEZILLA;Initial Catalog=Tourna;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="TournaConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Appointments" Member="Appointments">
+    <Type Name="Appointment">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Subject" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Start" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="[End]" Member="End" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="RoomID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RecurrenceRule" Type="System.String" DbType="NVarChar(1024)" CanBeNull="true" />
+      <Column Name="RecurrenceParentID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Annotations" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Appointment_Appointment" Member="Appointments" ThisKey="ID" OtherKey="RecurrenceParentID" Type="Appointment" />
+      <Association Name="Appointment_Appointment" Member="Appointment1" ThisKey="RecurrenceParentID" OtherKey="ID" Type="Appointment" IsForeignKey="true" />
+      <Association Name="Room_Appointment" Member="Room" ThisKey="RoomID" OtherKey="ID" Type="Room" IsForeignKey="true" />
+      <Association Name="User_Appointment" Member="User" ThisKey="UserID" OtherKey="ID" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Games" Member="Games">
+    <Type Name="Game">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="GameDescription" Type="System.String" DbType="VarChar(550)" CanBeNull="true" />
+      <Column Name="ConsoleName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="GameType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IsOnline" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="NumberOfCompetitors" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Game_Organisation2Game" Member="Organisation2Games" ThisKey="Id" OtherKey="GameId" Type="Organisation2Game" />
+      <Association Name="Game_Tournament" Member="Tournaments" ThisKey="Id" OtherKey="GameId" Type="Tournament" />
+    </Type>
+  </Table>
+  <Table Name="dbo.JobsLog" Member="JobsLogs">
+    <Type Name="JobsLog">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="JobTitle" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Createdate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Membership2Organisation" Member="Membership2Organisations">
+    <Type Name="Membership2Organisation">
+      <Column Name="UserId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="OrganisationId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Association Name="Organisation_Membership2Organisation" Member="Organisation" ThisKey="OrganisationId" OtherKey="Id" Type="Organisation" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Organisation" Member="Organisations">
+    <Type Name="Organisation">
+      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="ContactPerson" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="ShippingAddress" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="BillingAddress" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="WebSite" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CompanyLogo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="EmailReminders" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Organisation_Membership2Organisation" Member="Membership2Organisations" ThisKey="Id" OtherKey="OrganisationId" Type="Membership2Organisation" />
+      <Association Name="Organisation_Organisation2Game" Member="Organisation2Games" ThisKey="Id" OtherKey="OrganisationId" Type="Organisation2Game" />
+      <Association Name="Organisation_Player" Member="Players" ThisKey="Id" OtherKey="OrganisationId" Type="Player" />
+      <Association Name="Organisation_TextContent" Member="TextContents" ThisKey="Id" OtherKey="OrganisationId" Type="TextContent" />
+      <Association Name="Organisation_Tournament" Member="Tournaments" ThisKey="Id" OtherKey="OrganisationId" Type="Tournament" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Organisation2Games" Member="Organisation2Games">
+    <Type Name="Organisation2Game">
+      <Column Name="OrganisationId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="GameId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Game_Organisation2Game" Member="Game" ThisKey="GameId" OtherKey="Id" Type="Game" IsForeignKey="true" />
+      <Association Name="Organisation_Organisation2Game" Member="Organisation" ThisKey="OrganisationId" OtherKey="Id" Type="Organisation" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Players" Member="Players">
+    <Type Name="Player">
+      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="OrganisationId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NickName" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Department" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Player_Players2Tournament" Member="Players2Tournaments" ThisKey="Id" OtherKey="PlayerId" Type="Players2Tournament" />
+      <Association Name="Organisation_Player" Member="Organisation" ThisKey="OrganisationId" OtherKey="Id" Type="Organisation" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Players2Tournaments" Member="Players2Tournaments">
+    <Type Name="Players2Tournament">
+      <Column Name="PlayerId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="TournamentId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Association Name="Player_Players2Tournament" Member="Player" ThisKey="PlayerId" OtherKey="Id" Type="Player" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Tournament_Players2Tournament" Member="Tournament" ThisKey="TournamentId" OtherKey="Id" Type="Tournament" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Rooms" Member="Rooms">
+    <Type Name="Room">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RoomName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Association Name="Room_Appointment" Member="Appointments" ThisKey="ID" OtherKey="RoomID" Type="Appointment" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Schedules" Member="Schedules">
+    <Type Name="Schedule">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TournamentId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="PlayerA" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="PlayerB" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="Start" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="[End]" Member="End" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Winner" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="ScoreA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ScoreB" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="TimeStamp" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Tournament_Schedule" Member="Tournament" ThisKey="TournamentId" OtherKey="Id" Type="Tournament" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TextContent" Member="TextContents">
+    <Type Name="TextContent">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="OrganisationId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="ContentType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Content" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Organisation_TextContent" Member="Organisation" ThisKey="OrganisationId" OtherKey="Id" Type="Organisation" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Timezones" Member="Timezones">
+    <Type Name="Timezone">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="timezone_location" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="gmt" Type="System.String" DbType="VarChar(11) NOT NULL" CanBeNull="false" />
+      <Column Name="offset" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tournaments" Member="Tournaments">
+    <Type Name="Tournament">
+      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="OrganisationId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="TournamentName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Abstract" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Locations" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NumberOfPlayersLimit" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="GameId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MatchingAlgo" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TimeWindowStart" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TimeWindowEnd" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsOpenAllDay" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FirstPrize" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SecondPrize" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ThirdPrize" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EmailTemplate" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IsApproved" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Tournament_Players2Tournament" Member="Players2Tournaments" ThisKey="Id" OtherKey="TournamentId" Type="Players2Tournament" />
+      <Association Name="Tournament_Schedule" Member="Schedules" ThisKey="Id" OtherKey="TournamentId" Type="Schedule" />
+      <Association Name="Game_Tournament" Member="Game" ThisKey="GameId" OtherKey="Id" Type="Game" IsForeignKey="true" />
+      <Association Name="Organisation_Tournament" Member="Organisation" ThisKey="OrganisationId" OtherKey="Id" Type="Organisation" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Users" Member="Users">
+    <Type Name="User">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Association Name="User_Appointment" Member="Appointments" ThisKey="ID" OtherKey="UserID" Type="Appointment" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UsersCurrentActivity" Member="UsersCurrentActivities">
+    <Type Name="UsersCurrentActivity">
+      <Column Name="UserId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="Action" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.PlayersGet" Method="PlayersGet">
+    <Parameter Name="OrganisationId" Parameter="organisationId" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="TournamentId" Parameter="tournamentId" Type="System.Guid" DbType="UniqueIdentifier" />
+    <ElementType Name="PlayersGetResult">
+      <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NickName" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Department" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>
