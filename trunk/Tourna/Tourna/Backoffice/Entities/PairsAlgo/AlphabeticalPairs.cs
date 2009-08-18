@@ -13,7 +13,7 @@ using System.Configuration;
         public List<PlayersEntity> Execute(Guid tournamentId)
         {
             //argument check
-            if (tournamentId == null)
+            if (tournamentId.Equals(Guid.Empty))
                 throw new ArgumentNullException("tournamentId");
 
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["StrongerOrgString"].ConnectionString))
