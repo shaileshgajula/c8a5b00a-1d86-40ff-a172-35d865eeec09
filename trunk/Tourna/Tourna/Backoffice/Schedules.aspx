@@ -3,25 +3,28 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Schedules</title>
+
     <script type="text/javascript">
 			function Export(sender, e)
 			{
 				$find("<%= RadAjaxManager1.ClientID %>").__doPostBack(sender.name, "");
 			}
-		</script>
+    </script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<telerik:RadAjaxManager ID="RadAjaxManager1" runat="server">
-			<AjaxSettings>
-				<telerik:AjaxSetting AjaxControlID="RadScheduler1">
-					<UpdatedControls>
-						<telerik:AjaxUpdatedControl ControlID="RadScheduler1" LoadingPanelID="RadAjaxLoadingPanel1" />
-					</UpdatedControls>
-				</telerik:AjaxSetting>
-			</AjaxSettings>
-		</telerik:RadAjaxManager>
-<asp:ImageButton runat="server" ID="Button2" ImageUrl="~/Images/Icons/exportButton.gif" AlternateText="Export All to iCalendar"
-				OnClientClick="Export(this, event); return false;" OnClick="Button2_Click" />
+    <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server">
+        <AjaxSettings>
+            <telerik:AjaxSetting AjaxControlID="RadScheduler1">
+                <UpdatedControls>
+                    <telerik:AjaxUpdatedControl ControlID="RadScheduler1" LoadingPanelID="RadAjaxLoadingPanel1" />
+                </UpdatedControls>
+            </telerik:AjaxSetting>
+        </AjaxSettings>
+    </telerik:RadAjaxManager>
+    <asp:ImageButton runat="server" ID="Button2" ImageUrl="~/Images/Icons/exportButton.gif"
+        AlternateText="Export All to iCalendar" OnClientClick="Export(this, event); return false;"
+        OnClick="Button2_Click" />
     <telerik:RadScheduler ID="RadScheduler1" runat="server" DataEndField="End" DataKeyField="Id"
         DataSourceID="SqlDataSource1" DataStartField="Start" DataSubjectField="Subject"
         HoursPanelTimeFormat="htt" ValidationGroup="RadScheduler1" SelectedView="MonthView"
@@ -103,9 +106,10 @@
     </telerik:RadScheduler>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:StrongerOrgString %>"
         SelectCommand="SchedulesGet" SelectCommandType="StoredProcedure" DeleteCommand="ScheduleDelete"
-        DeleteCommandType="StoredProcedure" UpdateCommand="ScheduleUpdate" UpdateCommandType="StoredProcedure">
+        DeleteCommandType="StoredProcedure" UpdateCommand="ScheduleUpdate" UpdateCommandType="StoredProcedure" CancelSelectOnNullParameter="false">
         <SelectParameters>
             <asp:QueryStringParameter Name="TournamentId" QueryStringField="TournamentId" Type="String" />
+            <asp:ProfileParameter Name="OrganisationId" PropertyName="OrganisationId" Type="String" />
         </SelectParameters>
         <DeleteParameters>
             <asp:Parameter Name="ID" Type="Int32" />

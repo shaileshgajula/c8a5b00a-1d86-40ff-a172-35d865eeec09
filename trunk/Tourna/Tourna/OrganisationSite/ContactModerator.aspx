@@ -1,14 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/OrganisationSite/OrgSite.Master" AutoEventWireup="true" CodeBehind="ContactModerator.aspx.cs" Inherits="Tourna.OrganisationSite.ContactModerator" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/OrganisationSite/OrgSite.Master" 
+    AutoEventWireup="true" CodeBehind="ContactModerator.aspx.cs" Inherits="Tourna.OrganisationSite.ContactModerator" Theme="OrganisationSite" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <style type="text/css">
-        .style2
-        {
-            width: 100%;
-        }
-    </style>
+    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <table class="style2">
+    <table>
         <tr>
             <td colspan="2">
                 Contact Moderator</td>

@@ -1,0 +1,27 @@
+﻿body
+{
+	margin: 0;
+	padding-bottom: 2em;
+	background-color: #FFFFFF;
+	color: #43431f;
+	font-family: Verdana, Helvetica, sans-serif;
+	border-top: 5px solid #aaa2fe;
+	
+}
+a
+{
+	color: #01baec;
+	text-decoration: none;
+}
+a:hover
+{
+	text-decoration: underline;
+}
+a:visited
+{
+	color: #01baec;
+}
+a:active
+{
+	color: #027d9e;
+}

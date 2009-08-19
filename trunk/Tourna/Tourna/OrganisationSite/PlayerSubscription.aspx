@@ -1,20 +1,14 @@
 <%@ Page Title="" Language="C#" MasterPageFile="~/OrganisationSite/OrgSite.Master"
-    AutoEventWireup="true" CodeBehind="PlayerSubscription.aspx.cs" Inherits="Tourna.PlayerSubscription" %>
+    AutoEventWireup="true" CodeBehind="PlayerSubscription.aspx.cs" Inherits="Tourna.PlayerSubscription"  Theme="OrganisationSite"%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <style type="text/css">
-        .style1
-        {
-            width: 100%;
-        }
-    </style>
-    <title>Join a league</title>
+    <title>Join a tournament</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:Label ID="lblMsg" runat="server"></asp:Label>
     <asp:Panel ID="Panel1" runat="server">
         Subscribe to tournament
-        <table class="style1">
+        <table>
             <tr>
                 <td>
                     Your Name:
