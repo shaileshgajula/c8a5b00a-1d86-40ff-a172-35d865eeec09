@@ -7,7 +7,7 @@ namespace StrongerOrg.BackOffice.PairsAlgorithm
 {
     internal interface IPairsAlgo
     {
-        List<PlayersEntity> Execute(Guid tournamentId);
+        List<MetaPlayer> Execute(Guid tournamentId);
     }
 
     public class PlayersEntity
@@ -20,8 +20,8 @@ namespace StrongerOrg.BackOffice.PairsAlgorithm
 
     public enum PairsAlgorithm
     {
-        ALPHABETICAL,
-        RANDOM
+        Alphabetical,
+        Random
     }
 }
 

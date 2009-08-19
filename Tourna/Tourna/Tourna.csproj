@@ -54,10 +54,7 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Web.Mobile" />
-    <Reference Include="Telerik.Web.UI, Version=2009.2.701.35, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\Program Files\Telerik\RadControls for ASP.NET AJAX Q2 2009\Bin35\Telerik.Web.UI.dll</HintPath>
-    </Reference>
+    <Reference Include="Telerik.Web.UI, Version=2009.2.701.35, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Backoffice\TournamentBuilder.aspx" />
@@ -111,10 +108,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>OrganisationInfo.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Backoffice\Entities\PairsAlgo.cs" />
-    <Compile Include="Backoffice\Entities\PairsAlgo\AlphabeticalPairs.cs" />
-    <Compile Include="Backoffice\Entities\PairsAlgo\IPairsAlgo.cs" />
-    <Compile Include="Backoffice\Entities\PairsAlgo\RandomPairs.cs" />
+    <Compile Include="Backoffice\Entities\PairsAlgorithm\PairMatch\DefaultMatch.cs" />
+    <Compile Include="Backoffice\Entities\PairsAlgorithm\PairMatch\IPairMatching.cs" />
+    <Compile Include="Backoffice\Entities\PairsAlgorithm\PairMatch\PairsMatch.cs" />
+    <Compile Include="Backoffice\Entities\PairsAlgorithm\PairsAlgo.cs" />
+    <Compile Include="Backoffice\Entities\PairsAlgorithm\PairsAlgorithmType\AlphabeticalPairs.cs" />
+    <Compile Include="Backoffice\Entities\PairsAlgorithm\PairsAlgorithmType\IPairsAlgo.cs" />
+    <Compile Include="Backoffice\Entities\PairsAlgorithm\PairsAlgorithmType\RandomPairs.cs" />
     <Compile Include="Backoffice\Entities\PlayersManager.cs" />
     <Compile Include="Backoffice\Entities\Scheduler\SchedulerAlgo.cs" />
     <Compile Include="Backoffice\Entities\Scheduler\SchedulesBL.cs" />
@@ -596,7 +596,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
+      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

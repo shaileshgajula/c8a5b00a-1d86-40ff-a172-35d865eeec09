@@ -10,11 +10,11 @@ using StrongerOrg.Backoffice.DataLayer;
 
 namespace StrongerOrg.BackOffice.PairsAlgorithm
 {
-    public class RandomPairs : IPairsAlgo
+    internal class RandomPairs : IPairsAlgo
     {
         #region IPairsAlgo Members
 
-        public List<PlayersEntity> Execute(Guid tournamentId)
+        public List<MetaPlayer> Execute(Guid tournamentId)
         {
             //argument check
             if (tournamentId.Equals(Guid.Empty))
@@ -23,31 +23,18 @@ namespace StrongerOrg.BackOffice.PairsAlgorithm
             //use LINQ to order?
             //will we be using LINQ?
             //convert datareader to LINQ using yield keyword.
-            List<Guid> players;
+            List<MetaPlayer> players = null;
             using (TournaDataContext db = new TournaDataContext())
             {
-                players = db.PlayersGet(null, tournamentId).OrderBy(x => x.Id).Select(p => p.Id).ToList();
+                players = db.PlayersGet(null, tournamentId)
+                            .OrderBy(x => x.Id)
+                            .Select(p => new MetaPlayer(){
+                                                            Id = p.Id,
+                                                            PlayerName = p.Name
+                                                         }).ToList();
             }
 
-            List<PlayersEntity> pairs = new List<PlayersEntity>();
-            int length = players.Count;
-            if (length % 2 != 0)
-                players.Add(Guid.Empty);
-
-            int halfLength = players.Count / 2;
-            for (int i = 0; i < halfLength; i++)
-            {
-                PlayersEntity pair = new PlayersEntity()
-                {
-                    PlayerAId = players[i],
-                    PlayerBId = players[i + halfLength]
-                };
-
-                pairs.Add(pair);
-            }
-
-
-            return pairs;
+            return players;
         }
 
         #endregion
