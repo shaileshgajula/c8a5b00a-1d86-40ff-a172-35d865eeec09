@@ -14,7 +14,7 @@ namespace Tourna
                                                         {0} is happy to invite you to participate in our {1}.<br>
                                                         If you care to join please click the following link<br>
                                                         <a href='../OrganisationSite/PlayerSubscription.aspx?OrgId={2}'>join to tournament</a><br>
-                                                        The tournoment is open between {3}:{4}<br> in {5}
+                                                        The tournament is open between {3}:{4}<br> in {5}
                                                         The prizes are:<br>
                                                         Prize I:{6}<br>
                                                         Prize II:{7}<br>
