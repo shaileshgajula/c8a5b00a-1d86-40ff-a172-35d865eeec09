@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-
+namespace StrongerOrg.BackOffice.PairsAlgorithm
+{
     internal interface IPairsAlgo
     {
         List<PlayersEntity> Execute(Guid tournamentId);
@@ -22,4 +23,5 @@ using System.Web;
         ALPHABETICAL,
         RANDOM
     }
+}
 

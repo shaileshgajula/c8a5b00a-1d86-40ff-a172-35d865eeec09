@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Backoffice/BackOffice.Master" AutoEventWireup="true"
-    CodeBehind="Games.aspx.cs" Inherits="Tourna.Backoffice.Games" %>
+    CodeBehind="Games.aspx.cs" Inherits="StrongerOrg.Backoffice.Games" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Games</title>

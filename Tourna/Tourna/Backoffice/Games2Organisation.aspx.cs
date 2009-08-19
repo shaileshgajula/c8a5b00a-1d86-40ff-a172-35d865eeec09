@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
 
-namespace Tourna.Backoffice
+namespace StrongerOrg.Backoffice
 {
     public partial class Games2Organisation : System.Web.UI.Page
     {

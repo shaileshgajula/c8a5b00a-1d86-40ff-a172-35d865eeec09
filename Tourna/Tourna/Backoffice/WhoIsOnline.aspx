@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Backoffice/BackOffice.Master" AutoEventWireup="true"
-    CodeBehind="WhoIsOnline.aspx.cs" Inherits="Tourna.Backoffice.WhoIsOnline" %>
+    CodeBehind="WhoIsOnline.aspx.cs" Inherits="StrongerOrg.Backoffice.WhoIsOnline" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Who Is Online</title>

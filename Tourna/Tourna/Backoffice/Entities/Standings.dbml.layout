@@ -2,19 +2,19 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Standings">
   <DataContextMoniker Name="/StandingsDataContext" />
   <nestedChildShapes>
-    <classShape Id="aa2c6804-4e68-4f5a-8227-5baa7dca58ee" absoluteBounds="4.375, 2.875, 2, 2.24658447265625">
+    <classShape Id="aa2c6804-4e68-4f5a-8227-5baa7dca58ee" absoluteBounds="4.375, 2.875, 2, 2.5401025390624996">
       <DataClassMoniker Name="/StandingsDataContext/Schedule" />
       <nestedChildShapes>
-        <elementListCompartment Id="5e265d85-d390-4b17-b099-20c7f01255ae" absoluteBounds="4.39, 3.335, 1.9700000000000002, 1.68658447265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="5e265d85-d390-4b17-b099-20c7f01255ae" absoluteBounds="4.39, 3.335, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="3478cd37-d318-4e29-82c2-fd9f5b341578" absoluteBounds="0.625, 0.5, 2, 3.5613631184895826">
+    <classShape Id="3478cd37-d318-4e29-82c2-fd9f5b341578" absoluteBounds="0.625, 0.5, 2, 4.0785139973958326">
       <DataClassMoniker Name="/StandingsDataContext/Tournament" />
       <nestedChildShapes>
-        <elementListCompartment Id="b0cefe11-cfaa-4075-910e-ca9549708ba1" absoluteBounds="0.63999999999999968, 0.96, 1.9700000000000002, 3.001363118489583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="b0cefe11-cfaa-4075-910e-ca9549708ba1" absoluteBounds="0.63999999999999968, 0.96, 1.9700000000000002, 3.518513997395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.625 : 3.46818155924479); (4.375 : 3.46818155924479)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.625 : 3.46818155924479); (4.375 : 3.46818155924479)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/StandingsDataContext/Tournament/Tournament_Schedule" />
       <nodes>
         <classShapeMoniker Id="3478cd37-d318-4e29-82c2-fd9f5b341578" />

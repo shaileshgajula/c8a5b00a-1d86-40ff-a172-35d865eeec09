@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Backoffice/BackOffice.Master" CodeBehind="CreateClientAccount.aspx.cs"
-    Inherits="Tourna.Backoffice.CreateUserWizard" %>
+    Inherits="StrongerOrg.Backoffice.CreateUserWizard" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Create user account</title>
 </asp:Content>

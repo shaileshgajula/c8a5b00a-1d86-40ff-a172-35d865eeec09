@@ -4,10 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Tourna.Backoffice.Entities;
+using StrongerOrg.Backoffice.Entities;
 using System.Collections;
 
-namespace Tourna.Backoffice
+namespace StrongerOrg.Backoffice
 {
     public partial class Standings : System.Web.UI.Page
     {
@@ -15,7 +15,7 @@ namespace Tourna.Backoffice
         {
             //if (!IsPostBack && false)
             //{
-            //    IEnumerable<Tourna.Backoffice.Entities.Tournament> tournaments;
+            //    IEnumerable<StrongerOrg.Backoffice.Entities.Tournament> tournaments;
             //    if (Request.QueryString["TournamentId"] != null)
             //    {
             //        tournaments = this.GetTournamentsByTournamentId(new Guid(Request.QueryString["TournamentId"].ToString()));
@@ -47,7 +47,7 @@ namespace Tourna.Backoffice
         //    return x;
         //}
 
-        //private void BuildData(IEnumerable<Tourna.Backoffice.Entities.Tournament> tournaments)
+        //private void BuildData(IEnumerable<StrongerOrg.Backoffice.Entities.Tournament> tournaments)
         //{
         //    StandingsDataContext sdc = new StandingsDataContext();
         //    foreach (var tournament in tournaments)

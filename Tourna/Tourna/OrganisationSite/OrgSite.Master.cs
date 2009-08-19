@@ -4,10 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Tourna.Backoffice.Entities;
+using StrongerOrg.Backoffice.Entities;
 using System.Web.Caching;
 
-namespace Tourna.OrganisationSite
+namespace StrongerOrg.OrganisationSite
 {
     public partial class OrgSite : System.Web.UI.MasterPage
     {

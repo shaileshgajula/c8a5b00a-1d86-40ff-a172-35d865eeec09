@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="Tourna.Global" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="StrongerOrg.Global" Language="C#" %>

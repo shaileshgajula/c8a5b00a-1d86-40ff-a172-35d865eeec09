@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.IO;
 
-namespace Tourna
+namespace StrongerOrg
 {
     public partial class _Default : System.Web.UI.Page
     {

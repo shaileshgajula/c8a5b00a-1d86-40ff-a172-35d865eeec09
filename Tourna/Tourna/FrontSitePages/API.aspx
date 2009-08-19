@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/FrontSite.Master" AutoEventWireup="true" CodeBehind="API.aspx.cs" Inherits="Tourna.FrontSitePages.API" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/FrontSite.Master" AutoEventWireup="true" CodeBehind="API.aspx.cs" Inherits="StrongerOrg.FrontSitePages.API" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 <title>API</title>
 </asp:Content>

@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.Security;
 
-namespace Tourna.Backoffice
+namespace StrongerOrg.Backoffice
 {
 	public partial class ManageUsers : System.Web.UI.Page
 	{
@@ -29,7 +29,7 @@ namespace Tourna.Backoffice
             //        muc = Membership.FindUsersByEmail(searchKey);
             //        break;
             //    case "OrganisationName":
-            //        muc = Tourna.Backoffice.Entities.ManageUsers.FindUsersByOrganisationName(searchKey);
+            //        muc = StrongerOrg.Backoffice.Entities.ManageUsers.FindUsersByOrganisationName(searchKey);
             //        break;
             //}
             //this.GridView1.

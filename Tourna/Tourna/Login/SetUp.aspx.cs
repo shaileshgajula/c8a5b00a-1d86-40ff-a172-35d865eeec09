@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.Security;
 
-namespace Tourna.Login
+namespace StrongerOrg.Login
 {
     public partial class SetUp : System.Web.UI.Page
     {

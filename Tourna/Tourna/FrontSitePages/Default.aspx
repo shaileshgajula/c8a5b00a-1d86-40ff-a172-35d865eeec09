@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Tourna.Default"
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="StrongerOrg.Default"
     MasterPageFile="~/FrontSite.Master" %>
 
 <%@ MasterType VirtualPath="~/FrontSite.Master" %>

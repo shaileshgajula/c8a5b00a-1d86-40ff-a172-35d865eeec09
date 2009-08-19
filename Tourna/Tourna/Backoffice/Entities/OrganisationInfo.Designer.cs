@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace Tourna.Backoffice.Entities {
+namespace StrongerOrg.Backoffice.Entities {
     
     
     /// <summary>
@@ -815,7 +815,7 @@ namespace Tourna.Backoffice.Entities {
         }
     }
 }
-namespace Tourna.Backoffice.Entities.OrganisationInfoTableAdapters {
+namespace StrongerOrg.Backoffice.Entities.OrganisationInfoTableAdapters {
     
     
     /// <summary>

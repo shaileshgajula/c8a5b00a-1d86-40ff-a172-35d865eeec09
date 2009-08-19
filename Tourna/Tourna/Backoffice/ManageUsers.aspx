@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Backoffice/BackOffice.Master" AutoEventWireup="true"
-    CodeBehind="ManageUsers.aspx.cs" Inherits="Tourna.Backoffice.ManageUsers" %>
+    CodeBehind="ManageUsers.aspx.cs" Inherits="StrongerOrg.Backoffice.ManageUsers" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <%--<style type="text/css">
@@ -73,7 +73,7 @@
         </EmptyDataTemplate>
     </asp:GridView>
     <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="FindUsers"
-        TypeName="Tourna.Backoffice.Entities.ManageUsers" DeleteMethod="DeleteUser">
+        TypeName="StrongerOrg.Backoffice.Entities.ManageUsers" DeleteMethod="DeleteUser">
         <DeleteParameters>
             <asp:Parameter Name="UserName" Type="String" />
         </DeleteParameters>

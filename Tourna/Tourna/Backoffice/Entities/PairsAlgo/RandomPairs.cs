@@ -5,9 +5,11 @@ using System.Web;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
-using Tourna.Backoffice.DataLayer;
+using StrongerOrg.Backoffice.DataLayer;
 
 
+namespace StrongerOrg.BackOffice.PairsAlgorithm
+{
     public class RandomPairs : IPairsAlgo
     {
         #region IPairsAlgo Members
@@ -24,14 +26,14 @@ using Tourna.Backoffice.DataLayer;
             List<Guid> players;
             using (TournaDataContext db = new TournaDataContext())
             {
-                players = db.PlayersGet(null, tournamentId).OrderBy(x => x.Id).Select( p => p.Id).ToList();
+                players = db.PlayersGet(null, tournamentId).OrderBy(x => x.Id).Select(p => p.Id).ToList();
             }
 
             List<PlayersEntity> pairs = new List<PlayersEntity>();
             int length = players.Count;
             if (length % 2 != 0)
                 players.Add(Guid.Empty);
-            
+
             int halfLength = players.Count / 2;
             for (int i = 0; i < halfLength; i++)
             {
@@ -67,3 +69,4 @@ using Tourna.Backoffice.DataLayer;
     //    }
     //}
 
+}
