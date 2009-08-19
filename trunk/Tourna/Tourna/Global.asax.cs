@@ -10,7 +10,7 @@ using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
 
-namespace Tourna
+namespace StrongerOrg
 {
     public class Global : System.Web.HttpApplication
     {

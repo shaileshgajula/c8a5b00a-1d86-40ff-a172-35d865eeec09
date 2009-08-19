@@ -2,7 +2,7 @@
 using System.Configuration;
 using System.Data.SqlClient;
 using System;
-namespace Tourna.Backoffice.Entities
+namespace StrongerOrg.Backoffice.Entities
 {
     [System.ComponentModel.DataObject]
     public class ManageUsers

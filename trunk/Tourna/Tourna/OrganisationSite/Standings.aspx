@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/OrganisationSite/OrgSite.Master"
-    AutoEventWireup="true" CodeBehind="Standings.aspx.cs" Inherits="Tourna.OrganisationSite.Standings" Theme="OrganisationSite"%>
+    AutoEventWireup="true" CodeBehind="Standings.aspx.cs" Inherits="StrongerOrg.OrganisationSite.Standings" Theme="OrganisationSite"%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Standings</title>

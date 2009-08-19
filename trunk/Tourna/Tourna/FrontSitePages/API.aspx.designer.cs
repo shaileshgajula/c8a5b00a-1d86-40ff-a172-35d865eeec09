@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Tourna.FrontSitePages {
+namespace StrongerOrg.FrontSitePages {
     
     
     public partial class API {

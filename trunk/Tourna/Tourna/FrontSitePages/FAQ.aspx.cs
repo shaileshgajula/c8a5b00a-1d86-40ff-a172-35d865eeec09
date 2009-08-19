@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Tourna.FrontSitePages
+namespace StrongerOrg.FrontSitePages
 {
     public partial class FAQ : System.Web.UI.Page
     {

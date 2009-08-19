@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.Security;
 
-namespace Tourna.Backoffice
+namespace StrongerOrg.Backoffice
 {
     public partial class WhoIsOnline : System.Web.UI.Page
     {

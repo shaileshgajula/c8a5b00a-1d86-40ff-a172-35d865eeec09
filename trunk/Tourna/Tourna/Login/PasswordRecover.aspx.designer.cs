@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Tourna.Login {
+namespace StrongerOrg.Login {
     
     
     public partial class PasswordRecover {

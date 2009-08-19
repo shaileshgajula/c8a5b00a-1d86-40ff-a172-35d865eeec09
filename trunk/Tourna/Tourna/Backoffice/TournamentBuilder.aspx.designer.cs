@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Tourna {
+namespace StrongerOrg {
     
     
     public partial class _Default {
@@ -217,9 +217,9 @@ namespace Tourna {
         /// <remarks>
         /// Auto-generated property.
         /// </remarks>
-        public new Tourna.Backoffice.BackOffice Master {
+        public new StrongerOrg.Backoffice.BackOffice Master {
             get {
-                return ((Tourna.Backoffice.BackOffice)(base.Master));
+                return ((StrongerOrg.Backoffice.BackOffice)(base.Master));
             }
         }
     }

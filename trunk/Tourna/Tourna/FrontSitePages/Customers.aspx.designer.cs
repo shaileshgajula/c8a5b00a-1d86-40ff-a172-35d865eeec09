@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Tourna.FrontSitePages {
+namespace StrongerOrg.FrontSitePages {
     
     
     public partial class Customers {
@@ -19,9 +19,10 @@ namespace Tourna.FrontSitePages {
         /// <remarks>
         /// Auto-generated property.
         /// </remarks>
-        public new Tourna.FrontSite Master {
+        public new StrongerOrg.FrontSite Master
+        {
             get {
-                return ((Tourna.FrontSite)(base.Master));
+                return ((StrongerOrg.FrontSite)(base.Master));
             }
         }
     }

@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.Security;
 
-namespace Tourna
+namespace StrongerOrg
 {
     public partial class FrontSite : System.Web.UI.MasterPage
     {

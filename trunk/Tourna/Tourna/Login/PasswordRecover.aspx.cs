@@ -8,7 +8,7 @@ using System.Net.Mail;
 using System.Net;
 using System.Web.Security;
 
-namespace Tourna.Login
+namespace StrongerOrg.Login
 {
     public partial class PasswordRecover : System.Web.UI.Page
     {

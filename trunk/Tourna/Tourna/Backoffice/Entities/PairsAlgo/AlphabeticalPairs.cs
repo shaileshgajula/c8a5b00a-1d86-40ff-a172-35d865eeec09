@@ -6,6 +6,8 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Configuration;
 
+namespace StrongerOrg.BackOffice.PairsAlgorithm
+{
     public class AlphabeticalPairs : IPairsAlgo
     {
         #region IPairsAlgo Members
@@ -49,3 +51,4 @@ using System.Configuration;
         #endregion
     }
 
+}

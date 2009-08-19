@@ -8,7 +8,7 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Tourna</RootNamespace>
+    <RootNamespace>StrongerOrg</RootNamespace>
     <AssemblyName>Tourna</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
   </PropertyGroup>
@@ -116,8 +116,8 @@
     <Compile Include="Backoffice\Entities\PairsAlgo\IPairsAlgo.cs" />
     <Compile Include="Backoffice\Entities\PairsAlgo\RandomPairs.cs" />
     <Compile Include="Backoffice\Entities\PlayersManager.cs" />
-    <Compile Include="Backoffice\Entities\SchedulerAlgo.cs" />
-    <Compile Include="Backoffice\Entities\SchedulesBL.cs" />
+    <Compile Include="Backoffice\Entities\Scheduler\SchedulerAlgo.cs" />
+    <Compile Include="Backoffice\Entities\Scheduler\SchedulesBL.cs" />
     <Compile Include="Backoffice\Entities\Standings.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -596,7 +596,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
+      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

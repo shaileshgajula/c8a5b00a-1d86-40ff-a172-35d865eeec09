@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Backoffice/BackOffice.Master" CodeBehind="TournamentBuilder.aspx.cs" Inherits="Tourna._Default" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Backoffice/BackOffice.Master" CodeBehind="TournamentBuilder.aspx.cs" Inherits="StrongerOrg._Default" %>
 <%@ MasterType VirtualPath="~/Backoffice/BackOffice.Master" %>
 
 

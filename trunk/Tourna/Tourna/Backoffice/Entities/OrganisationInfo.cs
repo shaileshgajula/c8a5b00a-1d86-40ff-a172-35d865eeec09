@@ -1,8 +1,9 @@
-﻿using Tourna.Backoffice.Entities;
-using System;
-using Tourna.Backoffice.Entities.OrganisationInfoTableAdapters;
+﻿using System;
 using System.Data.SqlClient;
 using System.Configuration;
+using StrongerOrg.Backoffice.Entities.OrganisationInfoTableAdapters;
+using StrongerOrg.Backoffice.Entities;
+
 public class OrganisationManager
 {
     public static OrganisationInfo.OrganisationEntityRow GetOrganisationInfo(Guid organisationId)

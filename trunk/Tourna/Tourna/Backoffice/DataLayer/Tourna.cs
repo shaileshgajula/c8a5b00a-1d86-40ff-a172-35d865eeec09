@@ -1,4 +1,4 @@
-namespace Tourna.Backoffice.DataLayer
+namespace StrongerOrg.Backoffice.DataLayer
 {
     partial class TournaDataContext
     {

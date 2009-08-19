@@ -9,7 +9,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Tourna.Backoffice.DataLayer
+namespace StrongerOrg.Backoffice.DataLayer
 {
 	using System.Data.Linq;
 	using System.Data.Linq.Mapping;

@@ -8,8 +8,10 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Configuration;
+using StrongerOrg.BackOffice.PairsAlgorithm;
+using StrongerOrg.BackOffice.Scheduler;
 
-namespace Tourna.Backoffice
+namespace StrongerOrg.Backoffice
 {
     public partial class ControlPanel : System.Web.UI.Page
     {

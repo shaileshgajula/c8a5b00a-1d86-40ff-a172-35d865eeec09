@@ -1,7 +1,7 @@
-﻿
-using System.Data.SqlClient;
+﻿using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
+
 public class PlayersManager
 {
 

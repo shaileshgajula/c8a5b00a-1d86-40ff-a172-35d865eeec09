@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Backoffice/BackOffice.Master" AutoEventWireup="true" CodeBehind="PotentialClients.aspx.cs" Inherits="Tourna.Backoffice.PotentialClients" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Backoffice/BackOffice.Master" AutoEventWireup="true" CodeBehind="PotentialClients.aspx.cs" Inherits="StrongerOrg.Backoffice.PotentialClients" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Potential Clients</title>
 </asp:Content>

@@ -6,8 +6,9 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Telerik.Web.UI;
 using System.Text;
+using StrongerOrg.BackOffice.Scheduler;
 
-namespace Tourna.Backoffice
+namespace StrongerOrg.Backoffice
 {
     public partial class Schedules : RadAjaxPage
     {

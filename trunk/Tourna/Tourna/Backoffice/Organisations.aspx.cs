@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
 
-namespace Tourna.Backoffice
+namespace StrongerOrg.Backoffice
 {
     public partial class Organisations : System.Web.UI.Page
     {

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Tourna.Backoffice {
+namespace StrongerOrg.Backoffice {
     
     
     public partial class Tournaments {

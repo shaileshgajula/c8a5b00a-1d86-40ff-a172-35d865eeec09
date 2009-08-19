@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/FrontSite.Master" AutoEventWireup="true"
-    CodeBehind="Customers.aspx.cs" Inherits="Tourna.FrontSitePages.Customers" %>
+    CodeBehind="Customers.aspx.cs" Inherits="StrongerOrg.FrontSitePages.Customers" %>
 
 <%@ MasterType VirtualPath="~/FrontSite.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">

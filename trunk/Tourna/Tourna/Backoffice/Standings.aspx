@@ -1,5 +1,5 @@
 <%@ Page Title="" Language="C#" MasterPageFile="~/Backoffice/BackOffice.Master" AutoEventWireup="true"
-    CodeBehind="Standings.aspx.cs" Inherits="Tourna.Backoffice.Standings" %>
+    CodeBehind="Standings.aspx.cs" Inherits="StrongerOrg.Backoffice.Standings" %>
 
 <%@ MasterType VirtualPath="~/Backoffice/BackOffice.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">

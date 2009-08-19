@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/FrontSite.Master" AutoEventWireup="true" CodeBehind="TermOfUser.aspx.cs" Inherits="Tourna.FrontSitePages.TermOfUser" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/FrontSite.Master" AutoEventWireup="true" CodeBehind="TermOfUser.aspx.cs" Inherits="StrongerOrg.FrontSitePages.TermOfUser" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 <title>Term Of Use</title>
 </asp:Content>

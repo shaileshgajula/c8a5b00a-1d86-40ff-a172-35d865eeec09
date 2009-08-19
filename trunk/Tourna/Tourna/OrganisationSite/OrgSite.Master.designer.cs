@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Tourna.OrganisationSite {
+namespace StrongerOrg.OrganisationSite {
     
     
     public partial class OrgSite {

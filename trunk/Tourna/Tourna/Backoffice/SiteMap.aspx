@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Backoffice/BackOffice.Master"
-    CodeBehind="SiteMap.aspx.cs" Inherits="Tourna.SiteMap" %>
+    CodeBehind="SiteMap.aspx.cs" Inherits="StrongerOrg.SiteMap" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Site map</title>

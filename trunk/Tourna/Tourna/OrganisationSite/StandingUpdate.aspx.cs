@@ -4,14 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Tourna.Backoffice.Entities;
-using Tourna.Backoffice.Entities.GameStandingTableAdapters;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Data;
+using StrongerOrg.Backoffice.Entities.GameStandingTableAdapters;
+using StrongerOrg.Backoffice.Entities;
 
 
-namespace Tourna.OrganisationSite
+namespace StrongerOrg.OrganisationSite
 {
     //http://localhost:21106/OrganisationSite/StandingUpdate.aspx?OrgId=28f7a6b6-abfb-4544-b700-3363ce4bb1d9&PlayerId=843c2f2a-33e6-42c1-9b3f-30d99bf51800&ScheduleId=111
 

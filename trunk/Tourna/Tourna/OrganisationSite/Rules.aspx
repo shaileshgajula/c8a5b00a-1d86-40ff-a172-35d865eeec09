@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/OrganisationSite/OrgSite.Master" AutoEventWireup="true" 
-CodeBehind="Rules.aspx.cs" Inherits="Tourna.OrganisationSite.Rules" Theme="OrganisationSite" %>
+CodeBehind="Rules.aspx.cs" Inherits="StrongerOrg.OrganisationSite.Rules" Theme="OrganisationSite" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 <title>Rules</title>
 </asp:Content>

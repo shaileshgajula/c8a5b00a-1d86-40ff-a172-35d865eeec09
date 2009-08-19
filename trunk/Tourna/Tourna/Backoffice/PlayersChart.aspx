@@ -1,5 +1,5 @@
 <%@ Page Title="" Language="C#" MasterPageFile="~/Backoffice/BackOffice.Master" AutoEventWireup="true"
-    CodeBehind="PlayersChart.aspx.cs" Inherits="Tourna.Backoffice.PlayersChart" %>
+    CodeBehind="PlayersChart.aspx.cs" Inherits="StrongerOrg.Backoffice.PlayersChart" %>
 
 <%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Charting" TagPrefix="telerik" %>
 <%--<%@ Register Assembly="System.Web.DataVisualization, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"

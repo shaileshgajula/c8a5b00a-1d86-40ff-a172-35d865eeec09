@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Tourna {
+namespace StrongerOrg {
     
     
     public partial class PlayerSubscription {
