@@ -31,7 +31,7 @@
 			<siteMapNode title="Clients Section open only to client's moderators" url="~/login.aspx">
 				<siteMapNode title="Tournament Management" url="~\Backoffice\TournamentBuilder.aspx" description="define tournament parameters"/>
 				<siteMapNode title="Payments Management" url="~\Backoffice\PaymentsManagement.aspx"/>
-				<siteMapNode title="Schedules" description="plus edit option" url="~\Backoffice\Scheduler.aspx"></siteMapNode>
+				<siteMapNode title="Schedules" description="plus edit option" url="~\Backoffice\Schedules.aspx"></siteMapNode>
 				<siteMapNode title="Create Client Account" url="~\Backoffice\CreateClientAccount.aspx"/>
 			</siteMapNode>
 			<siteMapNode title="Administrator Section" url="~/AdminSection.aspx">
