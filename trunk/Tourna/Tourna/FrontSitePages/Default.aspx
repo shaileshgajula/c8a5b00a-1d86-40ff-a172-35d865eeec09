@@ -106,15 +106,13 @@
                 <table style="width: 100%">
                     <tr>
                         <td class="AzureText">
-                            Reval
+                            Aharon Company
                         </td>
                     </tr>
                     <tr>
                         <td class="GrayTextNormal">
-                            Welcome to Pick One Challenge Presented by T-Mobile, NBA.com's new daily pick fantasy
-                            game. If you're looking for a low maintenance, high excitement, strategy-based fantasy
-                            challenge, Pick One is your game! Create a league and invite your friends or join
-                            a public league with fans from around the world.
+                           “In our company we have a Wii in the dining room, however people are going to play and no one is really interested of what is going on. When we decided to work with Stornger org last summer we understood that when you arrange such a competition during the lunch hours and people are registered to that, then there is more excitement, people start talking with each other, not only with the people that they know and like. We suddenly saw tat the people are more involve, people are not shy to talk in companies meeting, something that wasn’t before. The value of having our employees talking with us and telling us what they think is so valuable for us.”
+                           <br />CEO Garshon Aharon
                         </td>
                     </tr>
                     <tr>
@@ -130,15 +128,14 @@
                 <table style="width: 100%">
                     <tr>
                         <td class="AzureText">
-                            Comverse
+                            Buildone
                         </td>
                     </tr>
                     <tr>
                         <td class="GrayTextNormal">
-                            Welcome to Pick One Challenge Presented by T-Mobile, NBA.com's new daily pick fantasy
-                            game. If you're looking for a low maintenance, high excitement, strategy-based fantasy
-                            challenge, Pick One is your game! Create a league and invite your friends or join
-                            a public league with fans from around the world.
+                            “We have a building event every 6 months, this event is important for us to meet the people. In the last event in which we brought Stronger org the number of tenants that joined the event was higher by 80% from the previous times, this was amazing.  “ Says Debera shean” property manager. “ We had never had such a thing” Our brad and image among our tenant increased dramatically, new tenants that came heard about our building events and were very impressed and it helped us to increase our sales by 10%.” “No doubt that I will do that again every year with different games”
+                            <br />
+                            Debera shean” property manager.
                         </td>
                     </tr>
                     <tr>
@@ -154,15 +151,13 @@
                 <table style="width: 100%">
                     <tr>
                         <td class="AzureText">
-                            Margolin bros.
+                            Margolin Bros 
                         </td>
                     </tr>
                     <tr>
                         <td class="GrayTextNormal">
-                            Welcome to Pick One Challenge Presented by T-Mobile, NBA.com's new daily pick fantasy
-                            game. If you're looking for a low maintenance, high excitement, strategy-based fantasy
-                            challenge, Pick One is your game! Create a league and invite your friends or join
-                            a public league with fans from around the world.
+                            “In Margolin bros the employees are working on the fields and I wasn’t sure that a competition during the week can fit. However the guys in Stronger org came with an idea to boost my holiday event and to have a Wii competition. I never played with a Wii but my kids do. I wasn’t sure that the Wii can fit to my employees however on the day of the events after we had so many registration to the competition we had a great fun. People instead of just easting and coming again to a company event, really enjoyed they were excited and appreciated the innovative idea that we brought for lunch.” Says Maayan Margolin accountant “Everyone played”
+                            <br> Maayan Margolin CFO
                         </td>
                     </tr>
                     <tr>
