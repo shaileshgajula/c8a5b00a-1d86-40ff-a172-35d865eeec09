@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.Security;
+using StrongerOrg.Backoffice.DataLayer;
 
 namespace StrongerOrg
 {
@@ -58,6 +59,11 @@ namespace StrongerOrg
         }
         private void LoginUser(string userName)
         {
+            TournaDataContext tournament = new TournaDataContext();
+            //tournament.
+            //this.OrganisationName = HttpContext.Current.Profile.GetPropertyValue("OrganisationName").ToString();
+            //this.OrganisationId = HttpContext.Current.Profile.GetPropertyValue("OrganisationId").ToString();
+
             // Create the cookie that contains the forms authentication ticket
             HttpCookie authCookie = FormsAuthentication.GetAuthCookie(userName, false);
 

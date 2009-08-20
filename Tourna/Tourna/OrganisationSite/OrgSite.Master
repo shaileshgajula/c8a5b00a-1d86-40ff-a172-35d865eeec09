@@ -12,54 +12,52 @@
             height: 650px;
         }
     </style>
-
-    
-
 </head>
 <body>
-<script type="text/javascript">
-    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-    try {
-        var pageTracker = _gat._getTracker("UA-10085548-1");
-        pageTracker._trackPageview();
-    } catch (err) { }</script>
+
+    <script type="text/javascript">
+        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+
+    <script type="text/javascript">
+        try {
+            var pageTracker = _gat._getTracker("UA-10085548-1");
+            pageTracker._trackPageview();
+        } catch (err) { }</script>
+
     <form id="form1" runat="server">
     <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
     </telerik:RadScriptManager>
-    
-        <table class="style1" border="0">
-            <tr>
-                <td>
-                    <asp:Label ID="lblOrgLotoText" runat="server" Text=""></asp:Label>
-                    <asp:Image ID="imgOrgLogo" runat="server" ImageUrl="" />
-                </td>
-            </tr>
-            <tr>
-                <td align="right">
-                    <asp:Menu ID="Menu1" runat="server" DataSourceID="SiteMapDataSource1" Orientation="Horizontal"
-                        OnMenuItemDataBound="Menu1_MenuItemDataBound" StaticItemFormatString="{0}  |">
-                    </asp:Menu>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                    </asp:ContentPlaceHolder>
-                </td>
-            </tr>
-            <tr>
-                <td align="center">
-                    All Rights Reserved. | <a href="">Terms of Use</a> | <a href="">Trademarks</a> | <a href="">Privacy Statement</a> © 2009 USHA
-                    Corporation.
-                </td>
-            </tr>
-        </table>
-        <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" ShowStartingNode="false"
-            StartingNodeUrl="~/OrganisationSite.aspx" />
-
+    <table class="style1" border="0">
+        <tr>
+            <td>
+                <asp:Label ID="lblOrgLotoText" runat="server" Text=""></asp:Label>
+                <asp:Image ID="imgOrgLogo" runat="server" ImageUrl="" />
+            </td>
+        </tr>
+        <tr>
+            <td align="right">
+                <asp:Menu ID="Menu1" runat="server" DataSourceID="SiteMapDataSource1" Orientation="Horizontal"
+                    OnMenuItemDataBound="Menu1_MenuItemDataBound" StaticItemFormatString="{0}  |">
+                </asp:Menu>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </td>
+        </tr>
+        <tr>
+            <td align="center">
+                All Rights Reserved. | <a href="">Terms of Use</a> | <a href="">Trademarks</a> |
+                <a href="">Privacy Statement</a> © 2009 USHA Corporation.
+            </td>
+        </tr>
+    </table>
+    <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" ShowStartingNode="false"
+        StartingNodeUrl="~/OrganisationSite.aspx" />
     </form>
 </body>
 </html>
