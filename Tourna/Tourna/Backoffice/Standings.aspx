@@ -48,7 +48,7 @@
                 SelectCommand="StandingsGet" SelectCommandType="StoredProcedure" 
                 UpdateCommand="StandingUpdate" UpdateCommandType="StoredProcedure">
                 <SelectParameters>
-                    <asp:Parameter Name="TournamentId" DbType="Guid" />
+                    <asp:Parameter Name="TournamentId" DbType="String"/>
                 </SelectParameters>
                 <UpdateParameters>
                     <asp:Parameter Name="ScoreA" Type="Int32"  />
@@ -60,7 +60,7 @@
     <asp:SqlDataSource ID="Tournaments" runat="server" ConnectionString="<%$ ConnectionStrings:StrongerOrgString %>"
         SelectCommand="TournamentsGet" SelectCommandType="StoredProcedure" CancelSelectOnNullParameter="false">
         <SelectParameters>
-            <asp:ProfileParameter Name="OrganisationId" PropertyName="OrganisationId" Type="String" />
+            <asp:CookieParameter Name="OrganisationId" CookieName="OrganisationId" Type="String" />
             <asp:QueryStringParameter Name="TournamentId" QueryStringField="TournamentId" Type="String" />
         </SelectParameters>
         

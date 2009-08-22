@@ -29,10 +29,18 @@
 				<siteMapNode title="Recover Password"/>
 			</siteMapNode>
 			<siteMapNode title="Clients Section open only to client's moderators" url="~/login.aspx">
-				<siteMapNode title="Tournament Management" url="~\Backoffice\TournamentBuilder.aspx" description="define tournament parameters"/>
-				<siteMapNode title="Payments Management" url="~\Backoffice\PaymentsManagement.aspx"/>
-				<siteMapNode title="Schedules" description="plus edit option" url="~\Backoffice\Schedules.aspx"></siteMapNode>
-				<siteMapNode title="Create Client Account" url="~\Backoffice\CreateClientAccount.aspx"/>
+        <siteMapNode title="Organisation Info" url="~\Backoffice\OrganisationInfo.aspx"/>
+				<siteMapNode title="Tournaments" url="~\Backoffice\Tournaments.aspx" description="define tournament parameters"/>
+        <siteMapNode title="Players" url="~/Backoffice/OrganisationPlayers.aspx?"/>
+        <siteMapNode title="Schedules" description="plus edit option" url="~\Backoffice\Schedules.aspx"/>
+        <siteMapNode title="Standings" description="plus edit option" url="~\Backoffice\Standings.aspx"/>
+        <siteMapNode title="Manage Users" url="~/Backoffice/ManageUsers.aspx?"/>
+        <siteMapNode title="Tournamet rules" url="~/Backoffice/Rules.aspx?"/>
+        <siteMapNode title="Event gallery" url="~\Backoffice\EventGallery.aspx"/>
+        
+        <siteMapNode title="Payments Management" url="~\Backoffice\PaymentsManagement.aspx"/>
+        
+        
 			</siteMapNode>
 			<siteMapNode title="Administrator Section" url="~/AdminSection.aspx">
 				<siteMapNode title="Client Payments" url="~/Backoffice/ClientsPayment.aspx">

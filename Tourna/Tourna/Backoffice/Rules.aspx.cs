@@ -16,7 +16,7 @@ namespace StrongerOrg.Backoffice
         {
             if (!IsPostBack)
             {
-                this.reRules.Content =TextContentManager.GetTextContent(new Guid(HttpContext.Current.Profile.GetPropertyValue("OrganisationId").ToString()), 1);
+                this.reRules.Content =TextContentManager.GetTextContent(this.Master.OrgBasicInfo.Id, 1);
             }
         }
 

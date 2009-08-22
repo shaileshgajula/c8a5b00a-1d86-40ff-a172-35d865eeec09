@@ -12,10 +12,9 @@ namespace StrongerOrg.Backoffice
 {
     public partial class Games2Organisation : System.Web.UI.Page
     {
-        string orgId;
+        
         protected void Page_Load(object sender, EventArgs e)
         {
-            orgId = HttpContext.Current.Profile.GetPropertyValue("OrganisationId").ToString();
             if (!IsPostBack)
             {
                 BindData();
@@ -31,7 +30,7 @@ namespace StrongerOrg.Backoffice
                 command.CommandType = System.Data.CommandType.StoredProcedure;
                 command.Connection = conn;
                 command.CommandText = "GetOrganisations2Games";
-                command.Parameters.Add("@OrganisationId", System.Data.SqlDbType.NVarChar, 150).Value = orgId;
+                command.Parameters.Add("@OrganisationId", System.Data.SqlDbType.UniqueIdentifier).Value = Master.OrgBasicInfo.Id;
                 conn.Open();
                 SqlDataReader reader = command.ExecuteReader(System.Data.CommandBehavior.Default);
                 while (reader.Read())
@@ -64,7 +63,7 @@ namespace StrongerOrg.Backoffice
                 command.CommandType = CommandType.StoredProcedure;
                 command.Connection = conn;
                 command.CommandText = "Organisations2GamesInsert";
-                command.Parameters.Add("@OrganisationId", System.Data.SqlDbType.NVarChar, 150).Value = orgId;
+                command.Parameters.Add("@OrganisationId", System.Data.SqlDbType.UniqueIdentifier).Value = Master.OrgBasicInfo.Id;
                 command.Parameters.Add("@GameId", System.Data.SqlDbType.NVarChar, 150).Value = gameId;
                 conn.Open();
                 command.ExecuteNonQuery();
@@ -79,7 +78,7 @@ namespace StrongerOrg.Backoffice
                 command.CommandType = CommandType.StoredProcedure;
                 command.Connection = conn;
                 command.CommandText = "Organisations2GamesDelete";
-                command.Parameters.Add("@OrganisationId", System.Data.SqlDbType.NVarChar, 150).Value = orgId;
+                command.Parameters.Add("@OrganisationId", System.Data.SqlDbType.UniqueIdentifier).Value = Master.OrgBasicInfo.Id;
                 conn.Open();
                 command.ExecuteNonQuery();
             }

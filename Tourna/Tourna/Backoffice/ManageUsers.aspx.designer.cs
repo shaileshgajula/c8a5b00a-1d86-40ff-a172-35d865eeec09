@@ -167,13 +167,13 @@ namespace StrongerOrg.Backoffice {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// rbRoles control.
+        /// LoginView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rbRoles;
+        protected global::System.Web.UI.WebControls.LoginView LoginView1;
         
         /// <summary>
         /// lbCreateUser control.
@@ -192,5 +192,17 @@ namespace StrongerOrg.Backoffice {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal ErrorMessage;
+        
+        /// <summary>
+        /// Master property.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated property.
+        /// </remarks>
+        public new StrongerOrg.Backoffice.BackOffice Master {
+            get {
+                return ((StrongerOrg.Backoffice.BackOffice)(base.Master));
+            }
+        }
     }
 }

@@ -16,7 +16,7 @@ namespace StrongerOrg.BackOffice.PairsAlgorithm
             int length = playerList.Count;
             
             //add a player to make it even
-            if (length % 2 == 0)
+            if (length % 2 != 0)
                 playerList.Add(new MetaPlayer() { Id = Guid.Empty, PlayerName = "Computer" });
 
 
@@ -32,6 +32,7 @@ namespace StrongerOrg.BackOffice.PairsAlgorithm
                     PlayerBId = playerList[i + 1].Id,
                     PlayerBName = playerList[i + 1].PlayerName
                 };
+                pairs.Add(pairUp);
             }
 
 

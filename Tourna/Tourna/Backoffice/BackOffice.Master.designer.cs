@@ -50,15 +50,6 @@ namespace StrongerOrg.Backoffice {
         protected global::System.Web.UI.WebControls.Label lblOrganisationName;
         
         /// <summary>
-        /// hlOrganisationSite control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlOrganisationSite;
-        
-        /// <summary>
         /// lblOrganisationId control.
         /// </summary>
         /// <remarks>
@@ -75,24 +66,6 @@ namespace StrongerOrg.Backoffice {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LoginView LoginView1;
-        
-        /// <summary>
-        /// LoginStatus1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LoginStatus LoginStatus1;
-        
-        /// <summary>
-        /// Repeater1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater Repeater1;
         
         /// <summary>
         /// LoginView2 control.

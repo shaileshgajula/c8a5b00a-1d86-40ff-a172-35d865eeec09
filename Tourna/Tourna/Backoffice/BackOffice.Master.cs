@@ -4,20 +4,45 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.Caching;
 
 namespace StrongerOrg.Backoffice
 {
     public partial class BackOffice : System.Web.UI.MasterPage
     {
+        OrganisationManager.OrganisationBasicInfo orgBasicInfo;
+        protected override void OnInit(EventArgs e)
+        {
+            string orgId;
+            if (Request.Cookies["OrganisationId"] != null)
+            {
+                orgId = Server.HtmlEncode(Request.Cookies["OrganisationId"].Value);
+                if (HttpContext.Current.Cache[orgId] != null)
+                {
+                    orgBasicInfo = HttpContext.Current.Cache[orgId] as OrganisationManager.OrganisationBasicInfo;
+                }
+                else
+                {
+                    orgBasicInfo = OrganisationManager.GetOrganisationInfo(new Guid(orgId));
+                    HttpContext.Current.Cache.Add(orgId, orgBasicInfo, null, DateTime.MaxValue, new TimeSpan(0, 35, 0), CacheItemPriority.Normal, null);
+                }
+                this.lblOrganisationId.Text = orgId;
+                this.lblOrganisationName.Text = orgBasicInfo.Name;
+            }
+            else
+            {
+                this.lblOrganisationId.Text = "Problem to read cookie";
+            }
+            base.OnInit(e);
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
-            {
-                this.OrganisationName = HttpContext.Current.Profile.GetPropertyValue("OrganisationName").ToString();
-                this.OrganisationId = HttpContext.Current.Profile.GetPropertyValue("OrganisationId").ToString();
-                this.hlOrganisationSite.NavigateUrl = string.Format("~/OrganisationSite/default.aspx?OrgId={0}", this.OrganisationId);
-            }
 
+            
+        }
+        public OrganisationManager.OrganisationBasicInfo OrgBasicInfo
+        {
+            get { return orgBasicInfo; }
         }
         public string OrganisationName
         {

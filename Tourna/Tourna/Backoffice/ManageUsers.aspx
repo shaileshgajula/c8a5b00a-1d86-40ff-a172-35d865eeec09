@@ -1,30 +1,15 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Backoffice/BackOffice.Master" AutoEventWireup="true"
     CodeBehind="ManageUsers.aspx.cs" Inherits="StrongerOrg.Backoffice.ManageUsers" %>
 
+<%@ MasterType VirtualPath="~/Backoffice/BackOffice.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <%--<style type="text/css">
-        .style1
-        {
-            width: 100%;
-        }
-        .style2
-        {
-            width: 584px;
-        }
-        .style3
-        {
-        }
-        .style4
-        {
-            width: 35px;
-        }
-    </style>--%>
     <title>Manage users</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:Label ID="lblTitle" runat="server" Text="Manage users" CssClass="GrayTitle"></asp:Label>
-<br/><br/>
-    <table cellpadding="2" cellspacing="2" style="width:50%">
+    <br />
+    <br />
+    <table cellpadding="2" cellspacing="2" style="width: 50%">
         <tr>
             <td class="HeaderStyle" colspan="2">
                 Search for Users
@@ -40,9 +25,10 @@
                     <asp:ListItem Value="OrganisationName">Organisation Name</asp:ListItem>
                 </asp:DropDownList>
                 for:<asp:TextBox ID="txtSearchParam" runat="server"></asp:TextBox>
-                
             </td>
-            <td><asp:LinkButton ID="lbFind" runat="server" OnClick="Button1_Click">Find</asp:LinkButton></td>
+            <td>
+                <asp:LinkButton ID="lbFind" runat="server">Find</asp:LinkButton>
+            </td>
         </tr>
         <tr>
             <td class="GrayTextLight" colspan="2">
@@ -51,29 +37,35 @@
         </tr>
     </table>
     <br />
-        <br />
-    <asp:GridView ID="GridView1" runat="server" DataSourceID="ObjectDataSource1" AutoGenerateColumns="False"
+    <br />
+    <asp:GridView ID="GridView1" runat="server" DataSourceID="ObjectDataSource1" AutoGenerateColumns="false"
         DataKeyNames="UserName" GridLines="None" Width="100%" AlternatingRowStyle-CssClass="AlternatingRow"
         HeaderStyle-CssClass="HeaderStyle">
         <Columns>
             <asp:BoundField DataField="UserName" HeaderText="UserName" ReadOnly="True" SortExpression="UserName" />
-            <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
-            <asp:BoundField DataField="Comment" HeaderText="Comment" SortExpression="Comment" />
-            <asp:CheckBoxField DataField="IsApproved" HeaderText="Is Approved" SortExpression="IsApproved" />
-            <asp:CheckBoxField DataField="IsLockedOut" HeaderText="Is LockedOut" ReadOnly="True"
-                SortExpression="IsLockedOut" />
-            <asp:BoundField DataField="CreationDate" HeaderText="Creation Date" ReadOnly="True"
-                SortExpression="CreationDate" DataFormatString="{0:d}" />
-            <asp:BoundField DataField="LastLoginDate" HeaderText="Last Login Date" SortExpression="LastLoginDate"
+            <asp:BoundField DataField="Name" HeaderText="Organisation" SortExpression="Name" />
+            <asp:BoundField DataField="RoleName" HeaderText="Role Name" SortExpression="RoleName" />
+            <asp:BoundField DataField="LastActivityDate" HeaderText="Last Activity Date" SortExpression="LastActivityDate"
                 DataFormatString="{0:d}" />
+                <asp:BoundField DataField="Description" HeaderText="Role Description" SortExpression="Description" />
             <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" />
         </Columns>
         <EmptyDataTemplate>
             No Records found
         </EmptyDataTemplate>
     </asp:GridView>
-    <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="FindUsers"
-        TypeName="StrongerOrg.Backoffice.Entities.ManageUsers" DeleteMethod="DeleteUser">
+    <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="GetOrganisationUsers"
+        TypeName="StrongerOrg.Backoffice.Entities.UsersManager" DeleteMethod="DeleteUser">
+        <DeleteParameters>
+            <asp:Parameter Name="UserName" Type="String" />
+        </DeleteParameters>
+        <SelectParameters>
+            <asp:CookieParameter  Name="organisationId" CookieName="organisationId" 
+                Type="String" />
+        </SelectParameters>
+    </asp:ObjectDataSource>
+    <%--<asp:ObjectDataSource ID="ObjectDataSource2" runat="server" SelectMethod="GetOrganisationUsers"
+        TypeName="StrongerOrg.Backoffice.Entities.UsersManager" DeleteMethod="DeleteUser">
         <DeleteParameters>
             <asp:Parameter Name="UserName" Type="String" />
         </DeleteParameters>
@@ -83,16 +75,16 @@
             <asp:ControlParameter ControlID="ddlSearchBy" Name="searchByKey" PropertyName="SelectedValue"
                 Type="String" />
         </SelectParameters>
-    </asp:ObjectDataSource>
+    </asp:ObjectDataSource>--%>
     <br />
-    <table border="0" style="width:50%" cellpadding="2" cellspacing="2">
+    <table border="0" style="width: 50%" cellpadding="2" cellspacing="2">
         <tr>
             <td colspan="2" class="HeaderStyle">
-                Sign Up for Your New Account
+                Sign Up for New Account to <%= Master.OrgBasicInfo.Name%>
             </td>
         </tr>
         <tr>
-            <td >
+            <td>
                 <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="txtUserName">User Name:</asp:Label>
             </td>
             <td>
@@ -102,7 +94,7 @@
             </td>
         </tr>
         <tr>
-            <td >
+            <td>
                 <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="txtPassword">Password:</asp:Label>
             </td>
             <td>
@@ -112,7 +104,7 @@
             </td>
         </tr>
         <tr>
-            <td >
+            <td>
                 <asp:Label ID="EmailLabel" runat="server" AssociatedControlID="txtEmail">E-mail:</asp:Label>
             </td>
             <td>
@@ -124,22 +116,38 @@
             </td>
         </tr>
         <tr>
-            <td >
+            <td>
                 <asp:Label ID="Label1" runat="server">Role:</asp:Label>
             </td>
             <td>
-                <asp:RadioButtonList ID="rbRoles" runat="server">
-                    <asp:ListItem>Administrator</asp:ListItem>
-                    <asp:ListItem Selected="True">Moderator</asp:ListItem>
-                    <asp:ListItem>Accountants</asp:ListItem>
-                    <asp:ListItem Value="ContentManager">Content manager</asp:ListItem>
-                </asp:RadioButtonList>
+                <asp:LoginView ID="LoginView1" runat="server">
+                    <RoleGroups>
+                        <asp:RoleGroup Roles="Administrator">
+                            <ContentTemplate>
+                                <asp:RadioButtonList ID="rbRoles" runat="server">
+                                    <asp:ListItem>Administrator</asp:ListItem>
+                                    <asp:ListItem Selected="True">Moderator</asp:ListItem>
+                                    <asp:ListItem>Accountants</asp:ListItem>
+                                    <asp:ListItem Value="ContentManager">Content manager</asp:ListItem>
+                                </asp:RadioButtonList>
+                            </ContentTemplate>
+                        </asp:RoleGroup>
+                        <asp:RoleGroup Roles="Moderator">
+                            <ContentTemplate>
+                                <asp:RadioButtonList ID="rbRoles" runat="server">
+                                    <asp:ListItem Selected="True">Moderator</asp:ListItem>
+                                    <asp:ListItem>Accountants</asp:ListItem>
+                                    <asp:ListItem Value="ContentManager">Content manager</asp:ListItem>
+                                </asp:RadioButtonList>
+                            </ContentTemplate>
+                        </asp:RoleGroup>
+                    </RoleGroups>
+                </asp:LoginView>
             </td>
         </tr>
         <tr>
             <td align="right" colspan="2">
-                <asp:LinkButton
-                    ID="lbCreateUser" runat="server" OnClick="btnCreateUser_Click">Create user</asp:LinkButton>
+                <asp:LinkButton ID="lbCreateUser" runat="server" OnClick="btnCreateUser_Click">Create user</asp:LinkButton>
             </td>
         </tr>
         <tr>

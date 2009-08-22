@@ -49,7 +49,7 @@ namespace StrongerOrg.BackOffice.PairsAlgorithm
 
     }
 
-    internal class MetaPlayer
+    public class MetaPlayer
     {
         public Guid Id { get; set; }
         public string PlayerName { get; set; }

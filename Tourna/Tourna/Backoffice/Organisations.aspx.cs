@@ -47,9 +47,13 @@ namespace StrongerOrg.Backoffice
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
             string organisationName = this.GridView1.SelectedDataKey["Name"].ToString();
-            HttpContext.Current.Profile.SetPropertyValue("OrganisationId", this.GridView1.SelectedDataKey["Id"].ToString());
-            HttpContext.Current.Profile.SetPropertyValue("OrganisationName", organisationName);
-            Master.OrganisationName = organisationName;
+            Response.Cookies["OrganisationId"].Value = this.GridView1.SelectedDataKey["Id"].ToString();
+            this.Master.OrganisationName = organisationName;
+            this.Master.OrganisationId = this.GridView1.SelectedDataKey["Id"].ToString();
+            //HttpContext.Current.Profile.SetPropertyValue("OrganisationId", this.GridView1.SelectedDataKey["Id"].ToString());
+            //HttpContext.Current.Profile.SetPropertyValue("OrganisationName", organisationName);
+            //Master.OrganisationName = organisationName;
+            //this.GridView1.DataBind();
         }
         private void SaveLogoFile(string newFileName)
         {

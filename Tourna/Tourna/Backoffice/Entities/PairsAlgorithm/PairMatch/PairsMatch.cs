@@ -13,9 +13,9 @@ namespace StrongerOrg.BackOffice.PairsAlgorithm
             switch(type)
             {
                 case PairsMatchType.Default:
-                    return null;
+                    return new DefaultMatch();
                 default:
-                    return null;
+                    return new DefaultMatch();
             }
         }
     }
