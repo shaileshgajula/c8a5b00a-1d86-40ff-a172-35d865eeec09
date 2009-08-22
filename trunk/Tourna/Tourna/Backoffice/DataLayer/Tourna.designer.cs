@@ -63,7 +63,7 @@ namespace StrongerOrg.Backoffice.DataLayer
     #endregion
 		
 		public TournaDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["TournaConnectionString"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["StrongerOrgString"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}

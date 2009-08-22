@@ -17,12 +17,12 @@ namespace StrongerOrg.Backoffice
             }
             else
             {
-                this.lblTitle.Text = string.Format("{0} Players[from all tournaments]", Master.OrganisationName);
+                this.lblTitle.Text = string.Format("{0} Players[from all tournaments]", Master.OrgBasicInfo.Name);
             }
         }
         protected string BuildUrl()
         {
-            return string.Format(@"~\OrganisationSite\PlayerSubscription.aspx?OrgId={0}", HttpContext.Current.Profile.GetPropertyValue("OrganisationId").ToString());
+            return string.Format(@"~\OrganisationSite\PlayerSubscription.aspx?OrgId={0}", Master.OrgBasicInfo.Id.ToString());
         }
 
 

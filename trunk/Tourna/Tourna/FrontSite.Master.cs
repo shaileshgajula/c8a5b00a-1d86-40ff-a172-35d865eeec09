@@ -6,6 +6,9 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.Security;
 using StrongerOrg.Backoffice.DataLayer;
+using System.Data.SqlClient;
+using System.Configuration;
+using System.Web.Profile;
 
 namespace StrongerOrg
 {
@@ -59,24 +62,38 @@ namespace StrongerOrg
         }
         private void LoginUser(string userName)
         {
-            TournaDataContext tournament = new TournaDataContext();
-            //tournament.
-            //this.OrganisationName = HttpContext.Current.Profile.GetPropertyValue("OrganisationName").ToString();
-            //this.OrganisationId = HttpContext.Current.Profile.GetPropertyValue("OrganisationId").ToString();
+            
+                // Create the cookie that contains the forms authentication ticket
+                HttpCookie authCookie = FormsAuthentication.GetAuthCookie(userName, false);
 
-            // Create the cookie that contains the forms authentication ticket
-            HttpCookie authCookie = FormsAuthentication.GetAuthCookie(userName, false);
+                // Get the FormsAuthenticationTicket out of the encrypted cookie
+                FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(authCookie.Value);
 
-            // Get the FormsAuthenticationTicket out of the encrypted cookie
-            FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(authCookie.Value);
+                // Update the authCookie's Value to use the encrypted version of newTicket
+                authCookie.Value = FormsAuthentication.Encrypt(ticket);
+                
+                //Manually add the authCookie to the Cookies collection 
+                Response.Cookies.Add(authCookie);
 
-            // Update the authCookie's Value to use the encrypted version of newTicket
-            authCookie.Value = FormsAuthentication.Encrypt(ticket);
+            //    using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["StrongerOrgString"].ConnectionString))
+            //    {
+            //        SqlCommand command = new SqlCommand("OrganisationInfoByUserNameGet", conn);
+            //        command.CommandType = System.Data.CommandType.StoredProcedure;
+            //        command.Parameters.Add("@UserName", System.Data.SqlDbType.NVarChar, 255).Value = userName;
+            //        conn.Open();
+            //        SqlDataReader reader = command.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
 
-            //' Manually add the authCookie to the Cookies collection 
-            Response.Cookies.Add(authCookie);
+            //        while (reader.Read())
+            //        {
+            //            Guid organisationId = reader.GetGuid(0);
+            //            OrganisationManager.GetOrganisationInfo(organisationId);
+                        
+            //            //HttpContext.Current.Profile.SetPropertyValue("OrganisationId", x);
+            //            //HttpContext.Current.Profile.SetPropertyValue("OrganisationName", reader[1]);
 
+            //        }
 
+            //}
         }
     }
 }

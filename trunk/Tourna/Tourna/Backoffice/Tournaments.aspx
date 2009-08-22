@@ -33,9 +33,11 @@
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:StrongerOrgString %>"
         DeleteCommand="DELETE FROM [Tournaments] WHERE [Id] = @Id" InsertCommand="INSERT INTO [Tournaments] ([Id], [TournamentName], [Abstract]) VALUES (@Id, @TournamentName, @Abstract)"
         SelectCommand="TournamentsGet" UpdateCommand="UPDATE [Tournaments] SET [TournamentName] = @TournamentName, [Abstract] = @Abstract WHERE [Id] = @Id"
-        SelectCommandType="StoredProcedure">
+        SelectCommandType="StoredProcedure" CancelSelectOnNullParameter="false">
         <SelectParameters>
-            <asp:ProfileParameter Name="OrganisationId" PropertyName="OrganisationId" Type="String" />
+            <asp:CookieParameter CookieName="OrganisationId" Name="OrganisationId" 
+                Type="String" />
+            <asp:Parameter Name="TournamentId" Type="String" />
         </SelectParameters>
         <DeleteParameters>
             <asp:Parameter Name="Id" Type="Object" />

@@ -30,7 +30,7 @@
         CancelSelectOnNullParameter="false"       
         UpdateCommand="UPDATE [Players] SET [Name] = @Name, [Email] = @Email, [NickName] = @NickName, [Department] = @Department WHERE [Id] = @Id" >
         <SelectParameters>
-            <asp:ProfileParameter Name="OrganisationId" PropertyName="OrganisationId" Type="String" />
+            <asp:CookieParameter Name="OrganisationId" CookieName="OrganisationId" Type="String" />
             <asp:QueryStringParameter Name="TournamentId" ConvertEmptyStringToNull="true" 
                 QueryStringField="TournamentId" Direction="Input" DbType="String" />
         </SelectParameters>

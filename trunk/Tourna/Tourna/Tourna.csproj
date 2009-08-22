@@ -102,7 +102,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GameStanding.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Backoffice\Entities\OrganisationInfo.cs" />
+    <Compile Include="Backoffice\Entities\NumberOfGamesPerPlayerAlgo.cs" />
+    <Compile Include="Backoffice\Entities\OrganisationManager.cs" />
     <Compile Include="Backoffice\Entities\OrganisationInfo.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -110,6 +111,7 @@
     </Compile>
     <Compile Include="Backoffice\Entities\PairsAlgorithm\PairMatch\DefaultMatch.cs" />
     <Compile Include="Backoffice\Entities\PairsAlgorithm\PairMatch\IPairMatching.cs" />
+    <Compile Include="Backoffice\Entities\PairsAlgorithm\PairMatch\MultiMatch.cs" />
     <Compile Include="Backoffice\Entities\PairsAlgorithm\PairMatch\PairsMatch.cs" />
     <Compile Include="Backoffice\Entities\PairsAlgorithm\PairsAlgo.cs" />
     <Compile Include="Backoffice\Entities\PairsAlgorithm\PairsAlgorithmType\AlphabeticalPairs.cs" />
@@ -125,6 +127,13 @@
     </Compile>
     <Compile Include="Backoffice\Entities\TextContentManager.cs" />
     <Compile Include="Backoffice\Entities\TournamentManager.cs" />
+    <Compile Include="Backoffice\EventGallery.aspx.cs">
+      <DependentUpon>EventGallery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backoffice\EventGallery.aspx.designer.cs">
+      <DependentUpon>EventGallery.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Backoffice\Games.aspx.cs">
       <DependentUpon>Games.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -159,6 +168,13 @@
     </Compile>
     <Compile Include="Backoffice\MarketingMaterials.aspx.designer.cs">
       <DependentUpon>MarketingMaterials.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backoffice\OrganisationInfo.aspx.cs">
+      <DependentUpon>OrganisationInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backoffice\OrganisationInfo.aspx.designer.cs">
+      <DependentUpon>OrganisationInfo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Backoffice\OrganisationPlayers.aspx.cs">
       <DependentUpon>OrganisationPlayers.aspx</DependentUpon>
@@ -345,7 +361,7 @@
     <Compile Include="Login\PasswordRecover.aspx.designer.cs">
       <DependentUpon>PasswordRecover.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Backoffice\Entities\ManageUsers.cs" />
+    <Compile Include="Backoffice\Entities\UsersManager.cs" />
     <Compile Include="Login\SetUp.aspx.cs">
       <DependentUpon>SetUp.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -563,6 +579,8 @@
   <ItemGroup>
     <Content Include="App_Themes\OrganisationSite\AzureBaseStylesheet.css" />
     <Content Include="App_Themes\OrganisationSite\GrayBaseSkin.skin" />
+    <Content Include="Backoffice\EventGallery.aspx" />
+    <Content Include="Backoffice\OrganisationInfo.aspx" />
     <None Include="Backoffice\DataLayer\Tourna.dbml.layout">
       <DependentUpon>Tourna.dbml</DependentUpon>
     </None>

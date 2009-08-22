@@ -10,7 +10,7 @@ public class TournamentManager
     
     //}
 
-    internal static string BuildTournament(string tournamentName, string tournamentAbstract, string locations,
+    internal static string BuildTournament(Guid organisationId, string tournamentName, string tournamentAbstract, string locations,
         int numberOfPlayersLimit, int gameId, string matchingAlgo, int timeWindowStart, int timeWindowEnd, bool isOpenAllDay,
         int firstPrize, int secondPrize, int thirdPrize, System.DateTime startDate)
     {
@@ -19,7 +19,7 @@ public class TournamentManager
             SqlCommand command = new SqlCommand("TournamentInsert", conn);
             command.CommandType = System.Data.CommandType.StoredProcedure;
             command.Parameters.Add("@TournamentName", SqlDbType.NVarChar, 150).Value = tournamentName;
-            command.Parameters.Add("@OrganisationId", SqlDbType.NVarChar, 150).Value = HttpContext.Current.Profile.GetPropertyValue("OrganisationId").ToString();
+            command.Parameters.Add("@OrganisationId", SqlDbType.UniqueIdentifier).Value = organisationId;
             command.Parameters.Add("@Abstract", SqlDbType.NVarChar, 150).Value = tournamentAbstract;
             command.Parameters.Add("@Locations", SqlDbType.NVarChar, 150).Value = locations;
             command.Parameters.Add("@NumberOfPlayersLimit", SqlDbType.Int, 4).Value = numberOfPlayersLimit;

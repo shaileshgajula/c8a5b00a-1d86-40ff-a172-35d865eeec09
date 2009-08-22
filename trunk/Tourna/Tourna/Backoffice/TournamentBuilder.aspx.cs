@@ -44,7 +44,7 @@ namespace StrongerOrg
             int thirdPrize = int.Parse(this.txtThirdPrize.Text);
             DateTime startDate = this.rdpStartDate.SelectedDate.Value;
 
-            string tournamentId = TournamentManager.BuildTournament(tournamentName, tournamentAbstract, locations, numberOfPlayersLimit, gameId, matchingAlog, timeWindowStart,
+            string tournamentId = TournamentManager.BuildTournament(Master.OrgBasicInfo.Id, tournamentName, tournamentAbstract, locations, numberOfPlayersLimit, gameId, matchingAlog, timeWindowStart,
                 timeWindowEnd, isOpenAllDay, firstPrize, secondPrize, thirdPrize, startDate);
             string emailTemplate = string.Format(joinTournamentTemplate, Master.OrganisationName, tournamentName,
                                                     Master.OrganisationId, timeWindowStart.ToString(), timeWindowEnd.ToString(),locations,

@@ -14,8 +14,6 @@
     <div id="header">
         <img src="../Images/StrongerOrgLogoBackOffice.gif" />
         <asp:Label ID="lblOrganisationName" runat="server" CssClass="GrayTitle"></asp:Label>
-        <asp:HyperLink ID="hlOrganisationSite" runat="server" ToolTip="Open organisation site"
-            Target="_blank">...</asp:HyperLink>
         <asp:Label ID="lblOrganisationId" runat="server" ForeColor="White"></asp:Label>
     </div>
     <br />
@@ -25,18 +23,18 @@
             </td>
         </tr>
         <tr>
-            <td colspan="3">
+            <td colspan="3" style="text-align:left">
                 <asp:LoginView ID="LoginView1" runat="server">
                     <LoggedInTemplate>
                         Welcome back,
                         <asp:LoginName ID="LoginName1" runat="server" />
-                        .
+                        <asp:LoginStatus ID="LoginStatus1" runat="server" />
                     </LoggedInTemplate>
                     <AnonymousTemplate>
-                        This is restricted area.
+                        This is restricted area. You are not suppose to be here.
                     </AnonymousTemplate>
                 </asp:LoginView>
-                <asp:LoginStatus ID="LoginStatus1" runat="server" />
+                
             </td>
         </tr>
         <tr>
@@ -46,13 +44,6 @@
         <tr>
             <td style="width: 20%; height: 650px; vertical-align: top">
                 <ul>
-                    <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SiteMapDataSource1">
-                        <ItemTemplate>
-                            <li>
-                                <asp:HyperLink ID="lnkMenuItem" runat="server" NavigateUrl='<%# Eval("Url") %>'><%# Eval("Title") %></asp:HyperLink>
-                            </li>
-                        </ItemTemplate>
-                    </asp:Repeater>
                     <asp:LoginView ID="LoginView2" runat="server">
                         <RoleGroups>
                             <asp:RoleGroup Roles="Administrator">
@@ -70,16 +61,24 @@
                             <asp:RoleGroup Roles="Moderator">
                                 <ContentTemplate>
                                     <link id="Link2" href="ModeratorStyle.css" rel="stylesheet" type="text/css" runat="server" />
+                                    <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SiteMapDataSource1">
+                                        <ItemTemplate>
+                                            <li>
+                                                <asp:HyperLink ID="lnkMenuItem" runat="server" NavigateUrl='<%# Eval("Url") %>'><%# Eval("Title") %></asp:HyperLink>
+                                            </li>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
                                 </ContentTemplate>
                             </asp:RoleGroup>
                             <asp:RoleGroup Roles="Accountants">
-                                <ContentTemplate>000
+                                <ContentTemplate>
                                     <link id="Link3" href="AccountantsStyle.css" rel="stylesheet" type="text/css" runat="server" />
                                 </ContentTemplate>
                             </asp:RoleGroup>
                             <asp:RoleGroup Roles="ContentManager">
                                 <ContentTemplate>
-                                    <link id="Link3" href="ContentManagerStyle.css" rel="stylesheet" type="text/css" runat="server" />
+                                    <link id="Link3" href="ContentManagerStyle.css" rel="stylesheet" type="text/css"
+                                        runat="server" />
                                 </ContentTemplate>
                             </asp:RoleGroup>
                         </RoleGroups>

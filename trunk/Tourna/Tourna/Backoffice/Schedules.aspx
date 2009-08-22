@@ -41,7 +41,8 @@
             <asp:SqlDataSource ID="SqlDataSourceTournamentPlayers" runat="server" ConnectionString="<%$ ConnectionStrings:StrongerOrgString %>"
                 SelectCommand="PlayersGet" SelectCommandType="StoredProcedure" CancelSelectOnNullParameter="true">
                 <SelectParameters>
-                    <asp:ProfileParameter Name="OrganisationId" PropertyName="OrganisationId" Type="String" />
+                <asp:CookieParameter Name="OrganisationId" CookieName="OrganisationId" Type="String" />
+                    <%--<asp:ProfileParameter Name="OrganisationId" PropertyName="OrganisationId" Type="String" />--%>
                     <asp:QueryStringParameter Name="TournamentId" QueryStringField="TournamentId" Type="String" />
                 </SelectParameters>
             </asp:SqlDataSource>
@@ -109,7 +110,7 @@
         DeleteCommandType="StoredProcedure" UpdateCommand="ScheduleUpdate" UpdateCommandType="StoredProcedure" CancelSelectOnNullParameter="false">
         <SelectParameters>
             <asp:QueryStringParameter Name="TournamentId" QueryStringField="TournamentId" Type="String" />
-            <asp:ProfileParameter Name="OrganisationId" PropertyName="OrganisationId" Type="String" />
+            <asp:CookieParameter Name="OrganisationId" CookieName="OrganisationId" Type="String" ConvertEmptyStringToNull="true" />
         </SelectParameters>
         <DeleteParameters>
             <asp:Parameter Name="ID" Type="Int32" />

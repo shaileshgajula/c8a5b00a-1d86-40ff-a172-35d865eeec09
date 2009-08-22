@@ -2,10 +2,11 @@
 using System.Configuration;
 using System.Data.SqlClient;
 using System;
+using System.Data;
 namespace StrongerOrg.Backoffice.Entities
 {
     [System.ComponentModel.DataObject]
-    public class ManageUsers
+    public class UsersManager
     {
         [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Select)]
         public MembershipUserCollection FindUsers(string searchKey, string searchByKey) 
@@ -67,6 +68,49 @@ namespace StrongerOrg.Backoffice.Entities
         public void DeleteUser(string userName)
         {
             Membership.DeleteUser(userName);
+        }
+
+        public static Guid GetOrganisationId(string userName)
+        {
+            string organisationId = string.Empty;
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["StrongerOrgString"].ConnectionString))
+            {
+                SqlCommand command = new SqlCommand("OrganisationIdByUserNameGet", conn);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("@UserName", System.Data.SqlDbType.NVarChar, 255).Value = userName;
+                conn.Open();
+                organisationId = command.ExecuteScalar().ToString();
+            }
+            return new Guid(organisationId);
+        }
+
+        internal static void UpdateUserOrganisationId(string userName, Guid organisationId)
+        {
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["StrongerOrgString"].ConnectionString))
+            {
+                SqlCommand command = new SqlCommand("UserOrganisationIdUpdate", conn);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("@UserName", System.Data.SqlDbType.NVarChar, 256).Value = userName;
+                command.Parameters.Add("@OrganisationId", System.Data.SqlDbType.UniqueIdentifier).Value = organisationId;
+                conn.Open();
+                int resultCount = command.ExecuteNonQuery();
+                
+            }
+            
+        }
+        [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Select)]
+        public DataTable GetOrganisationUsers(string organisationId)
+        { 
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["StrongerOrgString"].ConnectionString))
+            {
+                DataTable result = new DataTable();
+                SqlCommand command = new SqlCommand("OrganisationUsersGet", conn);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("@OrganisationId", SqlDbType.VarChar).Value = organisationId;
+                conn.Open();
+                result.Load(command.ExecuteReader());
+                return result;
+            }
         }
     }
 

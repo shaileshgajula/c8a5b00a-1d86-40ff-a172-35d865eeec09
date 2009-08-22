@@ -15,25 +15,25 @@ namespace StrongerOrg.OrganisationSite
         protected void Page_Load(object sender, EventArgs e)
         {
             orgId = Request.QueryString["OrgId"].ToString();
-            OrganisationInfo.OrganisationEntityRow orgInfo;
+            OrganisationManager.OrganisationBasicInfo orgBasicInfo;
             if (HttpContext.Current.Cache[orgId] != null)
             {
-                orgInfo = HttpContext.Current.Cache[orgId] as OrganisationInfo.OrganisationEntityRow;
+                orgBasicInfo = HttpContext.Current.Cache[orgId] as OrganisationManager.OrganisationBasicInfo;
             }
             else
             {
-                orgInfo = OrganisationManager.GetOrganisationInfo(new Guid(orgId));
-                HttpContext.Current.Cache.Add(orgId, orgInfo, null, DateTime.MaxValue, new TimeSpan(0, 35, 0), CacheItemPriority.Normal, null);
+                orgBasicInfo = OrganisationManager.GetOrganisationInfo(new Guid(orgId));
+                HttpContext.Current.Cache.Add(orgId, orgBasicInfo, null, DateTime.MaxValue, new TimeSpan(0, 35, 0), CacheItemPriority.Normal, null);
             }
-            //this.Page.Title = orgInfo.Name;
-            if (string.IsNullOrEmpty(orgInfo.CompanyLogo))
+            this.Page.Title = orgBasicInfo.Name;
+            if (string.IsNullOrEmpty(orgBasicInfo.Logo))
             {
                 this.imgOrgLogo.Visible = false;
-                this.lblOrgLotoText.Text = orgInfo.Name;
+                this.lblOrgLotoText.Text = orgBasicInfo.Name;
             }
             else
             {
-                this.imgOrgLogo.ImageUrl = string.Format("~/OrganisationLogos/{0}", orgInfo.CompanyLogo);
+                this.imgOrgLogo.ImageUrl = string.Format("~/OrganisationLogos/{0}", orgBasicInfo.Logo);
             }
         }
 
