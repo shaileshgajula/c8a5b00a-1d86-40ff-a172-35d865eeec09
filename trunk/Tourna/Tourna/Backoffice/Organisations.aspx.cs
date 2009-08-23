@@ -11,7 +11,7 @@ using System.Data;
 
 namespace StrongerOrg.Backoffice
 {
-    public partial class Organisations : System.Web.UI.Page
+    public partial class Organisations : BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace StrongerOrg.Backoffice
 {
-    public partial class OrganisationInfo : System.Web.UI.Page
+    public partial class OrganisationInfo : BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

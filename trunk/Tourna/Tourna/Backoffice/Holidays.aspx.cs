@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace StrongerOrg.Backoffice
 {
-    public partial class PlayersChart : BasePage
+    public partial class Holidyas : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

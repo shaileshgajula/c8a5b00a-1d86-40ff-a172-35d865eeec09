@@ -13,7 +13,7 @@ using StrongerOrg.BackOffice.Scheduler;
 
 namespace StrongerOrg.Backoffice
 {
-    public partial class ControlPanel : System.Web.UI.Page
+    public partial class ControlPanel : BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

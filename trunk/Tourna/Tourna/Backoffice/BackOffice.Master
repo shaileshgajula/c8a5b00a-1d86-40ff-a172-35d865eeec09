@@ -23,7 +23,7 @@
             </td>
         </tr>
         <tr>
-            <td colspan="3" style="text-align:left">
+            <td colspan="3" style="text-align: left">
                 <asp:LoginView ID="LoginView1" runat="server">
                     <LoggedInTemplate>
                         Welcome back,
@@ -34,7 +34,6 @@
                         This is restricted area. You are not suppose to be here.
                     </AnonymousTemplate>
                 </asp:LoginView>
-                
             </td>
         </tr>
         <tr>
@@ -48,7 +47,6 @@
                         <RoleGroups>
                             <asp:RoleGroup Roles="Administrator">
                                 <ContentTemplate>
-                                    <link id="Link1" href="AdministratorStyle.css" rel="stylesheet" type="text/css" runat="server" />
                                     <asp:Repeater ID="Repeater2" runat="server" DataSourceID="SiteMapDataSource2">
                                         <ItemTemplate>
                                             <li style="color: Red">
@@ -60,7 +58,6 @@
                             </asp:RoleGroup>
                             <asp:RoleGroup Roles="Moderator">
                                 <ContentTemplate>
-                                    <link id="Link2" href="ModeratorStyle.css" rel="stylesheet" type="text/css" runat="server" />
                                     <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SiteMapDataSource1">
                                         <ItemTemplate>
                                             <li>
@@ -72,13 +69,24 @@
                             </asp:RoleGroup>
                             <asp:RoleGroup Roles="Accountants">
                                 <ContentTemplate>
-                                    <link id="Link3" href="AccountantsStyle.css" rel="stylesheet" type="text/css" runat="server" />
+                                    <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SiteMapDataSource3">
+                                        <ItemTemplate>
+                                            <li>
+                                                <asp:HyperLink ID="lnkMenuItem" runat="server" NavigateUrl='<%# Eval("Url") %>'><%# Eval("Title") %></asp:HyperLink>
+                                            </li>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
                                 </ContentTemplate>
                             </asp:RoleGroup>
                             <asp:RoleGroup Roles="ContentManager">
                                 <ContentTemplate>
-                                    <link id="Link3" href="ContentManagerStyle.css" rel="stylesheet" type="text/css"
-                                        runat="server" />
+                                    <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SiteMapDataSource4">
+                                        <ItemTemplate>
+                                            <li>
+                                                <asp:HyperLink ID="lnkMenuItem" runat="server" NavigateUrl='<%# Eval("Url") %>'><%# Eval("Title") %></asp:HyperLink>
+                                            </li>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
                                 </ContentTemplate>
                             </asp:RoleGroup>
                         </RoleGroups>
@@ -88,12 +96,22 @@
                     ShowStartingNode="false" />
                 <asp:SiteMapDataSource ID="SiteMapDataSource2" runat="server" StartingNodeUrl="~/AdminSection.aspx"
                     ShowStartingNode="false" />
+                <asp:SiteMapDataSource ID="SiteMapDataSource3" runat="server" StartingNodeUrl="~/Accountents"
+                    ShowStartingNode="false" />
+                <asp:SiteMapDataSource ID="SiteMapDataSource4" runat="server" StartingNodeUrl="~/ContentManager"
+                    ShowStartingNode="false" />
             </td>
-            <td style="width: 1px; background-color: #cccccc">
+            <td style="width: 1px; background-color: #cccccc" rowspan="2">
             </td>
             <td style="vertical-align: top; padding: 25px">
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 </asp:ContentPlaceHolder>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" class="GrayTextLight">
+                User Role:
+                <asp:Label ID="lblRole" runat="server" Text=""></asp:Label>
             </td>
         </tr>
         <tr>

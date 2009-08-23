@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Backoffice/BackOffice.Master"
-    CodeBehind="TournamentBuilder.aspx.cs" Inherits="StrongerOrg._Default" %>
+    CodeBehind="TournamentBuilder.aspx.cs" Inherits="StrongerOrg.Backoffice._Default" %>
 
 <%@ MasterType VirtualPath="~/Backoffice/BackOffice.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">

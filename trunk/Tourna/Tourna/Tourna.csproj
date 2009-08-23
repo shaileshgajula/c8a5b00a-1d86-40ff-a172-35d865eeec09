@@ -68,6 +68,13 @@
     <Compile Include="Backoffice\BackOffice.Master.designer.cs">
       <DependentUpon>BackOffice.Master</DependentUpon>
     </Compile>
+    <Compile Include="Backoffice\BasePage.aspx.cs">
+      <DependentUpon>BasePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backoffice\BasePage.aspx.designer.cs">
+      <DependentUpon>BasePage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Backoffice\ControlPanel.aspx.cs">
       <DependentUpon>ControlPanel.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -147,6 +154,13 @@
     </Compile>
     <Compile Include="Backoffice\Games2Organisation.aspx.designer.cs">
       <DependentUpon>Games2Organisation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backoffice\Holidays.aspx.cs">
+      <DependentUpon>Holidays.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backoffice\Holidays.aspx.designer.cs">
+      <DependentUpon>Holidays.aspx</DependentUpon>
     </Compile>
     <Compile Include="Backoffice\InvitToTournament.aspx.cs">
       <DependentUpon>InvitToTournament.aspx</DependentUpon>
@@ -341,8 +355,8 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Backoffice\TournamentBuilder.aspx.cs">
-      <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>TournamentBuilder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Backoffice\TournamentBuilder.aspx.designer.cs">
       <DependentUpon>TournamentBuilder.aspx</DependentUpon>
@@ -465,15 +479,14 @@
     <Content Include="01_home1_1.html" />
     <Content Include="App_Data\RadEditor\BasicTools.xml" />
     <Content Include="App_Data\RadEditor\FullSetOfTools.xml" />
-    <Content Include="Backoffice\AccountantsStyle.css" />
-    <Content Include="Backoffice\ContentManagerStyle.css" />
-    <Content Include="Backoffice\Copy of AdministratorStyle.css" />
+    <Content Include="App_Themes\Accountants\AccountantsStyle.css" />
+    <Content Include="App_Themes\ContentManager\ContentManagerStyle.css" />
     <Content Include="Backoffice\InvitToTournament.aspx" />
     <Content Include="Backoffice\MarketingMaterials.aspx" />
     <Content Include="Backoffice\OrganisationPlayers.aspx" />
     <Content Include="Backoffice\Rules.aspx" />
     <Content Include="Backoffice\Schedules.aspx" />
-    <Content Include="Backoffice\ModeratorStyle.css" />
+    <Content Include="App_Themes\Moderator\ModeratorStyle.css" />
     <Content Include="Backoffice\UnscheduledPlayers.aspx" />
     <Content Include="Backoffice\WhoIsOnline.aspx" />
     <Content Include="FrontSitePages\About.aspx" />
@@ -549,7 +562,6 @@
     <Content Include="OrganisationSite\StandingUpdate.aspx" />
     <Content Include="Passwords.txt" />
     <Content Include="SetUp.txt" />
-    <Content Include="Backoffice\AdministratorStyle.css" />
     <Content Include="Web.sitemap" />
   </ItemGroup>
   <ItemGroup>
@@ -577,16 +589,18 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Themes\Administrator\Administrator.gif" />
+    <Content Include="App_Themes\Administrator\AdministratorStyle.css" />
     <Content Include="App_Themes\OrganisationSite\AzureBaseStylesheet.css" />
     <Content Include="App_Themes\OrganisationSite\GrayBaseSkin.skin" />
+    <Content Include="Backoffice\BasePage.aspx" />
     <Content Include="Backoffice\EventGallery.aspx" />
+    <Content Include="Backoffice\Holidays.aspx" />
     <Content Include="Backoffice\OrganisationInfo.aspx" />
+    <Content Include="App_Themes\Administrator\Skin1.skin" />
     <None Include="Backoffice\DataLayer\Tourna.dbml.layout">
       <DependentUpon>Tourna.dbml</DependentUpon>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Themes\Theme1\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" />
