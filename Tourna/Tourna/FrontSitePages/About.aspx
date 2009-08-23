@@ -6,7 +6,7 @@
     <title>About us</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <table>
+    <table cellpadding="0" cellspacing="0" border="0" style="width: 100%">
         <tr>
             <td style="padding:15px">
             <img src="../Images/aboutus.gif" />

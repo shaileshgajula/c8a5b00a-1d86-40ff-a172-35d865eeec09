@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace StrongerOrg
+namespace StrongerOrg.Backoffice
 {
-    public partial class SiteMap : System.Web.UI.Page
+    public partial class SiteMap : BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

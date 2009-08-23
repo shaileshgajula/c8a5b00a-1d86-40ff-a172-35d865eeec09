@@ -10,7 +10,7 @@ using System.Data;
 
 namespace StrongerOrg.Backoffice
 {
-    public partial class Rules : System.Web.UI.Page
+    public partial class Rules : BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

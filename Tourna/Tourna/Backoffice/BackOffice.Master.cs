@@ -33,6 +33,7 @@ namespace StrongerOrg.Backoffice
             {
                 this.lblOrganisationId.Text = "Problem to read cookie";
             }
+            this.lblRole.Text = ((BasePage)this.Page).UserRole;
             base.OnInit(e);
         }
         protected void Page_Load(object sender, EventArgs e)

@@ -9,7 +9,7 @@ using System.Collections;
 
 namespace StrongerOrg.Backoffice
 {
-    public partial class Standings : System.Web.UI.Page
+    public partial class Standings : BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

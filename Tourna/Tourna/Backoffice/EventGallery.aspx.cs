@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace StrongerOrg.Backoffice
 {
-    public partial class EventGallery : System.Web.UI.Page
+    public partial class EventGallery : BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

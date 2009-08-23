@@ -6,9 +6,9 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.IO;
 
-namespace StrongerOrg
+namespace StrongerOrg.Backoffice
 {
-    public partial class _Default : System.Web.UI.Page
+    public partial class _Default : BasePage
     {
         private const string joinTournamentTemplate = @"Hello All,<br>
                                                         {0} is happy to invite you to participate in our {1}.<br>

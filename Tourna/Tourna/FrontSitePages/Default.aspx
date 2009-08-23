@@ -8,11 +8,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <table cellpadding="0" cellspacing="0" border="0" style="width: 100%">
         <tr>
-            <td rowspan="2">
-                <img src="../Images/LadyWithLaptop.jpg" alt="Lady with laptop" id="lady" />
+            <td rowspan="2" style="width:490px">
+                <img src="../Images/LadyWithLaptop.jpg" alt="Lady with laptop" id="lady" width="487" height="257" />
             </td>
             <td style="height:130px">
-                <img src="../Images/B2BGames.gif" alt="b2b games" id="b2bgames" />
+                <img src="../Images/B2BGames.gif" alt="b2b games" id="b2bgames"  />
             </td>
         </tr>
         <tr>
@@ -27,7 +27,7 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 33%">
+            <td style="width: 32%">
                 <table style="width: 100%">
                     <tr>
                         <td rowspan="2">

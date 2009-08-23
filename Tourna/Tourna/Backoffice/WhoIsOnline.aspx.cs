@@ -8,7 +8,7 @@ using System.Web.Security;
 
 namespace StrongerOrg.Backoffice
 {
-    public partial class WhoIsOnline : System.Web.UI.Page
+    public partial class WhoIsOnline : BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

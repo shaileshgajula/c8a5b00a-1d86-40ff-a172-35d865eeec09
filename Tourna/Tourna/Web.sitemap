@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
-	<siteMapNode title="LEAGUE PLATFORM WEBSITE"  description="">
-		<siteMapNode title="Front site"  description="" >
-			<siteMapNode title="Schedules"></siteMapNode>
-			<siteMapNode title="Standings"></siteMapNode>
-			<siteMapNode title="League rules"></siteMapNode>
-			<siteMapNode title="How to join"></siteMapNode>
-			<siteMapNode title="Contact Us"></siteMapNode>
-			<siteMapNode title="Events gallery"></siteMapNode>
+  <siteMapNode title="LEAGUE PLATFORM WEBSITE"  description="">
+    <siteMapNode title="Front site"  description="" >
+      <siteMapNode title="Schedules"></siteMapNode>
+      <siteMapNode title="Standings"></siteMapNode>
+      <siteMapNode title="League rules"></siteMapNode>
+      <siteMapNode title="How to join"></siteMapNode>
+      <siteMapNode title="Contact Us"></siteMapNode>
+      <siteMapNode title="Events gallery"></siteMapNode>
       <siteMapNode title="Organization Site" url="~/OrganisationSite.aspx" >
         <siteMapNode title="Leagues" url="~\OrganisationSite\Leagues.aspx"></siteMapNode>
         <siteMapNode title="Schedules" url="~\OrganisationSite\Schedules.aspx"></siteMapNode>
@@ -16,48 +16,49 @@
         <siteMapNode title="Event Gallery" ></siteMapNode>
         <siteMapNode title="Contact Moderator" url="~\OrganisationSite\ContactModerator.aspx"></siteMapNode>
         <siteMapNode title="Join Tournament" url="~\OrganisationSite\PlayerSubscription.aspx"></siteMapNode>
-        
+
       </siteMapNode>
-			<siteMapNode title="[Half secured]">
-				<siteMapNode title="Register to tournament"/>
-				<siteMapNode title="Update score"/>
-			</siteMapNode>
-		</siteMapNode>
-		
-		<siteMapNode title="BackOffice [secured]"  description="" >
-			<siteMapNode title="Login page">
-				<siteMapNode title="Recover Password"/>
-			</siteMapNode>
-			<siteMapNode title="Clients Section open only to client's moderators" url="~/login.aspx">
+      <siteMapNode title="[Half secured]">
+        <siteMapNode title="Register to tournament"/>
+        <siteMapNode title="Update score"/>
+      </siteMapNode>
+    </siteMapNode>
+
+    <siteMapNode title="BackOffice [secured]"  description="" >
+      <siteMapNode title="Login page">
+        <siteMapNode title="Recover Password"/>
+      </siteMapNode>
+      <siteMapNode title="Clients Section open only to client's moderators" url="~/login.aspx">
         <siteMapNode title="Organisation Info" url="~\Backoffice\OrganisationInfo.aspx"/>
-				<siteMapNode title="Tournaments" url="~\Backoffice\Tournaments.aspx" description="define tournament parameters"/>
+        <siteMapNode title="Tournaments" url="~\Backoffice\Tournaments.aspx" description="define tournament parameters"/>
         <siteMapNode title="Players" url="~/Backoffice/OrganisationPlayers.aspx?"/>
         <siteMapNode title="Schedules" description="plus edit option" url="~\Backoffice\Schedules.aspx"/>
         <siteMapNode title="Standings" description="plus edit option" url="~\Backoffice\Standings.aspx"/>
         <siteMapNode title="Manage Users" url="~/Backoffice/ManageUsers.aspx?"/>
         <siteMapNode title="Tournamet rules" url="~/Backoffice/Rules.aspx?"/>
         <siteMapNode title="Event gallery" url="~\Backoffice\EventGallery.aspx"/>
-        
+        <siteMapNode title="Holidyas" url="~\Backoffice\Holidyas.aspx" description="Define unvalid days for playing"/>
         <siteMapNode title="Payments Management" url="~\Backoffice\PaymentsManagement.aspx"/>
-        
-        
-			</siteMapNode>
-			<siteMapNode title="Administrator Section" url="~/AdminSection.aspx">
-				<siteMapNode title="Client Payments" url="~/Backoffice/ClientsPayment.aspx">
-					<siteMapNode title="Renewals" description="need to contact"/>
-				</siteMapNode>
+      </siteMapNode>
+      <siteMapNode title="Administrator Section" url="~/AdminSection.aspx">
+        <siteMapNode title="Client Payments" url="~/Backoffice/ClientsPayment.aspx"/>
         <siteMapNode title="Marketing Material" url="~/Backoffice/MarketingMaterials.aspx"/>
-        <siteMapNode title="Potential Clients(leads)" url="~/Backoffice/Potenti
-                     alClients.aspx"/>
+        <siteMapNode title="Potential Clients(leads)" url="~/Backoffice/PotentialClients.aspx"/>
         <siteMapNode title="Tournament Rules" url="~/Backoffice/Rules.aspx"/>
-				<siteMapNode title="Game List" url="~/Backoffice/Games.aspx"/>
-				<siteMapNode title="Manage Users" url="~/Backoffice/ManageUsers.aspx"/>
-				<siteMapNode title="Organizations" url="~/Backoffice/Organisations.aspx"/>
+        <siteMapNode title="Game List" url="~/Backoffice/Games.aspx"/>
+        <siteMapNode title="Manage Users" url="~/Backoffice/ManageUsers.aspx"/>
+        <siteMapNode title="Organizations" url="~/Backoffice/Organisations.aspx"/>
         <siteMapNode title="Login as other user" url="~/Login/LoginAsOtherUser.aspx"/>
         <siteMapNode title="Control Panel" url="~/Backoffice/ControlPanel.aspx" description="Use carefully - for me only!!"/>
         <siteMapNode title="User stats" url="~/Backoffice/WhoIsOnline.aspx" description="See which users are on line now (10 min window)"/>
-				<siteMapNode title="Site Map" url="~/Backoffice/SiteMap.aspx"/>
-			</siteMapNode>
-		</siteMapNode>
-	</siteMapNode>
+        <siteMapNode title="Site Map" url="~/Backoffice/SiteMap.aspx"/>
+      </siteMapNode>
+      <siteMapNode title="Accountents Section" url="~/Accountents">
+        <siteMapNode title="Client Payments" url="~/Backoffice/ClientsPayment.aspx?"/>
+      </siteMapNode>
+      <siteMapNode title="Accountents Section" url="ContentManager">
+        <siteMapNode title="Tournament Rules" url="~/Backoffice/Rules.aspx?a"/>
+      </siteMapNode>
+    </siteMapNode>
+  </siteMapNode>
 </siteMap>

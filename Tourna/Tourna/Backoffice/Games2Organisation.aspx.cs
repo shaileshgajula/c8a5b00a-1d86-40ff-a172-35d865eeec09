@@ -10,7 +10,7 @@ using System.Data;
 
 namespace StrongerOrg.Backoffice
 {
-    public partial class Games2Organisation : System.Web.UI.Page
+    public partial class Games2Organisation : BasePage
     {
         
         protected void Page_Load(object sender, EventArgs e)

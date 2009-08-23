@@ -9,7 +9,7 @@ using StrongerOrg.Backoffice.Entities;
 
 namespace StrongerOrg.Backoffice
 {
-	public partial class ManageUsers : System.Web.UI.Page
+	public partial class ManageUsers : BasePage
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
