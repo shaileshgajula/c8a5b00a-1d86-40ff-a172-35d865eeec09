@@ -1,5 +1,6 @@
 <%@ Page Title="" Language="C#" MasterPageFile="~/Backoffice/BackOffice.Master" AutoEventWireup="true"
-    CodeBehind="Organisations.aspx.cs" Inherits="StrongerOrg.Backoffice.Organisations"  Debug="true"%>
+    CodeBehind="Organisations.aspx.cs" Inherits="StrongerOrg.Backoffice.Organisations"
+    Debug="true" %>
 
 <%@ MasterType VirtualPath="~/Backoffice/BackOffice.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -7,11 +8,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:Label ID="lblTitle" runat="server" Text="Organisation list" CssClass="GrayTitle"></asp:Label>
-    <br/><br/>
+    <br />
+    <br />
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" AutoGenerateEditButton="false"
         DataKeyNames="Id,Name" DataSourceID="SqlDataSource1" OnSelectedIndexChanging="GridView1_SelectedIndexChanging"
-        OnSelectedIndexChanged="GridView1_SelectedIndexChanged" GridLines="None" Width="80%" AlternatingRowStyle-CssClass="AlternatingRow" HeaderStyle-CssClass="HeaderStyle">
-        <SelectedRowStyle CssClass="SelectedRowStyle" />
+        OnSelectedIndexChanged="GridView1_SelectedIndexChanged" >
         <Columns>
             <asp:CommandField ShowSelectButton="True" />
             <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
@@ -41,12 +42,11 @@
     </asp:SqlDataSource>
     <br />
     <br />
-    <asp:DetailsView ID="DetailsView1" runat="server" DataSourceID="SqlDataSource2"  GridLines="None" Width="80%"
-         AutoGenerateRows="False" HeaderStyle-BackColor="#afafae" HeaderStyle-ForeColor="White" HeaderText="Organisation Details" OnItemUpdated="DetailsView1_ItemUpdated"
-        OnItemDeleted="DetailsView1_ItemDeleted" 
-        OnItemInserted="DetailsView1_ItemInserted" 
-        oniteminserting="DetailsView1_ItemInserting" 
-        onitemupdating="DetailsView1_ItemUpdating">
+    <asp:DetailsView ID="DetailsView1" runat="server" DataSourceID="SqlDataSource2" GridLines="None"
+        Width="80%" AutoGenerateRows="False" HeaderStyle-BackColor="#afafae" HeaderStyle-ForeColor="White"
+        HeaderText="Organisation Details" OnItemUpdated="DetailsView1_ItemUpdated" OnItemDeleted="DetailsView1_ItemDeleted"
+        OnItemInserted="DetailsView1_ItemInserted" OnItemInserting="DetailsView1_ItemInserting"
+        OnItemUpdating="DetailsView1_ItemUpdating">
         <Fields>
             <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
             <asp:BoundField DataField="WebSite" HeaderText="Web Site" SortExpression="WebSite" />
@@ -58,22 +58,26 @@
                 <HeaderTemplate>
                     Company Logo</HeaderTemplate>
                 <ItemTemplate>
-                    <asp:Image ID="Image1" runat="server" ImageUrl='<%# SetCompanyLogo(Eval("CompanyLogo")) %>' GenerateEmptyAlternateText="true" />
+                    <asp:Image ID="Image1" runat="server" ImageUrl='<%# SetCompanyLogo(Eval("CompanyLogo")) %>'
+                        GenerateEmptyAlternateText="true" />
                 </ItemTemplate>
                 <InsertItemTemplate>
                     <asp:FileUpload ID="fuCompanyLogo" runat="server" FileName='<%# Bind("FileName") %>' />
                 </InsertItemTemplate>
                 <EditItemTemplate>
-                    <asp:Image ID="Image1" runat="server" ImageUrl='<%# UpdateOrgLogo(Eval("CompanyLogo")) %>' Visible="true"/>
-                    <asp:LinkButton ID="lbRemove" runat="server" onclick="lbRemove_Click">Remove</asp:LinkButton>
-                    <asp:FileUpload ID="fuCompanyLogo" runat="server" FileName='<%# Bind("FileName") %>' Visible="false" />
+                    <asp:Image ID="Image1" runat="server" ImageUrl='<%# UpdateOrgLogo(Eval("CompanyLogo")) %>'
+                        Visible="true" />
+                    <asp:LinkButton ID="lbRemove" runat="server" OnClick="lbRemove_Click">Remove</asp:LinkButton>
+                    <asp:FileUpload ID="fuCompanyLogo" runat="server" FileName='<%# Bind("FileName") %>'
+                        Visible="false" />
                 </EditItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField ShowHeader="false" InsertVisible="False">
                 <ItemTemplate>
                     <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Backoffice/OrganisationPlayers.aspx">Players</asp:HyperLink>
                     |
-                    <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Backoffice/Schedules.aspx" ToolTip="Schedules for all tournaments">Schedules</asp:HyperLink>
+                    <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Backoffice/Schedules.aspx"
+                        ToolTip="Schedules for all tournaments">Schedules</asp:HyperLink>
                     |
                     <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/Backoffice/Standings.aspx">Standings</asp:HyperLink>
                     |
@@ -85,6 +89,12 @@
                     |
                     <asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl='<%# Eval("Id", "~/OrganisationSite/Default.aspx?OrgId={0}")%>'
                         Target="_blank">Site</asp:HyperLink>
+                    |
+                    <asp:HyperLink ID="HyperLink8" runat="server" NavigateUrl='~/Backoffice/Holidays.aspx'
+                        Target="_blank">Holidays</asp:HyperLink>
+                    |
+                    <asp:HyperLink ID="HyperLink9" runat="server" NavigateUrl='~/Backoffice/RegistrationFormBuilder.aspx'
+                        Target="_blank">Registration Form</asp:HyperLink>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField ShowHeader="false" InsertVisible="true" ItemStyle-HorizontalAlign="Right">
@@ -102,8 +112,7 @@
                     <asp:LinkButton ID="LinkButton23" runat="server" CommandName="Insert">Insert</asp:LinkButton>
                     <asp:LinkButton ID="LinkButton43" runat="server" CommandName="Cancel">Cancel</asp:LinkButton>
                 </InsertItemTemplate>
-
-<ItemStyle HorizontalAlign="Right"></ItemStyle>
+                <ItemStyle HorizontalAlign="Right"></ItemStyle>
             </asp:TemplateField>
         </Fields>
         <EmptyDataTemplate>
@@ -111,10 +120,9 @@
         </EmptyDataTemplate>
     </asp:DetailsView>
     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:StrongerOrgString %>"
-        SelectCommand="GetOrganisations" SelectCommandType="StoredProcedure" 
-        InsertCommand="INSERT INTO Organisation(Name, ShippingAddress, BillingAddress, Active, WebSite, CompanyLogo, EmailReminders) VALUES (@Name, @ShippingAddress, @BillingAddress, @Active, @WebSite, @FileName, @EmailReminders)"
-        DeleteCommand="Delete from Organisation WHERE (Id = @Id)" 
-        UpdateCommand="OragnisationUpdate" UpdateCommandType="StoredProcedure">
+        SelectCommand="GetOrganisations" SelectCommandType="StoredProcedure" InsertCommand="INSERT INTO Organisation(Name, ShippingAddress, BillingAddress, Active, WebSite, CompanyLogo, EmailReminders) VALUES (@Name, @ShippingAddress, @BillingAddress, @Active, @WebSite, @FileName, @EmailReminders)"
+        DeleteCommand="Delete from Organisation WHERE (Id = @Id)" UpdateCommand="OragnisationUpdate"
+        UpdateCommandType="StoredProcedure">
         <SelectParameters>
             <asp:ControlParameter ControlID="GridView1" Name="Id" PropertyName="SelectedValue"
                 Type="Empty" />

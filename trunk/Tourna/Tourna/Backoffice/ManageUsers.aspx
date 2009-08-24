@@ -39,8 +39,7 @@
     <br />
     <br />
     <asp:GridView ID="GridView1" runat="server" DataSourceID="ObjectDataSource1" AutoGenerateColumns="false"
-        DataKeyNames="UserName" GridLines="None" Width="100%" AlternatingRowStyle-CssClass="AlternatingRow"
-        HeaderStyle-CssClass="HeaderStyle">
+        DataKeyNames="UserName">
         <Columns>
             <asp:BoundField DataField="UserName" HeaderText="UserName" ReadOnly="True" SortExpression="UserName" />
             <asp:BoundField DataField="Name" HeaderText="Organisation" SortExpression="Name" />

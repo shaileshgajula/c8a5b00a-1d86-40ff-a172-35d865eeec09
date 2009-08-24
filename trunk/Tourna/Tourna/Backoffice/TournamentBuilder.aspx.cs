@@ -46,8 +46,8 @@ namespace StrongerOrg.Backoffice
 
             string tournamentId = TournamentManager.BuildTournament(Master.OrgBasicInfo.Id, tournamentName, tournamentAbstract, locations, numberOfPlayersLimit, gameId, matchingAlog, timeWindowStart,
                 timeWindowEnd, isOpenAllDay, firstPrize, secondPrize, thirdPrize, startDate);
-            string emailTemplate = string.Format(joinTournamentTemplate, Master.OrganisationName, tournamentName,
-                                                    Master.OrganisationId, timeWindowStart.ToString(), timeWindowEnd.ToString(),locations,
+            string emailTemplate = string.Format(joinTournamentTemplate, Master.OrgBasicInfo.Name, tournamentName,
+                                                    Master.OrgBasicInfo.Id.ToString(), timeWindowStart.ToString(), timeWindowEnd.ToString(),locations,
                                                     this.txtFirstPrize.Text, this.txtSecondPrize.Text, this.txtThirdPrize.Text);
             TournamentManager.UpdateEmailTemplate(tournamentId, emailTemplate);
             Response.Redirect(@"~/backoffice/InvitToTournament.aspx?TournamentId=" + tournamentId);

@@ -12,7 +12,8 @@
     <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
     </telerik:RadScriptManager>
     <div id="header">
-        <img src="../Images/StrongerOrgLogoBackOffice.gif" />
+        <asp:Image ID="Logo" runat="server" ImageUrl="~/Images/StrongerOrgLogoBackOffice.gif" AlternateText="Stronger org logo" />
+        
         <asp:Label ID="lblOrganisationName" runat="server" CssClass="GrayTitle"></asp:Label>
         <asp:Label ID="lblOrganisationId" runat="server" ForeColor="White"></asp:Label>
     </div>
@@ -23,7 +24,7 @@
             </td>
         </tr>
         <tr>
-            <td colspan="3" style="text-align: left">
+            <td colspan="2" style="text-align: left">
                 <asp:LoginView ID="LoginView1" runat="server">
                     <LoggedInTemplate>
                         Welcome back,
@@ -34,6 +35,9 @@
                         This is restricted area. You are not suppose to be here.
                     </AnonymousTemplate>
                 </asp:LoginView>
+            </td>
+            <td style="text-align: right">
+                <asp:HyperLink ID="hlOpenSite" runat="server" Target="_blank">open site</asp:HyperLink>
             </td>
         </tr>
         <tr>
@@ -49,7 +53,7 @@
                                 <ContentTemplate>
                                     <asp:Repeater ID="Repeater2" runat="server" DataSourceID="SiteMapDataSource2">
                                         <ItemTemplate>
-                                            <li style="color: Red">
+                                            <li style="color: #dda2fe;list-style-type:square;"  >
                                                 <asp:HyperLink ID="lnkMenuItemAdmin" runat="server" NavigateUrl='<%# Eval("Url") %>'><%# Eval("Title") %></asp:HyperLink>
                                             </li>
                                         </ItemTemplate>

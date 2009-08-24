@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace StrongerOrg.Backoffice
+namespace StrongerOrg.Backoffice.Administrator
 {
-    public partial class Holidyas : BasePage
+    public partial class Payments : BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

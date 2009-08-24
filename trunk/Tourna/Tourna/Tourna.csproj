@@ -61,6 +61,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Backoffice\Administrator\Payments.aspx.cs">
+      <DependentUpon>Payments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backoffice\Administrator\Payments.aspx.designer.cs">
+      <DependentUpon>Payments.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Backoffice\BackOffice.Master.cs">
       <DependentUpon>BackOffice.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -103,6 +110,13 @@
     </Compile>
     <Compile Include="Backoffice\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backoffice\DefaultHolidays.aspx.cs">
+      <DependentUpon>DefaultHolidays.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backoffice\DefaultHolidays.aspx.designer.cs">
+      <DependentUpon>DefaultHolidays.aspx</DependentUpon>
     </Compile>
     <Compile Include="Backoffice\Entities\GameStanding.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -224,6 +238,13 @@
     </Compile>
     <Compile Include="Backoffice\PotentialClients.aspx.designer.cs">
       <DependentUpon>PotentialClients.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backoffice\RegistrationFormBuilder.aspx.cs">
+      <DependentUpon>RegistrationFormBuilder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backoffice\RegistrationFormBuilder.aspx.designer.cs">
+      <DependentUpon>RegistrationFormBuilder.aspx</DependentUpon>
     </Compile>
     <Compile Include="Backoffice\Rules.aspx.cs">
       <DependentUpon>Rules.aspx</DependentUpon>
@@ -593,11 +614,14 @@
     <Content Include="App_Themes\Administrator\AdministratorStyle.css" />
     <Content Include="App_Themes\OrganisationSite\AzureBaseStylesheet.css" />
     <Content Include="App_Themes\OrganisationSite\GrayBaseSkin.skin" />
+    <Content Include="Backoffice\Administrator\Payments.aspx" />
     <Content Include="Backoffice\BasePage.aspx" />
+    <Content Include="Backoffice\DefaultHolidays.aspx" />
     <Content Include="Backoffice\EventGallery.aspx" />
     <Content Include="Backoffice\Holidays.aspx" />
     <Content Include="Backoffice\OrganisationInfo.aspx" />
     <Content Include="App_Themes\Administrator\Skin1.skin" />
+    <Content Include="Backoffice\RegistrationFormBuilder.aspx" />
     <None Include="Backoffice\DataLayer\Tourna.dbml.layout">
       <DependentUpon>Tourna.dbml</DependentUpon>
     </None>

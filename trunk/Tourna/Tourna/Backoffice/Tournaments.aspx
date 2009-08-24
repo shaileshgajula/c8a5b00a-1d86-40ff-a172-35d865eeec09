@@ -8,7 +8,7 @@
 <asp:Label ID="lblTitle" runat="server" Text="Tournaments" CssClass="GrayTitle"></asp:Label>
 <br/><br/>
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Id"
-        DataSourceID="SqlDataSource1" GridLines="None" Width="100%" AlternatingRowStyle-CssClass="AlternatingRow" HeaderStyle-CssClass="HeaderStyle">
+        DataSourceID="SqlDataSource1">
         <Columns>
             <asp:BoundField DataField="TournamentName" HeaderText="TournamentName" ReadOnly="True"
                 SortExpression="TournamentName" />

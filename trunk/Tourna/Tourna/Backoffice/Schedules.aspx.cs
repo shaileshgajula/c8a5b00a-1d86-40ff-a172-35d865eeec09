@@ -10,7 +10,7 @@ using StrongerOrg.BackOffice.Scheduler;
 
 namespace StrongerOrg.Backoffice
 {
-    public partial class Schedules : RadAjaxPage
+    public partial class Schedules : BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
