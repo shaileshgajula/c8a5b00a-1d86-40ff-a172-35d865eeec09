@@ -20,8 +20,7 @@
         </tr>
     </table>
     <asp:GridView ID="CurrentUserActivityGrid" runat="server" AutoGenerateColumns="False"
-        DataSourceID="CurrentActivityDataSource" GridLines="None" Width="95%" AlternatingRowStyle-CssClass="AlternatingRow"
-        HeaderStyle-CssClass="HeaderStyle">
+        DataSourceID="CurrentActivityDataSource" >
         <Columns>
             <asp:BoundField DataField="UserName" HeaderText="User" SortExpression="UserName" />
             <asp:BoundField DataField="Action" HeaderText="Action" SortExpression="Action" />
@@ -63,8 +62,7 @@
         <tr>
             <td>
                 <asp:GridView ID="GridView1" runat="server" GridLines="None" AllowPaging="True" AutoGenerateColumns="False"
-                    DataSourceID="allUsersDataSource" EmptyDataText="There are no users in the system..."
-                    AlternatingRowStyle-CssClass="AlternatingRow" HeaderStyle-CssClass="HeaderStyle"  Width="100%">
+                    DataSourceID="allUsersDataSource" EmptyDataText="There are no users in the system...">
                     <Columns>
                         <asp:BoundField DataField="UserName" HeaderText="UserName" ReadOnly="True" SortExpression="UserName" />
                         <asp:TemplateField HeaderText="Email">

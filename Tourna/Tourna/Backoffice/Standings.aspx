@@ -17,7 +17,7 @@
         <ItemTemplate>
             <asp:Label ID="Label1" runat="server" Text='<%#Eval("TournamentName") %>' CssClass="GrayTitleNormal"></asp:Label>
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Id"
-                DataSourceID="SqlDataSource1" GridLines="None">
+                DataSourceID="SqlDataSource1">
                 <EmptyDataTemplate>
                     No Schedules yet !!!
                 </EmptyDataTemplate>

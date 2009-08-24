@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace StrongerOrg.Backoffice
 {
-    public partial class Holidyas : BasePage
+    public partial class RegistrationFormBuilder : BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

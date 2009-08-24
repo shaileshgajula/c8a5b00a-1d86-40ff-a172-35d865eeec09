@@ -19,7 +19,6 @@ namespace StrongerOrg.Backoffice
         {
             Response.Cookies["OrganisationId"].Value = UsersManager.GetOrganisationId(this.Login1.UserName).ToString();
             Response.Cookies["OrganisationId"].Expires = DateTime.Now.AddDays(5);
-            
         }
     }
 }

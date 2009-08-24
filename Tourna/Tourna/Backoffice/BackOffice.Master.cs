@@ -13,7 +13,7 @@ namespace StrongerOrg.Backoffice
         OrganisationManager.OrganisationBasicInfo orgBasicInfo;
         protected override void OnInit(EventArgs e)
         {
-            string orgId;
+            string orgId = string.Empty;
             if (Request.Cookies["OrganisationId"] != null)
             {
                 orgId = Server.HtmlEncode(Request.Cookies["OrganisationId"].Value);
@@ -26,20 +26,16 @@ namespace StrongerOrg.Backoffice
                     orgBasicInfo = OrganisationManager.GetOrganisationInfo(new Guid(orgId));
                     HttpContext.Current.Cache.Add(orgId, orgBasicInfo, null, DateTime.MaxValue, new TimeSpan(0, 35, 0), CacheItemPriority.Normal, null);
                 }
-                this.lblOrganisationId.Text = orgId;
+                this.OrganisationId = orgId;
                 this.lblOrganisationName.Text = orgBasicInfo.Name;
             }
             else
             {
                 this.lblOrganisationId.Text = "Problem to read cookie";
+                this.lblOrganisationId.ForeColor = System.Drawing.Color.Red;
             }
             this.lblRole.Text = ((BasePage)this.Page).UserRole;
             base.OnInit(e);
-        }
-        protected void Page_Load(object sender, EventArgs e)
-        {
-
-            
         }
         public OrganisationManager.OrganisationBasicInfo OrgBasicInfo
         {
@@ -47,10 +43,6 @@ namespace StrongerOrg.Backoffice
         }
         public string OrganisationName
         {
-            get
-            {
-                return this.lblOrganisationName.Text;
-            }
             set
             {
                 this.lblOrganisationName.Text = value;
@@ -58,10 +50,11 @@ namespace StrongerOrg.Backoffice
         }
         public string OrganisationId
         {
-            get
-            { return this.lblOrganisationId.Text; }
             set
-            { this.lblOrganisationId.Text = value; }
+            { 
+                this.lblOrganisationId.Text = value;
+                this.hlOpenSite.NavigateUrl = string.Format("~/OrganisationSite/Default.aspx?OrgId={0}", value);
+            }
         }
     }
 }

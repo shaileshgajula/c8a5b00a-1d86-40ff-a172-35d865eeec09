@@ -13,3 +13,9 @@ Default skin template. The following skins are provided as examples only.
 
 <asp:Image runat="server" ImageUrl="~/images/image1.jpg" />
 --%>
+
+<asp:GridView runat="server"  GridLines="None" Width="100%"
+        AlternatingRowStyle-CssClass="AlternatingRow" HeaderStyle-CssClass="HeaderStyle">
+        <SelectedRowStyle CssClass="SelectedRowStyle" />
+</asp:GridView>
+

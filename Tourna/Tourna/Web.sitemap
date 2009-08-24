@@ -41,7 +41,7 @@
         <siteMapNode title="Payments Management" url="~\Backoffice\PaymentsManagement.aspx"/>
       </siteMapNode>
       <siteMapNode title="Administrator Section" url="~/AdminSection.aspx">
-        <siteMapNode title="Client Payments" url="~/Backoffice/ClientsPayment.aspx"/>
+        <siteMapNode title="Payments" url="~/Backoffice/Administrator/Payments.aspx"/>
         <siteMapNode title="Marketing Material" url="~/Backoffice/MarketingMaterials.aspx"/>
         <siteMapNode title="Potential Clients(leads)" url="~/Backoffice/PotentialClients.aspx"/>
         <siteMapNode title="Tournament Rules" url="~/Backoffice/Rules.aspx"/>
@@ -49,6 +49,7 @@
         <siteMapNode title="Manage Users" url="~/Backoffice/ManageUsers.aspx"/>
         <siteMapNode title="Organizations" url="~/Backoffice/Organisations.aspx"/>
         <siteMapNode title="Login as other user" url="~/Login/LoginAsOtherUser.aspx"/>
+        <siteMapNode title="Default Holidays" url="~/Backoffice/DefaultHolidays.aspx"/>
         <siteMapNode title="Control Panel" url="~/Backoffice/ControlPanel.aspx" description="Use carefully - for me only!!"/>
         <siteMapNode title="User stats" url="~/Backoffice/WhoIsOnline.aspx" description="See which users are on line now (10 min window)"/>
         <siteMapNode title="Site Map" url="~/Backoffice/SiteMap.aspx"/>
@@ -56,7 +57,7 @@
       <siteMapNode title="Accountents Section" url="~/Accountents">
         <siteMapNode title="Client Payments" url="~/Backoffice/ClientsPayment.aspx?"/>
       </siteMapNode>
-      <siteMapNode title="Accountents Section" url="ContentManager">
+      <siteMapNode title="Content Managment Section" url="ContentManager">
         <siteMapNode title="Tournament Rules" url="~/Backoffice/Rules.aspx?a"/>
       </siteMapNode>
     </siteMapNode>

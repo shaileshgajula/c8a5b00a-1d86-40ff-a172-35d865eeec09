@@ -9,6 +9,7 @@ using StrongerOrg.Backoffice.DataLayer;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Web.Profile;
+using StrongerOrg.Backoffice.Entities;
 
 namespace StrongerOrg
 {
@@ -75,25 +76,9 @@ namespace StrongerOrg
                 //Manually add the authCookie to the Cookies collection 
                 Response.Cookies.Add(authCookie);
 
-            //    using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["StrongerOrgString"].ConnectionString))
-            //    {
-            //        SqlCommand command = new SqlCommand("OrganisationInfoByUserNameGet", conn);
-            //        command.CommandType = System.Data.CommandType.StoredProcedure;
-            //        command.Parameters.Add("@UserName", System.Data.SqlDbType.NVarChar, 255).Value = userName;
-            //        conn.Open();
-            //        SqlDataReader reader = command.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+                Response.Cookies["OrganisationId"].Value = UsersManager.GetOrganisationId(userName).ToString();
+                Response.Cookies["OrganisationId"].Expires = DateTime.Now.AddDays(5);
 
-            //        while (reader.Read())
-            //        {
-            //            Guid organisationId = reader.GetGuid(0);
-            //            OrganisationManager.GetOrganisationInfo(organisationId);
-                        
-            //            //HttpContext.Current.Profile.SetPropertyValue("OrganisationId", x);
-            //            //HttpContext.Current.Profile.SetPropertyValue("OrganisationName", reader[1]);
-
-            //        }
-
-            //}
         }
     }
 }
