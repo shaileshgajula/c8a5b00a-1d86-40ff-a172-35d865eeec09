@@ -118,6 +118,8 @@
     <Compile Include="Backoffice\DefaultHolidays.aspx.designer.cs">
       <DependentUpon>DefaultHolidays.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Backoffice\Entities\CultureEnvironment.cs" />
+    <Compile Include="Backoffice\Entities\CultureManager.cs" />
     <Compile Include="Backoffice\Entities\GameStanding.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -138,6 +140,7 @@
     <Compile Include="Backoffice\Entities\PairsAlgorithm\PairsAlgorithmType\AlphabeticalPairs.cs" />
     <Compile Include="Backoffice\Entities\PairsAlgorithm\PairsAlgorithmType\IPairsAlgo.cs" />
     <Compile Include="Backoffice\Entities\PairsAlgorithm\PairsAlgorithmType\RandomPairs.cs" />
+    <Compile Include="Backoffice\Entities\PlayerManager.cs" />
     <Compile Include="Backoffice\Entities\PlayersManager.cs" />
     <Compile Include="Backoffice\Entities\Scheduler\SchedulerAlgo.cs" />
     <Compile Include="Backoffice\Entities\Scheduler\SchedulesBL.cs" />
@@ -652,7 +655,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
+      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

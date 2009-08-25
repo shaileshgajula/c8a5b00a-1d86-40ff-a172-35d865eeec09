@@ -108,7 +108,8 @@ namespace StrongerOrg.Backoffice
         protected void lbScheduleGames_Click(object sender, EventArgs e)
         {
             Guid tournamentId = new Guid(this.ddlTournament.SelectedValue);
-            SchedulerAlgo.SchedulerGames(tournamentId, PairsAlgo.BuildPairs(tournamentId));
+            //SchedulerAlgo.SchedulerGames(tournamentId, PairsAlgo.BuildPairs(tournamentId));
+            SchedulerAlgo.ScheduleGames(tournamentId);
         }
     }
 }

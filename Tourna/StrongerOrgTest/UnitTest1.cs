@@ -3,6 +3,7 @@ using System.Text;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using StrongerOrg.Backoffice.DataLayer;
 
 namespace StrongerOrgTest
 {
@@ -60,11 +61,20 @@ namespace StrongerOrgTest
         #endregion
 
         [TestMethod]
-        public void TestMethod1()
+        public void DefaultHolidaysUS()
         {
             //
             // TODO: Add test logic	here
             //
+
+            using (TournaDataContext db = new TournaDataContext())
+            {
+                var holidays = db.DefaultHolidays;
+
+
+                
+                
+            }
         }
     }
 }
