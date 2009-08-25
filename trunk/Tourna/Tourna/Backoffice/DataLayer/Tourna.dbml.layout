@@ -106,14 +106,14 @@
         <classShapeMoniker Id="957f9bf8-dc35-415d-93df-7f5419f005cc" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(9.40625 : 3.47280110677083); (9.40625 : 8.49624782063802); (10.25 : 8.49624782063802)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(9.40625 : 3.47280110677083); (9.40625 : 8.49624782063802); (9.91666666666667 : 8.49624782063802 : JumpStart); (10.0833333333333 : 8.49624782063802 : JumpEnd); (10.25 : 8.49624782063802)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/TournaDataContext/Game/Game_Organisation2Game" />
       <nodes>
         <classShapeMoniker Id="c08599a9-867b-4dd2-b3ad-ba7541b0e1dc" />
         <classShapeMoniker Id="7bbd9d39-d2d5-476c-87c1-69922f162892" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(6.5 : 7.98599812825521); (9.32291666666667 : 7.98599812825521 : JumpStart); (9.48958333333333 : 7.98599812825521 : JumpEnd); (10.25 : 7.98599812825521)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(6.5 : 7.98599812825521); (9.32291666666667 : 7.98599812825521 : JumpStart); (9.48958333333333 : 7.98599812825521 : JumpEnd); (9.91666666666667 : 7.98599812825521 : JumpStart); (10.0833333333333 : 7.98599812825521 : JumpEnd); (10.25 : 7.98599812825521)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/TournaDataContext/Organisation/Organisation_Organisation2Game" />
       <nodes>
         <classShapeMoniker Id="97d3708e-38a6-4d54-b212-6b61f17fef40" />
@@ -169,7 +169,7 @@
         <classShapeMoniker Id="d60ea0ef-bad6-4a16-8eb0-2ca0c228989d" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(6.0312525 : 7); (6.0312525 : 4.29890055338542); (10.25 : 4.29890055338542)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(4.84375 : 7); (4.84375 : 4.78929768880208); (4.99479166666667 : 4.78929768880208 : JumpStart); (5.16145833333333 : 4.78929768880208 : JumpEnd); (9.32291666666667 : 4.78929768880208 : JumpStart); (9.48958333333333 : 4.78929768880208 : JumpEnd); (10.25 : 4.78929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/TournaDataContext/Organisation/Organisation_Tournament" />
       <nodes>
         <classShapeMoniker Id="97d3708e-38a6-4d54-b212-6b61f17fef40" />
@@ -181,6 +181,25 @@
       <nodes>
         <classShapeMoniker Id="e044051f-6ee2-4ef2-957c-ceeb1dc89619" />
         <classShapeMoniker Id="0c1babee-4efa-4a57-b6ed-60c236ce5a56" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="9e36b540-c0f8-4274-8bbf-7a7c7d5d8219" absoluteBounds="5.25, 2.875, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/TournaDataContext/DefaultHoliday" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bcc7c53f-579f-4f54-8e19-ffaaddbc72b8" absoluteBounds="5.265, 3.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4ae121f5-ee16-42d2-8231-102ecc8303a4" absoluteBounds="3.5, 1, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/TournaDataContext/OrganisationHoliday" />
+      <nestedChildShapes>
+        <elementListCompartment Id="61251ccf-fa71-432b-b311-f678f6fa2b94" absoluteBounds="3.5149999999999997, 1.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.078125 : 7); (5.078125 : 2.57859537760417)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/TournaDataContext/Organisation/Organisation_OrganisationHoliday" />
+      <nodes>
+        <classShapeMoniker Id="97d3708e-38a6-4d54-b212-6b61f17fef40" />
+        <classShapeMoniker Id="4ae121f5-ee16-42d2-8231-102ecc8303a4" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

@@ -62,6 +62,7 @@
       <Association Name="Organisation_Player" Member="Players" ThisKey="Id" OtherKey="OrganisationId" Type="Player" />
       <Association Name="Organisation_TextContent" Member="TextContents" ThisKey="Id" OtherKey="OrganisationId" Type="TextContent" />
       <Association Name="Organisation_Tournament" Member="Tournaments" ThisKey="Id" OtherKey="OrganisationId" Type="Tournament" />
+      <Association Name="Organisation_OrganisationHoliday" Member="OrganisationHolidays" ThisKey="Id" OtherKey="OrganisationId" Type="OrganisationHoliday" />
     </Type>
   </Table>
   <Table Name="dbo.Organisation2Games" Member="Organisation2Games">
@@ -170,6 +171,23 @@
     <Type Name="UsersCurrentActivity">
       <Column Name="UserId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
       <Column Name="Action" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DefaultHolidays" Member="DefaultHolidays">
+    <Type Name="DefaultHoliday">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Country" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OrganisationHolidays" Member="OrganisationHolidays">
+    <Type Name="OrganisationHoliday">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="OrganisationId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Organisation_OrganisationHoliday" Member="Organisation" ThisKey="OrganisationId" OtherKey="Id" Type="Organisation" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.PlayersGet" Method="PlayersGet">

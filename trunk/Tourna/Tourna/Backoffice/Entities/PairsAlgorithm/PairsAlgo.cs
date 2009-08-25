@@ -10,37 +10,53 @@ namespace StrongerOrg.BackOffice.PairsAlgorithm
     {
         public static List<PlayersEntity> BuildPairs(Guid tournamentId)
         {
-            return BuildPairs(tournamentId, PairsAlgorithm.Alphabetical); //default to Alphabetical
+            return BuildPairs(tournamentId, PairsAlgorithmType.Alphabetical); //default to Alphabetical
         }
-        public static List<PlayersEntity> BuildPairs(Guid tournamentId, PairsAlgorithm type)
+        public static List<PlayersEntity> BuildPairs(Guid tournamentId, PairsAlgorithmType type)
         {
             return BuildPairs(tournamentId, type, PairsMatchType.Default);
         }
 
-        public static List<PlayersEntity> BuildPairs(Guid tournamentId, PairsAlgorithm type, PairsMatchType pairsMatchingType)
+        public static List<PlayersEntity> BuildPairs(Guid tournamentId, PairsAlgorithmType type, PairsMatchType pairsMatchingType)
         {
             return BuildPairs(tournamentId, type, PairsMatchType.Default, 1);
         }
 
-        public static List<PlayersEntity> BuildPairs(Guid tournamentId, PairsAlgorithm type, PairsMatchType pairsMatchingType, int numOfRounds)
+        public static List<PlayersEntity> BuildPairs(Guid tournamentId, PairsAlgorithmType type, PairsMatchType pairsMatchingType, int numOfRounds)
         {
-            IPairsAlgo algorithm = PairsAlgo.PairsAlgorithmFactory(type);
-            List<MetaPlayer> listPlayers = algorithm.Execute(tournamentId);
-            
+
+            List<MetaPlayer> listPlayers = GetPlayers(tournamentId, type);
+            List<PlayersEntity> pairs = BuildPairs(tournamentId, pairsMatchingType, listPlayers, numOfRounds);
             //match up
-            IPairMatching matcher = PairsMatch.MatchPlayersFactory(pairsMatchingType);
-            List<PlayersEntity> playerPairs = matcher.Execute(listPlayers, numOfRounds);
+
+            return pairs;
+        }
+
+        public static List<PlayersEntity> BuildPairs(Guid tournamentId, PairsMatchType type, List<MetaPlayer> players, int numOfRounds)
+        {
+            IPairMatching matcher = PairsMatch.MatchPlayersFactory(type);
+            List<PlayersEntity> playerPairs = matcher.Execute(players, numOfRounds);
 
             return playerPairs;
         }
 
-        private static IPairsAlgo PairsAlgorithmFactory(PairsAlgorithm type)
+        public static List<MetaPlayer> GetPlayers(Guid tournamentId, PairsAlgorithmType type)
+        {
+            IPairsAlgo algorithm = PairsAlgo.PairsAlgorithmFactory(type);
+            List<MetaPlayer> listPlayers = algorithm.Execute(tournamentId);
+
+            return listPlayers;
+        }
+
+       
+
+        private static IPairsAlgo PairsAlgorithmFactory(PairsAlgorithmType type)
         {
             switch (type)
             {
-                case PairsAlgorithm.Alphabetical:
+                case PairsAlgorithmType.Alphabetical:
                     return new AlphabeticalPairs();
-                case PairsAlgorithm.Random:
+                case PairsAlgorithmType.Random:
                     return new RandomPairs();
                 default:
                     return new AlphabeticalPairs();

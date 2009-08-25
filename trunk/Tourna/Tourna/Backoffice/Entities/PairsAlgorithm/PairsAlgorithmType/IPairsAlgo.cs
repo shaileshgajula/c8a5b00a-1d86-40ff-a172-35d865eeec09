@@ -18,7 +18,7 @@ namespace StrongerOrg.BackOffice.PairsAlgorithm
         public string PlayerBName { get; set; }
     }
 
-    public enum PairsAlgorithm
+    public enum PairsAlgorithmType
     {
         Alphabetical,
         Random

@@ -60,6 +60,12 @@ namespace StrongerOrg.Backoffice.DataLayer
     partial void InsertUser(User instance);
     partial void UpdateUser(User instance);
     partial void DeleteUser(User instance);
+    partial void InsertDefaultHoliday(DefaultHoliday instance);
+    partial void UpdateDefaultHoliday(DefaultHoliday instance);
+    partial void DeleteDefaultHoliday(DefaultHoliday instance);
+    partial void InsertOrganisationHoliday(OrganisationHoliday instance);
+    partial void UpdateOrganisationHoliday(OrganisationHoliday instance);
+    partial void DeleteOrganisationHoliday(OrganisationHoliday instance);
     #endregion
 		
 		public TournaDataContext() : 
@@ -209,6 +215,22 @@ namespace StrongerOrg.Backoffice.DataLayer
 			get
 			{
 				return this.GetTable<UsersCurrentActivity>();
+			}
+		}
+		
+		public System.Data.Linq.Table<DefaultHoliday> DefaultHolidays
+		{
+			get
+			{
+				return this.GetTable<DefaultHoliday>();
+			}
+		}
+		
+		public System.Data.Linq.Table<OrganisationHoliday> OrganisationHolidays
+		{
+			get
+			{
+				return this.GetTable<OrganisationHoliday>();
 			}
 		}
 		
@@ -1066,6 +1088,8 @@ namespace StrongerOrg.Backoffice.DataLayer
 		
 		private EntitySet<Tournament> _Tournaments;
 		
+		private EntitySet<OrganisationHoliday> _OrganisationHolidays;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1094,6 +1118,7 @@ namespace StrongerOrg.Backoffice.DataLayer
 		{
 			this._Players = new EntitySet<Player>(new Action<Player>(this.attach_Players), new Action<Player>(this.detach_Players));
 			this._Tournaments = new EntitySet<Tournament>(new Action<Tournament>(this.attach_Tournaments), new Action<Tournament>(this.detach_Tournaments));
+			this._OrganisationHolidays = new EntitySet<OrganisationHoliday>(new Action<OrganisationHoliday>(this.attach_OrganisationHolidays), new Action<OrganisationHoliday>(this.detach_OrganisationHolidays));
 			OnCreated();
 		}
 		
@@ -1303,6 +1328,19 @@ namespace StrongerOrg.Backoffice.DataLayer
 			}
 		}
 		
+		[Association(Name="Organisation_OrganisationHoliday", Storage="_OrganisationHolidays", ThisKey="Id", OtherKey="OrganisationId")]
+		public EntitySet<OrganisationHoliday> OrganisationHolidays
+		{
+			get
+			{
+				return this._OrganisationHolidays;
+			}
+			set
+			{
+				this._OrganisationHolidays.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1342,6 +1380,18 @@ namespace StrongerOrg.Backoffice.DataLayer
 		}
 		
 		private void detach_Tournaments(Tournament entity)
+		{
+			this.SendPropertyChanging();
+			entity.Organisation = null;
+		}
+		
+		private void attach_OrganisationHolidays(OrganisationHoliday entity)
+		{
+			this.SendPropertyChanging();
+			entity.Organisation = this;
+		}
+		
+		private void detach_OrganisationHolidays(OrganisationHoliday entity)
 		{
 			this.SendPropertyChanging();
 			entity.Organisation = null;
@@ -3092,6 +3142,315 @@ namespace StrongerOrg.Backoffice.DataLayer
 				{
 					this._Action = value;
 				}
+			}
+		}
+	}
+	
+	[Table(Name="dbo.DefaultHolidays")]
+	public partial class DefaultHoliday : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _Name;
+		
+		private System.DateTime _Date;
+		
+		private int _Country;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnDateChanging(System.DateTime value);
+    partial void OnDateChanged();
+    partial void OnCountryChanging(int value);
+    partial void OnCountryChanged();
+    #endregion
+		
+		public DefaultHoliday()
+		{
+			OnCreated();
+		}
+		
+		[Column(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Name", DbType="NVarChar(256) NOT NULL", CanBeNull=false)]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Date", DbType="DateTime NOT NULL")]
+		public System.DateTime Date
+		{
+			get
+			{
+				return this._Date;
+			}
+			set
+			{
+				if ((this._Date != value))
+				{
+					this.OnDateChanging(value);
+					this.SendPropertyChanging();
+					this._Date = value;
+					this.SendPropertyChanged("Date");
+					this.OnDateChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Country", DbType="Int NOT NULL")]
+		public int Country
+		{
+			get
+			{
+				return this._Country;
+			}
+			set
+			{
+				if ((this._Country != value))
+				{
+					this.OnCountryChanging(value);
+					this.SendPropertyChanging();
+					this._Country = value;
+					this.SendPropertyChanged("Country");
+					this.OnCountryChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[Table(Name="dbo.OrganisationHolidays")]
+	public partial class OrganisationHoliday : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private System.Guid _OrganisationId;
+		
+		private string _Name;
+		
+		private System.DateTime _Date;
+		
+		private EntityRef<Organisation> _Organisation;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnOrganisationIdChanging(System.Guid value);
+    partial void OnOrganisationIdChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnDateChanging(System.DateTime value);
+    partial void OnDateChanged();
+    #endregion
+		
+		public OrganisationHoliday()
+		{
+			this._Organisation = default(EntityRef<Organisation>);
+			OnCreated();
+		}
+		
+		[Column(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_OrganisationId", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid OrganisationId
+		{
+			get
+			{
+				return this._OrganisationId;
+			}
+			set
+			{
+				if ((this._OrganisationId != value))
+				{
+					if (this._Organisation.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnOrganisationIdChanging(value);
+					this.SendPropertyChanging();
+					this._OrganisationId = value;
+					this.SendPropertyChanged("OrganisationId");
+					this.OnOrganisationIdChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Name", DbType="NVarChar(256) NOT NULL", CanBeNull=false)]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Date", DbType="DateTime NOT NULL")]
+		public System.DateTime Date
+		{
+			get
+			{
+				return this._Date;
+			}
+			set
+			{
+				if ((this._Date != value))
+				{
+					this.OnDateChanging(value);
+					this.SendPropertyChanging();
+					this._Date = value;
+					this.SendPropertyChanged("Date");
+					this.OnDateChanged();
+				}
+			}
+		}
+		
+		[Association(Name="Organisation_OrganisationHoliday", Storage="_Organisation", ThisKey="OrganisationId", OtherKey="Id", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public Organisation Organisation
+		{
+			get
+			{
+				return this._Organisation.Entity;
+			}
+			set
+			{
+				Organisation previousValue = this._Organisation.Entity;
+				if (((previousValue != value) 
+							|| (this._Organisation.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Organisation.Entity = null;
+						previousValue.OrganisationHolidays.Remove(this);
+					}
+					this._Organisation.Entity = value;
+					if ((value != null))
+					{
+						value.OrganisationHolidays.Add(this);
+						this._OrganisationId = value.Id;
+					}
+					else
+					{
+						this._OrganisationId = default(System.Guid);
+					}
+					this.SendPropertyChanged("Organisation");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
