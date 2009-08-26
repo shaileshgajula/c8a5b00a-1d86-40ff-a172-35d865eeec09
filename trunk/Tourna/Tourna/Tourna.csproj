@@ -82,6 +82,7 @@
     <Compile Include="Backoffice\BasePage.aspx.designer.cs">
       <DependentUpon>BasePage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Backoffice\CalendarVisualizer.cs" />
     <Compile Include="Backoffice\ControlPanel.aspx.cs">
       <DependentUpon>ControlPanel.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

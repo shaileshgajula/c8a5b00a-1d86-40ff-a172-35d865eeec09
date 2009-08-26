@@ -10,6 +10,7 @@ using System.Diagnostics;
 using System.Configuration;
 using StrongerOrg.BackOffice.PairsAlgorithm;
 using StrongerOrg.BackOffice.Scheduler;
+using StrongerOrg.Backoffice.DataLayer;
 
 namespace StrongerOrg.Backoffice
 {
@@ -110,6 +111,16 @@ namespace StrongerOrg.Backoffice
             Guid tournamentId = new Guid(this.ddlTournament.SelectedValue);
             //SchedulerAlgo.SchedulerGames(tournamentId, PairsAlgo.BuildPairs(tournamentId));
             SchedulerAlgo.ScheduleGames(tournamentId);
+
+            //for now..straight database kick
+            IEnumerable<DateTime> dates;
+            using (TournaDataContext db = new TournaDataContext())
+            {
+                dates = db.Schedules.Where(y => y.TournamentId == tournamentId).Select(x => x.Start).ToList();
+            }
+
+            CalendarVisualizer vis = new CalendarVisualizer(dates);
+            vis.Display(schedulesPlaceHolder);
         }
     }
 }
