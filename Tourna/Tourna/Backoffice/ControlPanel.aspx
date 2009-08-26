@@ -91,4 +91,7 @@
     </asp:GridView>
     <asp:LinkButton ID="lbScheduleGames" runat="server" 
     onclick="lbScheduleGames_Click">Schedule games</asp:LinkButton>
+    <br />
+    <asp:PlaceHolder ID="schedulesPlaceHolder" runat="server">
+    </asp:PlaceHolder>
 </asp:Content>
