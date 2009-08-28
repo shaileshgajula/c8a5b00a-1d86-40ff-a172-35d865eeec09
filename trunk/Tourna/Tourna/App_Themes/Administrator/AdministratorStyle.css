@@ -31,21 +31,31 @@ a:active
 {
 	color: #027d9e;
 }
+li
+{
+	color: #dda2fe;
+	list-style-type: square;
+}
+.FooterSeperator
+{
+	background-color: #dda2fe;
+	height: 1px;
+}
 
 .AlternatingRow
 {
-	background-color:#f7f7f6;
-	}
-	.HeaderStyle
-	{
-		text-align:left;
-		background-color:#afafae;
-		color:#FFFFFF;
-		}
+	background-color: #f7f7f6;
+}
+.HeaderStyle
+{
+	text-align: left;
+	background-color: #afafae;
+	color: #FFFFFF;
+}
 .SelectedRowStyle
 {
-	background-color:#f1e1fa;
-	}
+	background-color: #f1e1fa;
+}
 /*Rounded corners http://blog.benogle.com/2009/04/29/css-round-corners/ */
 .b1h, .b2h, .b3h, .b4h, .b2bh, .b3bh, .b4bh
 {
@@ -124,5 +134,5 @@ a:active
 .GrayTextLight
 {
 	font-size: 13px;
-	font-style:italic;
-	}
+	font-style: italic;
+}

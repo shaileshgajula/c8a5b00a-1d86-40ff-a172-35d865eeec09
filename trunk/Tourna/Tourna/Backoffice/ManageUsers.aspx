@@ -46,7 +46,7 @@
             <asp:BoundField DataField="RoleName" HeaderText="Role Name" SortExpression="RoleName" />
             <asp:BoundField DataField="LastActivityDate" HeaderText="Last Activity Date" SortExpression="LastActivityDate"
                 DataFormatString="{0:d}" />
-                <asp:BoundField DataField="Description" HeaderText="Role Description" SortExpression="Description" />
+            <asp:BoundField DataField="Description" HeaderText="Role Description" SortExpression="Description" />
             <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" />
         </Columns>
         <EmptyDataTemplate>
@@ -59,8 +59,7 @@
             <asp:Parameter Name="UserName" Type="String" />
         </DeleteParameters>
         <SelectParameters>
-            <asp:CookieParameter  Name="organisationId" CookieName="organisationId" 
-                Type="String" />
+            <asp:CookieParameter Name="organisationId" CookieName="organisationId" Type="String" />
         </SelectParameters>
     </asp:ObjectDataSource>
     <%--<asp:ObjectDataSource ID="ObjectDataSource2" runat="server" SelectMethod="GetOrganisationUsers"
@@ -79,7 +78,8 @@
     <table border="0" style="width: 50%" cellpadding="2" cellspacing="2">
         <tr>
             <td colspan="2" class="HeaderStyle">
-                Sign Up for New Account to <%= Master.OrgBasicInfo.Name%>
+                Sign Up for New Account to
+                <%= Master.OrgBasicInfo.Name%>
             </td>
         </tr>
         <tr>
@@ -119,29 +119,11 @@
                 <asp:Label ID="Label1" runat="server">Role:</asp:Label>
             </td>
             <td>
-                <asp:LoginView ID="LoginView1" runat="server">
-                    <RoleGroups>
-                        <asp:RoleGroup Roles="Administrator">
-                            <ContentTemplate>
-                                <asp:RadioButtonList ID="rbRoles" runat="server">
-                                    <asp:ListItem>Administrator</asp:ListItem>
-                                    <asp:ListItem Selected="True">Moderator</asp:ListItem>
-                                    <asp:ListItem>Accountants</asp:ListItem>
-                                    <asp:ListItem Value="ContentManager">Content manager</asp:ListItem>
-                                </asp:RadioButtonList>
-                            </ContentTemplate>
-                        </asp:RoleGroup>
-                        <asp:RoleGroup Roles="Moderator">
-                            <ContentTemplate>
-                                <asp:RadioButtonList ID="rbRoles" runat="server">
-                                    <asp:ListItem Selected="True">Moderator</asp:ListItem>
-                                    <asp:ListItem>Accountants</asp:ListItem>
-                                    <asp:ListItem Value="ContentManager">Content manager</asp:ListItem>
-                                </asp:RadioButtonList>
-                            </ContentTemplate>
-                        </asp:RoleGroup>
-                    </RoleGroups>
-                </asp:LoginView>
+                <asp:RadioButtonList ID="rbRoles" runat="server">
+                    <asp:ListItem Selected="True">Moderator</asp:ListItem>
+                    <asp:ListItem>Accountants</asp:ListItem>
+                    <asp:ListItem Value="ContentManager">Content manager</asp:ListItem>
+                </asp:RadioButtonList>
             </td>
         </tr>
         <tr>

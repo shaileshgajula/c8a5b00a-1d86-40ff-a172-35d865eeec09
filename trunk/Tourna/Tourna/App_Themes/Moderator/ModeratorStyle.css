@@ -31,7 +31,16 @@ a:active
 {
 	color: #027d9e;
 }
-
+li
+{
+	color: #cafde0;
+	list-style-type: square;
+}
+.FooterSeperator
+{
+	background-color: #cafde0;
+	height: 1px;
+}
 .AlternatingRow
 {
 	background-color:#f7f7f6;

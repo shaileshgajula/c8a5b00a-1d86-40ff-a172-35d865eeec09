@@ -13,14 +13,14 @@
         </tr>
         <tr>
             <td>
-                Select country
+                Select Culture
             </td>
             <td>
-                <asp:DropDownList ID="ddlCountries" runat="server" AutoPostBack="True">
-                    <asp:ListItem Value="1">USA</asp:ListItem>
-                    <asp:ListItem Value="2">Israel</asp:ListItem>
-                    <asp:ListItem Value="3">Ukraine</asp:ListItem>
-                </asp:DropDownList>
+               <asp:DropDownList ID="ddlCountries" runat="server" AutoPostBack="True">
+                        <asp:ListItem Value="en-US">English - USA</asp:ListItem>
+                        <asp:ListItem Value="he-IL">Hebrew -  Israel</asp:ListItem>
+                        <asp:ListItem Value="uk-UA">Ukraine - Ukraine</asp:ListItem>
+                    </asp:DropDownList>
             </td>
         </tr>
         <tr>
@@ -30,27 +30,27 @@
                     <Columns>
                         <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
                         <asp:BoundField DataField="Date" HeaderText="Date" SortExpression="Date" DataFormatString="{0:d}" />
-                        <asp:BoundField DataField="Country" HeaderText="Country" SortExpression="Country" ReadOnly="true" />
+                        <asp:BoundField DataField="CultureInfoName" HeaderText="Culture info name" SortExpression="CultureInfoName" ReadOnly="true" />
                         <asp:CommandField HeaderText="Edit" ShowEditButton="True" />
                         <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" />
                     </Columns>
                     <EmptyDataTemplate>
-                        No holidays found for this country/culture
+                        No holidays found for this culture
                     </EmptyDataTemplate>
                 </asp:GridView>
                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:StrongerOrgString %>" InsertCommandType="Text"
-                    SelectCommand="SELECT [Id], [Name], [Date], [Country] FROM [DefaultHolidays] WHERE ([Country] = @Country) order by date desc"
-                    InsertCommand="INSERT INTO [DefaultHolidays] values (@Name, @Date, @Country)"
+                    SelectCommand="SELECT [Id], [Name], [Date], [CultureInfoName] FROM [DefaultHolidays] WHERE ([CultureInfoName] = @CultureInfoName and [Date]>= getdate())  order by date "
+                    InsertCommand="INSERT INTO [DefaultHolidays] values (@Name, @Date, @CultureInfoName)"
                     DeleteCommand="DELETE FROM [DefaultHolidays] WHERE ID=@Id"
                     UpdateCommand="UPDATE [DefaultHolidays] SET Name=@Name, Date=@Date where Id=@Id">
                     <SelectParameters>
-                        <asp:ControlParameter ControlID="ddlCountries" Name="Country" PropertyName="SelectedValue"
-                            Type="Int32" />
+                        <asp:ControlParameter ControlID="ddlCountries" Name="CultureInfoName" PropertyName="SelectedValue"
+                            Type="String" />
                     </SelectParameters>
                     <InsertParameters>
                         <asp:Parameter Name="Name" Type="String" />
                         <asp:Parameter Name="Date" Type="DateTime" />
-                        <asp:ControlParameter ControlID="ddlCountries" Name="Country" PropertyName="SelectedValue" Type="Int32" />
+                        <asp:ControlParameter ControlID="ddlCountries" Name="CultureInfoName" PropertyName="SelectedValue" Type="String" />
                     </InsertParameters>
                     <UpdateParameters>
                         <asp:Parameter Name="Name" Type="String" />
