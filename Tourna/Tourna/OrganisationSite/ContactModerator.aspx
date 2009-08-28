@@ -4,43 +4,44 @@
     
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <table>
+    <table >
         <tr>
-            <td colspan="2">
+            <td colspan="3" style="height:50px;vertical-align:top" class="H1Title">
                 Contact Moderator</td>
         </tr>
         <tr>
-            <td>
+        <td rowspan="5" style="width:10px"></td>
+            <td style="width:140px">
                 Your Name</td>
             <td>
-                <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtName" runat="server" Width="300px"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td>
                 Subject</td>
             <td>
-                <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtSubject" runat="server" Width="300px"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td>
                 Your Email</td>
             <td>
-                <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtEmail" runat="server" Width="300px"></asp:TextBox>
             </td>
         </tr>
         <tr>
-            <td>
+            <td style="vertical-align:top">
                 Message</td>
             <td>
-                <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtMessage" runat="server" Height="109px" Width="300px"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td>
                 &nbsp;</td>
-            <td>
+            <td align="right">
                 <asp:LinkButton ID="lbSend" runat="server" onclick="lbSend_Click">Send</asp:LinkButton>
             </td>
         </tr>

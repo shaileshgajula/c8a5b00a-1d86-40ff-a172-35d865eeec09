@@ -69,7 +69,7 @@ namespace StrongerOrgTest
 
             using (TournaDataContext db = new TournaDataContext())
             {
-                var holidays = db.DefaultHolidays;
+               // var holidays = db.DefaultHolidays;
 
 
                 

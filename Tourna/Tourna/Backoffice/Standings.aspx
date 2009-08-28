@@ -5,21 +5,30 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<asp:Label ID="lblTitle" runat="server" Text="Standings" CssClass="GrayTitle"></asp:Label>
-    <br/><br/>
+    <asp:Label ID="lblTitle" runat="server" Text="Standings" CssClass="GrayTitle"></asp:Label>
+    <table style="width: 100%">
+        <tr>
+            <td style="text-align: right">
+                <a href="BracketsDisplay.aspx">Grid Display</a>
+                |
+                <a href="BracketsDisplay.aspx">Brackets Display</a>
+            </td>
+        </tr>
+    </table>
+    
     <asp:DataList ID="dlTournaments" runat="server" DataSourceID="Tournaments" DataKeyField="Id"
-        OnItemDataBound="dlTournaments_ItemDataBound" RepeatColumns="2"
-        RepeatLayout="Table"  GridLines="None" Width="80%" AlternatingRowStyle-CssClass="AlternatingRow" HeaderStyle-CssClass="HeaderStyle">
+        OnItemDataBound="dlTournaments_ItemDataBound" RepeatColumns="2" RepeatLayout="Table"
+        GridLines="None" Width="100%" CellPadding="5" AlternatingRowStyle-CssClass="AlternatingRow">
         <AlternatingItemStyle BackColor="#f7f7f6" VerticalAlign="Top" />
-        <ItemStyle VerticalAlign="Top" />
+        <ItemStyle VerticalAlign="Top" Width="50%" />
         <HeaderTemplate>
         </HeaderTemplate>
         <ItemTemplate>
             <asp:Label ID="Label1" runat="server" Text='<%#Eval("TournamentName") %>' CssClass="GrayTitleNormal"></asp:Label>
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Id"
-                DataSourceID="SqlDataSource1">
+                DataSourceID="SqlDataSource1" ondatabound="GridView1_DataBound">
                 <EmptyDataTemplate>
-                    No Schedules yet !!!
+                   
                 </EmptyDataTemplate>
                 <Columns>
                     <asp:BoundField DataField="Start" HeaderText="Start" SortExpression="Start" ReadOnly="true" />
@@ -45,13 +54,13 @@
                 </Columns>
             </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:StrongerOrgString %>"
-                SelectCommand="StandingsGet" SelectCommandType="StoredProcedure" 
-                UpdateCommand="StandingUpdate" UpdateCommandType="StoredProcedure">
+                SelectCommand="StandingsGet" SelectCommandType="StoredProcedure" UpdateCommand="StandingUpdate"
+                UpdateCommandType="StoredProcedure">
                 <SelectParameters>
-                    <asp:Parameter Name="TournamentId" DbType="String"/>
+                    <asp:Parameter Name="TournamentId" DbType="String" />
                 </SelectParameters>
                 <UpdateParameters>
-                    <asp:Parameter Name="ScoreA" Type="Int32"  />
+                    <asp:Parameter Name="ScoreA" Type="Int32" />
                     <asp:Parameter Name="ScoreB" Type="Int32" />
                 </UpdateParameters>
             </asp:SqlDataSource>
@@ -63,6 +72,5 @@
             <asp:CookieParameter Name="OrganisationId" CookieName="OrganisationId" Type="String" />
             <asp:QueryStringParameter Name="TournamentId" QueryStringField="TournamentId" Type="String" />
         </SelectParameters>
-        
     </asp:SqlDataSource>
 </asp:Content>

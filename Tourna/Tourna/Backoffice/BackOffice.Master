@@ -12,8 +12,8 @@
     <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
     </telerik:RadScriptManager>
     <div id="header">
-        <asp:Image ID="Logo" runat="server" ImageUrl="~/Images/StrongerOrgLogoBackOffice.gif" AlternateText="Stronger org logo" />
-        
+        <asp:Image ID="Logo" runat="server" ImageUrl="~/Images/StrongerOrgLogoBackOffice.gif"
+            AlternateText="Stronger org logo" />
         <asp:Label ID="lblOrganisationName" runat="server" CssClass="GrayTitle"></asp:Label>
         <asp:Label ID="lblOrganisationId" runat="server" ForeColor="White"></asp:Label>
     </div>
@@ -53,7 +53,7 @@
                                 <ContentTemplate>
                                     <asp:Repeater ID="Repeater2" runat="server" DataSourceID="SiteMapDataSource2">
                                         <ItemTemplate>
-                                            <li style="color: #dda2fe;list-style-type:square;"  >
+                                            <li>
                                                 <asp:HyperLink ID="lnkMenuItemAdmin" runat="server" NavigateUrl='<%# Eval("Url") %>'><%# Eval("Title") %></asp:HyperLink>
                                             </li>
                                         </ItemTemplate>
@@ -124,9 +124,18 @@
         </tr>
         <tr>
             <td colspan="3" align="center">
-                All Rights Reserved. | <a href="">Terms of Use</a> | <a href="http://www.google.com/analytics/"
-                    target="_blank">Google Analytics</a> | <a href="">Privacy Statement © </a>2009
-                STRONGERORG.COM Corporation.
+                All Rights Reserved. | <a href="">Terms of Use</a> |
+                <asp:LoginView ID="LoginView3" runat="server">
+                    <RoleGroups>
+                        <asp:RoleGroup Roles="Administrator">
+                            <ContentTemplate>
+                                <a href="http://www.google.com/analytics/" target="_blank">Google Analytics</a>
+                                |
+                            </ContentTemplate>
+                        </asp:RoleGroup>
+                    </RoleGroups>
+                </asp:LoginView>
+                <a href="">Privacy Statement © </a>2009 STRONGERORG.COM Corporation.
             </td>
         </tr>
         <tr>
@@ -136,7 +145,7 @@
             </td>
         </tr>
         <tr>
-            <td colspan="3" style="background-color: #dda2fe; height: 1px">
+            <td colspan="3" class="FooterSeperator">
             </td>
         </tr>
     </table>

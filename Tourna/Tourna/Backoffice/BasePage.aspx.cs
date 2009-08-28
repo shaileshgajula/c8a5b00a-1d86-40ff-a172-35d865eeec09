@@ -4,10 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Telerik.Web.UI;
 
 namespace StrongerOrg.Backoffice
 {
-    public partial class BasePage : System.Web.UI.Page
+    public partial class BasePage : RadAjaxPage
     {
 
         protected override void OnPreInit(EventArgs e)

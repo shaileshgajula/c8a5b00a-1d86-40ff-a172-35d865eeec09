@@ -22,7 +22,7 @@ namespace StrongerOrg.Backoffice.DataLayer
 	using System;
 	
 	
-	[System.Data.Linq.Mapping.DatabaseAttribute(Name="Tourna")]
+	[System.Data.Linq.Mapping.DatabaseAttribute(Name="PiniTest")]
 	public partial class TournaDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -60,12 +60,12 @@ namespace StrongerOrg.Backoffice.DataLayer
     partial void InsertUser(User instance);
     partial void UpdateUser(User instance);
     partial void DeleteUser(User instance);
-    partial void InsertDefaultHoliday(DefaultHoliday instance);
-    partial void UpdateDefaultHoliday(DefaultHoliday instance);
-    partial void DeleteDefaultHoliday(DefaultHoliday instance);
     partial void InsertOrganisationHoliday(OrganisationHoliday instance);
     partial void UpdateOrganisationHoliday(OrganisationHoliday instance);
     partial void DeleteOrganisationHoliday(OrganisationHoliday instance);
+    partial void InsertDefaultHoliday(DefaultHoliday instance);
+    partial void UpdateDefaultHoliday(DefaultHoliday instance);
+    partial void DeleteDefaultHoliday(DefaultHoliday instance);
     #endregion
 		
 		public TournaDataContext() : 
@@ -218,19 +218,19 @@ namespace StrongerOrg.Backoffice.DataLayer
 			}
 		}
 		
-		public System.Data.Linq.Table<DefaultHoliday> DefaultHolidays
-		{
-			get
-			{
-				return this.GetTable<DefaultHoliday>();
-			}
-		}
-		
 		public System.Data.Linq.Table<OrganisationHoliday> OrganisationHolidays
 		{
 			get
 			{
 				return this.GetTable<OrganisationHoliday>();
+			}
+		}
+		
+		public System.Data.Linq.Table<DefaultHoliday> DefaultHolidays
+		{
+			get
+			{
+				return this.GetTable<DefaultHoliday>();
 			}
 		}
 		
@@ -3146,140 +3146,6 @@ namespace StrongerOrg.Backoffice.DataLayer
 		}
 	}
 	
-	[Table(Name="dbo.DefaultHolidays")]
-	public partial class DefaultHoliday : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Id;
-		
-		private string _Name;
-		
-		private System.DateTime _Date;
-		
-		private int _Country;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OnNameChanging(string value);
-    partial void OnNameChanged();
-    partial void OnDateChanging(System.DateTime value);
-    partial void OnDateChanged();
-    partial void OnCountryChanging(int value);
-    partial void OnCountryChanged();
-    #endregion
-		
-		public DefaultHoliday()
-		{
-			OnCreated();
-		}
-		
-		[Column(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_Name", DbType="NVarChar(256) NOT NULL", CanBeNull=false)]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this.OnNameChanging(value);
-					this.SendPropertyChanging();
-					this._Name = value;
-					this.SendPropertyChanged("Name");
-					this.OnNameChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_Date", DbType="DateTime NOT NULL")]
-		public System.DateTime Date
-		{
-			get
-			{
-				return this._Date;
-			}
-			set
-			{
-				if ((this._Date != value))
-				{
-					this.OnDateChanging(value);
-					this.SendPropertyChanging();
-					this._Date = value;
-					this.SendPropertyChanged("Date");
-					this.OnDateChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_Country", DbType="Int NOT NULL")]
-		public int Country
-		{
-			get
-			{
-				return this._Country;
-			}
-			set
-			{
-				if ((this._Country != value))
-				{
-					this.OnCountryChanging(value);
-					this.SendPropertyChanging();
-					this._Country = value;
-					this.SendPropertyChanged("Country");
-					this.OnCountryChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[Table(Name="dbo.OrganisationHolidays")]
 	public partial class OrganisationHoliday : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -3430,6 +3296,140 @@ namespace StrongerOrg.Backoffice.DataLayer
 						this._OrganisationId = default(System.Guid);
 					}
 					this.SendPropertyChanged("Organisation");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[Table(Name="dbo.DefaultHolidays")]
+	public partial class DefaultHoliday : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _Name;
+		
+		private System.DateTime _Date;
+		
+		private string _CultureInfoName;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnDateChanging(System.DateTime value);
+    partial void OnDateChanged();
+    partial void OnCultureInfoNameChanging(string value);
+    partial void OnCultureInfoNameChanged();
+    #endregion
+		
+		public DefaultHoliday()
+		{
+			OnCreated();
+		}
+		
+		[Column(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Name", DbType="NVarChar(256) NOT NULL", CanBeNull=false)]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Date", DbType="DateTime NOT NULL")]
+		public System.DateTime Date
+		{
+			get
+			{
+				return this._Date;
+			}
+			set
+			{
+				if ((this._Date != value))
+				{
+					this.OnDateChanging(value);
+					this.SendPropertyChanging();
+					this._Date = value;
+					this.SendPropertyChanged("Date");
+					this.OnDateChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_CultureInfoName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string CultureInfoName
+		{
+			get
+			{
+				return this._CultureInfoName;
+			}
+			set
+			{
+				if ((this._CultureInfoName != value))
+				{
+					this.OnCultureInfoNameChanging(value);
+					this.SendPropertyChanging();
+					this._CultureInfoName = value;
+					this.SendPropertyChanged("CultureInfoName");
+					this.OnCultureInfoNameChanged();
 				}
 			}
 		}

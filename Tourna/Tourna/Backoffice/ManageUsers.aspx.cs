@@ -24,8 +24,7 @@ namespace StrongerOrg.Backoffice
             {
                 Membership.CreateUser(this.txtUserName.Text, this.txtPassword.Text, this.txtEmail.Text);
                 UsersManager.UpdateUserOrganisationId(this.txtUserName.Text, this.Master.OrgBasicInfo.Id);
-                RadioButtonList rbRoles= this.LoginView1.FindControl("rbRoles") as RadioButtonList;
-                Roles.AddUserToRole(this.txtUserName.Text, rbRoles.SelectedValue);
+                Roles.AddUserToRole(this.txtUserName.Text, this.rbRoles.SelectedValue);
                 this.GridView1.DataBind();
             }
             catch (Exception ex)

@@ -12,7 +12,7 @@
     <br />
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" AutoGenerateEditButton="false"
         DataKeyNames="Id,Name" DataSourceID="SqlDataSource1" OnSelectedIndexChanging="GridView1_SelectedIndexChanging"
-        OnSelectedIndexChanged="GridView1_SelectedIndexChanged" >
+        OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
         <Columns>
             <asp:CommandField ShowSelectButton="True" />
             <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
@@ -54,6 +54,21 @@
             <asp:BoundField DataField="BillingAddress" HeaderText="Billing Address" />
             <asp:CheckBoxField DataField="Active" HeaderText="Active" />
             <asp:CheckBoxField DataField="EmailReminders" HeaderText="Email Reminders" />
+            <asp:TemplateField>
+                <HeaderTemplate>
+                    Country
+                </HeaderTemplate>
+                <ItemTemplate>
+                    <%#Eval("CultureInfoName") %>
+                </ItemTemplate>
+                <InsertItemTemplate>
+                    <asp:DropDownList ID="ddlCountries" runat="server" AutoPostBack="True">
+                        <asp:ListItem Value="en-US">English - USA</asp:ListItem>
+                        <asp:ListItem Value="he-IL">Hebrew -  Israel</asp:ListItem>
+                        <asp:ListItem Value="uk-UA">Ukraine - Ukraine</asp:ListItem>
+                    </asp:DropDownList>
+                </InsertItemTemplate>
+            </asp:TemplateField>
             <asp:TemplateField>
                 <HeaderTemplate>
                     Company Logo</HeaderTemplate>
@@ -120,7 +135,7 @@
         </EmptyDataTemplate>
     </asp:DetailsView>
     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:StrongerOrgString %>"
-        SelectCommand="GetOrganisations" SelectCommandType="StoredProcedure" InsertCommand="INSERT INTO Organisation(Name, ShippingAddress, BillingAddress, Active, WebSite, CompanyLogo, EmailReminders) VALUES (@Name, @ShippingAddress, @BillingAddress, @Active, @WebSite, @FileName, @EmailReminders)"
+        SelectCommand="GetOrganisations" SelectCommandType="StoredProcedure" InsertCommand="INSERT INTO Organisation(Name, ShippingAddress, BillingAddress, Active, WebSite, CompanyLogo, EmailReminders, CultureInfoName) VALUES (@Name, @ShippingAddress, @BillingAddress, @Active, @WebSite, @FileName, @EmailReminders, @CultureInfoName)"
         DeleteCommand="Delete from Organisation WHERE (Id = @Id)" UpdateCommand="OragnisationUpdate"
         UpdateCommandType="StoredProcedure">
         <SelectParameters>
@@ -137,6 +152,7 @@
             <asp:Parameter Name="EmailReminders" ConvertEmptyStringToNull="true" />
             <asp:ControlParameter ControlID="GridView1" Name="Id" PropertyName="SelectedValue"
                 Type="Empty" />
+            <asp:Parameter Name="CultureInfoName" Type="String" ConvertEmptyStringToNull="true" />
         </UpdateParameters>
         <InsertParameters>
             <asp:Parameter Name="Name" />

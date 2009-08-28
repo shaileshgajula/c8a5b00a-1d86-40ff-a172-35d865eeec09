@@ -93,5 +93,18 @@ namespace StrongerOrg.Backoffice
                 return string.Format("{0}:{1}", scoreA, scoreB);
             }
         }
+
+        public string BuildEmptyTournamentMessage(string x)
+        {
+            return "dddd";
+        }
+
+        protected void GridView1_DataBound(object sender, EventArgs e)
+        {
+            GridView gv = sender as GridView;
+            string emptyDataText = string.Format(@"No Schedules yet. There are {0} players registered and {1} days to start tournament.To run the scheduler click <a href="">Here</a>",5,20);
+
+            gv.EmptyDataText = emptyDataText;
+        }
     }
 }
