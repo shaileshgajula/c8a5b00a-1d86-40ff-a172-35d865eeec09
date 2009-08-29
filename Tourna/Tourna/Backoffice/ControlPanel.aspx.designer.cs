@@ -23,31 +23,31 @@ namespace StrongerOrg.Backoffice {
         protected global::System.Web.UI.WebControls.GridView OrgDataGrid;
         
         /// <summary>
-        /// OrganizationDataSource control.
+        /// OrganisationSource control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource OrganizationDataSource;
+        protected global::System.Web.UI.WebControls.LinqDataSource OrganisationSource;
         
         /// <summary>
-        /// GridView1 control.
+        /// TouranmentGrid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.GridView TouranmentGrid;
         
         /// <summary>
-        /// SqlDataSource3 control.
+        /// TournamentSource control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource3;
+        protected global::System.Web.UI.WebControls.LinqDataSource TournamentSource;
         
         /// <summary>
         /// DetailsView1 control.

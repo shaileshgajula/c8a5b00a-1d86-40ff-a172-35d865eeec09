@@ -1,47 +1,46 @@
 <%@ Page Title="Control Panel" Language="C#" MasterPageFile="~/Backoffice/BackOffice.Master" AutoEventWireup="true"
     CodeBehind="ControlPanel.aspx.cs" Inherits="StrongerOrg.Backoffice.ControlPanel" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
- <asp:GridView ID="OrgDataGrid" runat="server" AutoGenerateColumns="False" AutoGenerateEditButton="false"
-        DataKeyNames="Id,Name" DataSourceID="OrganizationDataSource" >
+ <asp:GridView ID="OrgDataGrid" runat="server" AutoGenerateColumns="False" 
+        DataSourceID="OrganisationSource" AllowSorting="True" DataKeyNames="Id" >
         <Columns>
-            <asp:CommandField ShowSelectButton="True" SelectText="Select" />
-            <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name"  />
-            <asp:BoundField DataField="WebSite" HeaderText="Web Site" SortExpression="WebSite" />
-            <asp:CheckBoxField DataField="Active" HeaderText="Active" SortExpression="Active" />
+            <asp:CommandField ShowSelectButton="True" />
+            <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" 
+                ReadOnly="True"  />
+            <asp:BoundField DataField="WebSite" HeaderText="WebSite" 
+                SortExpression="WebSite" ReadOnly="True" />
+            <asp:CheckBoxField DataField="Active" HeaderText="Active" 
+                SortExpression="Active" ReadOnly="True" />
         </Columns>
         <EmptyDataTemplate>
             No Organization found.
         </EmptyDataTemplate>
     </asp:GridView>
-      <asp:SqlDataSource ID="OrganizationDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:StrongerOrgString %>"
-        SelectCommand="GetOrganisations" SelectCommandType="StoredProcedure" CancelSelectOnNullParameter="False">
-        <SelectParameters>
-            <asp:QueryStringParameter Name="Id" QueryStringField="OrgId" Type="String" ConvertEmptyStringToNull="true" />
-        </SelectParameters>
-      </asp:SqlDataSource>
-    <br />
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
-        DataSourceID="SqlDataSource3">
+      <asp:LinqDataSource ID="OrganisationSource" runat="server" 
+        ContextTypeName="StrongerOrg.Backoffice.DataLayer.TournaDataContext" Select="new (Name, WebSite, Active, Players, Id)" 
+        TableName="Organisations">
+    </asp:LinqDataSource>
+    <asp:GridView ID="TouranmentGrid" runat="server" AutoGenerateColumns="False" 
+        DataSourceID="TournamentSource">
         <Columns>
-            <asp:CommandField ShowSelectButton="True" />
             <asp:BoundField DataField="TournamentName" HeaderText="TournamentName" 
-                SortExpression="TournamentName" />
+                ReadOnly="True" SortExpression="TournamentName" />
             <asp:BoundField DataField="NumberOfPlayersLimit" 
-                HeaderText="NumberOfPlayersLimit" SortExpression="NumberOfPlayersLimit" />
-            <asp:BoundField DataField="StartDate" HeaderText="StartDate" 
-                SortExpression="StartDate" />
-            <asp:BoundField DataField="DateCreated" HeaderText="DateCreated" 
-                SortExpression="DateCreated" />
+                HeaderText="NumberOfPlayersLimit" ReadOnly="True" 
+                SortExpression="NumberOfPlayersLimit" />
         </Columns>
     </asp:GridView>
-    <asp:SqlDataSource ID="SqlDataSource3" runat="server" 
-        ConnectionString="<%$ ConnectionStrings:StrongerOrgString %>" 
-        SelectCommand="SELECT [TournamentName], [NumberOfPlayersLimit], [StartDate], [DateCreated] FROM [Tournaments] WHERE ([OrganisationId] = @OrganisationId)">
-        <SelectParameters>
-            <asp:ControlParameter ControlID="OrgDataGrid" Name="OrganisationId" 
-                PropertyName="SelectedValue" Type="Object" />
-        </SelectParameters>
-    </asp:SqlDataSource>
+    <br />
+    <asp:LinqDataSource ID="TournamentSource" runat="server" 
+        ContextTypeName="StrongerOrg.Backoffice.DataLayer.TournaDataContext" 
+        Select="new (TournamentName, NumberOfPlayersLimit, Game, Id, OrganisationId)" 
+        TableName="Tournaments" Where="OrganisationId == Guid(@Id)">
+        <WhereParameters>
+            <asp:ControlParameter ControlID="OrgDataGrid" DbType="Guid" 
+                Name="Id" PropertyName="SelectedValue" />
+        </WhereParameters>
+    </asp:LinqDataSource>
+    
     <br />
     <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" 
         DataKeyNames="Id" DataSourceID="SqlDataSource4" Height="50px" Width="125px">
