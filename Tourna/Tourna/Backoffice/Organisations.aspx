@@ -1,15 +1,9 @@
-<%@ Page Title="" Language="C#" MasterPageFile="~/Backoffice/BackOffice.Master" AutoEventWireup="true"
+<%@ Page Title="Organisations" Language="C#" MasterPageFile="~/Backoffice/BackOffice.Master" AutoEventWireup="true"
     CodeBehind="Organisations.aspx.cs" Inherits="StrongerOrg.Backoffice.Organisations"
     Debug="true" %>
-
 <%@ MasterType VirtualPath="~/Backoffice/BackOffice.Master" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>Organisations</title>
-</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Label ID="lblTitle" runat="server" Text="Organisation list" CssClass="GrayTitle"></asp:Label>
-    <br />
-    <br />
+    
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" AutoGenerateEditButton="false"
         DataKeyNames="Id,Name" DataSourceID="SqlDataSource1" OnSelectedIndexChanging="GridView1_SelectedIndexChanging"
         OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
@@ -48,7 +42,7 @@
         OnItemInserted="DetailsView1_ItemInserted" OnItemInserting="DetailsView1_ItemInserting"
         OnItemUpdating="DetailsView1_ItemUpdating">
         <Fields>
-            <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
+            <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name"/>
             <asp:BoundField DataField="WebSite" HeaderText="Web Site" SortExpression="WebSite" />
             <asp:BoundField DataField="ShippingAddress" HeaderText="Shipping Address" />
             <asp:BoundField DataField="BillingAddress" HeaderText="Billing Address" />
@@ -56,7 +50,7 @@
             <asp:CheckBoxField DataField="EmailReminders" HeaderText="Email Reminders" />
             <asp:TemplateField>
                 <HeaderTemplate>
-                    Country
+                    Culture Info
                 </HeaderTemplate>
                 <ItemTemplate>
                     <%#Eval("CultureInfoName") %>
@@ -68,6 +62,9 @@
                         <asp:ListItem Value="uk-UA">Ukraine - Ukraine</asp:ListItem>
                     </asp:DropDownList>
                 </InsertItemTemplate>
+                <EditItemTemplate>
+                    <%#Eval("CultureInfoName") %>
+                </EditItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField>
                 <HeaderTemplate>
@@ -105,16 +102,14 @@
                     <asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl='<%# Eval("Id", "~/OrganisationSite/Default.aspx?OrgId={0}")%>'
                         Target="_blank">Site</asp:HyperLink>
                     |
-                    <asp:HyperLink ID="HyperLink8" runat="server" NavigateUrl='~/Backoffice/Holidays.aspx'
-                        Target="_blank">Holidays</asp:HyperLink>
+                    <asp:HyperLink ID="HyperLink8" runat="server" NavigateUrl='~/Backoffice/Holidays.aspx'>Holidays</asp:HyperLink>
                     |
-                    <asp:HyperLink ID="HyperLink9" runat="server" NavigateUrl='~/Backoffice/RegistrationFormBuilder.aspx'
-                        Target="_blank">Registration Form</asp:HyperLink>
+                    <asp:HyperLink ID="HyperLink9" runat="server" NavigateUrl='~/Backoffice/RegistrationFormBuilder.aspx'>Registration Form</asp:HyperLink>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField ShowHeader="false" InsertVisible="true" ItemStyle-HorizontalAlign="Right">
                 <ItemTemplate>
-                    <asp:LinkButton ID="LinkButton1" runat="server" OnClientClick="return confirm('Are you certain you want to delete this company?')"
+                    <asp:LinkButton ID="LinkButton1" runat="server" OnClientClick="return confirm('Are you certain you want to delete this organisation?')"
                         CommandName="Delete">Delete</asp:LinkButton>
                     <asp:LinkButton ID="LinkButton21" runat="server" CommandName="Edit">Edit</asp:LinkButton>
                     <asp:LinkButton ID="LinkButton31" runat="server" CommandName="New">New</asp:LinkButton>
@@ -135,9 +130,9 @@
         </EmptyDataTemplate>
     </asp:DetailsView>
     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:StrongerOrgString %>"
-        SelectCommand="GetOrganisations" SelectCommandType="StoredProcedure" InsertCommand="INSERT INTO Organisation(Name, ShippingAddress, BillingAddress, Active, WebSite, CompanyLogo, EmailReminders, CultureInfoName) VALUES (@Name, @ShippingAddress, @BillingAddress, @Active, @WebSite, @FileName, @EmailReminders, @CultureInfoName)"
-        DeleteCommand="Delete from Organisation WHERE (Id = @Id)" UpdateCommand="OragnisationUpdate"
-        UpdateCommandType="StoredProcedure">
+        SelectCommand="GetOrganisations" SelectCommandType="StoredProcedure" InsertCommand="OrganisationInsert"
+        InsertCommandType="StoredProcedure" DeleteCommand="Delete from Organisation WHERE (Id = @Id)"
+        UpdateCommand="OragnisationUpdate" UpdateCommandType="StoredProcedure">
         <SelectParameters>
             <asp:ControlParameter ControlID="GridView1" Name="Id" PropertyName="SelectedValue"
                 Type="Empty" />
@@ -152,7 +147,6 @@
             <asp:Parameter Name="EmailReminders" ConvertEmptyStringToNull="true" />
             <asp:ControlParameter ControlID="GridView1" Name="Id" PropertyName="SelectedValue"
                 Type="Empty" />
-            <asp:Parameter Name="CultureInfoName" Type="String" ConvertEmptyStringToNull="true" />
         </UpdateParameters>
         <InsertParameters>
             <asp:Parameter Name="Name" />

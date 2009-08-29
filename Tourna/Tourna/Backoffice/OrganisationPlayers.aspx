@@ -1,10 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Backoffice/BackOffice.Master" AutoEventWireup="true"
+﻿<%@ Page Title="Organisation Players" Language="C#" MasterPageFile="~/Backoffice/BackOffice.Master" AutoEventWireup="true"
     CodeBehind="OrganisationPlayers.aspx.cs" Inherits="StrongerOrg.Backoffice.OrganisationPlayers" %>
 <%@ MasterType VirtualPath="~/Backoffice/BackOffice.Master" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>Organisation Players</title>
-</asp:Content>
-
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:Label ID="lblTitle" runat="server" Text="" CssClass="GrayTitle"></asp:Label>
     <br /><br />

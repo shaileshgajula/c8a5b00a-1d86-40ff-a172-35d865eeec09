@@ -5,10 +5,11 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.Security;
+using StrongerOrg.Backoffice.Entities;
 
-namespace StrongerOrg.Login
+namespace StrongerOrg.Backoffice.Administrator
 {
-    public partial class LoginAsOtherUser : System.Web.UI.Page
+    public partial class LoginAsOtherUser : BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -62,7 +63,8 @@ namespace StrongerOrg.Login
             //' Manually add the authCookie to the Cookies collection 
             Response.Cookies.Add(authCookie);
 
-            
+            Response.Cookies["OrganisationId"].Value = UsersManager.GetOrganisationId(this.LogInAsUserName.Text).ToString();
+            Response.Cookies["OrganisationId"].Expires = DateTime.Now.AddDays(5);
         }
     }
 }

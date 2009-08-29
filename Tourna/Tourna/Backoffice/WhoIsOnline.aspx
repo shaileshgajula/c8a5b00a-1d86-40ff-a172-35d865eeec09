@@ -1,9 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Backoffice/BackOffice.Master" AutoEventWireup="true"
+﻿<%@ Page Title="Who Is Online" Language="C#" MasterPageFile="~/Backoffice/BackOffice.Master" AutoEventWireup="true"
     CodeBehind="WhoIsOnline.aspx.cs" Inherits="StrongerOrg.Backoffice.WhoIsOnline" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>Who Is Online</title>
-</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <table>
         <tr>

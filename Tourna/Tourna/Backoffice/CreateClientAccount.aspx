@@ -1,8 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Backoffice/BackOffice.Master" CodeBehind="CreateClientAccount.aspx.cs"
+﻿<%@ Page Title="Create user account" Language="C#" AutoEventWireup="true" MasterPageFile="~/Backoffice/BackOffice.Master" CodeBehind="CreateClientAccount.aspx.cs"
     Inherits="StrongerOrg.Backoffice.CreateUserWizard" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>Create user account</title>
-</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
         <asp:CreateUserWizard ID="CreateUserWizard1" runat="server">
             <WizardSteps>

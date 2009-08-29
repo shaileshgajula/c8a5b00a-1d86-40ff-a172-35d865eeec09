@@ -1,13 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Backoffice/BackOffice.Master" AutoEventWireup="true"
+﻿<%@ Page Title="Tournament rules" Language="C#" MasterPageFile="~/Backoffice/BackOffice.Master" AutoEventWireup="true"
     CodeBehind="Rules.aspx.cs" Inherits="StrongerOrg.Backoffice.Rules" %>
 <%@ MasterType VirtualPath="~/Backoffice/BackOffice.Master" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>Tournament rules</title>
-</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Label ID="lblTitle" runat="server" Text="Tournament rules" CssClass="GrayTitle"></asp:Label>
-    <br />
-    <br />
     <table>
         <tr>
             <td>

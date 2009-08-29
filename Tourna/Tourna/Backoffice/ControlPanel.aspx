@@ -1,15 +1,5 @@
-<%@ Page Title="" Language="C#" MasterPageFile="~/Backoffice/BackOffice.Master" AutoEventWireup="true"
+<%@ Page Title="Control Panel" Language="C#" MasterPageFile="~/Backoffice/BackOffice.Master" AutoEventWireup="true"
     CodeBehind="ControlPanel.aspx.cs" Inherits="StrongerOrg.Backoffice.ControlPanel" %>
-
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>Control Panel</title>
-    <style type="text/css">
-        .style1
-        {
-            width: 100%;
-        }
-    </style>
-</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
  <asp:GridView ID="OrgDataGrid" runat="server" AutoGenerateColumns="False" AutoGenerateEditButton="false"
         DataKeyNames="Id,Name" DataSourceID="OrganizationDataSource" >

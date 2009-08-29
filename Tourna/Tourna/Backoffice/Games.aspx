@@ -1,12 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Backoffice/BackOffice.Master" AutoEventWireup="true"
+﻿<%@ Page Title="Games" Language="C#" MasterPageFile="~/Backoffice/BackOffice.Master" AutoEventWireup="true"
     CodeBehind="Games.aspx.cs" Inherits="StrongerOrg.Backoffice.Games" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>Games</title>
-</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Label ID="lblTitle" runat="server" Text="Games" CssClass="GrayTitle"></asp:Label>
-<br/><br/>
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="GamesSqlDataSource"
         ShowFooter="True" DataKeyNames="Id" >
         <Columns>

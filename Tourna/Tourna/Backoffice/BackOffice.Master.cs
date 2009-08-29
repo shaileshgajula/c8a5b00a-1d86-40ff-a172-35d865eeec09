@@ -36,6 +36,7 @@ namespace StrongerOrg.Backoffice
             }
             this.lblRole.Text = ((BasePage)this.Page).UserRole;
             base.OnInit(e);
+            this.lblTitle.Text = this.Page.Title;
         }
         public OrganisationManager.OrganisationBasicInfo OrgBasicInfo
         {
@@ -51,7 +52,7 @@ namespace StrongerOrg.Backoffice
         public string OrganisationId
         {
             set
-            { 
+            {
                 this.lblOrganisationId.Text = value;
                 this.hlOpenSite.NavigateUrl = string.Format("~/OrganisationSite/Default.aspx?OrgId={0}", value);
             }

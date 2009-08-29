@@ -1,10 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Backoffice/BackOffice.Master"
+﻿<%@ Page Title="Tournament builder" Language="C#" AutoEventWireup="true" MasterPageFile="~/Backoffice/BackOffice.Master"
     CodeBehind="TournamentBuilder.aspx.cs" Inherits="StrongerOrg.Backoffice._Default" %>
-
 <%@ MasterType VirtualPath="~/Backoffice/BackOffice.Master" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>Tournament builder</title>
-</asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:Wizard ID="Wizard1" runat="server" ActiveStepIndex="0" Width="931px" OnFinishButtonClick="Wizard1_FinishButtonClick">
         <WizardSteps>

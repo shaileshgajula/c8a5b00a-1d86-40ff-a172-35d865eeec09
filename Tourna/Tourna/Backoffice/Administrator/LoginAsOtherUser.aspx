@@ -1,16 +1,8 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LoginAsOtherUser.aspx.cs" Inherits="StrongerOrg.Login.LoginAsOtherUser" %>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" >
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-    <div>
+﻿<%@ Page Title="Control Panel" Language="C#" AutoEventWireup="true" CodeBehind="LoginAsOtherUser.aspx.cs" Inherits="StrongerOrg.Backoffice.Administrator.LoginAsOtherUser" 
+MasterPageFile="~/Backoffice/BackOffice.Master" %>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
      <table border="0" cellpadding="2" cellspacing="0">
-            <tr class="AdminUserPrompt">
+            <tr>
                 <td align="right">
                     <asp:Label ID="AdminUserNameLabel" runat="server" AssociatedControlID="AdminUserName">An <b>Admin</b> User Name:</asp:Label>
                 </td>
@@ -21,7 +13,7 @@
                         ToolTip="The Admin User Name is required." ValidationGroup="LogInAs">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
-            <tr class="AdminUserPrompt">
+            <tr>
                 <td align="right">
                     <asp:Label ID="AdminPasswordLabel" runat="server" AssociatedControlID="AdminPassword">The <b>Admin</b> Password:</asp:Label>
                 </td>
@@ -50,12 +42,10 @@
             </tr>
             <tr>
                 <td align="right" colspan="2">
-                    <asp:Button ID="LoginButton" runat="server" CommandName="Login" Text="Log In" 
-                        ValidationGroup="LogInAs" onclick="LoginButton_Click" />
+                    <asp:LinkButton ID="LoginButton" runat="server" CommandName="Login"  
+                        ValidationGroup="LogInAs" onclick="LoginButton_Click" >Log In</asp:LinkButton>
+                        
                 </td>
             </tr>
         </table>
-    </div>
-    </form>
-</body>
-</html>
+</asp:Content>
