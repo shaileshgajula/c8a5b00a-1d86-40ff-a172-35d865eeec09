@@ -59,13 +59,13 @@ namespace StrongerOrg.Backoffice {
         protected global::System.Web.UI.WebControls.DetailsView DetailsView1;
         
         /// <summary>
-        /// SqlDataSource4 control.
+        /// TourneyDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource4;
+        protected global::System.Web.UI.WebControls.LinqDataSource TourneyDetails;
         
         /// <summary>
         /// ddlOrganisations control.

@@ -20,9 +20,11 @@
         ContextTypeName="StrongerOrg.Backoffice.DataLayer.TournaDataContext" Select="new (Name, WebSite, Active, Players, Id)" 
         TableName="Organisations">
     </asp:LinqDataSource>
+    <br />            
     <asp:GridView ID="TouranmentGrid" runat="server" AutoGenerateColumns="False" 
-        DataSourceID="TournamentSource">
+        DataSourceID="TournamentSource" DataKeyNames="Id">
         <Columns>
+            <asp:CommandField ShowSelectButton="True" />
             <asp:BoundField DataField="TournamentName" HeaderText="TournamentName" 
                 ReadOnly="True" SortExpression="TournamentName" />
             <asp:BoundField DataField="NumberOfPlayersLimit" 
@@ -30,11 +32,10 @@
                 SortExpression="NumberOfPlayersLimit" />
         </Columns>
     </asp:GridView>
-    <br />
     <asp:LinqDataSource ID="TournamentSource" runat="server" 
         ContextTypeName="StrongerOrg.Backoffice.DataLayer.TournaDataContext" 
         Select="new (TournamentName, NumberOfPlayersLimit, Game, Id, OrganisationId)" 
-        TableName="Tournaments" Where="OrganisationId == Guid(@Id)">
+        TableName="Tournaments" Where="OrganisationId == @Id" OnSelecting="WhereClauseChecking_Selecting">
         <WhereParameters>
             <asp:ControlParameter ControlID="OrgDataGrid" DbType="Guid" 
                 Name="Id" PropertyName="SelectedValue" />
@@ -43,7 +44,8 @@
     
     <br />
     <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" 
-        DataKeyNames="Id" DataSourceID="SqlDataSource4" Height="50px" Width="125px">
+        DataKeyNames="Id" DataSourceID="TourneyDetails" Height="50px" 
+        Width="125px">
         <Fields>
             <asp:BoundField DataField="Id" HeaderText="Id" ReadOnly="True" 
                 SortExpression="Id" />
@@ -84,9 +86,15 @@
         </Fields>
     </asp:DetailsView>
     <br />
-    <asp:SqlDataSource ID="SqlDataSource4" runat="server" 
-        ConnectionString="<%$ ConnectionStrings:StrongerOrgString %>" 
-        SelectCommand="SELECT * FROM [Tournaments]"></asp:SqlDataSource>
+    <asp:LinqDataSource ID="TourneyDetails" runat="server" 
+        ContextTypeName="StrongerOrg.Backoffice.DataLayer.TournaDataContext" 
+        EnableUpdate="true"
+        TableName="Tournaments" Where="Id == @Id" OnSelecting="WhereClauseChecking_Selecting">
+        <WhereParameters>
+            <asp:ControlParameter ControlID="TouranmentGrid" DbType="Guid" Name="Id" 
+                PropertyName="SelectedValue" />
+        </WhereParameters>
+    </asp:LinqDataSource>
     <br />
     
     <!--table class="style1">
