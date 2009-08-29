@@ -45,7 +45,7 @@
     <br />
     <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" 
         DataKeyNames="Id" DataSourceID="TourneyDetails" Height="50px" 
-        Width="125px" DefaultMode="Edit" >
+        Width="125px" >
         <Fields>
             <asp:BoundField DataField="Id" HeaderText="Id" ReadOnly="True" 
                 SortExpression="Id" />
