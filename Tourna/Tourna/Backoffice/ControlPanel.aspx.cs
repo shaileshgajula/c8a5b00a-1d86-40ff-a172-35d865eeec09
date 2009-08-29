@@ -122,18 +122,6 @@ namespace StrongerOrg.Backoffice
             CalendarVisualizer vis = new CalendarVisualizer(dates);
             vis.Display(schedulesPlaceHolder);
         }
-
-        protected void WhereClauseChecking_Selecting(object sender, LinqDataSourceSelectEventArgs e)
-        {
-            //i have to make sure im not trying to select null params here
-            foreach (object param in e.WhereParameters.Values)
-            {
-                if (param == null)
-                {
-                    e.Cancel = true;
-                    return;
-                }
-            }
-        }
+      
     }
 }

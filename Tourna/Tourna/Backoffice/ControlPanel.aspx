@@ -35,7 +35,7 @@
     <asp:LinqDataSource ID="TournamentSource" runat="server" 
         ContextTypeName="StrongerOrg.Backoffice.DataLayer.TournaDataContext" 
         Select="new (TournamentName, NumberOfPlayersLimit, Game, Id, OrganisationId)" 
-        TableName="Tournaments" Where="OrganisationId == @Id" OnSelecting="WhereClauseChecking_Selecting">
+        TableName="Tournaments" Where="OrganisationId == ((@Id == null)? Guid.Empty : Guid(@Id))" >
         <WhereParameters>
             <asp:ControlParameter ControlID="OrgDataGrid" DbType="Guid" 
                 Name="Id" PropertyName="SelectedValue" />
@@ -45,7 +45,7 @@
     <br />
     <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" 
         DataKeyNames="Id" DataSourceID="TourneyDetails" Height="50px" 
-        Width="125px">
+        Width="125px" DefaultMode="Edit" >
         <Fields>
             <asp:BoundField DataField="Id" HeaderText="Id" ReadOnly="True" 
                 SortExpression="Id" />
@@ -89,7 +89,7 @@
     <asp:LinqDataSource ID="TourneyDetails" runat="server" 
         ContextTypeName="StrongerOrg.Backoffice.DataLayer.TournaDataContext" 
         EnableUpdate="true"
-        TableName="Tournaments" Where="Id == @Id" OnSelecting="WhereClauseChecking_Selecting">
+        TableName="Tournaments" Where="Id == ((@Id == null)? Guid.Empty : Guid(@Id))">
         <WhereParameters>
             <asp:ControlParameter ControlID="TouranmentGrid" DbType="Guid" Name="Id" 
                 PropertyName="SelectedValue" />
