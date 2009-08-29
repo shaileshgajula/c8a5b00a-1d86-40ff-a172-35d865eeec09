@@ -1,16 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Backoffice/BackOffice.Master" AutoEventWireup="true"
+﻿<%@ Page Title="Default Holidays" Language="C#" MasterPageFile="~/Backoffice/BackOffice.Master" AutoEventWireup="true"
     CodeBehind="DefaultHolidays.aspx.cs" Inherits="StrongerOrg.Backoffice.DefaultHolidays" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>Default Holidays</title>
-</asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <table style="width:100%">
-        <tr>
-            <td class="GrayTitle" colspan="2">
-                Default Holidays
-            </td>
-        </tr>
         <tr>
             <td>
                 Select Culture

@@ -1,14 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Backoffice/BackOffice.Master" AutoEventWireup="true"
+﻿<%@ Page Title="Manage users" Language="C#" MasterPageFile="~/Backoffice/BackOffice.Master" AutoEventWireup="true"
     CodeBehind="ManageUsers.aspx.cs" Inherits="StrongerOrg.Backoffice.ManageUsers" %>
 
 <%@ MasterType VirtualPath="~/Backoffice/BackOffice.Master" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>Manage users</title>
-</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Label ID="lblTitle" runat="server" Text="Manage users" CssClass="GrayTitle"></asp:Label>
-    <br />
-    <br />
     <table cellpadding="2" cellspacing="2" style="width: 50%">
         <tr>
             <td class="HeaderStyle" colspan="2">

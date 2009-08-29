@@ -1,18 +1,12 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Backoffice/BackOffice.Master" AutoEventWireup="true"
+﻿<%@ Page Title="Schedules" Language="C#" MasterPageFile="~/Backoffice/BackOffice.Master" AutoEventWireup="true"
     CodeBehind="Schedules.aspx.cs" Inherits="StrongerOrg.Backoffice.Schedules" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>Schedules</title>
-
-    <script type="text/javascript">
-			function Export(sender, e)
-			{
-				$find("<%= RadAjaxManager1.ClientID %>").__doPostBack(sender.name, "");
-			}
-    </script>
-
-</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<script type="text/javascript">
+    function Export(sender, e) {
+        $find("<%= RadAjaxManager1.ClientID %>").__doPostBack(sender.name, "");
+    }
+    </script>
     <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server">
         <AjaxSettings>
             <telerik:AjaxSetting AjaxControlID="RadScheduler1">

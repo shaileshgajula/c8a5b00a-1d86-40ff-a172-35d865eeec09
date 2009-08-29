@@ -86,7 +86,6 @@
     <Compile Include="Backoffice\BasePage.aspx.designer.cs">
       <DependentUpon>BasePage.aspx</DependentUpon>
     </Compile>
-
     <Compile Include="Backoffice\BracketsDisplay.aspx.cs">
       <DependentUpon>BracketsDisplay.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -94,9 +93,7 @@
     <Compile Include="Backoffice\BracketsDisplay.aspx.designer.cs">
       <DependentUpon>BracketsDisplay.aspx</DependentUpon>
     </Compile>
-
     <Compile Include="Backoffice\CalendarVisualizer.cs" />
-
     <Compile Include="Backoffice\ControlPanel.aspx.cs">
       <DependentUpon>ControlPanel.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -400,11 +397,11 @@
     <Compile Include="Backoffice\TournamentBuilder.aspx.designer.cs">
       <DependentUpon>TournamentBuilder.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Login\LoginAsOtherUser.aspx.cs">
+    <Compile Include="Backoffice\Administrator\LoginAsOtherUser.aspx.cs">
       <DependentUpon>LoginAsOtherUser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Login\LoginAsOtherUser.aspx.designer.cs">
+    <Compile Include="Backoffice\Administrator\LoginAsOtherUser.aspx.designer.cs">
       <DependentUpon>LoginAsOtherUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login\PasswordRecover.aspx.cs">
@@ -591,7 +588,7 @@
     <Content Include="Backoffice\CreateClientAccount.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Backoffice\SiteMap.aspx" />
-    <Content Include="Login\LoginAsOtherUser.aspx" />
+    <Content Include="Backoffice\Administrator\LoginAsOtherUser.aspx" />
     <Content Include="Login\PasswordRecover.aspx" />
     <Content Include="OrganisationSite\PlayerSubscription.aspx" />
     <Content Include="OrganisationSite\Rules.aspx" />
@@ -677,7 +674,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
+      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

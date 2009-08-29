@@ -4,23 +4,19 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
     <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
     </telerik:RadScriptManager>
-    <div id="header">
-        <asp:Image ID="Logo" runat="server" ImageUrl="~/Images/StrongerOrgLogoBackOffice.gif"
-            AlternateText="Stronger org logo" />
-        <asp:Label ID="lblOrganisationName" runat="server" CssClass="GrayTitle"></asp:Label>
-        <asp:Label ID="lblOrganisationId" runat="server" ForeColor="White"></asp:Label>
-    </div>
+    <asp:Image ID="Logo" runat="server" ImageUrl="~/Images/StrongerOrgLogoBackOffice.gif"
+        AlternateText="Stronger org logo" />
+    <asp:Label ID="lblOrganisationName" runat="server" CssClass="GrayTitle"></asp:Label>
+    <asp:Label ID="lblOrganisationId" runat="server" ForeColor="White"></asp:Label>
     <br />
     <table style="width: 100%" border="0" cellpadding="0" cellspacing="0">
         <tr>
-            <td colspan="3" style="background-color: #cccccc; height: 1px">
+            <td colspan="4" style="background-color: #cccccc; height: 1px">
             </td>
         </tr>
         <tr>
@@ -36,12 +32,15 @@
                     </AnonymousTemplate>
                 </asp:LoginView>
             </td>
+            <td>
+                <asp:Label ID="lblTitle" runat="server" Text="Label" CssClass="GrayTitle">Org info</asp:Label>
+            </td>
             <td style="text-align: right">
                 <asp:HyperLink ID="hlOpenSite" runat="server" Target="_blank">open site</asp:HyperLink>
             </td>
         </tr>
         <tr>
-            <td colspan="3" style="background-color: #cccccc; height: 1px">
+            <td colspan="4" style="background-color: #cccccc; height: 1px">
             </td>
         </tr>
         <tr>
@@ -107,23 +106,23 @@
             </td>
             <td style="width: 1px; background-color: #cccccc" rowspan="2">
             </td>
-            <td style="vertical-align: top; padding: 25px">
+            <td style="vertical-align: top; padding: 25px" colspan="2">
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 </asp:ContentPlaceHolder>
             </td>
         </tr>
         <tr>
-            <td colspan="3" class="GrayTextLight">
+            <td colspan="4" class="GrayTextLight">
                 User Role:
                 <asp:Label ID="lblRole" runat="server" Text=""></asp:Label>
             </td>
         </tr>
         <tr>
-            <td colspan="3" style="background-color: #cccccc; height: 1px">
+            <td colspan="4" style="background-color: #cccccc; height: 1px">
             </td>
         </tr>
         <tr>
-            <td colspan="3" align="center">
+            <td colspan="4" align="center">
                 All Rights Reserved. | <a href="">Terms of Use</a> |
                 <asp:LoginView ID="LoginView3" runat="server">
                     <RoleGroups>
@@ -139,13 +138,13 @@
             </td>
         </tr>
         <tr>
-            <td colspan="3" align="center">
+            <td colspan="4" align="center">
                 <iframe src="http://www.google.com/talk/service/badge/Show?tk=z01q6amlqgej3viuot0n4t2ov3qn81sd1mapmrg91shvc1a4atu1s2pgtd211sgq3inbm0a04baktkf26av728cvc86k9rjbal5shmna0ef91ius49v6mb22rdsmjvtsuc93ot9uuguic0qjjerknplb79bnglr2qkou4idka&amp;w=300&amp;h=18"
                     allowtransparency="true" width="300" frameborder="0" height="18"></iframe>
             </td>
         </tr>
         <tr>
-            <td colspan="3" class="FooterSeperator">
+            <td colspan="4" class="FooterSeperator">
             </td>
         </tr>
     </table>

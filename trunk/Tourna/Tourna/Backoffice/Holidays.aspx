@@ -1,23 +1,16 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Backoffice/BackOffice.Master" AutoEventWireup="true"
+﻿<%@ Page Title="Organisation Holidays" Language="C#" MasterPageFile="~/Backoffice/BackOffice.Master" AutoEventWireup="true"
     CodeBehind="Holidays.aspx.cs" Inherits="StrongerOrg.Backoffice.Holidyas" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>Organisation Holidays</title>
-</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <table style="width:100%">
-        <tr>
-            <td class="GrayTitle">
-                Organisation Holidays
-            </td>
-        </tr>
         <tr>
             <td>
                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
                     DataKeyNames="Id" DataSourceID="SqlDataSource1">
                     <Columns>
                         <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
-                        <asp:BoundField DataField="Date" HeaderText="Date" SortExpression="Date" />
+                        <asp:BoundField DataField="Date" HeaderText="Date" SortExpression="Date" DataFormatString="{0:d}" />
+                        <asp:CommandField ShowDeleteButton="True" HeaderText="Remove" DeleteText="Remove" />
                     </Columns>
                     <EmptyDataTemplate>
                         No holidays found for this organisation
@@ -27,11 +20,11 @@
                     ConnectionString="<%$ ConnectionStrings:StrongerOrgString %>" 
                     DeleteCommand="DELETE FROM [OrganisationHolidays] WHERE [Id] = @Id" 
                     InsertCommand="INSERT INTO [OrganisationHolidays] ([Name], [Date], [OrganisationId]) VALUES (@Name, @Date, @OrganisationId)" 
-                    SelectCommand="SELECT [Name], [Date], [OrganisationId], [Id] FROM [OrganisationHolidays] WHERE ([OrganisationId] = @OrganisationId)" 
+                    SelectCommand="SELECT [Name], [Date], [OrganisationId], [Id] FROM [OrganisationHolidays] WHERE ([OrganisationId] = @OrganisationId) order by [Date] desc" 
                     UpdateCommand="UPDATE [OrganisationHolidays] SET [Name] = @Name, [Date] = @Date, [OrganisationId] = @OrganisationId WHERE [Id] = @Id">
                     <SelectParameters>
                         <asp:CookieParameter CookieName="OrganisationId" Name="OrganisationId" 
-                            Type="Object" />
+                            Type="String" />
                     </SelectParameters>
                     <DeleteParameters>
                         <asp:Parameter Name="Id" Type="Int32" />
@@ -51,7 +44,12 @@
             </td>
         </tr>
         <tr>
-            <td style="height:1px;background-color:Fuchsia">
+            <td class="SelectedRowStyle">
+                
+            </td>
+        </tr>
+        <tr>
+            <td style="height:15px;">
                 
             </td>
         </tr>
@@ -62,7 +60,7 @@
                     <InsertItemTemplate>
                         <table>
                 <tr>
-                    <td>
+                    <td class="GrayTitleNormal">
                         Add new holiday date
                     </td>
                     <td>
@@ -74,7 +72,7 @@
                         Name
                     </td>
                     <td style="margin-left: 40px">
-                        <asp:TextBox ID="txtName" runat="server" Text='<%# Bind("Name") %>'></asp:TextBox>
+                        <asp:TextBox ID="txtName" runat="server" Text='<%# Bind("Name") %>' Width="200px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -82,7 +80,7 @@
                         Date
                     </td>
                     <td style="margin-left: 40px">
-                        <telerik:RadDatePicker ID="tdpDate" runat="server" SelectedDate='<%# Bind("Date") %>' >
+                        <telerik:RadDatePicker ID="tdpDate" runat="server" SelectedDate='<%# Bind("Date") %>' Width="200px" >
                             <Calendar UseRowHeadersAsSelectors="False" UseColumnHeadersAsSelectors="False" ViewSelectorText="x">
                             </Calendar>
                             <DatePopupButton ImageUrl="" HoverImageUrl=""></DatePopupButton>
@@ -90,12 +88,10 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        &nbsp;
-                    </td>
-                    <td style="margin-left: 40px; text-align: right">
-                        <asp:LinkButton ID="InsertCancelButton" runat="server" 
-                            CausesValidation="False" CommandName="Cancel" Text="Cancel" /> <asp:LinkButton ID="lbAdd" runat="server" CommandName="Insert">Insert</asp:LinkButton>
+                    <td style="text-align: right;height:50px" colspan="2">
+                            <asp:LinkButton ID="lbAdd" runat="server" CommandName="Insert">Insert</asp:LinkButton>
+                            |
+                            <asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" /> 
                     </td>
                 </tr>
             </table>

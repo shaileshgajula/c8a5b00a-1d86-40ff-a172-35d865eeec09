@@ -1,11 +1,9 @@
-<%@ Page Title="" Language="C#" MasterPageFile="~/Backoffice/BackOffice.Master" AutoEventWireup="true"
+<%@ Page Title="Standings" Language="C#" MasterPageFile="~/Backoffice/BackOffice.Master" AutoEventWireup="true"
     CodeBehind="Standings.aspx.cs" Inherits="StrongerOrg.Backoffice.Standings" %>
 
 <%@ MasterType VirtualPath="~/Backoffice/BackOffice.Master" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Label ID="lblTitle" runat="server" Text="Standings" CssClass="GrayTitle"></asp:Label>
+    
     <table style="width: 100%">
         <tr>
             <td style="text-align: right">

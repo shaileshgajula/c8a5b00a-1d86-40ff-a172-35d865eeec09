@@ -80,25 +80,20 @@ namespace StrongerOrg.Backoffice
                 e.Values["FileName"] = newFileName;
                 SaveLogoFile(newFileName);
             }
-            using (TournaDataContext db = new TournaDataContext())
-            {
-                DropDownList cultures = this.DetailsView1.FindControl("ddlCountries") as DropDownList;
-                string cultureInfoName = cultures.SelectedValue;
-                e.Values["CultureInfoName"] = cultureInfoName;
-                Guid organisationId = Master.OrgBasicInfo.Id;
-                IEnumerable<OrganisationHoliday> defaultHolidays = (from holidays in db.DefaultHolidays
-                                      where holidays.CultureInfoName == cultureInfoName
-                                                                        select holidays).ToList().Select
-                                                                        (holidays=> new OrganisationHoliday() { Name = holidays.Name, Date = holidays.Date, OrganisationId = organisationId });
+            DropDownList cultures = this.DetailsView1.FindControl("ddlCountries") as DropDownList;
+            string cultureInfoName = cultures.SelectedValue;
+            e.Values["CultureInfoName"] = cultureInfoName;
+            //using (TournaDataContext db = new TournaDataContext())
+            //{
+            //    Guid organisationId = Master.OrgBasicInfo.Id;
+            //    IEnumerable<OrganisationHoliday> defaultHolidays = (from holidays in db.DefaultHolidays
+            //                          where holidays.CultureInfoName == cultureInfoName
+            //                                                            select holidays).ToList().Select
+            //                                                            (holidays=> new OrganisationHoliday() { Name = holidays.Name, Date = holidays.Date, OrganisationId = organisationId });
                                       
-                db.OrganisationHolidays.InsertAllOnSubmit(defaultHolidays);
-                db.SubmitChanges();
-
-
-
-            }
-
-
+            //    db.OrganisationHolidays.InsertAllOnSubmit(defaultHolidays);
+            //    db.SubmitChanges();
+            //}
         }
 
         protected void lbRemove_Click(object sender, EventArgs e)
