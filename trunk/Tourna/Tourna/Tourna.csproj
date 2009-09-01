@@ -65,6 +65,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Backoffice\Administrator\FAQ.aspx.cs">
+      <DependentUpon>FAQ.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backoffice\Administrator\FAQ.aspx.designer.cs">
+      <DependentUpon>FAQ.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Backoffice\Administrator\Payments.aspx.cs">
       <DependentUpon>Payments.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -634,6 +641,7 @@
     <Content Include="App_Themes\Administrator\AdministratorStyle.css" />
     <Content Include="App_Themes\OrganisationSite\AzureBaseStylesheet.css" />
     <Content Include="App_Themes\OrganisationSite\GrayBaseSkin.skin" />
+    <Content Include="Backoffice\Administrator\FAQ.aspx" />
     <Content Include="Backoffice\Administrator\Payments.aspx" />
     <Content Include="Backoffice\BasePage.aspx" />
     <Content Include="Backoffice\BracketsDisplay.aspx" />
