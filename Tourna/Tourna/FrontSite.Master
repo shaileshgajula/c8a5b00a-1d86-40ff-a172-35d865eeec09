@@ -15,6 +15,11 @@
             color: #000000;
             font-family: Verdana, Arial, Helvetica, sans-serif; /*border-top: 0px solid #B51032;*/
         }
+        .GrayTitle
+{
+	font-size: 17px;
+	font-weight: bold;
+}
         .style1
         {
             width: 100%;

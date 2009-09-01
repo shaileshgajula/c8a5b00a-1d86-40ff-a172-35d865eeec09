@@ -16,15 +16,15 @@ namespace StrongerOrg.Backoffice
 
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
-            if (this.Bracket1.ReadOnly)
-            {
-                this.LinkButton1.Text = "Switch to read only mode";
-            }
-            else
-            {
-                this.LinkButton1.Text = "Switch to edit mode"; 
-            }
-            this.Bracket1.ReadOnly = !this.Bracket1.ReadOnly;
+            //if (this.Bracket1.ReadOnly)
+            //{
+            //    this.LinkButton1.Text = "Switch to read only mode";
+            //}
+            //else
+            //{
+            //    this.LinkButton1.Text = "Switch to edit mode"; 
+            //}
+            //this.Bracket1.ReadOnly = !this.Bracket1.ReadOnly;
         }
     }
 }
