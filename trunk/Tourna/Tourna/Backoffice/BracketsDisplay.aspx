@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Brackets Display" Language="C#" MasterPageFile="~/Backoffice/BackOffice.Master" AutoEventWireup="true"
     CodeBehind="BracketsDisplay.aspx.cs" Inherits="StrongerOrg.Backoffice.BracketsDisplay" %>
 
-<%@ Register Assembly="TourneyLogic.Web.UI.BracketControl.v2" Namespace="TourneyLogic.Web.UI.WebControls"
+<%--<%@ Register Assembly="TourneyLogic.Web.UI.BracketControl.v2" Namespace="TourneyLogic.Web.UI.WebControls"
     TagPrefix="tl" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -28,3 +28,4 @@
 
 </tl:Bracket>
 </asp:Content>
+--%>

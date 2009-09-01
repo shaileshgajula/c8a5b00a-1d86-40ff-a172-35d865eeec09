@@ -13,5 +13,15 @@ namespace StrongerOrg.FrontSitePages
         {
             this.Master.ActiveContactHyperLink();
         }
+
+        protected void ibClear_Click(object sender, ImageClickEventArgs e)
+        {
+
+        }
+
+        protected void ibSend_Click(object sender, ImageClickEventArgs e)
+        {
+
+        }
     }
 }

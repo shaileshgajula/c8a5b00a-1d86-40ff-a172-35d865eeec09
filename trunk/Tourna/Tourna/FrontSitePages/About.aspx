@@ -8,12 +8,12 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <table cellpadding="0" cellspacing="0" border="0" style="width: 100%">
         <tr>
-            <td style="padding: 15px">
+            <td style="padding: 15px" colspan="2">
                 <img src="../Images/aboutus.gif" />
             </td>
         </tr>
         <tr>
-            <td class="GrayTextNormal" style="padding: 15px">
+            <td class="GrayTextNormal" style="padding: 15px" colspan="2">
                 The idea that became StrongerOrg was born during numerous gripe sessions between
                 a group of interface experts and web application coders (that’s us). We all needed
                 a good web-based task management application, but none of us could find one that
@@ -36,6 +36,68 @@
                 to you have any feedback, feel free to shoot us an email at contact@StrongerOrg.com.
                 StrongerOrg is headquartered in New York City.
             </td>
+        </tr>
+        <tr>
+            <td style="padding: 15px" colspan="2">
+                <img src="../Images/TheTeam.gif" />
+            </td>
+        </tr>
+        <tr>
+            <td style="padding: 15px;width:140px" rowspan="2">
+                <img src="../Images/msn_icon.JPG" />
+            </td>
+            <td style="padding: 5px;height:15px;vertical-align: top;color:#2e2e2e;font-size:15px;font-weight:bold">
+                Pini Usha, CTO and founder
+            </td>
+            <tr>
+                <td style="padding: 15px;vertical-align: top" class="GrayTextNormal">
+                And we’d love to know what features you’d find useful -- please send your comments
+                to you have any feedback, feel free to shoot us an email at contact@StrongerOrg.com.
+                StrongerOrg is headquartered in New York City.
+                <br>
+                And we’d love to know what features you’d find useful <br>-- please send your comments
+                to you have any feedback, feel free to shoot us an email at contact@StrongerOrg.com.
+                StrongerOrg is headquartered in New York City.
+                </td>
+            </tr>
+        </tr>
+        <tr>
+            <td style="padding: 15px;width:140px" rowspan="2">
+                <img src="../Images/msn_icon.JPG" />
+            </td>
+            <td style="padding: 5px;height:15px;vertical-align: top;color:#2e2e2e;font-size:15px;font-weight:bold">
+                Inbar Usha, COO 
+            </td>
+            <tr>
+                <td style="padding: 15px;vertical-align: top" class="GrayTextNormal">
+                And we’d love to know what features you’d find useful -- please send your comments
+                to you have any feedback, feel free to shoot us an email at contact@StrongerOrg.com.
+                StrongerOrg is headquartered in New York City.
+                <br>
+                And we’d love to know what features you’d find useful <br>-- please send your comments
+                to you have any feedback, feel free to shoot us an email at contact@StrongerOrg.com.
+                StrongerOrg is headquartered in New York City.
+                </td>
+            </tr>
+        </tr>
+        <tr>
+            <td style="padding: 15px;width:140px" rowspan="2">
+                <img src="../Images/msn_icon.JPG" />
+            </td>
+            <td style="padding: 5px;height:15px;vertical-align: top;color:#2e2e2e;font-size:15px;font-weight:bold">
+                Stan Rozenberg, sr. software developer
+            </td>
+            <tr>
+                <td style="padding: 15px;vertical-align: top" class="GrayTextNormal">
+                And we’d love to know what features you’d find useful -- please send your comments
+                to you have any feedback, feel free to shoot us an email at contact@StrongerOrg.com.
+                StrongerOrg is headquartered in New York City.
+                <br>
+                And we’d love to know what features you’d find useful <br>-- please send your comments
+                to you have any feedback, feel free to shoot us an email at contact@StrongerOrg.com.
+                StrongerOrg is headquartered in New York City.
+                </td>
+            </tr>
         </tr>
     </table>
     <br />

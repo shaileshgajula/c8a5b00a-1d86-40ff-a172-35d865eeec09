@@ -36,6 +36,13 @@ li
 	color: #dda2fe;
 	list-style-type: square;
 }
+.ThemeBorder
+{
+	border-top-color: #dda2fe;
+	border-top-width:1px;
+	border-top-style:solid;
+	}
+
 .FooterSeperator
 {
 	background-color: #dda2fe;

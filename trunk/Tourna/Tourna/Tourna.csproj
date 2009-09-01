@@ -296,6 +296,13 @@
     <Compile Include="Backoffice\UnscheduledPlayers.aspx.designer.cs">
       <DependentUpon>UnscheduledPlayers.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Backoffice\UserControls\OrganisationInfo.ascx.cs">
+      <DependentUpon>OrganisationInfo.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backoffice\UserControls\OrganisationInfo.ascx.designer.cs">
+      <DependentUpon>OrganisationInfo.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Backoffice\WhoIsOnline.aspx.cs">
       <DependentUpon>WhoIsOnline.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -639,8 +646,14 @@
     <Content Include="App_Themes\Moderator\Skin1.skin" />
     <Content Include="App_Themes\Accountants\Skin1.skin" />
     <Content Include="App_Themes\ContentManager\Skin1.skin" />
+    <Content Include="Backoffice\UserControls\OrganisationInfo.ascx" />
+    <Content Include="Images\ClearBtn.gif" />
     <Content Include="Images\GamesImages\wii-baseball.jpg" />
     <Content Include="Images\GamesImages\wii-golf.jpg" />
+    <Content Include="Backoffice\Administrator\Web.config" />
+    <Content Include="Images\msn_icon.JPG" />
+    <Content Include="Images\SendBtn.gif" />
+    <Content Include="Images\TheTeam.gif" />
     <None Include="Backoffice\DataLayer\Tourna.dbml.layout">
       <DependentUpon>Tourna.dbml</DependentUpon>
     </None>
@@ -674,7 +687,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
+      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

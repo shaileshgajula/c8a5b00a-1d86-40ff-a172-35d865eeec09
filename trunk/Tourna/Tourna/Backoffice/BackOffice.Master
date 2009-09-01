@@ -9,11 +9,18 @@
     <form id="form1" runat="server">
     <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
     </telerik:RadScriptManager>
-    <asp:Image ID="Logo" runat="server" ImageUrl="~/Images/StrongerOrgLogoBackOffice.gif"
-        AlternateText="Stronger org logo" />
-    <asp:Label ID="lblOrganisationName" runat="server" CssClass="GrayTitle"></asp:Label>
-    <asp:Label ID="lblOrganisationId" runat="server" ForeColor="White"></asp:Label>
-    <br />
+    <table style="width: 100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td>
+                <asp:Image ID="Logo" runat="server" ImageUrl="~/Images/StrongerOrgLogoBackOffice.gif"
+                    AlternateText="Stronger org logo" />
+            </td>
+            <td style="text-align: right;vertical-align:bottom;padding-right:5px">
+                <asp:Label ID="lblOrganisationId" runat="server" ForeColor="White"></asp:Label>
+                <asp:Label ID="lblOrganisationName" runat="server" CssClass="GrayTitle"></asp:Label>
+            </td>
+        </tr>
+    </table>
     <table style="width: 100%" border="0" cellpadding="0" cellspacing="0">
         <tr>
             <td colspan="4" style="background-color: #cccccc; height: 1px">
@@ -25,17 +32,17 @@
                     <LoggedInTemplate>
                         Welcome back,
                         <asp:LoginName ID="LoginName1" runat="server" />
-                        <asp:LoginStatus ID="LoginStatus1" runat="server" />
+                        <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutAction="RedirectToLoginPage"  />
                     </LoggedInTemplate>
                     <AnonymousTemplate>
                         This is restricted area. You are not suppose to be here.
                     </AnonymousTemplate>
                 </asp:LoginView>
             </td>
-            <td>
+            <td style="padding-left: 20px;">
                 <asp:Label ID="lblTitle" runat="server" Text="Label" CssClass="GrayTitle">Org info</asp:Label>
             </td>
-            <td style="text-align: right">
+            <td style="text-align: right; padding-right: 5px">
                 <asp:HyperLink ID="hlOpenSite" runat="server" Target="_blank">open site</asp:HyperLink>
             </td>
         </tr>
