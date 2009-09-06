@@ -60,9 +60,9 @@
       <Association Name="Organisation_Membership2Organisation" Member="Membership2Organisations" ThisKey="Id" OtherKey="OrganisationId" Type="Membership2Organisation" />
       <Association Name="Organisation_Organisation2Game" Member="Organisation2Games" ThisKey="Id" OtherKey="OrganisationId" Type="Organisation2Game" />
       <Association Name="Organisation_Player" Member="Players" ThisKey="Id" OtherKey="OrganisationId" Type="Player" />
-      <Association Name="Organisation_TextContent" Member="TextContents" ThisKey="Id" OtherKey="OrganisationId" Type="TextContent" />
       <Association Name="Organisation_Tournament" Member="Tournaments" ThisKey="Id" OtherKey="OrganisationId" Type="Tournament" />
       <Association Name="Organisation_OrganisationHoliday" Member="OrganisationHolidays" ThisKey="Id" OtherKey="OrganisationId" Type="OrganisationHoliday" />
+      <Association Name="Organisation_TextContent" Member="TextContents" ThisKey="Id" OtherKey="OrganisationId" Type="TextContent" />
     </Type>
   </Table>
   <Table Name="dbo.Organisation2Games" Member="Organisation2Games">
@@ -115,15 +115,6 @@
       <Column Name="UpdatedBy" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
       <Column Name="TimeStamp" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="Tournament_Schedule" Member="Tournament" ThisKey="TournamentId" OtherKey="Id" Type="Tournament" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.TextContent" Member="TextContents">
-    <Type Name="TextContent">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="OrganisationId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
-      <Column Name="ContentType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Content" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="Organisation_TextContent" Member="Organisation" ThisKey="OrganisationId" OtherKey="Id" Type="Organisation" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.Timezones" Member="Timezones">
@@ -188,6 +179,16 @@
       <Column Name="Name" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
       <Column Name="Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="CultureInfoName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TextContent" Member="TextContents">
+    <Type Name="TextContent">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="OrganisationId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="ContentType" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Caption" Type="System.String" DbType="NVarChar(1050)" CanBeNull="true" />
+      <Column Name="Content" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Organisation_TextContent" Member="Organisation" ThisKey="OrganisationId" OtherKey="Id" Type="Organisation" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.PlayersGet" Method="PlayersGet">

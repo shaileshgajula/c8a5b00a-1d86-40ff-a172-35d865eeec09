@@ -19,11 +19,7 @@ namespace StrongerOrg.Backoffice
         {
 
         }
-        protected void GridView1_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
-        {
-            //this.DetailsView1.ChangeMode(DetailsViewMode.ReadOnly);
-        }
-
+        
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
             string organisationName = this.GridView1.SelectedDataKey["Name"].ToString();
