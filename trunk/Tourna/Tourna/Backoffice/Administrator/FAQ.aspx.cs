@@ -13,5 +13,28 @@ namespace StrongerOrg.Backoffice.Administrator
         {
 
         }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.FormView1.ChangeMode(FormViewMode.Edit);
+        }
+
+        protected void lbNewFAQ_Click(object sender, EventArgs e)
+        {
+            //this.SqlDataSource1.SelectParameters["Id"]
+            this.FormView1.ChangeMode(FormViewMode.Insert);
+        }
+
+        protected void FormView1_ItemUpdated(object sender, FormViewUpdatedEventArgs e)
+        {
+            this.GridView1.DataBind();
+        }
+
+        protected void FormView1_ItemInserted(object sender, FormViewInsertedEventArgs e)
+        {
+            this.GridView1.DataBind();
+        }
+
+       
     }
 }

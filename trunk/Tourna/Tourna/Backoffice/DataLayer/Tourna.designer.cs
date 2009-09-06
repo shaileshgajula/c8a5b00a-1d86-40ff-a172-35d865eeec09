@@ -178,14 +178,6 @@ namespace StrongerOrg.Backoffice.DataLayer
 			}
 		}
 		
-		public System.Data.Linq.Table<TextContent> TextContents
-		{
-			get
-			{
-				return this.GetTable<TextContent>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Timezone> Timezones
 		{
 			get
@@ -231,6 +223,14 @@ namespace StrongerOrg.Backoffice.DataLayer
 			get
 			{
 				return this.GetTable<DefaultHoliday>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TextContent> TextContents
+		{
+			get
+			{
+				return this.GetTable<TextContent>();
 			}
 		}
 		
@@ -2192,87 +2192,6 @@ namespace StrongerOrg.Backoffice.DataLayer
 		}
 	}
 	
-	[Table(Name="dbo.TextContent")]
-	public partial class TextContent
-	{
-		
-		private int _Id;
-		
-		private System.Guid _OrganisationId;
-		
-		private int _ContentType;
-		
-		private string _Content;
-		
-		public TextContent()
-		{
-		}
-		
-		[Column(Storage="_Id", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
-		public int Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this._Id = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_OrganisationId", DbType="UniqueIdentifier NOT NULL")]
-		public System.Guid OrganisationId
-		{
-			get
-			{
-				return this._OrganisationId;
-			}
-			set
-			{
-				if ((this._OrganisationId != value))
-				{
-					this._OrganisationId = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_ContentType", DbType="Int NOT NULL")]
-		public int ContentType
-		{
-			get
-			{
-				return this._ContentType;
-			}
-			set
-			{
-				if ((this._ContentType != value))
-				{
-					this._ContentType = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_Content", DbType="Text", UpdateCheck=UpdateCheck.Never)]
-		public string Content
-		{
-			get
-			{
-				return this._Content;
-			}
-			set
-			{
-				if ((this._Content != value))
-				{
-					this._Content = value;
-				}
-			}
-		}
-	}
-	
 	[Table(Name="dbo.Timezones")]
 	public partial class Timezone : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -3451,6 +3370,105 @@ namespace StrongerOrg.Backoffice.DataLayer
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[Table(Name="dbo.TextContent")]
+	public partial class TextContent
+	{
+		
+		private int _Id;
+		
+		private System.Guid _OrganisationId;
+		
+		private string _ContentType;
+		
+		private string _Caption;
+		
+		private string _Content;
+		
+		public TextContent()
+		{
+		}
+		
+		[Column(Storage="_Id", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this._Id = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_OrganisationId", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid OrganisationId
+		{
+			get
+			{
+				return this._OrganisationId;
+			}
+			set
+			{
+				if ((this._OrganisationId != value))
+				{
+					this._OrganisationId = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_ContentType", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string ContentType
+		{
+			get
+			{
+				return this._ContentType;
+			}
+			set
+			{
+				if ((this._ContentType != value))
+				{
+					this._ContentType = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_Caption", DbType="NVarChar(1050)")]
+		public string Caption
+		{
+			get
+			{
+				return this._Caption;
+			}
+			set
+			{
+				if ((this._Caption != value))
+				{
+					this._Caption = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_Content", DbType="Text", UpdateCheck=UpdateCheck.Never)]
+		public string Content
+		{
+			get
+			{
+				return this._Content;
+			}
+			set
+			{
+				if ((this._Content != value))
+				{
+					this._Content = value;
+				}
 			}
 		}
 	}
