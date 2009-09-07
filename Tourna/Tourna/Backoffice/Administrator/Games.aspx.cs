@@ -24,7 +24,6 @@ namespace StrongerOrg.Backoffice.Administrator
                 int contentLength = postedFile.ContentLength;
                 string contentType = postedFile.ContentType;
                 string fullFileName = Server.MapPath("~\\Images\\GamesImages\\" + newFileName);
-                //string fullFileName = string.Format(@"D:\Hosting\4756624\html\OrganisationLogos\{0}", newFileName);
                 postedFile.SaveAs(fullFileName);
             }
         }
@@ -36,7 +35,7 @@ namespace StrongerOrg.Backoffice.Administrator
                 string fileName = e.Values["FileName"].ToString();
                 string newFileName = string.Format("{0}{1}{2}", Path.GetFileNameWithoutExtension(fileName),
                         Guid.NewGuid().ToString().Substring(0, 5), Path.GetExtension(fileName));
-                e.Values["FileName"] = newFileName;
+                e.Values["GameImage"] = newFileName;
                 SaveLogoFile(newFileName);
             }
         }
