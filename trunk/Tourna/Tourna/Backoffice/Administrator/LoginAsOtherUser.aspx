@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Control Panel" Language="C#" AutoEventWireup="true" CodeBehind="LoginAsOtherUser.aspx.cs" Inherits="StrongerOrg.Backoffice.Administrator.LoginAsOtherUser" 
+﻿<%@ Page Title="Login As Other User" Language="C#" AutoEventWireup="true" CodeBehind="LoginAsOtherUser.aspx.cs" Inherits="StrongerOrg.Backoffice.Administrator.LoginAsOtherUser" 
 MasterPageFile="~/Backoffice/BackOffice.Master" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
      <table border="0" cellpadding="2" cellspacing="0">

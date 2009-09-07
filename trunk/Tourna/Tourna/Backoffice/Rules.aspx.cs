@@ -16,7 +16,7 @@ namespace StrongerOrg.Backoffice
         {
             if (!IsPostBack)
             {
-                this.reRules.Content =TextContentManager.GetTextContent(this.Master.OrgBasicInfo.Id, 1);
+                this.reRules.Content = TextContentManager.GetTextContent(this.Master.OrgBasicInfo.Id, "Rules");
             }
         }
 
@@ -27,7 +27,7 @@ namespace StrongerOrg.Backoffice
                 SqlCommand command = new SqlCommand("TextContentInsert", conn);
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.Add("@OrganisationId", SqlDbType.UniqueIdentifier, 150).Value = new Guid(HttpContext.Current.Profile.GetPropertyValue("OrganisationId").ToString());
-                command.Parameters.Add("@ContentType", SqlDbType.Int, 4).Value = 1;
+                command.Parameters.Add("@ContentType", SqlDbType.VarChar, 50).Value = "Rules";
                 command.Parameters.Add("@Content", SqlDbType.Text).Value = this.reRules.Content;
                 conn.Open();
                 command.ExecuteNonQuery();

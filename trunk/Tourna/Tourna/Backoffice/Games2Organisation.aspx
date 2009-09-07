@@ -11,7 +11,7 @@
         </tr>
         <tr>
             <td>
-                <asp:CheckBoxList ID="CheckBoxList1" runat="server" />
+                <asp:CheckBoxList ID="CheckBoxList1" runat="server" RepeatColumns="2" />
             </td>
         </tr>
         <tr>

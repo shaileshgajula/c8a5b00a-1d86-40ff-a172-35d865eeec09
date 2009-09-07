@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.IO;
 
-namespace StrongerOrg.Backoffice
+namespace StrongerOrg.Backoffice.Administrator
 {
     public partial class Games : BasePage
     {

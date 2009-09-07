@@ -1,32 +1,30 @@
-<%@ Page Title="Standings" Language="C#" MasterPageFile="~/Backoffice/BackOffice.Master" AutoEventWireup="true"
-    CodeBehind="Standings.aspx.cs" Inherits="StrongerOrg.Backoffice.Standings" %>
+<%@ Page Title="Standings" Language="C#" MasterPageFile="~/Backoffice/BackOffice.Master"
+    AutoEventWireup="true" CodeBehind="Standings.aspx.cs" Inherits="StrongerOrg.Backoffice.Standings" %>
 
 <%@ MasterType VirtualPath="~/Backoffice/BackOffice.Master" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    
-    <table style="width: 100%">
-        <tr>
-            <td style="text-align: right">
-                <a href="BracketsDisplay.aspx">Grid Display</a>
-                |
-                <a href="BracketsDisplay.aspx">Brackets Display</a>
-            </td>
-        </tr>
-    </table>
-    
     <asp:DataList ID="dlTournaments" runat="server" DataSourceID="Tournaments" DataKeyField="Id"
         OnItemDataBound="dlTournaments_ItemDataBound" RepeatColumns="2" RepeatLayout="Table"
-        GridLines="None" Width="100%" CellPadding="5" AlternatingRowStyle-CssClass="AlternatingRow">
+        GridLines="None" Width="100%" CellPadding="2" CellSpacing="5" AlternatingRowStyle-CssClass="AlternatingRow">
         <AlternatingItemStyle BackColor="#f7f7f6" VerticalAlign="Top" />
         <ItemStyle VerticalAlign="Top" Width="50%" />
         <HeaderTemplate>
         </HeaderTemplate>
         <ItemTemplate>
-            <asp:Label ID="Label1" runat="server" Text='<%#Eval("TournamentName") %>' CssClass="GrayTitleNormal"></asp:Label>
+            <table cellpadding="0" cellspacing="0" style="width:100%">
+                <tr>
+                    <td cssclass="GrayTitleNormal">
+                        <%#Eval("TournamentName") %>
+                    </td>
+                    <td style="text-align: right;padding-right:10px">
+                        <a href="BracketsDisplay.aspx?TournamentId=<%#Eval("Id") %>" >
+                            <img src="../Images/Icons/BracketsIcon.gif" border="0" alt="Brackets display" title="Brackets display" /></a>
+                    </td>
+                </tr>
+            </table>
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Id"
-                DataSourceID="SqlDataSource1" ondatabound="GridView1_DataBound">
+                DataSourceID="SqlDataSource1" OnDataBound="GridView1_DataBound">
                 <EmptyDataTemplate>
-                   
                 </EmptyDataTemplate>
                 <Columns>
                     <asp:BoundField DataField="Start" HeaderText="Start" SortExpression="Start" ReadOnly="true" />
@@ -43,12 +41,11 @@
                         </ItemTemplate>
                         <EditItemTemplate>
                             <%#Eval("PlayerAName")%>
-                            Score:
-                            <asp:TextBox ID="TextBox1" runat="server" Width="30" Text='<%# Bind("ScoreA") %>'></asp:TextBox>
+                            <asp:TextBox ID="TextBox1" runat="server" Width="20" Text='<%# Bind("ScoreA") %>'></asp:TextBox>
                             <%#Eval("PlayerBName")%>
-                            Score:<asp:TextBox ID="TextBox2" runat="server" Width="30" Text='<%# Bind("ScoreB")%>'></asp:TextBox></EditItemTemplate>
+                            <asp:TextBox ID="TextBox2" runat="server" Width="20" Text='<%# Bind("ScoreB")%>'></asp:TextBox></EditItemTemplate>
                     </asp:TemplateField>
-                    <asp:CommandField ButtonType="Link" EditText="X" HeaderText="Set Score" ShowEditButton="True" />
+                    <asp:CommandField ButtonType="Image" EditImageUrl="~/Images/Icons/Trophy.gif" HeaderText="Set Score" ShowEditButton="True" ItemStyle-HorizontalAlign="Center" HeaderStyle-HorizontalAlign="Center"  />
                 </Columns>
             </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:StrongerOrgString %>"

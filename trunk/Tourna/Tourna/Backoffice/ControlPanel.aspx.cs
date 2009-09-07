@@ -101,14 +101,14 @@ namespace StrongerOrg.Backoffice
 
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
-            List<PlayersEntity> playersPairs = PairsAlgo.BuildPairs(new Guid(this.ddlTournament.SelectedValue));
+            List<PlayersEntity> playersPairs = PairsAlgo.BuildPairs(new Guid(this.OrgDataGrid.SelectedValue.ToString()));
             this.gvPairs.DataSource = playersPairs;
             this.gvPairs.DataBind();
         }
 
         protected void lbScheduleGames_Click(object sender, EventArgs e)
         {
-            Guid tournamentId = new Guid(this.ddlTournament.SelectedValue);
+            Guid tournamentId = new Guid(this.OrgDataGrid.SelectedValue.ToString());
             //SchedulerAlgo.SchedulerGames(tournamentId, PairsAlgo.BuildPairs(tournamentId));
             SchedulerAlgo.ScheduleGames(tournamentId);
 
@@ -116,7 +116,7 @@ namespace StrongerOrg.Backoffice
             IEnumerable<DateTime> dates;
             using (TournaDataContext db = new TournaDataContext())
             {
-                dates = db.Schedules.Where(y => y.TournamentId == tournamentId).Select(x => x.Start).ToList();
+                dates = db.Schedules.Where(y => y.TournamentId == tournamentId).Select(y => y.Start).ToList();
             }
 
             CalendarVisualizer vis = new CalendarVisualizer(dates);

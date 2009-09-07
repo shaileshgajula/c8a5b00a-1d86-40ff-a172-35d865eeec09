@@ -177,11 +177,11 @@
     <Compile Include="Backoffice\EventGallery.aspx.designer.cs">
       <DependentUpon>EventGallery.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Backoffice\Games.aspx.cs">
+    <Compile Include="Backoffice\Administrator\Games.aspx.cs">
       <DependentUpon>Games.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Backoffice\Games.aspx.designer.cs">
+    <Compile Include="Backoffice\Administrator\Games.aspx.designer.cs">
       <DependentUpon>Games.aspx</DependentUpon>
     </Compile>
     <Compile Include="Backoffice\Games2Organisation.aspx.cs">
@@ -310,11 +310,11 @@
     <Compile Include="Backoffice\UserControls\OrganisationInfo.ascx.designer.cs">
       <DependentUpon>OrganisationInfo.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Backoffice\WhoIsOnline.aspx.cs">
+    <Compile Include="Backoffice\Administrator\WhoIsOnline.aspx.cs">
       <DependentUpon>WhoIsOnline.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Backoffice\WhoIsOnline.aspx.designer.cs">
+    <Compile Include="Backoffice\Administrator\WhoIsOnline.aspx.designer.cs">
       <DependentUpon>WhoIsOnline.aspx</DependentUpon>
     </Compile>
     <Compile Include="FrontSitePages\About.aspx.cs">
@@ -537,7 +537,7 @@
     <Content Include="Backoffice\Schedules.aspx" />
     <Content Include="App_Themes\Moderator\ModeratorStyle.css" />
     <Content Include="Backoffice\UnscheduledPlayers.aspx" />
-    <Content Include="Backoffice\WhoIsOnline.aspx" />
+    <Content Include="Backoffice\Administrator\WhoIsOnline.aspx" />
     <Content Include="FrontSitePages\About.aspx" />
     <Content Include="FrontSitePages\API.aspx" />
     <Content Include="FrontSitePages\Contact.aspx" />
@@ -593,7 +593,7 @@
     <Content Include="FrontSite.Master" />
     <Content Include="Backoffice\BackOffice.Master" />
     <Content Include="Backoffice\Default.aspx" />
-    <Content Include="Backoffice\Games.aspx" />
+    <Content Include="Backoffice\Administrator\Games.aspx" />
     <Content Include="Backoffice\ManageUsers.aspx" />
     <Content Include="Backoffice\Organisations.aspx" />
     <Content Include="Backoffice\PaymentsManagement.aspx" />
@@ -659,8 +659,11 @@
     <Content Include="Images\GamesImages\wii-baseball.jpg" />
     <Content Include="Images\GamesImages\wii-golf.jpg" />
     <Content Include="Backoffice\Administrator\Web.config" />
+    <Content Include="Images\Icons\BracketsIcon.gif" />
+    <Content Include="Images\Icons\Trophy.gif" />
     <Content Include="Images\msn_icon.JPG" />
     <Content Include="Images\SendBtn.gif" />
+    <Content Include="Images\Staff\InbarUsha.JPG" />
     <Content Include="Images\TheTeam.gif" />
     <None Include="Backoffice\DataLayer\Tourna.dbml.layout">
       <DependentUpon>Tourna.dbml</DependentUpon>

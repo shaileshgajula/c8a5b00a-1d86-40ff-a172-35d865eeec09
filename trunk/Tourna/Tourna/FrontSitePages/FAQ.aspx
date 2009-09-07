@@ -2,7 +2,7 @@
     CodeBehind="FAQ.aspx.cs" Inherits="StrongerOrg.FrontSitePages.FAQ" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>F.A.Q</title>
+    <title></title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <table>

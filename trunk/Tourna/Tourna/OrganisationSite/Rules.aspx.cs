@@ -13,7 +13,7 @@ namespace StrongerOrg.OrganisationSite
         {
             if (!IsPostBack)
             {
-                this.divRules.InnerHtml = TextContentManager.GetTextContent(new Guid(Request.QueryString["OrgId"].ToString()), 1);
+                this.divRules.InnerHtml = TextContentManager.GetTextContent(new Guid(Request.QueryString["OrgId"].ToString()), "Rules");
             }
         }
     }

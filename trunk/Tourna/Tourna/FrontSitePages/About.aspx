@@ -63,10 +63,10 @@
         </tr>
         <tr>
             <td style="padding: 15px;width:140px" rowspan="2">
-                <img src="../Images/msn_icon.JPG" />
+                <img src="../Images/Staff/InbarUsha.JPG" />
             </td>
             <td style="padding: 5px;height:15px;vertical-align: top;color:#2e2e2e;font-size:15px;font-weight:bold">
-                Inbar Usha, COO 
+                Inbar Usha, Administrative work(reports to stan) 
             </td>
             <tr>
                 <td style="padding: 15px;vertical-align: top" class="GrayTextNormal">

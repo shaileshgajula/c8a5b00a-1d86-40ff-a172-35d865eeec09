@@ -8,7 +8,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace StrongerOrg.Backoffice {
+namespace StrongerOrg.Backoffice.Administrator
+{
     
     
     public partial class WhoIsOnline {
