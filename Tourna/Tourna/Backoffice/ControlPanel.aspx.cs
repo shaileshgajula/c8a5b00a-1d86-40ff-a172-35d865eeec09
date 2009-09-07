@@ -133,8 +133,17 @@ namespace StrongerOrg.Backoffice
             //get the players
             using (TournaDataContext db = new TournaDataContext())
             {
-                var players = db.Players2Tournaments.Where(x => x.TournamentId == (Guid)this.TouranmentGrid.SelectedValue).ToList();
-                this.playersGrid.DataSource = players;
+                var players = from p2t in db.Players2Tournaments
+                              join p in db.Players on p2t.PlayerId equals p.Id
+                              where p2t.TournamentId == (Guid)this.TouranmentGrid.SelectedValue
+                              select new
+                                        {
+                                            Name = p.Name,
+                                            Department = p.Department,
+                                            Email = p.Email ?? "Not Provided"
+                                        };
+
+                this.playersGrid.DataSource = players.ToList();
                 this.playersGrid.DataBind();
             }
         }
