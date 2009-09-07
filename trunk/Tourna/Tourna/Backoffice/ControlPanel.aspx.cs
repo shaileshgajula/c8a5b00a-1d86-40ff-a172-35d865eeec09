@@ -77,17 +77,18 @@ namespace StrongerOrg.Backoffice
 
         protected void LinkButton3_Click(object sender, EventArgs e)
         {
-            string orgId = this.ddlOrganisations.SelectedValue;
+            /*string orgId = this.ddlOrganisations.SelectedValue;
             string tournamentId = this.ddlTournament.SelectedValue;
             int numberOfPlayersToCreate = int.Parse(this.TextBox3.Text);
             string orgName = this.ddlOrganisations.SelectedItem.Text;
             this.CreatePlayers(new Guid(orgId), new Guid(tournamentId), numberOfPlayersToCreate, orgName);
             this.lblMsg.Text = string.Format("{0} players has been created for {1} tournament", this.TextBox3.Text, this.ddlTournament.SelectedItem.Text);
+             */
         }
 
         protected void lblDeletePlayers_Click(object sender, EventArgs e)
         {
-            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["StrongerOrgString"].ConnectionString))
+            /*using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["StrongerOrgString"].ConnectionString))
             {
                 SqlCommand delCmd = new SqlCommand("PlayersTournamentDelete", conn);
                 delCmd.CommandType = CommandType.StoredProcedure;
@@ -97,18 +98,57 @@ namespace StrongerOrg.Backoffice
                 int rowsEffected = delCmd.ExecuteNonQuery();
                 this.lblMsg.Text = string.Format("{0} rows effected", rowsEffected.ToString());
             }
+             */
         }
 
-        protected void LinkButton1_Click(object sender, EventArgs e)
+
+        protected void TournamentSource_Selecting(object sender, LinqDataSourceSelectEventArgs e)
         {
-            List<PlayersEntity> playersPairs = PairsAlgo.BuildPairs(new Guid(this.OrgDataGrid.SelectedValue.ToString()));
+            if (e.WhereParameters["Id"] == null)
+                return;
+
+            TournaDataContext db = new TournaDataContext();
+            
+            var products = db.Tournaments.Where(t => t.OrganisationId == (Guid)e.WhereParameters["Id"])
+                           .Select( r => new { 
+                                Id = r.Id, 
+                                OrganisationId = r.OrganisationId, 
+                                TournamentName = r.TournamentName,
+                                Count = db.Players2Tournaments.Where( x => x.TournamentId == r.Id).Count()
+                           });
+
+            e.Result = products;
+            
+        }
+
+
+        protected void navMenu_MenuItemClick(object sender, MenuEventArgs e)
+        {
+            this.PageView.ActiveViewIndex = int.Parse(e.Item.Value);
+        }
+
+        protected void PlayersView_Activate(object sender, EventArgs e)
+        {
+            //get the players for the selected tournament
+            //get the players
+            using (TournaDataContext db = new TournaDataContext())
+            {
+                var players = db.Players2Tournaments.Where(x => x.TournamentId == (Guid)this.TouranmentGrid.SelectedValue).ToList();
+                this.playersGrid.DataSource = players;
+                this.playersGrid.DataBind();
+            }
+        }
+
+        protected void PairView_Activate(object sender, EventArgs e)
+        {
+            List<PlayersEntity> playersPairs = PairsAlgo.BuildPairs((Guid)(this.TouranmentGrid.SelectedValue));
             this.gvPairs.DataSource = playersPairs;
             this.gvPairs.DataBind();
         }
 
-        protected void lbScheduleGames_Click(object sender, EventArgs e)
+        protected void ScheduleView_Activate(object sender, EventArgs e)
         {
-            Guid tournamentId = new Guid(this.OrgDataGrid.SelectedValue.ToString());
+            Guid tournamentId = new Guid(this.TouranmentGrid.SelectedValue.ToString());
             //SchedulerAlgo.SchedulerGames(tournamentId, PairsAlgo.BuildPairs(tournamentId));
             SchedulerAlgo.ScheduleGames(tournamentId);
 

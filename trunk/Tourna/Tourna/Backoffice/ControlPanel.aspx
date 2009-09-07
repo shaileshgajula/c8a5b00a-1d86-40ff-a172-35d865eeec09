@@ -26,19 +26,19 @@
         <Columns>
             <asp:CommandField ShowSelectButton="True" />
             <asp:BoundField DataField="TournamentName" HeaderText="TournamentName" 
-                ReadOnly="True" SortExpression="TournamentName" />
-            <asp:BoundField DataField="NumberOfPlayersLimit" 
-                HeaderText="NumberOfPlayersLimit" ReadOnly="True" 
-                SortExpression="NumberOfPlayersLimit" />
+                SortExpression="TournamentName" />
+            <asp:BoundField DataField="Count" HeaderText="Active Players" ReadOnly="True" 
+                SortExpression="Id" />
         </Columns>
     </asp:GridView>
     <asp:LinqDataSource ID="TournamentSource" runat="server" 
         ContextTypeName="StrongerOrg.Backoffice.DataLayer.TournaDataContext" 
-        Select="new (TournamentName, NumberOfPlayersLimit, Game, Id, OrganisationId)" 
-        TableName="Tournaments" Where="OrganisationId == ((@Id == null)? Guid.Empty : Guid(@Id))" >
+        TableName="Tournaments" 
+        Where="OrganisationId == ((@Id == null)? Guid.Empty : Guid(@Id))" 
+        onselecting="TournamentSource_Selecting" >
         <WhereParameters>
             <asp:ControlParameter ControlID="OrgDataGrid" DbType="Guid" 
-                Name="Id" PropertyName="SelectedValue" />
+                Name="Id" PropertyName="SelectedValue" DefaultValue="" />
         </WhereParameters>
     </asp:LinqDataSource>
     
@@ -96,100 +96,45 @@
         </WhereParameters>
     </asp:LinqDataSource>
     <br />
-    
-    <!--table class="style1">
-        <tr>
-            <td>
-                Select
-            </td>
-            <td>
-                <asp:DropDownList ID="ddlOrganisations" runat="server" DataSourceID="SqlDataSource1"
-                    DataTextField="Name" DataValueField="Id" AutoPostBack="True">
-                </asp:DropDownList>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:StrongerOrgString %>"
-                    SelectCommand="GetOrganisations" SelectCommandType="StoredProcedure">
-                    <SelectParameters>
-                    </SelectParameters>
-                </asp:SqlDataSource>
-            </td>
-            <td>
-                Organisations
-            </td>
-            <td>
-                &nbsp;
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Select Tournament
-            </td>
-            <td>
-                <asp:DropDownList ID="ddlTournament" runat="server" DataSourceID="SqlDataSource2"
-                    DataTextField="TournamentName" DataValueField="Id">
-                </asp:DropDownList>
-                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:StrongerOrgString %>"
-                    SelectCommand="TournamentsGet" SelectCommandType="StoredProcedure">
-                    <SelectParameters>
-                        <asp:ControlParameter ControlID="ddlOrganisations" DbType="String" Name="OrganisationId"
-                            PropertyName="SelectedValue" ConvertEmptyStringToNull="true" DefaultValue="a484d7d5-9195-4241-805e-03f50382c0a2" />
-                    </SelectParameters>
-                </asp:SqlDataSource>
-            </td>
-            <td>
-                &nbsp;
-            </td>
-            <td>
-                <asp:LinkButton ID="lblDeletePlayers" runat="server" OnClick="lblDeletePlayers_Click"
-                    OnClientClick="return confirm('Are you certain you want to delete all tournament players?')"
-                    ToolTip="Delete all users in tournament">Delete</asp:LinkButton>
-                <br />
-                <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">Show pairs</asp:LinkButton>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Create
-            </td>
-            <td>
-                <asp:TextBox ID="TextBox3" runat="server" Width="50px">32</asp:TextBox>
-            </td>
-            <td>
-                Players
-            </td>
-            <td>
-                <asp:LinkButton ID="lblCreatePlayers" runat="server" OnClick="LinkButton3_Click"
-                    ToolTip="Create Players">Create</asp:LinkButton>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Backoffice/PlayersChart.aspx">Players Chart For All Companies</asp:HyperLink>
-            </td>
-            <td colspan="3">
-                <asp:Label ID="lblMsg" runat="server" CssClass="title"></asp:Label>
-            </td>
-        </tr>
-    </table-->
-    
-    <asp:GridView ID="gvPairs" runat="server">
-        <EmptyDataTemplate>
-            No players were assigned to the tournament</EmptyDataTemplate>
-    </asp:GridView>
-    <table>
+    <table >
     <tr>
         <td>
-            <asp:LinkButton ID="lbShowPairs" runat="server" OnClick="LinkButton1_Click">Show pairs</asp:LinkButton>
+            <asp:Menu ID="navMenu"  runat="server" Orientation="Vertical" 
+                BorderStyle="Dotted" BorderWidth="1px" 
+                onmenuitemclick="navMenu_MenuItemClick" >
+                <StaticSelectedStyle BackColor="#66CCFF" BorderStyle="Dotted" BorderWidth="1px" 
+                    Font-Underline="True" ForeColor="Black" />
+                <Items>
+                    <asp:MenuItem  Text="Show Players" Value="0"></asp:MenuItem>
+                    <asp:MenuItem  Value="1" Text="Show Pairs"></asp:MenuItem>
+                    <asp:MenuItem  Text=" Schedule Games" Value="2"></asp:MenuItem>
+                </Items>
+            </asp:Menu>
         </td>
         <td>
-            <asp:LinkButton ID="lbScheduleGames" runat="server" 
-            onclick="lbScheduleGames_Click">Schedule games</asp:LinkButton>
-        </td>
-        <td>
-            <asp:HyperLink ID="hplPlayerCharts" runat="server" NavigateUrl="~/Backoffice/PlayersChart.aspx">Players Chart</asp:HyperLink>
+            
+            <asp:MultiView ID="PageView" runat="server">
+                <asp:View ID="PlayersView" runat="server" onactivate="PlayersView_Activate">
+                    <asp:GridView ID="playersGrid" runat="server">
+                    </asp:GridView>
+                </asp:View>
+                <asp:View ID="PairView" runat="server" onactivate="PairView_Activate">
+                    <asp:GridView ID="gvPairs" runat="server">
+                        <EmptyDataTemplate>
+                            No players were assigned to the tournament
+                        </EmptyDataTemplate>
+                    </asp:GridView>
+                </asp:View>
+                <asp:View ID="ScheduleView" runat="server" onactivate="ScheduleView_Activate">
+                    <asp:PlaceHolder ID="schedulesPlaceHolder" runat="server">
+                    </asp:PlaceHolder>        
+                </asp:View>
+            </asp:MultiView>
+            
         </td>
     </tr>
     </table>
-    <br />
-    <asp:PlaceHolder ID="schedulesPlaceHolder" runat="server">
-    </asp:PlaceHolder>
+    
+    <asp:HyperLink ID="hplPlayerCharts" runat="server" NavigateUrl="~/Backoffice/PlayersChart.aspx">Players Chart</asp:HyperLink>
+    
 </asp:Content>
