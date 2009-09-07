@@ -59,7 +59,7 @@
         <InsertItemTemplate>
             <table>
                 <tr>
-                    <td>
+                    <td class="GrayTitleNormal">
                         Add new holiday date
                     </td>
                     <td>
@@ -71,7 +71,7 @@
                         Name
                     </td>
                     <td style="margin-left: 40px">
-                        <asp:TextBox ID="txtName" runat="server" Text='<%# Bind("Name") %>'></asp:TextBox>
+                        <asp:TextBox ID="txtName" runat="server" Text='<%# Bind("Name") %>' Width="250px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -79,8 +79,8 @@
                         Date
                     </td>
                     <td style="margin-left: 40px">
-                        <telerik:RadDatePicker ID="tdpDate" runat="server" SelectedDate='<%# Bind("Date") %>' >
-                            <Calendar UseRowHeadersAsSelectors="False" UseColumnHeadersAsSelectors="False" ViewSelectorText="x">
+                        <telerik:RadDatePicker ID="tdpDate" runat="server" SelectedDate='<%# Bind("Date") %>'  Width="250px">
+                            <Calendar UseRowHeadersAsSelectors="False" UseColumnHeadersAsSelectors="False" ViewSelectorText="x" >
                             </Calendar>
                             <DatePopupButton ImageUrl="" HoverImageUrl=""></DatePopupButton>
                         </telerik:RadDatePicker>
@@ -90,8 +90,9 @@
                     <td>
                         &nbsp;
                     </td>
-                    <td style="margin-left: 40px; text-align: right">
+                    <td style="margin-left: 40px; text-align: right;height:40px">
                         <asp:LinkButton ID="lbAdd" runat="server" CommandName="Insert">Insert</asp:LinkButton>
+                        <asp:LinkButton ID="LinkButton1" runat="server" CommandName="Cancel">Cancel</asp:LinkButton>
                     </td>
                 </tr>
             </table>

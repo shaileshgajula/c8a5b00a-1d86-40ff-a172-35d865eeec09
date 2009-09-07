@@ -1,11 +1,10 @@
 ﻿<%@ Page Title="Games" Language="C#" MasterPageFile="~/Backoffice/BackOffice.Master" AutoEventWireup="true"
-    CodeBehind="Games.aspx.cs" Inherits="StrongerOrg.Backoffice.Games" %>
+    CodeBehind="Games.aspx.cs" Inherits="StrongerOrg.Backoffice.Administrator.Games" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="GamesSqlDataSource"
         ShowFooter="True" DataKeyNames="Id" >
         <Columns>
-            <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
             <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" />
             <asp:BoundField DataField="GameDescription" HeaderText="GameDescription" SortExpression="GameDescription" />
             <asp:BoundField DataField="ConsoleName" HeaderText="ConsoleName" SortExpression="ConsoleName" />
@@ -13,6 +12,7 @@
             <asp:CheckBoxField DataField="IsOnline" HeaderText="IsOnline" />
             <asp:BoundField DataField="NumberOfCompetitors" HeaderText="# Competitors" SortExpression="NumberOfCompetitors" />
             <asp:CheckBoxField DataField="Active" HeaderText="Active" SortExpression="Active" />
+            <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
         </Columns>
     </asp:GridView>
     <asp:SqlDataSource ID="GamesSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:StrongerOrgString %>"

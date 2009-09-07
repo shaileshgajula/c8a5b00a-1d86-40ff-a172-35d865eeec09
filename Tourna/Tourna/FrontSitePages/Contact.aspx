@@ -15,7 +15,7 @@
     </table>
     <table style="width: 80%; padding: 10px;margin-left: auto;margin-right: auto;height:110px" border="0" >
         <tr>
-        <td rowspan="3" style="text-align:left;vertical-align:top;border-right-color:#CCCCCC;border-right-style:solid;border-right-width:1px" class="GrayTextNormal">
+        <td rowspan="4" style="text-align:left;vertical-align:top;border-right-color:#CCCCCC;border-right-style:solid;border-right-width:1px" class="GrayTextNormal">
             <Div class="GrayTitle"> Main Office</Div>
             792 Columbus Ave.<br>
             New York City, NY, 10025<br>
@@ -31,9 +31,9 @@
                                     <EmptyMessageStyle ForeColor="#66CCFF" />
                 </telerik:RadTextBox>
             </td>
-            <td rowspan="3" style="text-align:right;">
+            <td rowspan="4" style="text-align:right;">
                 <telerik:RadTextBox runat="server" EmptyMessage="-- Your Message  --" ID="txtMessages"
-                    Width="350px" Height="110px" TextMode="MultiLine">
+                    Width="350px" Height="130px" TextMode="MultiLine">
                     <EnabledStyle BorderColor="#66CCFF" BorderStyle="Solid" />
                                     <EmptyMessageStyle ForeColor="#66CCFF" />
                 </telerik:RadTextBox>
@@ -55,6 +55,18 @@
                     <EnabledStyle BorderColor="#66CCFF" BorderStyle="Solid" />
                                     <EmptyMessageStyle ForeColor="#66CCFF" />
                 </telerik:RadTextBox>
+            </td>
+        </tr>
+        <tr>
+            <td style="vertical-align: bottom;text-align:right;">
+                <telerik:RadComboBox ID="RadComboBox1" runat="server" Width="225px" >
+                    <Items>
+                        <telerik:RadComboBoxItem runat="server" Text="Sales" Value="Sales" />
+                        <telerik:RadComboBoxItem runat="server" Text="Support" Value="Support" />
+                        <telerik:RadComboBoxItem runat="server" Text="General" Value="General" />
+                    </Items>
+                    <HeaderTemplate>Select Subject</HeaderTemplate>
+                </telerik:RadComboBox>
             </td>
         </tr>
         <tr>

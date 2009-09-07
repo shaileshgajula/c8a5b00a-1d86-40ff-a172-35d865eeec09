@@ -1,13 +1,7 @@
 ﻿<%@ Page Title="Schedules" Language="C#" MasterPageFile="~/Backoffice/BackOffice.Master" AutoEventWireup="true"
     CodeBehind="Schedules.aspx.cs" Inherits="StrongerOrg.Backoffice.Schedules" %>
-
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<script type="text/javascript">
-    function Export(sender, e) {
-        $find("<%= RadAjaxManager1.ClientID %>").__doPostBack(sender.name, "");
-    }
-    </script>
-    <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server">
+<telerik:RadAjaxManager ID="RadAjaxManager1" runat="server">
         <AjaxSettings>
             <telerik:AjaxSetting AjaxControlID="RadScheduler1">
                 <UpdatedControls>
@@ -16,6 +10,12 @@
             </telerik:AjaxSetting>
         </AjaxSettings>
     </telerik:RadAjaxManager>
+<%--<script type="text/javascript">
+    function Export(sender, e) {
+       $find("<%= RadAjaxManager1.ClientID %>").__doPostBack(sender.name, "");
+    }
+    </script>
+--%>    
     <asp:ImageButton runat="server" ID="Button2" ImageUrl="~/Images/Icons/exportButton.gif"
         AlternateText="Export All to iCalendar" OnClientClick="Export(this, event); return false;"
         OnClick="Button2_Click" />
@@ -36,7 +36,6 @@
                 SelectCommand="PlayersGet" SelectCommandType="StoredProcedure" CancelSelectOnNullParameter="true">
                 <SelectParameters>
                 <asp:CookieParameter Name="OrganisationId" CookieName="OrganisationId" Type="String" />
-                    <%--<asp:ProfileParameter Name="OrganisationId" PropertyName="OrganisationId" Type="String" />--%>
                     <asp:QueryStringParameter Name="TournamentId" QueryStringField="TournamentId" Type="String" />
                 </SelectParameters>
             </asp:SqlDataSource>

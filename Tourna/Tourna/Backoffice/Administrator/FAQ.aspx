@@ -1,4 +1,4 @@
-<%@ Page Title="FAQ" Language="C#" MasterPageFile="~/Backoffice/BackOffice.Master"
+<%@ Page Title="F.A.Q" Language="C#" MasterPageFile="~/Backoffice/BackOffice.Master"
     AutoEventWireup="true" CodeBehind="FAQ.aspx.cs" Inherits="StrongerOrg.Backoffice.Administrator.FAQ" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -41,11 +41,10 @@
     <br />
     <asp:FormView ID="FormView1" runat="server" DataSourceID="SqlDataSource2" OnItemUpdated="FormView1_ItemUpdated"
         OnItemInserted="FormView1_ItemInserted" DataKeyNames="Id">
-        
         <EditItemTemplate>
-            <table>
-            <tr>
-                    <td colspan="2">
+            <table cellpadding="4">
+                <tr>
+                    <td colspan="2" class="GrayTitleNormal">
                         Update FAQ
                     </td>
                 </tr>
@@ -54,16 +53,16 @@
                         Caption:
                     </td>
                     <td>
-                        <asp:TextBox ID="CaptionTextBox" runat="server" Text='<%# Bind("Caption") %>' Width="350px" />
+                        <asp:TextBox ID="CaptionTextBox" runat="server" Text='<%# Bind("Caption") %>' Width="450px" />
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        Content
+                    <td style="vertical-align: top">
+                        Content:
                     </td>
                     <td>
                         <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Content") %>' TextMode="MultiLine"
-                            Rows="20" Height="100px" Width="350px" />
+                            Rows="20" Height="100px" Width="450px" />
                     </td>
                 </tr>
                 <tr>
@@ -77,9 +76,9 @@
             </table>
         </EditItemTemplate>
         <InsertItemTemplate>
-            <table>
+            <table cellpadding="4">
                 <tr>
-                    <td colspan="2">
+                    <td colspan="2" class="GrayTitleNormal">
                         Insert new FAQ
                     </td>
                 </tr>
@@ -88,16 +87,16 @@
                         Caption:
                     </td>
                     <td>
-                        <asp:TextBox ID="CaptionTextBox" runat="server" Text='<%# Bind("Caption") %>' Width="350px" />
+                        <asp:TextBox ID="CaptionTextBox" runat="server" Text='<%# Bind("Caption") %>' Width="450px" />
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        Content
+                    <td style="vertical-align: top">
+                        Content:
                     </td>
                     <td>
                         <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Content") %>' TextMode="MultiLine"
-                            Rows="20" Height="100px" Width="350px" />
+                            Rows="20" Height="100px" Width="450px" />
                     </td>
                 </tr>
                 <tr>

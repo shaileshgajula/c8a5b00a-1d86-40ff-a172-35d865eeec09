@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="Who Is Online" Language="C#" MasterPageFile="~/Backoffice/BackOffice.Master" AutoEventWireup="true"
-    CodeBehind="WhoIsOnline.aspx.cs" Inherits="StrongerOrg.Backoffice.WhoIsOnline" %>
+    CodeBehind="WhoIsOnline.aspx.cs" Inherits="StrongerOrg.Backoffice.Administrator.WhoIsOnline" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <table>
@@ -45,7 +45,7 @@
     </asp:SqlDataSource>
     <br />
     <br />
-    <table style="width:50%">
+    <table border="0" >
         <tr>
             <td class="GrayTitle">
                 User List
@@ -56,9 +56,8 @@
                 Here is a list of the user accounts in the system.
             </td>
         </tr>
-        <tr>
-            <td>
-                <asp:GridView ID="GridView1" runat="server" GridLines="None" AllowPaging="True" AutoGenerateColumns="False"
+    </table>
+    <asp:GridView ID="GridView1" runat="server" GridLines="None" AllowPaging="True" AutoGenerateColumns="False"
                     DataSourceID="allUsersDataSource" EmptyDataText="There are no users in the system...">
                     <Columns>
                         <asp:BoundField DataField="UserName" HeaderText="UserName" ReadOnly="True" SortExpression="UserName" />
@@ -74,12 +73,7 @@
                     </Columns>
                     <EmptyDataRowStyle Font-Italic="True" />
                 </asp:GridView>
-            </td>
-        </tr>
-    </table>
     <asp:ObjectDataSource ID="allUsersDataSource" runat="server" SelectMethod="GetAllUsers"
         TypeName="System.Web.Security.Membership"></asp:ObjectDataSource>
-    </p>
-    <p>
-        &nbsp;</p>
+   
 </asp:Content>
