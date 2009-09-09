@@ -79,38 +79,13 @@ namespace StrongerOrg.BackOffice.Scheduler
                 TournamentId = tournaId,
                 OrganisationId = orgId,
                 StartDate = startDate,
-                MatchType = PairsMatchType.Bracket,
+                MatchType = PairsMatchType.MultiGame,
                 PairAlgo = PairsAlgorithmType.Alphabetical,
             };
 
             ScheduleGames(info);
         }
-
-        internal static void ScheduleGames(Guid tournaId, PairsAlgorithmType pairType, PairsMatchType pairMatchType)
-        {
-
-            //Get tourna startDate
-            TournamentInfo info;
-            using (TournaDataContext db = new TournaDataContext())
-            {
-                info = db.Tournaments.Where(x => x.Id == tournaId)
-                                                  .Select
-                                                  (y =>
-                                                    new TournamentInfo()
-                                                    {
-                                                        TournamentId = tournaId,
-                                                        OrganisationId = y.OrganisationId,
-                                                        StartDate = y.StartDate ?? new DateTime(),
-                                                        MatchType = pairMatchType,
-                                                        PairAlgo = pairType,
-                                                    }
-                                                  ).FirstOrDefault();
-                                                  
-            }
-
-            
-              ScheduleGames(info);
-        }
+      
         internal static void ScheduleGames(TournamentInfo tournamentInfo)
         {
             
@@ -173,6 +148,8 @@ namespace StrongerOrg.BackOffice.Scheduler
 
             using (TournaDataContext db = new TournaDataContext())
             {
+
+                db.Schedules.DeleteAllOnSubmit(db.Schedules.Where(x => x.TournamentId == tournamentInfo.TournamentId));
                 db.Schedules.InsertAllOnSubmit(scheds);
                 db.SubmitChanges();
             }
