@@ -94,7 +94,6 @@
                                 <td style="text-align: right">
                                     Number of Games:
                                     <asp:Label ID="lblNumActiveGames" runat="server" Font-Bold="true" />
-                                    <asp:LinkButton ID="lbtnscheduleGames" Text="Schedule" runat="server" OnClick="lbtnscheduleGames_Click" />
                                     <asp:LinkButton ID="lbtnPairsExport" Text="Export" runat="server" OnClick="lbtnPairsExport_Click" />
                                 </td>
                             </tr>
@@ -120,6 +119,12 @@
                                             <asp:MenuItem Text="Grid View" Value="1"></asp:MenuItem>
                                         </Items>
                                     </asp:Menu>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <asp:LinkButton ID="lbtnForceReschedule" runat="server" Text="Reschedule" 
+                                        onclick="lbtnForceReschedule_Click" />
                                 </td>
                             </tr>
                             <tr>

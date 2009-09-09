@@ -242,7 +242,7 @@ namespace StrongerOrg.Backoffice
             using (TournaDataContext db = new TournaDataContext())
             {
                var  dateInfo = db.Schedules.Where(y => y.TournamentId == tournamentId).
-                    Select((y) =>
+                    Select(y =>
                         new 
                             {
                                 StartDate = y.Start,
@@ -251,7 +251,17 @@ namespace StrongerOrg.Backoffice
                             })
                     .ToList();
 
-               schedDatesGrid.DataSource = dateInfo;
+
+
+               schedDatesGrid.DataSource = dateInfo.Select((x, i) => 
+                   new
+                       {
+                           StartDate = x.StartDate,
+                           GameName = String.Format("Game {0} - {1}:{2}",i+1,x.PlayerA,x.PlayerB),
+                           PlayerA = x.PlayerA,
+                           PlayerB = x.PlayerB
+                       }
+                   );
                schedDatesGrid.DataBind();
 
                dates = dateInfo.Select(x => x.StartDate);
@@ -259,20 +269,19 @@ namespace StrongerOrg.Backoffice
 
 
             if (dates.Count() == 0)
-                return;
+                this.RunScheduler();
 
             CalendarVisualizer vis = new CalendarVisualizer(dates);
             vis.Display(schedulesPlaceHolder);
 
         }
 
-        private void RunScheduler(PairsAlgorithmType pairsAlgo,PairsMatchType pairsMatch)
+        private void RunScheduler()
         {
             Guid tournamentId = new Guid(this.drpDownTournamentList.SelectedValue);
-            SchedulerAlgo.ScheduleGames(tournamentId,pairsAlgo,pairsMatch);
+            SchedulerAlgo.ScheduleGames(tournamentId);
 
             this.ScheduleViewActivate();
-            this.PageView.ActiveViewIndex = 2; //schedule view
         }
 
         protected void lbtnAddPlayers_Click(object sender, EventArgs e)
@@ -317,20 +326,6 @@ namespace StrongerOrg.Backoffice
             GridViewExportUtil.Export("GameSchedules.xlsx", this.schedDatesGrid);
         }
 
-        protected void lbtnscheduleGames_Click(object sender, EventArgs e)
-        {
-            //gather scheduling information
-            //re-pair based on whats selected
-            string pairing = this.drpPairing.SelectedValue;
-            string playerMat = this.drpPairAlgo.SelectedValue;
-
-            PairsAlgorithmType playerMatcType = (PairsAlgorithmType)Enum.Parse(typeof(PairsAlgorithmType), playerMat);
-            PairsMatchType pairingType = (PairsMatchType)Enum.Parse(typeof(PairsMatchType), pairing);
-            int numOfGames = int.Parse(this.txtMultiGame.Text);
-
-            this.RunScheduler(playerMatcType, pairingType);
-
-        }
 
         protected void schedMenu_MenuItemClick(object sender, MenuEventArgs e)
         {
@@ -338,6 +333,11 @@ namespace StrongerOrg.Backoffice
             this.scheduleMultiView.ActiveViewIndex = pageIndex;
 
             this.ScheduleViewActivate();
+        }
+
+        protected void lbtnForceReschedule_Click(object sender, EventArgs e)
+        {
+            this.RunScheduler();
         }
 
 
