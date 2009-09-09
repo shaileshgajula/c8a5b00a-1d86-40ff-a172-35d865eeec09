@@ -12,8 +12,10 @@ namespace StrongerOrg.BackOffice.PairsAlgorithm
         {
             switch(type)
             {
-                case PairsMatchType.Default:
+                case PairsMatchType.Bracket:
                     return new DefaultMatch();
+                case PairsMatchType.MultiGame:
+                    return new MultiMatch();
                 default:
                     return new DefaultMatch();
             }
@@ -22,6 +24,7 @@ namespace StrongerOrg.BackOffice.PairsAlgorithm
 
     public enum PairsMatchType
     {
-        Default
+        Bracket,
+        MultiGame
     }
 }

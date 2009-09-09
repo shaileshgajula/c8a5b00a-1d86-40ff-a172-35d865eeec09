@@ -14,33 +14,6 @@ namespace StrongerOrg.Backoffice {
     public partial class ControlPanel {
         
         /// <summary>
-        /// OrgDataGrid control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView OrgDataGrid;
-        
-        /// <summary>
-        /// OrganisationSource control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinqDataSource OrganisationSource;
-        
-        /// <summary>
-        /// TouranmentGrid control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView TouranmentGrid;
-        
-        /// <summary>
         /// TournamentSource control.
         /// </summary>
         /// <remarks>
@@ -50,22 +23,13 @@ namespace StrongerOrg.Backoffice {
         protected global::System.Web.UI.WebControls.LinqDataSource TournamentSource;
         
         /// <summary>
-        /// DetailsView1 control.
+        /// drpDownTournamentList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DetailsView DetailsView1;
-        
-        /// <summary>
-        /// TourneyDetails control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinqDataSource TourneyDetails;
+        protected global::System.Web.UI.WebControls.DropDownList drpDownTournamentList;
         
         /// <summary>
         /// navMenu control.
@@ -95,6 +59,42 @@ namespace StrongerOrg.Backoffice {
         protected global::System.Web.UI.WebControls.View PlayersView;
         
         /// <summary>
+        /// txtNumPlayer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNumPlayer;
+        
+        /// <summary>
+        /// lbtnAddPlayers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtnAddPlayers;
+        
+        /// <summary>
+        /// lblNumOfPlayers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNumOfPlayers;
+        
+        /// <summary>
+        /// lbtnPlayersExport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtnPlayersExport;
+        
+        /// <summary>
         /// playersGrid control.
         /// </summary>
         /// <remarks>
@@ -113,13 +113,85 @@ namespace StrongerOrg.Backoffice {
         protected global::System.Web.UI.WebControls.View PairView;
         
         /// <summary>
-        /// gvPairs control.
+        /// drpPairAlgo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvPairs;
+        protected global::System.Web.UI.WebControls.DropDownList drpPairAlgo;
+        
+        /// <summary>
+        /// drpPairing control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList drpPairing;
+        
+        /// <summary>
+        /// lblMultiGame control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMultiGame;
+        
+        /// <summary>
+        /// txtMultiGame control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtMultiGame;
+        
+        /// <summary>
+        /// lbtnPairUp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtnPairUp;
+        
+        /// <summary>
+        /// lblNumActiveGames control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNumActiveGames;
+        
+        /// <summary>
+        /// lbtnscheduleGames control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtnscheduleGames;
+        
+        /// <summary>
+        /// lbtnPairsExport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtnPairsExport;
+        
+        /// <summary>
+        /// pairGrid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView pairGrid;
         
         /// <summary>
         /// ScheduleView control.
@@ -131,6 +203,33 @@ namespace StrongerOrg.Backoffice {
         protected global::System.Web.UI.WebControls.View ScheduleView;
         
         /// <summary>
+        /// schedMenu control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Menu schedMenu;
+        
+        /// <summary>
+        /// scheduleMultiView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.MultiView scheduleMultiView;
+        
+        /// <summary>
+        /// schedCalendarView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.View schedCalendarView;
+        
+        /// <summary>
         /// schedulesPlaceHolder control.
         /// </summary>
         /// <remarks>
@@ -138,6 +237,33 @@ namespace StrongerOrg.Backoffice {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.PlaceHolder schedulesPlaceHolder;
+        
+        /// <summary>
+        /// schedGridView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.View schedGridView;
+        
+        /// <summary>
+        /// lbtnExportSchedules control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtnExportSchedules;
+        
+        /// <summary>
+        /// schedDatesGrid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView schedDatesGrid;
         
         /// <summary>
         /// hplPlayerCharts control.

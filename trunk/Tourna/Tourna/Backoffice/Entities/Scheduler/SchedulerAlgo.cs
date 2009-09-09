@@ -69,8 +69,8 @@ namespace StrongerOrg.BackOffice.Scheduler
                                                    .Select(y => y.StartDate)
                                                    .FirstOrDefault() ?? new DateTime();
             }
-            
 
+            ScheduleGames(orgId, tournaId, startDate);
         }
         internal static void ScheduleGames(Guid orgId, Guid tournaId, DateTime startDate)
         {
@@ -79,15 +79,45 @@ namespace StrongerOrg.BackOffice.Scheduler
                 TournamentId = tournaId,
                 OrganisationId = orgId,
                 StartDate = startDate,
-                MatchType = PairsMatchType.Default,
-                PairAlgo = PairsAlgorithmType.Alphabetical
+                MatchType = PairsMatchType.Bracket,
+                PairAlgo = PairsAlgorithmType.Alphabetical,
             };
 
             ScheduleGames(info);
         }
+
+        internal static void ScheduleGames(Guid tournaId, PairsAlgorithmType pairType, PairsMatchType pairMatchType)
+        {
+
+            //Get tourna startDate
+            TournamentInfo info;
+            using (TournaDataContext db = new TournaDataContext())
+            {
+                info = db.Tournaments.Where(x => x.Id == tournaId)
+                                                  .Select
+                                                  (y =>
+                                                    new TournamentInfo()
+                                                    {
+                                                        TournamentId = tournaId,
+                                                        OrganisationId = y.OrganisationId,
+                                                        StartDate = y.StartDate ?? new DateTime(),
+                                                        MatchType = pairMatchType,
+                                                        PairAlgo = pairType,
+                                                    }
+                                                  ).FirstOrDefault();
+                                                  
+            }
+
+            
+              ScheduleGames(info);
+        }
         internal static void ScheduleGames(TournamentInfo tournamentInfo)
         {
+            
             //check arguments that are needed
+            if (tournamentInfo == null)
+                throw new ArgumentNullException("tournamentInfo");
+
             if (tournamentInfo.TournamentId == Guid.Empty)
                 throw new ArgumentNullException("TorunamentId");
 
@@ -107,7 +137,7 @@ namespace StrongerOrg.BackOffice.Scheduler
 
             DateTime startDate = tournamentInfo.StartDate;
 
-            IEnumerable<PlayersEntity> playerPairs = playerManager.BuildPairs(tournamentInfo.TournamentId);
+            IEnumerable<PlayersEntity> playerPairs = playerManager.BuildPairs( tournamentInfo.TournamentId);
 
 
             int i = 0;
@@ -205,7 +235,8 @@ namespace StrongerOrg.BackOffice.Scheduler
             public string EmailTemplate { get; set; }
             public bool IsApproved { get; set; }
             public PairsMatchType MatchType { get; set; }
-            public PairsAlgorithmType PairAlgo { get; set; } 
+            public PairsAlgorithmType PairAlgo { get; set; }
+            public int NumberOfGamesPerPlayer { get; set; }
 
             
         }
