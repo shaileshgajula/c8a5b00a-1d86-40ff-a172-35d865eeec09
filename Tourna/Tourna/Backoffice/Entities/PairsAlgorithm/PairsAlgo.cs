@@ -14,12 +14,12 @@ namespace StrongerOrg.BackOffice.PairsAlgorithm
         }
         public static List<PlayersEntity> BuildPairs(Guid tournamentId, PairsAlgorithmType type)
         {
-            return BuildPairs(tournamentId, type, PairsMatchType.Default);
+            return BuildPairs(tournamentId, type, PairsMatchType.Bracket);
         }
 
         public static List<PlayersEntity> BuildPairs(Guid tournamentId, PairsAlgorithmType type, PairsMatchType pairsMatchingType)
         {
-            return BuildPairs(tournamentId, type, PairsMatchType.Default, 1);
+            return BuildPairs(tournamentId, type, pairsMatchingType, 1);
         }
 
         public static List<PlayersEntity> BuildPairs(Guid tournamentId, PairsAlgorithmType type, PairsMatchType pairsMatchingType, int numOfRounds)

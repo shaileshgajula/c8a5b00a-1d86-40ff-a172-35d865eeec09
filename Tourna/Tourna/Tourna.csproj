@@ -55,10 +55,6 @@
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Web.Mobile" />
     <Reference Include="Telerik.Web.UI, Version=2009.2.701.35, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL" />
-    <Reference Include="TourneyLogic.Web.UI.BracketControl.v2, Version=2.0.4.60127, Culture=neutral, PublicKeyToken=fb463427a9781280, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\baracks\bin\TourneyLogic.Web.UI.BracketControl.v2.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Backoffice\TournamentBuilder.aspx" />
@@ -144,6 +140,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GameStanding.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Backoffice\Entities\GridViewExportUtils.cs" />
     <Compile Include="Backoffice\Entities\NumberOfGamesPerPlayerAlgo.cs" />
     <Compile Include="Backoffice\Entities\OrganisationManager.cs" />
     <Compile Include="Backoffice\Entities\OrganisationInfo.Designer.cs">
@@ -669,9 +666,6 @@
       <DependentUpon>Tourna.dbml</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Properties\licenses.licx" />
-  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -698,7 +692,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
+      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

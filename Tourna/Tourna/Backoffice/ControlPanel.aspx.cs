@@ -102,32 +102,60 @@ namespace StrongerOrg.Backoffice
         }
 
 
-        protected void TournamentSource_Selecting(object sender, LinqDataSourceSelectEventArgs e)
-        {
-            if (e.WhereParameters["Id"] == null)
-                return;
 
-            TournaDataContext db = new TournaDataContext();
-            
-            var products = db.Tournaments.Where(t => t.OrganisationId == (Guid)e.WhereParameters["Id"])
-                           .Select( r => new { 
-                                Id = r.Id, 
-                                OrganisationId = r.OrganisationId, 
-                                TournamentName = r.TournamentName,
-                                Count = db.Players2Tournaments.Where( x => x.TournamentId == r.Id).Count()
-                           });
-
-            e.Result = products;
-            
-        }
 
 
         protected void navMenu_MenuItemClick(object sender, MenuEventArgs e)
         {
-            this.PageView.ActiveViewIndex = int.Parse(e.Item.Value);
+            int pageIndex = int.Parse(e.Item.Value);
+            this.PageView.ActiveViewIndex = pageIndex;
+
+            Action executeLogic = ViewFactory(pageIndex);
+            executeLogic();
         }
 
-        protected void PlayersView_Activate(object sender, EventArgs e)
+
+
+
+
+        protected void TournamentSource_Selecting(object sender, LinqDataSourceSelectEventArgs e)
+        {
+            BackOffice masterPage = this.Master as BackOffice;
+            Guid orgId = masterPage.OrgBasicInfo.Id;
+
+            TournaDataContext db = new TournaDataContext();
+            var tourneys = from tr in db.Tournaments
+                           where tr.OrganisationId == orgId
+                           select new
+                           {
+                               Id = tr.Id,
+                               TournamentName = tr.TournamentName
+                           };
+
+            e.Result = tourneys;
+        }
+
+
+        private Action ViewFactory(int index)
+        {
+            Action execFunc = () => { throw new Exception("Wrong menu"); };
+            switch (index)
+            {
+                case 0:
+                    execFunc = PlayerViewActivate;
+                    break;
+                case 1:
+                    execFunc = PairViewActivate;
+                    break;
+                case 2:
+                    execFunc = ScheduleViewActivate;
+                    break;
+            }
+
+            return execFunc;
+        }
+
+        private void PlayerViewActivate()
         {
             //get the players for the selected tournament
             //get the players
@@ -135,7 +163,7 @@ namespace StrongerOrg.Backoffice
             {
                 var players = from p2t in db.Players2Tournaments
                               join p in db.Players on p2t.PlayerId equals p.Id
-                              where p2t.TournamentId == (Guid)this.TouranmentGrid.SelectedValue
+                              where p2t.TournamentId == new Guid(this.drpDownTournamentList.SelectedValue)
                               select new
                                         {
                                             Name = p.Name,
@@ -143,34 +171,178 @@ namespace StrongerOrg.Backoffice
                                             Email = p.Email ?? "Not Provided"
                                         };
 
-                this.playersGrid.DataSource = players.ToList();
+                var list = players.ToList();
+                this.playersGrid.DataSource = list;
                 this.playersGrid.DataBind();
+
+                this.lblNumOfPlayers.Text = list.Count().ToString();
             }
+
         }
 
-        protected void PairView_Activate(object sender, EventArgs e)
+        private void PairViewActivate()
         {
-            List<PlayersEntity> playersPairs = PairsAlgo.BuildPairs((Guid)(this.TouranmentGrid.SelectedValue));
-            this.gvPairs.DataSource = playersPairs;
-            this.gvPairs.DataBind();
+            var names = Enum.GetNames(typeof(PairsAlgorithmType));
+            this.drpPairAlgo.DataSource = names;
+            this.drpPairAlgo.DataBind();
+
+            var pairNames = Enum.GetNames(typeof(PairsMatchType));
+            this.drpPairing.DataSource = pairNames;
+            this.drpPairing.DataBind();
+
+            this.PerformRepairing();
         }
 
-        protected void ScheduleView_Activate(object sender, EventArgs e)
+        private void PerformRepairing()
         {
-            Guid tournamentId = new Guid(this.TouranmentGrid.SelectedValue.ToString());
-            //SchedulerAlgo.SchedulerGames(tournamentId, PairsAlgo.BuildPairs(tournamentId));
-            SchedulerAlgo.ScheduleGames(tournamentId);
+            //re-pair based on whats selected
+            string pairing = this.drpPairing.SelectedValue;
+            string playerMat = this.drpPairAlgo.SelectedValue;
+
+            PairsAlgorithmType playerMatcType = (PairsAlgorithmType)Enum.Parse(typeof(PairsAlgorithmType), playerMat);
+            PairsMatchType pairingType = (PairsMatchType)Enum.Parse(typeof(PairsMatchType), pairing);
+            int numOfGames = int.Parse(this.txtMultiGame.Text);
+
+            switch (pairingType)
+            {
+                case PairsMatchType.Bracket:
+                    {
+                        this.lblMultiGame.Visible = false;
+                        this.txtMultiGame.Visible = false;
+                        this.lbtnPairUp.Visible = false;
+                        numOfGames = 1;
+                        break;
+                    }
+                default:
+                    {
+                        this.lblMultiGame.Visible = true;
+                        this.txtMultiGame.Visible = true;
+                        this.lbtnPairUp.Visible = true;
+                        break;
+                    }
+            }
+
+
+            List<PlayersEntity> playersPairs = PairsAlgo.BuildPairs(new Guid(this.drpDownTournamentList.SelectedValue), playerMatcType, pairingType, numOfGames);
+            this.pairGrid.DataSource = playersPairs;
+            this.pairGrid.DataBind();
+
+            this.lblNumActiveGames.Text = playersPairs.Count().ToString();
+
+        }
+
+
+
+        private void ScheduleViewActivate()
+        {
+            Guid tournamentId = new Guid(this.drpDownTournamentList.SelectedValue);
 
             //for now..straight database kick
-            IEnumerable<DateTime> dates;
+            IEnumerable<DateTime> dates;                       
             using (TournaDataContext db = new TournaDataContext())
             {
-                dates = db.Schedules.Where(y => y.TournamentId == tournamentId).Select(y => y.Start).ToList();
+               var  dateInfo = db.Schedules.Where(y => y.TournamentId == tournamentId).
+                    Select((y) =>
+                        new 
+                            {
+                                StartDate = y.Start,
+                                PlayerA = db.Players.Where( p => p.Id == y.PlayerA).Select( n => n.Name).First(),
+                                PlayerB = db.Players.Where(p => p.Id == y.PlayerB).Select(n => n.Name).First(),
+                            })
+                    .ToList();
+
+               schedDatesGrid.DataSource = dateInfo;
+               schedDatesGrid.DataBind();
+
+               dates = dateInfo.Select(x => x.StartDate);
             }
+
+
+            if (dates.Count() == 0)
+                return;
 
             CalendarVisualizer vis = new CalendarVisualizer(dates);
             vis.Display(schedulesPlaceHolder);
+
         }
-      
+
+        private void RunScheduler(PairsAlgorithmType pairsAlgo,PairsMatchType pairsMatch)
+        {
+            Guid tournamentId = new Guid(this.drpDownTournamentList.SelectedValue);
+            SchedulerAlgo.ScheduleGames(tournamentId,pairsAlgo,pairsMatch);
+
+            this.ScheduleViewActivate();
+            this.PageView.ActiveViewIndex = 2; //schedule view
+        }
+
+        protected void lbtnAddPlayers_Click(object sender, EventArgs e)
+        {
+            Guid orgId = (this.Master as BackOffice).OrgBasicInfo.Id;
+            Guid tournamentId = new Guid(this.drpDownTournamentList.SelectedValue);
+            int numberOfPlayersToCreate = int.Parse(this.txtNumPlayer.Text);
+
+            string orgName = (this.Master as BackOffice).OrgBasicInfo.Name;
+            this.CreatePlayers(orgId, tournamentId, numberOfPlayersToCreate, orgName);
+
+            this.PlayerViewActivate();
+        }
+
+        protected void drpPairAlgo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.PerformRepairing();
+        }
+
+        protected void drpPairing_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.PerformRepairing();
+        }
+
+        protected void lbtnPairUp_Click(object sender, EventArgs e)
+        {
+            this.PerformRepairing();
+        }
+
+        protected void lbtnPlayersExport_Click(object sender, EventArgs e)
+        {
+            GridViewExportUtil.Export("PlayersList.xlsx", this.playersGrid);
+        }
+
+        protected void lbtnPairsExport_Click(object sender, EventArgs e)
+        {
+            GridViewExportUtil.Export("PairView.xlsx", this.pairGrid);
+        }
+
+        protected void lbtnExportSchedules_Click(object sender, EventArgs e)
+        {
+            GridViewExportUtil.Export("GameSchedules.xlsx", this.schedDatesGrid);
+        }
+
+        protected void lbtnscheduleGames_Click(object sender, EventArgs e)
+        {
+            //gather scheduling information
+            //re-pair based on whats selected
+            string pairing = this.drpPairing.SelectedValue;
+            string playerMat = this.drpPairAlgo.SelectedValue;
+
+            PairsAlgorithmType playerMatcType = (PairsAlgorithmType)Enum.Parse(typeof(PairsAlgorithmType), playerMat);
+            PairsMatchType pairingType = (PairsMatchType)Enum.Parse(typeof(PairsMatchType), pairing);
+            int numOfGames = int.Parse(this.txtMultiGame.Text);
+
+            this.RunScheduler(playerMatcType, pairingType);
+
+        }
+
+        protected void schedMenu_MenuItemClick(object sender, MenuEventArgs e)
+        {
+            int pageIndex = int.Parse(e.Item.Value);
+            this.scheduleMultiView.ActiveViewIndex = pageIndex;
+
+            this.ScheduleViewActivate();
+        }
+
+
+
+
+
     }
 }

@@ -26,12 +26,22 @@ namespace StrongerOrg.Backoffice
             {
 
                 Calendar cal = new Calendar();
+                cal.SelectionMode = CalendarSelectionMode.None;
+                cal.ShowNextPrevMonth = false;
+                
+                
                 cal.VisibleDate = new DateTime(grouping.Key.Year, grouping.Key.Month, 1);
+
                 foreach (DateTime date in grouping)
                     cal.SelectedDates.Add(date);
 
                 control.Controls.Add(cal);
+
+                
             }
+
+            
         }
+
     }
 }
