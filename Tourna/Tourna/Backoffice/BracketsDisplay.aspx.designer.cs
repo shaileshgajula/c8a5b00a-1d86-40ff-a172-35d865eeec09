@@ -38,7 +38,7 @@ namespace StrongerOrg.Backoffice {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::TourneyLogic.Web.UI.WebControls.Bracket aaa;
+        //protected global::TourneyLogic.Web.UI.WebControls.Bracket aaa;
         
         /// <summary>
         /// SqlDataSource1 control.
