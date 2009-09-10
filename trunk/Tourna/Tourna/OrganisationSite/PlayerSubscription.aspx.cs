@@ -41,13 +41,13 @@ namespace StrongerOrg
 
         protected void InsertButton_Click(object sender, EventArgs e)
         {
-            
-            string name = this.NameTextBox.Text;
-            string nickName = this.txtNickName.Text; ;
+
+            string name = this.txtName.Text;
+            //string nickName = this.txtNickName.Text; ;
             string email = this.txtEmail.Text;
-            string department = this.txtDepartment.Text;
+            //string department = this.txtDepartment.Text;
             string tournamentId = this.RadioButtonList1.SelectedValue;
-            PlayersManager.InsertPlayer(this.orgId, name, nickName, email, department, tournamentId);
+            PlayersManager.InsertPlayer(this.orgId, name, string.Empty, email, string.Empty, tournamentId);
             this.Panel1.Visible = false;
             this.lblMsg.Text = "Thank you for register to . " + this.RadioButtonList1.SelectedItem.Text;
         }

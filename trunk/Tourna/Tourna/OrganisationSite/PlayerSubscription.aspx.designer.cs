@@ -32,13 +32,13 @@ namespace StrongerOrg {
         protected global::System.Web.UI.WebControls.Panel Panel1;
         
         /// <summary>
-        /// NameTextBox control.
+        /// txtName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox NameTextBox;
+        protected global::Telerik.Web.UI.RadTextBox txtName;
         
         /// <summary>
         /// RequiredFieldValidator1 control.
@@ -50,22 +50,13 @@ namespace StrongerOrg {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
         
         /// <summary>
-        /// txtNickName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNickName;
-        
-        /// <summary>
         /// txtEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmail;
+        protected global::Telerik.Web.UI.RadTextBox txtEmail;
         
         /// <summary>
         /// RegularExpressionValidator1 control.
@@ -75,15 +66,6 @@ namespace StrongerOrg {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
-        
-        /// <summary>
-        /// txtDepartment control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDepartment;
         
         /// <summary>
         /// RadioButtonList1 control.
@@ -104,15 +86,6 @@ namespace StrongerOrg {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
         
         /// <summary>
-        /// InsertCancelButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton InsertCancelButton;
-        
-        /// <summary>
         /// InsertButton control.
         /// </summary>
         /// <remarks>
@@ -120,5 +93,14 @@ namespace StrongerOrg {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton InsertButton;
+        
+        /// <summary>
+        /// InsertCancelButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton InsertCancelButton;
     }
 }
