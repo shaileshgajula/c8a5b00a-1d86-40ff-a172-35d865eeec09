@@ -342,11 +342,11 @@
     <Compile Include="FrontSitePages\Customers.aspx.designer.cs">
       <DependentUpon>Customers.aspx</DependentUpon>
     </Compile>
-    <Compile Include="FrontSitePages\Default.aspx.cs">
+    <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="FrontSitePages\Default.aspx.designer.cs">
+    <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="DummyPage.aspx.cs">
@@ -539,7 +539,7 @@
     <Content Include="FrontSitePages\API.aspx" />
     <Content Include="FrontSitePages\Contact.aspx" />
     <Content Include="FrontSitePages\Customers.aspx" />
-    <Content Include="FrontSitePages\Default.aspx" />
+    <Content Include="Default.aspx" />
     <Content Include="DummyPage.aspx" />
     <Content Include="FrontSitePages\FAQ.aspx" />
     <Content Include="FrontSitePages\Join.aspx" />
@@ -692,7 +692,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
+      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

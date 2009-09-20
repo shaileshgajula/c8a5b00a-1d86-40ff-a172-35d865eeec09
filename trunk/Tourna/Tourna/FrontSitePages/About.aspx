@@ -47,17 +47,17 @@
                 <img src="../Images/msn_icon.JPG" />
             </td>
             <td style="padding: 5px;height:15px;vertical-align: top;color:#2e2e2e;font-size:15px;font-weight:bold">
-                Pini Usha, CTO and founder
+                Pini Usha, Founder & CTO
             </td>
             <tr>
                 <td style="padding: 15px;vertical-align: top" class="GrayTextNormal">
-                And we’d love to know what features you’d find useful -- please send your comments
-                to you have any feedback, feel free to shoot us an email at contact@StrongerOrg.com.
-                StrongerOrg is headquartered in New York City.
-                <br>
-                And we’d love to know what features you’d find useful <br>-- please send your comments
-                to you have any feedback, feel free to shoot us an email at contact@StrongerOrg.com.
-                StrongerOrg is headquartered in New York City.
+                
+Pini founded strongerorg.com based on a vision to improve networking and social events inside organisation.<br />
+Pini's biggest passions is video games and sport events (especially basketball). The idea was born after a boring team dinner.
+To him it looks like no body wantted to be there, he didn't like the food and it was after work time on his personal time. But still he understood the importance of team building events. Solidified team is a stronger team that works faster and collaborate better.
+<br />
+Prior to founding strongerorg Pini worked for financial companies for several years including Superderivatives(TLV) and Reval(NYC). Pini has 11 years of experience and hard core knowledge in technology and software architecture.
+Pini holds a B.A from IDC in computer science and was the captain of his basketball team in New York City corporate leagues.<br />
                 </td>
             </tr>
         </tr>
@@ -66,7 +66,7 @@
                 <img src="../Images/Staff/InbarUsha.JPG" />
             </td>
             <td style="padding: 5px;height:15px;vertical-align: top;color:#2e2e2e;font-size:15px;font-weight:bold">
-                Inbar Usha, Administrative work(reports to stan) 
+                Inbar Margolin, founder & COO  
             </td>
             <tr>
                 <td style="padding: 15px;vertical-align: top" class="GrayTextNormal">
