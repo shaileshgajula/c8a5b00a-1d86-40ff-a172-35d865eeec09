@@ -9,11 +9,11 @@
     <table cellpadding="0" cellspacing="0" border="0" style="width: 100%">
         <tr>
             <td rowspan="2" style="width: 490px">
-                <img src="../Images/LadyWithLaptop.jpg" alt="Lady with laptop" id="lady" width="487"
+                <img src="Images/LadyWithLaptop.jpg" alt="Lady with laptop" id="lady" width="487"
                     height="257" />
             </td>
             <td style="height: 130px;">
-                <img src="../Images/B2BGames.gif" alt="b2b games" id="b2bgames" />
+                <img src="Images/B2BGames.gif" alt="b2b games" id="b2bgames" />
             </td>
         </tr>
         <tr>
@@ -32,10 +32,10 @@
                 <table style="width: 100%">
                     <tr>
                         <td rowspan="2">
-                            <img src="../Images/OfflinePlanPrice.gif" alt="Offline Plan Price" />
+                            <img src="Images/OfflinePlanPrice.gif" alt="Offline Plan Price" />
                         </td>
                         <td colspan="2">
-                            <img src="../Images/offlinePlan.gif" alt="offline Plan" />
+                            <img src="Images/offlinePlan.gif" alt="offline Plan" />
                         </td>
                     </tr>
                     <tr>
@@ -43,7 +43,7 @@
                             CREATE TOURNAMENT INSIDE YOUR ORGANISATION FOR BETTER NETWORKING AND SOCIALIZING
                         </td>
                         <td>
-                            <img src="../Images/PlanArrow.gif" alt="Go to plan details" />
+                            <img src="Images/PlanArrow.gif" alt="Go to plan details" />
                         </td>
                     </tr>
                 </table>
@@ -54,10 +54,10 @@
                 <table style="width: 100%">
                     <tr>
                         <td rowspan="2">
-                            <img src="../Images/OnlinePlanPrice.gif" />
+                            <img src="Images/OnlinePlanPrice.gif" />
                         </td>
                         <td colspan="2">
-                            <img src="../Images/OnlinePlan.gif" />
+                            <img src="Images/OnlinePlan.gif" />
                         </td>
                     </tr>
                     <tr>
@@ -65,7 +65,7 @@
                             ENCHANCE YOUR NETWORKING WITH SATELITE OFFICES, CLIENTS AND OTHERS
                         </td>
                         <td>
-                            <img src="../Images/PlanArrow.gif" alt="Go to plan details" />
+                            <img src="Images/PlanArrow.gif" alt="Go to plan details" />
                         </td>
                     </tr>
                 </table>
@@ -76,10 +76,10 @@
                 <table style="width: 100%">
                     <tr>
                         <td rowspan="2">
-                            <img src="../Images/LeaguePlanPrice.gif" />
+                            <img src="Images/LeaguePlanPrice.gif" />
                         </td>
                         <td colspan="2">
-                            <img src="../Images/LeaguePlan.gif" />
+                            <img src="Images/LeaguePlan.gif" />
                         </td>
                     </tr>
                     <tr>
@@ -87,7 +87,7 @@
                             TAKE YOUR LOCAL LEAGUE WEB SITE TO THE NEXT LEVEL WITH PROFESSIONAL LOOK AND FEEL
                         </td>
                         <td>
-                            <img src="../Images/PlanArrow.gif" alt="Go to plan details" />
+                            <img src="Images/PlanArrow.gif" alt="Go to plan details" />
                         </td>
                     </tr>
                 </table>
@@ -99,7 +99,7 @@
         </tr>
         <tr>
             <td colspan="5" style="height: 45px">
-                <img src="../Images/successStories.gif" />
+                <img src="Images/successStories.gif" />
             </td>
         </tr>
         <tr>
@@ -160,17 +160,17 @@
         </tr>
         <tr>
             <td style="text-align: right">
-                <img src="../Images/more.gif" />
+                <img src="Images/more.gif" />
             </td>
             <td>
             </td>
             <td style="text-align: right">
-                <img src="../Images/more.gif" />
+                <img src="Images/more.gif" />
             </td>
             <td>
             </td>
             <td style="text-align: right">
-                <img src="../Images/more.gif" />
+                <img src="Images/more.gif" />
             </td>
         </tr>
         </tr>
