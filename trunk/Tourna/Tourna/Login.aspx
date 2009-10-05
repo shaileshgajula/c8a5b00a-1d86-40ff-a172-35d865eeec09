@@ -14,7 +14,8 @@
                     BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em"
                     ForeColor="#333333" Height="187px" PasswordRecoveryText="Recover your password"
                     PasswordRecoveryUrl="~/Login/PasswordRecover.aspx" RememberMeSet="True" TitleText="StrngerOrg [Log In]"
-                    Width="473px" DestinationPageUrl="~/Backoffice/Default.aspx" OnLoggedIn="Login1_LoggedIn">
+                    Width="473px" DestinationPageUrl="~/Backoffice/Organisations.aspx" 
+                    OnLoggedIn="Login1_LoggedIn">
                     <TextBoxStyle Font-Size="0.8em" />
                     <LoginButtonStyle BackColor="White" BorderColor="#507CD1" BorderStyle="Solid" BorderWidth="1px"
                         Font-Names="Verdana" Font-Size="0.8em" ForeColor="#284E98" />

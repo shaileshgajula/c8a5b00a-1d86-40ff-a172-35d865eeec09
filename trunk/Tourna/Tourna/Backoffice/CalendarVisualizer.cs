@@ -25,7 +25,7 @@ namespace StrongerOrg.Backoffice
             foreach (var grouping in grup)
             {
 
-                Calendar cal = new Calendar();
+                Calendar cal = new Calendar() ;
                 cal.SelectionMode = CalendarSelectionMode.None;
                 cal.ShowNextPrevMonth = false;
                 

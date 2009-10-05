@@ -20,7 +20,9 @@
     </asp:GridView>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:StrongerOrgString %>"
         SelectCommand="GetOrganisations" SelectCommandType="StoredProcedure" CancelSelectOnNullParameter="False"
-        DeleteCommand="DELETE FROM [Organisation] WHERE [Id] = @Id" InsertCommand="INSERT INTO Organisation(Name, ContactPerson, ShippingAddress, BillingAddress, WebSite) VALUES (@Name, @ContactPerson, @ShippingAddress, @BillingAddress, @WebSite)">
+        DeleteCommand="DELETE FROM [Organisation] WHERE [Id] = @Id" 
+        InsertCommand="INSERT INTO Organisation(Name, ContactPerson, ShippingAddress, BillingAddress, WebSite) VALUES (@Name, @ContactPerson, @ShippingAddress, @BillingAddress, @WebSite)" 
+        onselecting="SqlDataSource1_Selecting">
         <SelectParameters>
             <asp:QueryStringParameter Name="Id" QueryStringField="OrgId" Type="String" ConvertEmptyStringToNull="true" />
         </SelectParameters>

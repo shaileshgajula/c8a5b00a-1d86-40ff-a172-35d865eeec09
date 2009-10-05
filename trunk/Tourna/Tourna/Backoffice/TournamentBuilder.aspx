@@ -3,7 +3,7 @@
 <%@ MasterType VirtualPath="~/Backoffice/BackOffice.Master" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Wizard ID="Wizard1" runat="server" ActiveStepIndex="0" Width="931px" OnFinishButtonClick="Wizard1_FinishButtonClick">
+    <asp:Wizard ID="Wizard1" runat="server" ActiveStepIndex="0" Width="100%" OnFinishButtonClick="Wizard1_FinishButtonClick">
         <WizardSteps>
             <asp:WizardStep runat="server" Title="Step 1">
                 <table>

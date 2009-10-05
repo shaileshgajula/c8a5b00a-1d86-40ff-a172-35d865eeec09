@@ -14,22 +14,23 @@ namespace StrongerOrg.Backoffice
 
         }
 
-        //protected void LinkButton1_Click(object sender, EventArgs e)
-        //{
-        //    //if (this.brackets.ReadOnly)
-        //    //{
-        //    //    this.LinkButton1.Text = "Switch to read only mode";
-        //    //}
-        //    //else
-        //    //{
-        //    //    this.LinkButton1.Text = "Switch to edit mode";
-        //    //}
-        //    //this.Bracket1.ReadOnly = !this.Bracket1.ReadOnly;
-        //}
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            
+            //if (this.brackets.ReadOnly)
+            //{
+            //    this.LinkButton1.Text = "Switch to read only mode";
+            //}
+            //else
+            //{
+            //    this.LinkButton1.Text = "Switch to edit mode";
+            //}
+            //this.Bracket1.ReadOnly = !this.Bracket1.ReadOnly;
+        }
 
-        //protected void Button1_Click(object sender, EventArgs e)
-        //{
+        protected void Button1_Click(object sender, EventArgs e)
+        {
 
-        //}
+        }
     }
 }

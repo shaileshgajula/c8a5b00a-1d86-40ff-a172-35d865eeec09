@@ -32,12 +32,12 @@
         <siteMapNode title="Organisation Info" url="~\Backoffice\OrganisationInfo.aspx"/>
         <siteMapNode title="Tournaments" url="~\Backoffice\Tournaments.aspx" description="define tournament parameters"/>
         <siteMapNode title="Players" url="~/Backoffice/OrganisationPlayers.aspx?"/>
-        <siteMapNode title="Schedules" description="plus edit option" url="~\Backoffice\Schedules.aspx"/>
+        <siteMapNode title="Schedules" description="plus edit option" url="~\Backoffice\TournamentSchedules.aspx"/>
         <siteMapNode title="Standings" description="plus edit option" url="~\Backoffice\Standings.aspx"/>
         <siteMapNode title="Manage Users" url="~/Backoffice/ManageUsers.aspx?"/>
         <siteMapNode title="Tournamet rules" url="~/Backoffice/Rules.aspx?"/>
         <siteMapNode title="Event gallery" url="~\Backoffice\EventGallery.aspx"/>
-        <siteMapNode title="Holidays" url="~\Backoffice\Holidyas.aspx" description="Define unvalid days for playing"/>
+        <siteMapNode title="Holidays" url="~\Backoffice\Holidays.aspx" description="Define unvalid days for playing"/>
         <siteMapNode title="Payments Management" url="~\Backoffice\PaymentsManagement.aspx"/>
       </siteMapNode>
       <siteMapNode title="Administrator Section" url="~/AdminSection.aspx">
@@ -50,7 +50,7 @@
         <siteMapNode title="Organizations" url="~/Backoffice/Organisations.aspx"/>
         <siteMapNode title="Login as other user" url="~/Backoffice/Administrator/LoginAsOtherUser.aspx"/>
         <siteMapNode title="Default Holidays" url="~/Backoffice/DefaultHolidays.aspx"/>
-        <siteMapNode title="Control Panel" url="~/Backoffice/ControlPanel.aspx" description="Use carefully - for me only!!"/>
+        <siteMapNode title="Control Panel" url="~/Backoffice/Administrator/ControlPanel.aspx" description="Use carefully - for me only!!"/>
         <siteMapNode title="User stats" url="~/Backoffice/Administrator/WhoIsOnline.aspx" description="See which users are on line now (10 min window)"/>
         <siteMapNode title="FAQ" url="~/Backoffice/Administrator/Faq.aspx" description="faq in the front site"/>
         <siteMapNode title="Site Map" url="~/Backoffice/SiteMap.aspx"/>

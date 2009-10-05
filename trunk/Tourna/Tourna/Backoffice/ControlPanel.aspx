@@ -14,7 +14,9 @@
             <td style="text-align: right">
                 Select Tournament:
                 <asp:DropDownList ID="drpDownTournamentList" runat="server" DataSourceID="TournamentSource"
-                    DataTextField="TournamentName" DataValueField="Id">
+                    DataTextField="TournamentName" DataValueField="Id" AutoPostBack="True" 
+                    ondatabound="drpDownTournamentList_DataBound" 
+                    onselectedindexchanged="drpDownTournamentList_SelectedIndexChanged">
                 </asp:DropDownList>
             </td>
         </tr>
@@ -33,7 +35,7 @@
         </tr>
         <tr>
             <td>
-                <asp:MultiView ID="PageView" runat="server">
+                <asp:MultiView ID="PageView" runat="server" ActiveViewIndex="2">
                     <asp:View ID="PlayersView" runat="server">
                         <asp:TextBox ID="txtNumPlayer" runat="server" />
                         <asp:LinkButton ID="lbtnAddPlayers" runat="server" Text="Add Players" OnClick="lbtnAddPlayers_Click" />
@@ -129,7 +131,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <asp:MultiView ID="scheduleMultiView" runat="server">
+                                    <asp:MultiView ID="scheduleMultiView" runat="server" ActiveViewIndex="0">
                                         <asp:View runat="server" ID="schedCalendarView">
                                             <asp:PlaceHolder ID="schedulesPlaceHolder" runat="server"></asp:PlaceHolder>
                                         </asp:View>
