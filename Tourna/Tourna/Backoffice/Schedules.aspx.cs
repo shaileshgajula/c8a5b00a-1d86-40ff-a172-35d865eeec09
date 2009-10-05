@@ -76,6 +76,20 @@ namespace StrongerOrg.Backoffice
             }
         }
 
+        protected void SqlDataSource1_Selected(object sender, SqlDataSourceStatusEventArgs e)
+        {
+            if (e.AffectedRows == 0)
+            {
+                this.lblMsg.Text = "<br/>There are no schedules for this tournament yet. If you wish you can schedule it manually or wait until the end of the registration date and the system will do it for you automaticly.<br/>To run the auto scheduler now ";
+                this.hlAutoScheduler.Visible = true;
+                this.btnExport.Visible = false;
+            }
+            else
+            {
+                this.lblMsg.Text = string.Format("{0} matches are set", e.AffectedRows);
+            }
+        }
+
         
     }
 }

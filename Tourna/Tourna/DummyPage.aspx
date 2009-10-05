@@ -108,6 +108,26 @@
 </head>
 <body>
     <form id="form1" runat="server">
+    
+    <asp:Calendar ID="Calendar1" runat="server"></asp:Calendar>
+    
+    
+    <tl:Bracket ID="Bracket1" runat="server"><Competitors>
+<tl:BracketCompetitor ID="BracketCompetitor1" runat="server" CompetitorId="1"></tl:BracketCompetitor>
+<tl:BracketCompetitor ID="BracketCompetitor2" runat="server" CompetitorId="2"></tl:BracketCompetitor>
+<tl:BracketCompetitor ID="BracketCompetitor3" runat="server" CompetitorId="3"></tl:BracketCompetitor>
+<tl:BracketCompetitor ID="BracketCompetitor4" runat="server" CompetitorId="4"></tl:BracketCompetitor>
+</Competitors>
+</tl:Bracket>
+
+    
+
+    <asp:Button ID="Button1" runat="server" onclick="Button1_Click" Text="Button" />
+
+<br /><br />
+    <asp:LinkButton ID="LinkButton1" runat="server" onclick="LinkButton1_Click">LinkButton</asp:LinkButton>
+    <br />
+    
     <span id="ctl00_ContentPlaceHolder1_Bracket1" style="color: Blue; font-family: Arial;
         font-size: small; font-weight: normal; font-style: normal;" roundtextappearance-forecolor="Gray"
         correctpickappearance-font-bold="True" correctpickappearance-forecolor="0, 192, 0"
@@ -220,7 +240,9 @@
                     </div>
                 </td>
                 <td class="Round" valign="top">
-                    <span>Round 3 </span>
+                    <span>Round 3 
+                    
+                    </span>
                     <div id="Div9" class="UpperSlot" style="height: 126px; width: 130px;">
                     </div>
                     <div id="Div10" class="LowerSlot" style="height: 203px; width: 130px;">

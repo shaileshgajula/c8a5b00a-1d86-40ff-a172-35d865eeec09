@@ -16,9 +16,12 @@
     }
     </script>
 --%>    
-    <asp:ImageButton runat="server" ID="Button2" ImageUrl="~/Images/Icons/exportButton.gif"
+    <asp:ImageButton runat="server" ID="btnExport" ImageUrl="~/Images/Icons/exportButton.gif"
         AlternateText="Export All to iCalendar" OnClientClick="Export(this, event); return false;"
         OnClick="Button2_Click" />
+    <asp:Label ID="lblMsg" runat="server" CssClass="GrayTextLight"></asp:Label>
+    <asp:HyperLink ID="hlAutoScheduler" runat="server" NavigateUrl="~/Login.aspx" 
+        Visible="False">Click Here</asp:HyperLink>
     <telerik:RadScheduler ID="RadScheduler1" runat="server" DataEndField="End" DataKeyField="Id"
         DataSourceID="SqlDataSource1" DataStartField="Start" DataSubjectField="Subject"
         HoursPanelTimeFormat="htt" ValidationGroup="RadScheduler1" SelectedView="MonthView"
@@ -100,7 +103,9 @@
     </telerik:RadScheduler>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:StrongerOrgString %>"
         SelectCommand="SchedulesGet" SelectCommandType="StoredProcedure" DeleteCommand="ScheduleDelete"
-        DeleteCommandType="StoredProcedure" UpdateCommand="ScheduleUpdate" UpdateCommandType="StoredProcedure" CancelSelectOnNullParameter="false">
+        DeleteCommandType="StoredProcedure" UpdateCommand="ScheduleUpdate" 
+        UpdateCommandType="StoredProcedure" CancelSelectOnNullParameter="false" 
+        onselected="SqlDataSource1_Selected">
         <SelectParameters>
             <asp:QueryStringParameter Name="TournamentId" QueryStringField="TournamentId" Type="String" />
             <asp:CookieParameter Name="OrganisationId" CookieName="OrganisationId" Type="String" ConvertEmptyStringToNull="true" />
@@ -114,4 +119,4 @@
             <asp:Parameter Name="End" Type="DateTime" />
         </UpdateParameters>
     </asp:SqlDataSource>
-    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Backoffice/UnscheduledPlayers.aspx">Conflicts and Unscheduled players [##]</asp:HyperLink></asp:Content>
+    </asp:Content>

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Brackets Display" Language="C#" MasterPageFile="~/Backoffice/BackOffice.Master"
+<%@ Page Title="Brackets Display" Language="C#" MasterPageFile="~/Backoffice/BackOffice.Master"
     AutoEventWireup="true" CodeBehind="BracketsDisplay.aspx.cs" Inherits="StrongerOrg.Backoffice.BracketsDisplay" %>
 
 <%@ Register Assembly="TourneyLogic.Web.UI.BracketControl.v2" Namespace="TourneyLogic.Web.UI.WebControls"
@@ -10,7 +10,7 @@
     <br />
     <br />
     
-    <tl:bracket id="aaa" runat="server" readonly="True" roundwidth="130" font-bold="False"
+    <tl:bracket id="brackets" runat="server" readonly="True" roundwidth="130" font-bold="False"
         font-italic="False" font-names="Arial" font-size="Small" forecolor="Blue" incorrectpickappearance-forecolor="Red"
         incorrectpickappearance-font-strikeout="True" correctpickappearance-forecolor="0, 192, 0"
         correctpickappearance-font-bold="True" 
@@ -21,7 +21,7 @@
         InvalidResultsFoundMessage="The entered picks appear to be invalid. This is usaully caused by JavaScript being disabled. Please verify that the picks are valid and resubmit." 
         DataMember="DefaultView" Width="426px"></tl:bracket>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
-        ConnectionString="<%$ ConnectionStrings:PiniTestConnectionString %>" 
+        ConnectionString="<%$ ConnectionStrings:StrongerOrgString %>" 
         SelectCommand="StandingsGet" SelectCommandType="StoredProcedure">
         <SelectParameters>
             <asp:QueryStringParameter Name="TournamentId" 

@@ -55,6 +55,10 @@
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Web.Mobile" />
     <Reference Include="Telerik.Web.UI, Version=2009.2.701.35, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL" />
+    <Reference Include="TourneyLogic.Web.UI.BracketControl.v2, Version=2.1.207.220, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\TBCv21withSource\Bracket\bin\Debug\TourneyLogic.Web.UI.BracketControl.v2.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Backoffice\TournamentBuilder.aspx" />
@@ -95,6 +99,13 @@
     </Compile>
     <Compile Include="Backoffice\BracketsDisplay.aspx.designer.cs">
       <DependentUpon>BracketsDisplay.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backoffice\BracketsView.aspx.cs">
+      <DependentUpon>BracketsView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backoffice\BracketsView.aspx.designer.cs">
+      <DependentUpon>BracketsView.aspx</DependentUpon>
     </Compile>
     <Compile Include="Backoffice\CalendarVisualizer.cs" />
     <Compile Include="Backoffice\ControlPanel.aspx.cs">
@@ -642,6 +653,7 @@
     <Content Include="Backoffice\Administrator\Payments.aspx" />
     <Content Include="Backoffice\BasePage.aspx" />
     <Content Include="Backoffice\BracketsDisplay.aspx" />
+    <Content Include="Backoffice\BracketsView.aspx" />
     <Content Include="Backoffice\DefaultHolidays.aspx" />
     <Content Include="Backoffice\EventGallery.aspx" />
     <Content Include="Backoffice\Holidays.aspx" />
@@ -681,7 +693,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>13173</DevelopmentServerPort>
+          <DevelopmentServerPort>9389</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

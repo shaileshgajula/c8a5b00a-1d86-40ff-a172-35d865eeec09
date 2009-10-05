@@ -340,6 +340,28 @@ namespace StrongerOrg.Backoffice
             this.RunScheduler();
         }
 
+        protected void drpDownTournamentList_DataBound(object sender, EventArgs e)
+        {
+            string x = this.drpDownTournamentList.SelectedValue;
+            string tournamentId = Request.QueryString["TournamentId"].ToString();
+            foreach (ListItem item in this.drpDownTournamentList.Items)
+            {
+                if (item.Value == tournamentId)
+                {
+                    item.Selected = true;
+                    this.ScheduleViewActivate();
+                    return;
+                }
+            }
+        }
+
+        protected void drpDownTournamentList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.ScheduleViewActivate();
+        }
+
+        
+
 
 
 

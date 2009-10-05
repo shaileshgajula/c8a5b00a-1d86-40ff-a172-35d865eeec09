@@ -11,34 +11,25 @@
 namespace StrongerOrg.Backoffice {
     
     
-    public partial class BracketsDisplay {
+    public partial class BracketsView {
         
         /// <summary>
-        /// LinkButton2 control.
+        /// lbSwitchToEdit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton2;
+        protected global::System.Web.UI.WebControls.LinkButton lbSwitchToEdit;
         
         /// <summary>
-        /// LinkButton1 control.
+        /// Bracket1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
-        
-        /// <summary>
-        /// brackets control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::TourneyLogic.Web.UI.WebControls.Bracket brackets;
+        protected global::TourneyLogic.Web.UI.WebControls.Bracket Bracket1;
         
         /// <summary>
         /// SqlDataSource1 control.

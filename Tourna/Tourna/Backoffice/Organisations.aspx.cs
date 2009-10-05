@@ -10,6 +10,7 @@ using System.Configuration;
 using System.Data;
 using StrongerOrg.Backoffice.DataLayer;
 using System.Globalization;
+using System.Web.Security;
 
 namespace StrongerOrg.Backoffice
 {
@@ -27,6 +28,15 @@ namespace StrongerOrg.Backoffice
             Response.Cookies["OrganisationId"].Value = organisationId;
             this.Master.OrganisationName = organisationName;
             this.Master.OrganisationId = organisationId;
+        }
+
+        protected void SqlDataSource1_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
+        {
+            if (!((BasePage)this.Page).UserRole.Equals("Administrator"))
+            {
+                e.Cancel = true;
+                this.GridView1.Visible = false;
+            }
         }
     }
 }
