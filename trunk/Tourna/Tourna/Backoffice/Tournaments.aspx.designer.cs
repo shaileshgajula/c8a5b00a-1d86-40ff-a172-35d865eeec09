@@ -59,40 +59,13 @@ namespace StrongerOrg.Backoffice {
         protected global::System.Web.UI.WebControls.View View1;
         
         /// <summary>
-        /// schedulesPlaceHolder control.
+        /// calSchedules control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder schedulesPlaceHolder;
-        
-        /// <summary>
-        /// Calendar1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar Calendar1;
-        
-        /// <summary>
-        /// Calendar2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar Calendar2;
-        
-        /// <summary>
-        /// Calendar3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar Calendar3;
+        protected global::System.Web.UI.WebControls.Calendar calSchedules;
         
         /// <summary>
         /// View2 control.
@@ -122,13 +95,31 @@ namespace StrongerOrg.Backoffice {
         protected global::System.Web.UI.WebControls.View View3;
         
         /// <summary>
-        /// brcStandings control.
+        /// hlPrint control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::TourneyLogic.Web.UI.WebControls.Bracket brcStandings;
+        protected global::System.Web.UI.WebControls.HyperLink hlPrint;
+        
+        /// <summary>
+        /// HyperLink2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink HyperLink2;
+        
+        /// <summary>
+        /// Bracket1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::TourneyLogic.Web.UI.WebControls.Bracket Bracket1;
         
         /// <summary>
         /// View4 control.
