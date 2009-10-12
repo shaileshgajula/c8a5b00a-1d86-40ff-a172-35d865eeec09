@@ -10,9 +10,9 @@
         ondatabound="GridView1_DataBound">
         <Columns>
             <asp:CommandField HeaderText="Select" ShowSelectButton="True" />
-            <asp:BoundField DataField="TournamentName" HeaderText="TournamentName" ReadOnly="True"
+            <asp:BoundField DataField="TournamentName" HeaderText="Tournament Name" ReadOnly="True"
                 SortExpression="TournamentName" />
-            <asp:BoundField DataField="StartDate" HeaderText="StartDate" SortExpression="StartDate"
+            <asp:BoundField DataField="StartDate" HeaderText="Start Date" SortExpression="StartDate"
                 DataFormatString="{0:d}" />
             <asp:BoundField DataField="Title" HeaderText="Game Title" SortExpression="Title" />
             <asp:BoundField DataField="NumberOfPlayersLimit" HeaderText="Limit" SortExpression="NumberOfPlayersLimit" />
@@ -68,13 +68,13 @@
                     <StaticSelectedStyle CssClass="SelectedRowStyle" />
                     <Items>
                         <asp:MenuItem Text="Calendar" Value="0" Selected=true></asp:MenuItem>
-                        <asp:MenuItem Text="Standings grid view" Value="1"></asp:MenuItem>
-                        <asp:MenuItem Text="Standings brackets view" Value="2"></asp:MenuItem>
+                        <asp:MenuItem Text="Standings [grid view]" Value="1"></asp:MenuItem>
+                        <asp:MenuItem Text="Standings [brackets view]" Value="2"></asp:MenuItem>
                         <asp:MenuItem Text="Actions" Value="3"></asp:MenuItem>
                     </Items>
                 </asp:Menu>
             </td>
-            <td style="padding-left:20px">
+            <td style="padding-left:20px;vertical-align: top;">
                 <asp:MultiView ID="mvTournament" runat="server" ActiveViewIndex=0>
                     <asp:View ID="View1" runat="server" >
                         <asp:Calendar ID="calSchedules" runat="server" Visible="true"></asp:Calendar>
@@ -84,8 +84,10 @@
                         </asp:GridView>
                     </asp:View>
                     <asp:View ID="View3" runat="server">
-                        <tl:Bracket ID="brcStandings" runat="server" DataCompetitorNameField="PlayerA">
-                        </tl:Bracket>
+                        <asp:HyperLink ID="hlPrint" runat="server">Print</asp:HyperLink>
+                        <asp:HyperLink ID="HyperLink2" runat="server">Export to pdf</asp:HyperLink>
+                        <tl:Bracket runat="server" ID="Bracket1" ChampionshipText="Champion" 
+                        displaymode="ViewMode" RoundWidth="130"></tl:Bracket>
                     </asp:View>
                     <asp:View ID="View4" runat="server">
                         <asp:LinkButton ID="LinkButton1" runat="server">Schedule registred players</asp:LinkButton><br />

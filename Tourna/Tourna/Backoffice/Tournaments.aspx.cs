@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using StrongerOrg.Backoffice.DataLayer;
+using TourneyLogic.Web.UI.WebControls;
+using TourneyLogic.Web.UI.WebControls.Collections;
 
 namespace StrongerOrg.Backoffice
 {
@@ -35,7 +37,9 @@ namespace StrongerOrg.Backoffice
                          new
                          {
                              StartDate = y.Start,
+                             PlayerAId = y.PlayerA,
                              PlayerA = db.Players.Where(p => p.Id == y.PlayerA).Select(n => n.Name).First(),
+                             PlayerBId = y.PlayerB,
                              PlayerB = db.Players.Where(p => p.Id == y.PlayerB).Select(n => n.Name).First(),
                              ScoreA = y.ScoreA,
                              ScoreB = y.ScoreB
@@ -56,21 +60,31 @@ namespace StrongerOrg.Backoffice
                 {
                     cal.Visible = true;
                     dates = dateInfo.Select(x => x.StartDate);
-
-                    this.brcStandings.DataSource = dateInfo.Select((x) => new
-                    {
-                        PlayerA = x.PlayerA,
-                        PlayerB = x.PlayerB
-                    });
-                    this.brcStandings.DataBind();
-
-                    
                     cal.VisibleDate = dates.ElementAt(0);
                     cal.SelectedDates.Clear();
                     foreach (DateTime date in dates)
                     {
                         cal.SelectedDates.Add(date);
                     }
+                    this.Bracket1.Competitors.Clear();
+                    this.Bracket1.Results.Clear();
+                    BracketControlCollection<BracketCompetitor> bcc = new BracketControlCollection<BracketCompetitor>();
+                    foreach (var item in dateInfo)
+                    {
+                        bcc.Add(new BracketCompetitor() { CompetitorId = item.PlayerAId.ToString(), CompetitorName = item.PlayerA });
+                        bcc.Add(new BracketCompetitor() { CompetitorId = item.PlayerBId.ToString(), CompetitorName = item.PlayerB });
+                    }
+                    this.Bracket1.Competitors = bcc;
+                    //this.Bracket1.Competitors.Add(new BracketCompetitor() { CompetitorName = "pini", CompetitorId = "5" });
+                    //this.brcStandings.DataSource = dateInfo.Select((x) => new
+                    //{
+                    //    PlayerA = x.PlayerA,
+                    //    PlayerB = x.PlayerB
+                    //});
+                    //this.brcStandings.DataBind();
+
+
+                    
                 }
                 else
                 {
