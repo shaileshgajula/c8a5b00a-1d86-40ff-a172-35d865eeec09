@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using StrongerOrg.Backoffice.DataLayer;
+using PDFDrawer;
 
 namespace StrongerOrgTest
 {
@@ -67,14 +68,34 @@ namespace StrongerOrgTest
             // TODO: Add test logic	here
             //
 
-            using (TournaDataContext db = new TournaDataContext())
-            {
+            //using (TournaDataContext db = new TournaDataContext())
+            //{
                // var holidays = db.DefaultHolidays;
 
-
-                
-                
+            try
+            {
+                int test = 3;
+                String enumVal = Enum.GetName(typeof(Test), test);
             }
+            catch (Exception ex)
+            {
+
+            }
+            //}
         }
+
+        [TestMethod]
+        public void TestPdfExport()
+        {
+            PDFGridExport export = new PDFGridExport();
+            
+
+        }
+    }
+
+    public enum Test
+    {
+        Hello = 0,
+        World = 1
     }
 }
