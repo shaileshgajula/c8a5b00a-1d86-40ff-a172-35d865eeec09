@@ -15,7 +15,7 @@
                 <asp:Image ID="Logo" runat="server" ImageUrl="~/Images/StrongerOrgLogoBackOffice.gif"
                     AlternateText="Stronger org logo" />
             </td>
-            <td style="text-align: right;vertical-align:bottom;padding-right:5px">
+            <td style="text-align: right; vertical-align: bottom; padding-right: 5px">
                 <asp:Label ID="lblOrganisationId" runat="server" ForeColor="White"></asp:Label>
                 <asp:Label ID="lblOrganisationName" runat="server" CssClass="GrayTitle"></asp:Label>
             </td>
@@ -32,7 +32,7 @@
                     <LoggedInTemplate>
                         Welcome back,
                         <asp:LoginName ID="LoginName1" runat="server" />
-                        <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutAction="RedirectToLoginPage"  />
+                        <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutAction="RedirectToLoginPage" />
                     </LoggedInTemplate>
                     <AnonymousTemplate>
                         This is restricted area. You are not suppose to be here.
@@ -51,71 +51,79 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 20%; height: 650px; vertical-align: top">
-                <ul>
-                    <asp:LoginView ID="LoginView2" runat="server">
-                        <RoleGroups>
-                            <asp:RoleGroup Roles="Administrator">
-                                <ContentTemplate>
-                                    <asp:Repeater ID="Repeater2" runat="server" DataSourceID="SiteMapDataSource2">
-                                        <ItemTemplate>
-                                            <li>
-                                                <asp:HyperLink ID="lnkMenuItemAdmin" runat="server" NavigateUrl='<%# Eval("Url") %>'><%# Eval("Title") %></asp:HyperLink>
-                                            </li>
-                                        </ItemTemplate>
-                                    </asp:Repeater>
-                                </ContentTemplate>
-                            </asp:RoleGroup>
-                            <asp:RoleGroup Roles="Moderator">
-                                <ContentTemplate>
-                                    <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SiteMapDataSource1">
-                                        <ItemTemplate>
-                                            <li>
-                                                <asp:HyperLink ID="lnkMenuItem" runat="server" NavigateUrl='<%# Eval("Url") %>'><%# Eval("Title") %></asp:HyperLink>
-                                            </li>
-                                        </ItemTemplate>
-                                    </asp:Repeater>
-                                </ContentTemplate>
-                            </asp:RoleGroup>
-                            <asp:RoleGroup Roles="Accountants">
-                                <ContentTemplate>
-                                    <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SiteMapDataSource3">
-                                        <ItemTemplate>
-                                            <li>
-                                                <asp:HyperLink ID="lnkMenuItem" runat="server" NavigateUrl='<%# Eval("Url") %>'><%# Eval("Title") %></asp:HyperLink>
-                                            </li>
-                                        </ItemTemplate>
-                                    </asp:Repeater>
-                                </ContentTemplate>
-                            </asp:RoleGroup>
-                            <asp:RoleGroup Roles="ContentManager">
-                                <ContentTemplate>
-                                    <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SiteMapDataSource4">
-                                        <ItemTemplate>
-                                            <li>
-                                                <asp:HyperLink ID="lnkMenuItem" runat="server" NavigateUrl='<%# Eval("Url") %>'><%# Eval("Title") %></asp:HyperLink>
-                                            </li>
-                                        </ItemTemplate>
-                                    </asp:Repeater>
-                                </ContentTemplate>
-                            </asp:RoleGroup>
-                        </RoleGroups>
-                    </asp:LoginView>
-                </ul>
-                <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" StartingNodeUrl="~/Login.aspx"
-                    ShowStartingNode="false" />
-                <asp:SiteMapDataSource ID="SiteMapDataSource2" runat="server" StartingNodeUrl="~/AdminSection.aspx"
-                    ShowStartingNode="false" />
-                <asp:SiteMapDataSource ID="SiteMapDataSource3" runat="server" StartingNodeUrl="~/Accountents"
-                    ShowStartingNode="false" />
-                <asp:SiteMapDataSource ID="SiteMapDataSource4" runat="server" StartingNodeUrl="~/ContentManager"
-                    ShowStartingNode="false" />
+            <td colspan="4">
+                <telerik:RadSplitter ID="RadSplitter1" runat="server" Width="100%" Height="650" BorderSize=0>
+                    <telerik:RadPane ID="RadPane1" runat="server" Width="15%" >
+                        <ul>
+                            <asp:LoginView ID="LoginView2" runat="server">
+                                <RoleGroups>
+                                    <asp:RoleGroup Roles="Administrator">
+                                        <ContentTemplate>
+                                            <asp:Repeater ID="Repeater2" runat="server" DataSourceID="SiteMapDataSource2">
+                                                <ItemTemplate>
+                                                    <li>
+                                                        <asp:HyperLink ID="lnkMenuItemAdmin" runat="server" NavigateUrl='<%# Eval("Url") %>'><%# Eval("Title") %></asp:HyperLink>
+                                                    </li>
+                                                </ItemTemplate>
+                                            </asp:Repeater>
+                                        </ContentTemplate>
+                                    </asp:RoleGroup>
+                                    <asp:RoleGroup Roles="Moderator">
+                                        <ContentTemplate>
+                                            <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SiteMapDataSource1">
+                                                <ItemTemplate>
+                                                    <li>
+                                                        <asp:HyperLink ID="lnkMenuItem" runat="server" NavigateUrl='<%# Eval("Url") %>'><%# Eval("Title") %></asp:HyperLink>
+                                                    </li>
+                                                </ItemTemplate>
+                                            </asp:Repeater>
+                                        </ContentTemplate>
+                                    </asp:RoleGroup>
+                                    <asp:RoleGroup Roles="Accountants">
+                                        <ContentTemplate>
+                                            <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SiteMapDataSource3">
+                                                <ItemTemplate>
+                                                    <li>
+                                                        <asp:HyperLink ID="lnkMenuItem" runat="server" NavigateUrl='<%# Eval("Url") %>'><%# Eval("Title") %></asp:HyperLink>
+                                                    </li>
+                                                </ItemTemplate>
+                                            </asp:Repeater>
+                                        </ContentTemplate>
+                                    </asp:RoleGroup>
+                                    <asp:RoleGroup Roles="ContentManager">
+                                        <ContentTemplate>
+                                            <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SiteMapDataSource4">
+                                                <ItemTemplate>
+                                                    <li>
+                                                        <asp:HyperLink ID="lnkMenuItem" runat="server" NavigateUrl='<%# Eval("Url") %>'><%# Eval("Title") %></asp:HyperLink>
+                                                    </li>
+                                                </ItemTemplate>
+                                            </asp:Repeater>
+                                        </ContentTemplate>
+                                    </asp:RoleGroup>
+                                </RoleGroups>
+                            </asp:LoginView>
+                        </ul>
+                        <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" StartingNodeUrl="~/Login.aspx"
+                            ShowStartingNode="false" />
+                        <asp:SiteMapDataSource ID="SiteMapDataSource2" runat="server" StartingNodeUrl="~/AdminSection.aspx"
+                            ShowStartingNode="false" />
+                        <asp:SiteMapDataSource ID="SiteMapDataSource3" runat="server" StartingNodeUrl="~/Accountents"
+                            ShowStartingNode="false" />
+                        <asp:SiteMapDataSource ID="SiteMapDataSource4" runat="server" StartingNodeUrl="~/ContentManager"
+                            ShowStartingNode="false" />
+                    </telerik:RadPane>
+                    <telerik:RadSplitBar ID="RadSplitBar1" runat="server" CollapseMode="Forward"></telerik:RadSplitBar>
+                    <telerik:RadPane ID="MiddlePane1" runat="server" Width="85%">
+                    <div style="padding:10px">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder></div>
+                    </telerik:RadPane>
+                </telerik:RadSplitter>
             </td>
-            <td style="width: 1px; background-color: #cccccc" rowspan="2">
-            </td>
-            <td style="vertical-align: top; padding: 25px" colspan="2">
-                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                </asp:ContentPlaceHolder>
+        </tr>
+        <tr>
+            <td colspan="4" style="background-color: #cccccc; height: 1px">
             </td>
         </tr>
         <tr>

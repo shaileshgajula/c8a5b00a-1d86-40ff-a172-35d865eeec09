@@ -86,6 +86,24 @@ namespace StrongerOrg.Backoffice {
         protected global::System.Web.UI.WebControls.HyperLink hlOpenSite;
         
         /// <summary>
+        /// RadSplitter1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadSplitter RadSplitter1;
+        
+        /// <summary>
+        /// RadPane1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadPane RadPane1;
+        
+        /// <summary>
         /// LoginView2 control.
         /// </summary>
         /// <remarks>
@@ -129,6 +147,24 @@ namespace StrongerOrg.Backoffice {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SiteMapDataSource SiteMapDataSource4;
+        
+        /// <summary>
+        /// RadSplitBar1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadSplitBar RadSplitBar1;
+        
+        /// <summary>
+        /// MiddlePane1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadPane MiddlePane1;
         
         /// <summary>
         /// ContentPlaceHolder1 control.

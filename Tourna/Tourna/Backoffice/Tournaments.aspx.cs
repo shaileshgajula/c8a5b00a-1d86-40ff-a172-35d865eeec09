@@ -36,19 +36,23 @@ namespace StrongerOrg.Backoffice
                      Select(y =>
                          new
                          {
+                             Id=y.Id,
                              StartDate = y.Start,
                              PlayerAId = y.PlayerA,
                              PlayerA = db.Players.Where(p => p.Id == y.PlayerA).Select(n => n.Name).First(),
                              PlayerBId = y.PlayerB,
                              PlayerB = db.Players.Where(p => p.Id == y.PlayerB).Select(n => n.Name).First(),
                              ScoreA = y.ScoreA,
-                             ScoreB = y.ScoreB
+                             ScoreB = y.ScoreB,
+                             WinnerId = y.Winner
+                             //Score = (y.ScoreA.HasValue && y.ScoreB.HasValue) ? string.Format("{0}-{1}", y.ScoreA.Value.ToString(), y.ScoreB.Value.ToString()) : string.Empty
                          })
                      .ToList();
 
                 schedDatesGrid.DataSource = dateInfo.Select((x, i) =>
                     new
                     {
+                        Id = x.Id,
                         StartDate = x.StartDate,
                         GameName = String.Format("Game {0} - {1}:{2}", i + 1, x.PlayerA, x.PlayerB),
                         Score = string.Format("{0}-{1}", x.ScoreA, x.ScoreB)
@@ -69,12 +73,21 @@ namespace StrongerOrg.Backoffice
                     this.Bracket1.Competitors.Clear();
                     this.Bracket1.Results.Clear();
                     BracketControlCollection<BracketCompetitor> bcc = new BracketControlCollection<BracketCompetitor>();
+                    BracketCollection<BracketMatchupResult> bcBm = new BracketCollection<BracketMatchupResult>();
                     foreach (var item in dateInfo)
                     {
                         bcc.Add(new BracketCompetitor() { CompetitorId = item.PlayerAId.ToString(), CompetitorName = item.PlayerA });
                         bcc.Add(new BracketCompetitor() { CompetitorId = item.PlayerBId.ToString(), CompetitorName = item.PlayerB });
+                        if (item.WinnerId != null)
+                        {
+                            bcBm.Add(new BracketMatchupResult() { WinningCompetitorId = item.WinnerId.ToString() });
+                        }
+                        
                     }
                     this.Bracket1.Competitors = bcc;
+
+                    this.Bracket1.Results = bcBm;
+
                     //this.Bracket1.Competitors.Add(new BracketCompetitor() { CompetitorName = "pini", CompetitorId = "5" });
                     //this.brcStandings.DataSource = dateInfo.Select((x) => new
                     //{
@@ -84,12 +97,24 @@ namespace StrongerOrg.Backoffice
                     //this.brcStandings.DataBind();
 
 
-                    
+
                 }
                 else
                 {
                     cal.Visible = false;
                 }
+            }
+        }
+
+        public string ScoreDisplay(object scoreA, object scoreB)
+        {
+            if (string.IsNullOrEmpty(scoreA.ToString()) && string.IsNullOrEmpty(scoreB.ToString()))
+            {
+                return "N/A";
+            }
+            else
+            {
+                return string.Format("{0}:{1}", scoreA, scoreB);
             }
         }
 
@@ -103,6 +128,5 @@ namespace StrongerOrg.Backoffice
             this.GridView1.SelectedIndex = 0;
             this.ScheduleViewActivate();
         }
-
     }
 }

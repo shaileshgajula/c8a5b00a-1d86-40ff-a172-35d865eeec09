@@ -23,75 +23,48 @@ namespace StrongerOrg {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Calendar1 control.
+        /// ScriptManager control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar Calendar1;
+        protected global::System.Web.UI.ScriptManager ScriptManager;
         
         /// <summary>
-        /// Bracket1 control.
+        /// RadSplitter1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::TourneyLogic.Web.UI.WebControls.Bracket Bracket1;
+        protected global::Telerik.Web.UI.RadSplitter RadSplitter1;
         
         /// <summary>
-        /// BracketCompetitor1 control.
+        /// RadPane1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::TourneyLogic.Web.UI.WebControls.BracketCompetitor BracketCompetitor1;
+        protected global::Telerik.Web.UI.RadPane RadPane1;
         
         /// <summary>
-        /// BracketCompetitor2 control.
+        /// RadSplitBar1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::TourneyLogic.Web.UI.WebControls.BracketCompetitor BracketCompetitor2;
+        protected global::Telerik.Web.UI.RadSplitBar RadSplitBar1;
         
         /// <summary>
-        /// BracketCompetitor3 control.
+        /// MiddlePane1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::TourneyLogic.Web.UI.WebControls.BracketCompetitor BracketCompetitor3;
-        
-        /// <summary>
-        /// BracketCompetitor4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::TourneyLogic.Web.UI.WebControls.BracketCompetitor BracketCompetitor4;
-        
-        /// <summary>
-        /// Button1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
-        
-        /// <summary>
-        /// LinkButton1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
+        protected global::Telerik.Web.UI.RadPane MiddlePane1;
     }
 }
