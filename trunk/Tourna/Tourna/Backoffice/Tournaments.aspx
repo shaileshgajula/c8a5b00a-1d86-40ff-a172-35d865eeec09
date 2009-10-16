@@ -1,13 +1,12 @@
 ﻿<%@ Page Title="Tournaments" Language="C#" MasterPageFile="~/Backoffice/BackOffice.Master"
     AutoEventWireup="true" CodeBehind="Tournaments.aspx.cs" Inherits="StrongerOrg.Backoffice.Tournaments" %>
 
-<%@ Register assembly="TourneyLogic.Web.UI.BracketControl.v2" namespace="TourneyLogic.Web.UI.WebControls" tagprefix="tl" %>
-
+<%@ Register Assembly="TourneyLogic.Web.UI.BracketControl.v2" Namespace="TourneyLogic.Web.UI.WebControls"
+    TagPrefix="tl" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Id"
-        DataSourceID="SqlDataSource1" 
-        onselectedindexchanged="GridView1_SelectedIndexChanged" 
-        ondatabound="GridView1_DataBound">
+        DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged"
+        OnDataBound="GridView1_DataBound">
         <Columns>
             <asp:CommandField HeaderText="Select" ShowSelectButton="True" />
             <asp:BoundField DataField="TournamentName" HeaderText="Tournament Name" ReadOnly="True"
@@ -57,37 +56,57 @@
     <br />
     <table style="width: 100%;" cellpadding="0" cellspacing="0">
         <tr>
-            <td colspan="2" style="height:60px">
-                Tournament Managment  
+            <td colspan="2" style="height: 60px">
+                Tournament Managment
             </td>
         </tr>
         <tr>
-            <td style="vertical-align: top;width:250px;border-right-color:Black;border-right-width:1px;border-right-style:solid;">
+            <td style="vertical-align: top; width: 250px; border-right-color: Black; border-right-width: 1px;
+                border-right-style: solid;">
                 <asp:Menu ID="navMenu" runat="server" Orientation="Vertical" BorderWidth="0px" Width="100%"
                     OnMenuItemClick="navMenu_MenuItemClick">
                     <StaticSelectedStyle CssClass="SelectedRowStyle" />
                     <Items>
-                        <asp:MenuItem Text="Calendar" Value="0" Selected=true></asp:MenuItem>
-                        <asp:MenuItem Text="Standings [grid view]" Value="1"></asp:MenuItem>
-                        <asp:MenuItem Text="Standings [brackets view]" Value="2"></asp:MenuItem>
+                        <asp:MenuItem Text="Calendar" Value="0" Selected="true"></asp:MenuItem>
+                        <asp:MenuItem Text="Standings [Grid view]" Value="1"></asp:MenuItem>
+                        <asp:MenuItem Text="Standings [Brackets view]" Value="2"></asp:MenuItem>
                         <asp:MenuItem Text="Actions" Value="3"></asp:MenuItem>
                     </Items>
                 </asp:Menu>
             </td>
-            <td style="padding-left:20px;vertical-align: top;">
-                <asp:MultiView ID="mvTournament" runat="server" ActiveViewIndex=0>
-                    <asp:View ID="View1" runat="server" >
+            <td style="padding-left: 20px; vertical-align: top;">
+                <asp:MultiView ID="mvTournament" runat="server" ActiveViewIndex="0">
+                    <asp:View ID="View1" runat="server">
                         <asp:Calendar ID="calSchedules" runat="server" Visible="true"></asp:Calendar>
                     </asp:View>
                     <asp:View ID="View2" runat="server">
-                        <asp:GridView ID="schedDatesGrid" runat="server">
+                        <asp:GridView ID="schedDatesGrid" runat="server" AutoGenerateColumns="False" 
+                            DataKeyNames="Id">
+                            <Columns>
+                                <asp:BoundField DataField="StartDate" HeaderText=" Start Date" ReadOnly="true" />
+                                <asp:BoundField DataField="GameName" HeaderText=" Game Title" ReadOnly="true"/>
+                                <asp:TemplateField HeaderText="Score">
+                                    <ItemTemplate>
+                                        <%# Eval("Score")%>
+                                    </ItemTemplate>
+                                    <EditItemTemplate>
+                                       222
+                                    </EditItemTemplate>
+                                </asp:TemplateField>
+                                
+                                <asp:CommandField
+                                    ShowEditButton="True" ItemStyle-HorizontalAlign="Center" 
+                                    HeaderStyle-HorizontalAlign="Center"  />
+                                
+                                
+                            </Columns>
                         </asp:GridView>
                     </asp:View>
                     <asp:View ID="View3" runat="server">
                         <asp:HyperLink ID="hlPrint" runat="server">Print</asp:HyperLink>
                         <asp:HyperLink ID="HyperLink2" runat="server">Export to pdf</asp:HyperLink>
-                        <tl:Bracket runat="server" ID="Bracket1" ChampionshipText="Champion" 
-                        displaymode="ViewMode" RoundWidth="130"></tl:Bracket>
+                        <tl:Bracket runat="server" ID="Bracket1" ChampionshipText="Champion" DisplayMode="ViewMode"
+                            RoundWidth="130"></tl:Bracket>
                     </asp:View>
                     <asp:View ID="View4" runat="server">
                         <asp:LinkButton ID="LinkButton1" runat="server">Schedule registred players</asp:LinkButton><br />
