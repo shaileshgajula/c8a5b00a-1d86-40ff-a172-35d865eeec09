@@ -57,7 +57,7 @@
     <Reference Include="Telerik.Web.UI, Version=2009.2.701.35, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL" />
     <Reference Include="TourneyLogic.Web.UI.BracketControl.v2, Version=2.1.207.220, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\TBCv21withSource\Bracket\bin\Debug\TourneyLogic.Web.UI.BracketControl.v2.dll</HintPath>
+      <HintPath>..\..\..\tourneylogic\TBCv21withSource\Bracket\bin\Debug\TourneyLogic.Web.UI.BracketControl.v2.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -704,7 +704,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
+      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>
