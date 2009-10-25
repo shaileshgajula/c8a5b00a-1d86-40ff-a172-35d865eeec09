@@ -19,7 +19,7 @@ namespace StrongerOrg.Backoffice
 
         protected void navMenu_MenuItemClick(object sender, MenuEventArgs e)
         {
-            mvTournament.ActiveViewIndex = int.Parse(navMenu.SelectedValue);
+            mvTournament.ActiveViewIndex = int.Parse(this.Menu1.SelectedValue);
         }
 
 
@@ -127,6 +127,22 @@ namespace StrongerOrg.Backoffice
         {
             this.GridView1.SelectedIndex = 0;
             this.ScheduleViewActivate();
+        }
+        
+        protected void lbEditPicksMode_Click(object sender, EventArgs e)
+        {
+            this.Bracket1.DisplayMode = Bracket.BracketDisplayMode.EditPicksMode;
+        }
+
+        protected void schedDatesGrid_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            schedDatesGrid.EditIndex = e.NewEditIndex;
+            //binddata();
+        }
+
+        protected void schedDatesGrid_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            schedDatesGrid.EditIndex = -1;
         }
     }
 }

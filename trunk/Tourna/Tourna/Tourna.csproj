@@ -325,6 +325,13 @@
     <Compile Include="Backoffice\Administrator\WhoIsOnline.aspx.designer.cs">
       <DependentUpon>WhoIsOnline.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Backoffice\UserControls\TournamentDetails.ascx.cs">
+      <DependentUpon>TournamentDetails.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backoffice\UserControls\TournamentDetails.ascx.designer.cs">
+      <DependentUpon>TournamentDetails.ascx</DependentUpon>
+    </Compile>
     <Compile Include="FrontSitePages\About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -664,16 +671,21 @@
     <Content Include="App_Themes\Accountants\Skin1.skin" />
     <Content Include="App_Themes\ContentManager\Skin1.skin" />
     <Content Include="Backoffice\UserControls\OrganisationInfo.ascx" />
+    <Content Include="Backoffice\UserControls\TournamentDetails.ascx" />
     <Content Include="Images\ClearBtn.gif" />
     <Content Include="Images\GamesImages\wii-baseball.jpg" />
     <Content Include="Images\GamesImages\wii-golf.jpg" />
     <Content Include="Backoffice\Administrator\Web.config" />
     <Content Include="Images\Icons\BracketsIcon.gif" />
+    <Content Include="Images\Icons\PdfIcon.gif" />
+    <Content Include="Images\Icons\PrinterIcon.gif" />
+    <Content Include="Images\Icons\Seperator.gif" />
     <Content Include="Images\Icons\Trophy.gif" />
     <Content Include="Images\msn_icon.JPG" />
     <Content Include="Images\SendBtn.gif" />
     <Content Include="Images\Staff\InbarUsha.JPG" />
     <Content Include="Images\TheTeam.gif" />
+    <Content Include="App_Browsers\Chrome.browser" />
     <None Include="Backoffice\DataLayer\Tourna.dbml.layout">
       <DependentUpon>Tourna.dbml</DependentUpon>
     </None>

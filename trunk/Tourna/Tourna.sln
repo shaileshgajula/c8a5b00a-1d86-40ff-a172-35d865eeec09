@@ -8,6 +8,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7F8D756B-4A2D-4797-A8ED-7413C55AB4A3}"
 	ProjectSection(SolutionItems) = preProject
 		LocalTestRun.testrunconfig = LocalTestRun.testrunconfig
+		..\..\..\..\Desktop\GDI+\PdfSharp.Charting.dll = ..\..\..\..\Desktop\GDI+\PdfSharp.Charting.dll
+		..\..\..\..\Desktop\GDI+\PdfSharp.dll = ..\..\..\..\Desktop\GDI+\PdfSharp.dll
 		Tourna.vsmdi = Tourna.vsmdi
 	EndProjectSection
 EndProject

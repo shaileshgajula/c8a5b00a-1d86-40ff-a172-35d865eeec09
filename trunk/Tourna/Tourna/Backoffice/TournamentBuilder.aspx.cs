@@ -13,12 +13,12 @@ namespace StrongerOrg.Backoffice
         private const string joinTournamentTemplate = @"Hello All,<br>
                                                         {0} is happy to invite you to participate in our {1}.<br>
                                                         If you care to join please click the following link<br>
-                                                        <a href='../OrganisationSite/PlayerSubscription.aspx?OrgId={2}'>join to tournament</a><br>
-                                                        The tournament is open between {3}:{4}<br> in {5}
+                                                        <a href='../OrganisationSite/PlayerSubscription.aspx?OrgId={2}&TournamentId={3}'>Join to tournament</a><br>
+                                                        The tournament is open between {4}pm - {5}pm<br> in {6}
                                                         The prizes are:<br>
-                                                        Prize I:{6}<br>
-                                                        Prize II:{7}<br>
-                                                        Prize III:{8}<br>";
+                                                        Prize I:{7}<br>
+                                                        Prize II:{8}<br>
+                                                        Prize III:{9}<br>";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -47,7 +47,7 @@ namespace StrongerOrg.Backoffice
             string tournamentId = TournamentManager.BuildTournament(Master.OrgBasicInfo.Id, tournamentName, tournamentAbstract, locations, numberOfPlayersLimit, gameId, matchingAlog, timeWindowStart,
                 timeWindowEnd, isOpenAllDay, firstPrize, secondPrize, thirdPrize, startDate);
             string emailTemplate = string.Format(joinTournamentTemplate, Master.OrgBasicInfo.Name, tournamentName,
-                                                    Master.OrgBasicInfo.Id.ToString(), timeWindowStart.ToString(), timeWindowEnd.ToString(),locations,
+                                                    Master.OrgBasicInfo.Id.ToString(),tournamentId, timeWindowStart.ToString(), timeWindowEnd.ToString(),locations,
                                                     this.txtFirstPrize.Text, this.txtSecondPrize.Text, this.txtThirdPrize.Text);
             TournamentManager.UpdateEmailTemplate(tournamentId, emailTemplate);
             Response.Redirect(@"~/backoffice/InvitToTournament.aspx?TournamentId=" + tournamentId);
