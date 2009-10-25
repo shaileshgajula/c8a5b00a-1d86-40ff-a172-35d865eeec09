@@ -46,10 +46,11 @@ namespace StrongerOrg
             //string nickName = this.txtNickName.Text; ;
             string email = this.txtEmail.Text;
             //string department = this.txtDepartment.Text;
-            string tournamentId = this.RadioButtonList1.SelectedValue;
+            string tournamentId = Request.QueryString["TournamentId"].ToString();
             PlayersManager.InsertPlayer(this.orgId, name, string.Empty, email, string.Empty, tournamentId);
-            this.Panel1.Visible = false;
-            this.lblMsg.Text = "Thank you for register to . " + this.RadioButtonList1.SelectedItem.Text;
+            this.InsertButton.Enabled = false;
+            this.InsertCancelButton.Enabled = false;
+            this.lblMsg.Text = "Thank you for register. An invitaion for your first match will be sent to you" ;
         }
     }
 }

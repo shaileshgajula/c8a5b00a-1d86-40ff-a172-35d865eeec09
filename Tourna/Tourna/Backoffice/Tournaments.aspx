@@ -3,7 +3,10 @@
 
 <%@ Register Assembly="TourneyLogic.Web.UI.BracketControl.v2" Namespace="TourneyLogic.Web.UI.WebControls"
     TagPrefix="tl" %>
+<%@ Register Src="UserControls/TournamentDetails.ascx" TagName="TournamentDetails"
+    TagPrefix="uc1" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Backoffice/TournamentBuilder.aspx">Compose a new tournament</asp:HyperLink><br />
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Id"
         DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged"
         OnDataBound="GridView1_DataBound">
@@ -17,18 +20,10 @@
             <asp:BoundField DataField="NumberOfPlayersLimit" HeaderText="Limit" SortExpression="NumberOfPlayersLimit" />
             <asp:HyperLinkField DataNavigateUrlFields="Id,TournamentName" DataNavigateUrlFormatString="OrganisationPlayers.aspx?TournamentId={0}&TournamentName={1}"
                 DataTextField="RegisteredPlayers" HeaderText="Registered" />
-            <asp:HyperLinkField Text="Edit" />
-            <%--<asp:HyperLinkField DataNavigateUrlFields="Id" DataNavigateUrlFormatString="~/Backoffice/ControlPanel.aspx?TournamentId={0}"
-                HeaderImageUrl="~/Images/Icons/scheduler.gif" HeaderText="Scheduales" Text="Scheduales" />
-            <asp:HyperLinkField DataNavigateUrlFields="Id" DataNavigateUrlFormatString="~/Backoffice/Standings.aspx?TournamentId={0}"
-                HeaderText="Standings" Text="Standing" />
-            <asp:HyperLinkField DataNavigateUrlFields="Id" DataNavigateUrlFormatString="~/Backoffice/InvitToTournament.aspx?TournamentId={0}"
-                HeaderText="Invite" Text="Invite" />--%>
             <asp:CommandField HeaderText="Del" ShowDeleteButton="True" DeleteText="Del" />
         </Columns>
         <EmptyDataTemplate>
             No Data Found
-            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Backoffice/TournamentBuilder.aspx">Compose a new tournament</asp:HyperLink>
         </EmptyDataTemplate>
     </asp:GridView>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:StrongerOrgString %>"
@@ -54,59 +49,73 @@
         </InsertParameters>
     </asp:SqlDataSource>
     <br />
-    <table style="width: 100%;" cellpadding="0" cellspacing="0">
+    <table style="width: 100%;" cellpadding="0" cellspacing="5">
         <tr>
-            <td colspan="2" style="height: 60px">
+            <td class="GrayTitle">
                 Tournament Managment
             </td>
         </tr>
         <tr>
-            <td style="vertical-align: top; width: 250px; border-right-color: Black; border-right-width: 1px;
-                border-right-style: solid;">
-                <asp:Menu ID="navMenu" runat="server" Orientation="Vertical" BorderWidth="0px" Width="100%"
-                    OnMenuItemClick="navMenu_MenuItemClick">
+            <td align="right">
+                <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" OnMenuItemClick="navMenu_MenuItemClick">
+                    <StaticMenuItemStyle HorizontalPadding="10" />
                     <StaticSelectedStyle CssClass="SelectedRowStyle" />
+                    <StaticHoverStyle CssClass="SelectedRowStyle" />
                     <Items>
-                        <asp:MenuItem Text="Calendar" Value="0" Selected="true"></asp:MenuItem>
-                        <asp:MenuItem Text="Standings [Grid view]" Value="1"></asp:MenuItem>
-                        <asp:MenuItem Text="Standings [Brackets view]" Value="2"></asp:MenuItem>
-                        <asp:MenuItem Text="Actions" Value="3"></asp:MenuItem>
+                        <asp:MenuItem Text="Tournament details" Value="0" Selected="true" SeparatorImageUrl="~/Images/Icons/Seperator.gif">
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Standings [Calendar view]" Value="1" SeparatorImageUrl="~/Images/Icons/Seperator.gif">
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Standings [Grid view]" Value="2" SeparatorImageUrl="~/Images/Icons/Seperator.gif">
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Standings [Brackets view]" Value="3" SeparatorImageUrl="~/Images/Icons/Seperator.gif">
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Actions" Value="4"></asp:MenuItem>
                     </Items>
                 </asp:Menu>
             </td>
-            <td style="padding-left: 20px; vertical-align: top;">
+        </tr>
+        <tr>
+            <td class="ThemeBorder">
+            </td>
+        </tr>
+        <tr>
+            <td style="padding-left: 20px;">
                 <asp:MultiView ID="mvTournament" runat="server" ActiveViewIndex="0">
+                    <asp:View ID="View5" runat="server">
+                        <uc1:TournamentDetails ID="TournamentDetails1" runat="server" />
+                    </asp:View>
                     <asp:View ID="View1" runat="server">
                         <asp:Calendar ID="calSchedules" runat="server" Visible="true"></asp:Calendar>
                     </asp:View>
                     <asp:View ID="View2" runat="server">
-                        <asp:GridView ID="schedDatesGrid" runat="server" AutoGenerateColumns="False" 
-                            DataKeyNames="Id">
+                        <asp:GridView ID="schedDatesGrid" runat="server">
+                        </asp:GridView>
+                        <%--<asp:GridView ID="schedDatesGrid" runat="server" AutoGenerateColumns="true" 
+                            DataKeyNames="Id" onrowcancelingedit="schedDatesGrid_RowCancelingEdit" 
+                            onrowediting="schedDatesGrid_RowEditing">
                             <Columns>
                                 <asp:BoundField DataField="StartDate" HeaderText=" Start Date" ReadOnly="true" />
-                                <asp:BoundField DataField="GameName" HeaderText=" Game Title" ReadOnly="true"/>
+                                <asp:BoundField DataField="GameName" HeaderText=" Game Title" ReadOnly="true" />
                                 <asp:TemplateField HeaderText="Score">
                                     <ItemTemplate>
                                         <%# Eval("Score")%>
                                     </ItemTemplate>
-                                    <EditItemTemplate>
-                                       222
-                                    </EditItemTemplate>
                                 </asp:TemplateField>
-                                
-                                <asp:CommandField
-                                    ShowEditButton="True" ItemStyle-HorizontalAlign="Center" 
-                                    HeaderStyle-HorizontalAlign="Center"  />
-                                
-                                
+                                <asp:CommandField ButtonType="Image" EditImageUrl="~/Images/Icons/Trophy.gif" HeaderText="Set Score" ShowEditButton="True" ItemStyle-HorizontalAlign="Center" HeaderStyle-HorizontalAlign="Center"  />
                             </Columns>
-                        </asp:GridView>
+                        </asp:GridView>--%>
                     </asp:View>
                     <asp:View ID="View3" runat="server">
-                        <asp:HyperLink ID="hlPrint" runat="server">Print</asp:HyperLink>
-                        <asp:HyperLink ID="HyperLink2" runat="server">Export to pdf</asp:HyperLink>
+                        <div style="text-align: right">
+                            <asp:LinkButton ID="lbEditPicksMode" runat="server" OnClick="lbEditPicksMode_Click">Edit</asp:LinkButton>
+                            <img src="../Images/Icons/PrinterIcon.gif" />
+                            <asp:HyperLink ID="hlPrint" runat="server">Print</asp:HyperLink>
+                            <img src="../Images/Icons/PdfIcon.gif" />
+                            <asp:HyperLink ID="HyperLink2" runat="server">Export to pdf</asp:HyperLink>
+                        </div>
                         <tl:Bracket runat="server" ID="Bracket1" ChampionshipText="Champion" DisplayMode="ViewMode"
-                            RoundWidth="130"></tl:Bracket>
+                            RoundWidth="100"></tl:Bracket>
                     </asp:View>
                     <asp:View ID="View4" runat="server">
                         <asp:LinkButton ID="LinkButton1" runat="server">Schedule registred players</asp:LinkButton><br />

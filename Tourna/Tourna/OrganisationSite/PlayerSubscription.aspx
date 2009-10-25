@@ -10,7 +10,7 @@
     <asp:Panel ID="Panel1" runat="server">
         <table border="0" style="width: 550px">
             <tr>
-                <td colspan="2"  class="H1Title" style="height:50px">
+                <td colspan="2" class="H1Title" style="height: 50px">
                     Register to tournament
                 </td>
             </tr>
@@ -60,16 +60,21 @@
             </tr>--%>
             <tr>
                 <td style="vertical-align: top">
-                    Tournaments:
+                    Tournament Title:
                 </td>
                 <td>
-                    <asp:RadioButtonList ID="RadioButtonList1" runat="server" DataSourceID="SqlDataSource2"
+                    <%--<asp:RadioButtonList ID="RadioButtonList1" runat="server" DataSourceID="SqlDataSource2"
                         DataTextField="TournamentName" DataValueField="Id" RepeatColumns="2">
-                    </asp:RadioButtonList>
+                    </asp:RadioButtonList>--%>
+                    <asp:FormView ID="FormView1" runat="server" DataSourceID="SqlDataSource2">
+                        <ItemTemplate>
+                            <asp:Label ID="lblTournametTitle" runat="server" Text='<%#Eval("TournamentName") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:FormView>
                     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:StrongerOrgString %>"
                         SelectCommand="TournamentsGet" SelectCommandType="StoredProcedure">
                         <SelectParameters>
-                            <asp:QueryStringParameter Name="OrganisationId" QueryStringField="OrgId" Type="String" />
+                            <asp:QueryStringParameter Name="TournamentId" QueryStringField="TournamentId" Type="String" />
                         </SelectParameters>
                     </asp:SqlDataSource>
                 </td>
