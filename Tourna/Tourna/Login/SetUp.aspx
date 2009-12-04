@@ -17,6 +17,17 @@
         <asp:Panel ID="loginPanel" runat="server">
             <table class="style1">
                 <tr>
+                    <td>
+                    Test Connection to db
+                    </td>
+                        <td>
+                            <asp:LinkButton ID="lbOpenConnection" runat="server" Text="Open" 
+                                onclick="lbOpenConnection_Click"></asp:LinkButton> 
+                            <asp:Label ID="lblOpenConnectionResult" runat="server"></asp:Label>
+                    </td>
+                </tr>
+                
+                <tr>
                     <td colspan="2">
                         Setup page
                     </td>
@@ -64,7 +75,7 @@
                     <td>
                         <asp:LinkButton ID="lbAdd" runat="server" OnClick="lbAdd_Click">Add selected roles</asp:LinkButton>
                         <br />
-                        <asp:LinkButton ID="LinkButton1" runat="server" onclick="LinkButton1_Click">Add pini to administrators</asp:LinkButton>
+                        <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">Add pini to administrators</asp:LinkButton>
                     </td>
                 </tr>
             </table>

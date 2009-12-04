@@ -7,7 +7,7 @@
     TagPrefix="uc1" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Backoffice/TournamentBuilder.aspx">Compose a new tournament</asp:HyperLink><br />
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Id"
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Id, TournamentName"
         DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged"
         OnDataBound="GridView1_DataBound">
         <Columns>
@@ -52,7 +52,8 @@
     <table style="width: 100%;" cellpadding="0" cellspacing="5">
         <tr>
             <td class="GrayTitle">
-                Tournament Managment
+                Tournament Managment -
+                <asp:Label ID="lblTournamentName" runat="server" Text=""></asp:Label>
             </td>
         </tr>
         <tr>
@@ -86,25 +87,55 @@
                         <uc1:TournamentDetails ID="TournamentDetails1" runat="server" />
                     </asp:View>
                     <asp:View ID="View1" runat="server">
-                        <asp:Calendar ID="calSchedules" runat="server" Visible="true"></asp:Calendar>
+                        <div style="width:100%" align=center>
+                            <asp:Calendar ID="calSchedules" runat="server" Visible="true" Width="50%" Height="250px">
+                            </asp:Calendar>
+                        </div>
                     </asp:View>
                     <asp:View ID="View2" runat="server">
-                        <asp:GridView ID="schedDatesGrid" runat="server">
-                        </asp:GridView>
-                        <%--<asp:GridView ID="schedDatesGrid" runat="server" AutoGenerateColumns="true" 
-                            DataKeyNames="Id" onrowcancelingedit="schedDatesGrid_RowCancelingEdit" 
-                            onrowediting="schedDatesGrid_RowEditing">
+                        <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataKeyNames="Id"
+                            DataSourceID="standingsSqlDataSource">
+                            <EmptyDataTemplate>
+                            </EmptyDataTemplate>
                             <Columns>
-                                <asp:BoundField DataField="StartDate" HeaderText=" Start Date" ReadOnly="true" />
-                                <asp:BoundField DataField="GameName" HeaderText=" Game Title" ReadOnly="true" />
-                                <asp:TemplateField HeaderText="Score">
+                                <asp:BoundField DataField="Start" HeaderText="Start" SortExpression="Start" ReadOnly="true" />
+                                <asp:TemplateField HeaderText="Game">
                                     <ItemTemplate>
-                                        <%# Eval("Score")%>
+                                        <%# string.Format("{0} vs. {1}", Eval("PlayerAName").ToString() ,Eval("PlayerBName").ToString())%>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:CommandField ButtonType="Image" EditImageUrl="~/Images/Icons/Trophy.gif" HeaderText="Set Score" ShowEditButton="True" ItemStyle-HorizontalAlign="Center" HeaderStyle-HorizontalAlign="Center"  />
+                                <asp:TemplateField>
+                                    <HeaderTemplate>
+                                        Score</HeaderTemplate>
+                                    <ItemTemplate>
+                                        <%# ScoreDisplay(Eval("ScoreA"), Eval("ScoreB")) %>
+                                    </ItemTemplate>
+                                    <EditItemTemplate>
+                                        <%#Eval("PlayerAName")%>
+                                        <asp:TextBox ID="TextBox1" runat="server" Width="20" Text='<%# Bind("ScoreA") %>'></asp:TextBox>
+                                        <%#Eval("PlayerBName")%>
+                                        <asp:TextBox ID="TextBox2" runat="server" Width="20" Text='<%# Bind("ScoreB")%>'></asp:TextBox></EditItemTemplate>
+                                </asp:TemplateField>
+                                <asp:CommandField ButtonType="Image" EditImageUrl="~/Images/Icons/Trophy.gif" HeaderText="Set Score"
+                                    ShowEditButton="True" ItemStyle-HorizontalAlign="Center" HeaderStyle-HorizontalAlign="Center"
+                                    UpdateText="Save">
+                                    <HeaderStyle HorizontalAlign="Center" />
+                                    <ItemStyle HorizontalAlign="Center" CssClass="navigate" />
+                                </asp:CommandField>
                             </Columns>
-                        </asp:GridView>--%>
+                        </asp:GridView>
+                        <asp:SqlDataSource ID="standingsSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:StrongerOrgString %>"
+                            SelectCommand="StandingsGet" SelectCommandType="StoredProcedure" UpdateCommand="StandingUpdate"
+                            UpdateCommandType="StoredProcedure">
+                            <SelectParameters>
+                                <asp:ControlParameter ControlID="GridView1" PropertyName="SelectedValue" Name="TournamentId"
+                                    ConvertEmptyStringToNull="true" DbType="Object" />
+                            </SelectParameters>
+                            <UpdateParameters>
+                                <asp:Parameter Name="ScoreA" Type="Int32" />
+                                <asp:Parameter Name="ScoreB" Type="Int32" />
+                            </UpdateParameters>
+                        </asp:SqlDataSource>
                     </asp:View>
                     <asp:View ID="View3" runat="server">
                         <div style="text-align: right">
@@ -118,9 +149,17 @@
                             RoundWidth="100"></tl:Bracket>
                     </asp:View>
                     <asp:View ID="View4" runat="server">
-                        <asp:LinkButton ID="LinkButton1" runat="server">Schedule registred players</asp:LinkButton><br />
-                        <asp:LinkButton ID="LinkButton2" runat="server">Clear all Scheduled games</asp:LinkButton><br />
-                        <asp:LinkButton ID="LinkButton3" runat="server">Close registration</asp:LinkButton><br />
+                        Actions:
+                        <ul>
+                            <li>
+                                <asp:LinkButton ID="LinkButton1" runat="server">Schedule registred players</asp:LinkButton></li>
+                            <li>
+                                <asp:LinkButton ID="LinkButton5" runat="server">Clear all Scheduled games</asp:LinkButton></li>
+                            <li>
+                                <asp:LinkButton ID="LinkButton3" runat="server">Close registration</asp:LinkButton></li>
+                            <li>
+                                <asp:LinkButton ID="LinkButton4" runat="server">Build Schedules manually...</asp:LinkButton></li>
+                        </ul>
                     </asp:View>
                 </asp:MultiView>
             </td>

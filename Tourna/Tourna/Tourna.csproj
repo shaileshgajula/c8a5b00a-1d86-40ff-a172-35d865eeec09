@@ -41,6 +41,10 @@
     <Reference Include="System.Data.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Web.DataVisualization, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\WINDOWS\assembly\GAC_MSIL\System.Web.DataVisualization\3.5.0.0__31bf3856ad364e35\System.Web.DataVisualization.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Extensions">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -686,6 +690,13 @@
     <Content Include="Images\Staff\InbarUsha.JPG" />
     <Content Include="Images\TheTeam.gif" />
     <Content Include="App_Browsers\Chrome.browser" />
+    <Content Include="OrganisationLogos\10bisLogob933a.gif" />
+    <Content Include="OrganisationLogos\logo_revald3a54.png" />
+    <Content Include="OrganisationLogos\Margolin23506.gif" />
+    <Content Include="OrganisationLogos\Margolinc37a8.gif" />
+    <Content Include="OrganisationLogos\StrongerOrgLogoBackOfficee786f.gif" />
+    <Content Include="OrganisationLogos\Super4b576.gif" />
+    <Content Include="OrganisationLogos\verintab677.jpg" />
     <None Include="Backoffice\DataLayer\Tourna.dbml.layout">
       <DependentUpon>Tourna.dbml</DependentUpon>
     </None>
@@ -705,7 +716,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>9389</DevelopmentServerPort>
+          <DevelopmentServerPort>1230</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

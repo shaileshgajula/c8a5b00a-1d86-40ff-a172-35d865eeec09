@@ -5,7 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.Security;
-
+using System.Data.SqlClient;
+using System.Configuration;
 namespace StrongerOrg.Login
 {
     public partial class SetUp : System.Web.UI.Page
@@ -62,6 +63,22 @@ namespace StrongerOrg.Login
             catch (Exception ex)
             {
                 this.lblMsg.Text = ex.Message;
+            }
+        }
+
+        protected void lbOpenConnection_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["StrongerOrgString"].ConnectionString))
+                {
+                    conn.Open();
+                }
+                this.lblOpenConnectionResult.Text = "OK";
+            }
+            catch (Exception ex)
+            {
+                this.lblOpenConnectionResult.Text = ex.Message;
             }
         }
     }
