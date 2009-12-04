@@ -18,8 +18,7 @@
         <asp:BoundField DataField="StartDate" HeaderText="StartDate" SortExpression="Start Date" />
         <asp:TemplateField HeaderStyle-VerticalAlign="Top">
             <HeaderTemplate>
-                Email Invitation<br />
-                <asp:HyperLink ID="hlEditEmailInvitation" NavigateUrl='<%# Eval("Id", "~/Backoffice/InvitToTournament.aspx?TournamentId={0}" ) %>' runat="server">Edit</asp:HyperLink>
+                Email Invitation [<asp:HyperLink ID="hlEditEmailInvitation" NavigateUrl='<%# Eval("Id", "~/Backoffice/InvitToTournament.aspx?TournamentId={0}" ) %>' runat="server">Edit</asp:HyperLink>]
                 </HeaderTemplate>
             <ItemTemplate>
                 <%#Eval("EmailTemplate")%>

@@ -26,8 +26,9 @@ namespace StrongerOrg.Backoffice
         private void ScheduleViewActivate()
         {
             if (this.GridView1.SelectedValue == null) return;
-            Guid tournamentId = new Guid(this.GridView1.SelectedValue.ToString());
-
+            Guid tournamentId = new Guid(this.GridView1.DataKeys[this.GridView1.SelectedIndex].Values["Id"].ToString());
+            string tournamentName = this.GridView1.DataKeys[this.GridView1.SelectedIndex].Values["TournamentName"].ToString();
+            this.lblTournamentName.Text = tournamentName;
             //for now..straight database kick
             IEnumerable<DateTime> dates;
             using (TournaDataContext db = new TournaDataContext())
@@ -49,16 +50,16 @@ namespace StrongerOrg.Backoffice
                          })
                      .ToList();
 
-                schedDatesGrid.DataSource = dateInfo.Select((x, i) =>
-                    new
-                    {
-                        Id = x.Id,
-                        StartDate = x.StartDate,
-                        GameName = String.Format("Game {0} - {1}:{2}", i + 1, x.PlayerA, x.PlayerB),
-                        Score = string.Format("{0}-{1}", x.ScoreA, x.ScoreB)
-                    }
-                    );
-                schedDatesGrid.DataBind();
+                //schedDatesGrid.DataSource = dateInfo.Select((x, i) =>
+                //    new
+                //    {
+                //        Id = x.Id,
+                //        StartDate = x.StartDate,
+                //        GameName = String.Format("Game {0} - {1}:{2}", i + 1, x.PlayerA, x.PlayerB),
+                //        Score = string.Format("{0}-{1}", x.ScoreA, x.ScoreB)
+                //    }
+                //    );
+                //schedDatesGrid.DataBind();
                 Calendar cal = this.mvTournament.Views[0].FindControl("calSchedules") as Calendar;
                 if (dateInfo.Count > 0)
                 {
@@ -134,15 +135,20 @@ namespace StrongerOrg.Backoffice
             this.Bracket1.DisplayMode = Bracket.BracketDisplayMode.EditPicksMode;
         }
 
-        protected void schedDatesGrid_RowEditing(object sender, GridViewEditEventArgs e)
+        protected void standingsSqlDataSource_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
         {
-            schedDatesGrid.EditIndex = e.NewEditIndex;
-            //binddata();
+
         }
 
-        protected void schedDatesGrid_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
-        {
-            schedDatesGrid.EditIndex = -1;
-        }
+        //protected void schedDatesGrid_RowEditing(object sender, GridViewEditEventArgs e)
+        //{
+        //    schedDatesGrid.EditIndex = e.NewEditIndex;
+        //    //binddata();
+        //}
+
+        //protected void schedDatesGrid_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        //{
+        //    schedDatesGrid.EditIndex = -1;
+        //}
     }
 }

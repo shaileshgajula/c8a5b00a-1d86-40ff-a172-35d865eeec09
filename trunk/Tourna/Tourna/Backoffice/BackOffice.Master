@@ -61,13 +61,13 @@
                             <RoleGroups>
                                 <asp:RoleGroup Roles="Administrator">
                                     <ContentTemplate>
-                                        <asp:Repeater ID="Repeater2" runat="server" DataSourceID="SiteMapDataSource2">
-                                            <ItemTemplate>
-                                                <li>
-                                                    <asp:HyperLink ID="lnkMenuItemAdmin" runat="server" NavigateUrl='<%# Eval("Url") %>'><%# Eval("Title") %></asp:HyperLink>
-                                                </li>
-                                            </ItemTemplate>
-                                        </asp:Repeater>
+                                        
+                                            <asp:Menu ID="Menu1" Width="100%" runat="server" DataSourceID="SiteMapDataSource2">
+                                            <StaticMenuStyle CssClass="navigate" />
+                                            <StaticMenuItemStyle HorizontalPadding="10" />
+                                            <StaticSelectedStyle CssClass="SelectedRowStyle" />
+                                            <StaticHoverStyle CssClass="SelectedRowStyle" />
+                                        </asp:Menu>
                                     </ContentTemplate>
                                 </asp:RoleGroup>
                                 <asp:RoleGroup Roles="Moderator">
