@@ -30,7 +30,7 @@ namespace StrongerOrg.Backoffice
                 command.CommandType = System.Data.CommandType.StoredProcedure;
                 command.Connection = conn;
                 command.CommandText = "GetOrganisations2Games";
-                command.Parameters.Add("@OrganisationId", System.Data.SqlDbType.UniqueIdentifier).Value = Master.OrgBasicInfo.Id;
+                command.Parameters.Add("@OrganisationId", System.Data.SqlDbType.UniqueIdentifier).Value = this.Master.OrgBasicInfo.Id;
                 conn.Open();
                 SqlDataReader reader = command.ExecuteReader(System.Data.CommandBehavior.Default);
                 while (reader.Read())

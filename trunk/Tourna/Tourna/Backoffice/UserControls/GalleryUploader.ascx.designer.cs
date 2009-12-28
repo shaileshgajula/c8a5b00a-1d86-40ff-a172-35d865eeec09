@@ -7,27 +7,36 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace StrongerOrg.Backoffice {
+namespace StrongerOrg.Backoffice.UserControls {
     
     
-    public partial class EventGallery {
+    public partial class GalleryUploader {
         
         /// <summary>
-        /// GalleryViewer1 control.
+        /// fuImage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::StrongerOrg.Backoffice.UserControls.GalleryViewer GalleryViewer1;
+        protected global::System.Web.UI.WebControls.FileUpload fuImage;
         
         /// <summary>
-        /// GalleryUploader1 control.
+        /// txtCaption control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::StrongerOrg.Backoffice.UserControls.GalleryUploader GalleryUploader1;
+        protected global::System.Web.UI.WebControls.TextBox txtCaption;
+        
+        /// <summary>
+        /// lbUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbUpload;
     }
 }

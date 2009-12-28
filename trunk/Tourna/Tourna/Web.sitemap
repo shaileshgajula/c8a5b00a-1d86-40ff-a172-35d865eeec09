@@ -13,7 +13,7 @@
         <siteMapNode title="Schedules" url="~\OrganisationSite\Schedules.aspx"></siteMapNode>
         <siteMapNode title="Standings" url="~\OrganisationSite\Standings.aspx"></siteMapNode>
         <siteMapNode title="Rules" url="~\OrganisationSite\Rules.aspx"></siteMapNode>
-        <siteMapNode title="Event Gallery" ></siteMapNode>
+        <siteMapNode title="Event Gallery" url="~\OrganisationSite\EventGallery.aspx" ></siteMapNode>
         <siteMapNode title="Contact Moderator" url="~\OrganisationSite\ContactModerator.aspx"></siteMapNode>
         <siteMapNode title="Join Tournament" url="~\OrganisationSite\PlayerSubscription.aspx"></siteMapNode>
 

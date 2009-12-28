@@ -8,7 +8,7 @@
 <body>
     <form id="form1" runat="server">
   
-    <table style="width:100%;height:400px">
+    <table style="width:100%;height:350px">
         <tr>
             <td align="center">
                 <asp:Login ID="Login1" runat="server" BackColor="#EFF3FB" BorderColor="#B5C7DE" BorderPadding="4"

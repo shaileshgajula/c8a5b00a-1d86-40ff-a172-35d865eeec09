@@ -12,7 +12,8 @@ namespace StrongerOrg.Backoffice
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            string hostName = Request.Url.Host;
+            this.Login1.TitleText = string.Format("{0} [Log In]",hostName);
         }
 
         protected void Login1_LoggedIn(object sender, EventArgs e)
