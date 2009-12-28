@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Net.Mail;
 using System.Net;
 using System.Web.Security;
+using System.Collections.Specialized;
 
 namespace StrongerOrg.Login
 {
@@ -20,41 +21,46 @@ namespace StrongerOrg.Login
         protected void btnSend_Click(object sender, EventArgs e)
         {
             string userName = Membership.GetUserNameByEmail(this.txtEmail.Text);
-            
+
             if (!string.IsNullOrEmpty(userName))
             {
                 MembershipUser membershipUser = Membership.GetUser(userName);
-                bool isLockedOut= membershipUser.IsLockedOut;
+                bool isLockedOut = membershipUser.IsLockedOut;
                 if (isLockedOut)
                 {
                     membershipUser.UnlockUser();
                 }
-                string newPassword = "123456";
+                Random r = new Random();
+                string newPassword = string.Format("{0}{1}", userName, r.Next(1, 10));
                 membershipUser.ChangePassword(membershipUser.ResetPassword(), newPassword);
                 SmtpClient client = new SmtpClient(); //host and port picked from web.config
                 client.EnableSsl = true;
-                MailAddress from = new MailAddress("piniusha@gmail.com", "Pini Usha The Master");
-                MailAddress to = new MailAddress(this.txtEmail.Text);
-                MailMessage message = new MailMessage(from, to);
-                message.Body = "the body comes here. your new password is:" + newPassword;
-                message.Subject = "LMP - Password recovery";
-                client.Host = "smtp.gmail.com";
-                //following not required if username and password specified in web.config. username does not require @gmail.com
-                NetworkCredential myCreds = new NetworkCredential("piniusha@gmail.com", "waliaysm", "");
-                client.Credentials = myCreds;
+                MailDefinition message = new MailDefinition();
+                message.BodyFileName = @"~\EmailTemplate\RecoverPassword.htm";
+                message.IsBodyHtml = true;
+                message.From = "donotreply@strongerorg.com";
+                message.Subject = "StrongerOrg - Password recovery";
+                ListDictionary replacements = new ListDictionary();
+                replacements.Add("<% UserName %>", userName);
+                replacements.Add("<% NewPassword %>", newPassword);
+                MailMessage msgHtml = message.CreateMailMessage(this.txtEmail.Text, replacements, new LiteralControl());
                 try
                 {
-                    client.Send(message);
+                    client.Send(msgHtml);
+                    this.lblMsg.Text = "Your new password has been sent to your email";
+                    this.btnSend.Enabled = false;
                 }
 
                 catch (Exception ex)
                 {
+                    this.lblMsg.Text = "There was a problem to send an email.";
                     throw ex; //or return the error by some other means, say on a label
+                    
                 }
             }
             else
             {
-                // no email found
+                this.lblMsg.Text = "No email found, please try different email";
             }
 
         }

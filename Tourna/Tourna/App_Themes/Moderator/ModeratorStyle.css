@@ -142,3 +142,13 @@ li
 	font-size: 13px;
 	font-style:italic;
 	}
+.AlertText
+{
+font-size: 13px;
+	font-style:italic;
+    color:Red;
+}
+.DisabledImage
+{
+opacity : 0.4;
+    filter: alpha(opacity=40);}

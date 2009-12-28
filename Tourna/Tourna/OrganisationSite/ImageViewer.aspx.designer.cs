@@ -7,27 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace StrongerOrg.Backoffice {
+namespace StrongerOrg.OrganisationSite {
     
     
-    public partial class EventGallery {
+    public partial class ImageViewer {
         
         /// <summary>
-        /// GalleryViewer1 control.
+        /// hlViewAll control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::StrongerOrg.Backoffice.UserControls.GalleryViewer GalleryViewer1;
+        protected global::System.Web.UI.WebControls.HyperLink hlViewAll;
         
         /// <summary>
-        /// GalleryUploader1 control.
+        /// ImageViewer1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::StrongerOrg.Backoffice.UserControls.GalleryUploader GalleryUploader1;
+        protected global::StrongerOrg.Backoffice.UserControls.ImageViewer ImageViewer1;
     }
 }

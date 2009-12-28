@@ -20,7 +20,7 @@ namespace StrongerOrg
 
         protected void Application_Start(object sender, EventArgs e)
         {
-            RegisterCacheEntry();
+            //RegisterCacheEntry();
         }
 
         protected void Session_Start(object sender, EventArgs e)
@@ -35,7 +35,7 @@ namespace StrongerOrg
             if (HttpContext.Current.Request.Url.AbsolutePath.ToLower() == DummyPageUrl)
             {
                 // Add the item in cache and when succesful, do the work.
-                RegisterCacheEntry();
+                //RegisterCacheEntry();
             }
         }
 
@@ -76,7 +76,7 @@ namespace StrongerOrg
             )
         {
             // Do the service works
-            DoWork();
+            //DoWork();
 
             // We need to register another cache item which will expire again in one
             // minute. However, as this callback occurs without any HttpContext, we do not
