@@ -11,7 +11,7 @@
     </telerik:RadScriptManager>
     <table style="width: 100%" border="0" cellpadding="0" cellspacing="0">
         <tr>
-            <td colspan="2" style="height:64px;">
+            <td colspan="2" style="height: 64px;">
                 <asp:Image ID="Logo" runat="server" ImageUrl="~/Images/StrongerOrgLogoBackOffice.gif"
                     AlternateText="Stronger org logo" />
             </td>
@@ -49,7 +49,8 @@
             </td>
         </tr>
         <tr>
-            <td style="text-align: left; border-right: 1px solid #cccccc;height:500px;vertical-align:top;padding-top:10px">
+            <td style="text-align: left; border-right: 1px solid #cccccc; height: 500px; vertical-align: top;
+                padding-top: 10px">
                 <%--<telerik:RadSplitter ID="RadSplitter1" runat="server" Width="100%" Height="650" BorderSize="0">
                     <telerik:RadPane ID="RadPane1" runat="server" Width="13%">--%>
                 <asp:LoginView ID="LoginView2" runat="server">
@@ -96,6 +97,16 @@
                                 </asp:Repeater>
                             </ContentTemplate>
                         </asp:RoleGroup>
+                        <asp:RoleGroup Roles="LockSmithUser">
+                        <ContentTemplate>    
+                                <asp:Menu ID="Menu3" Width="100%" runat="server" DataSourceID="SiteMapDataSource5">
+                                    <StaticMenuStyle CssClass="navigate" />
+                                    <StaticMenuItemStyle HorizontalPadding="10" />
+                                    <StaticSelectedStyle CssClass="SelectedRowStyle" />
+                                    <StaticHoverStyle CssClass="SelectedRowStyle" />
+                                </asp:Menu>
+                            </ContentTemplate>
+                        </asp:RoleGroup>
                     </RoleGroups>
                 </asp:LoginView>
                 <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" StartingNodeUrl="~/Login.aspx"
@@ -105,6 +116,8 @@
                 <asp:SiteMapDataSource ID="SiteMapDataSource3" runat="server" StartingNodeUrl="~/Accountents"
                     ShowStartingNode="false" />
                 <asp:SiteMapDataSource ID="SiteMapDataSource4" runat="server" StartingNodeUrl="~/ContentManager"
+                    ShowStartingNode="false" />
+                <asp:SiteMapDataSource ID="SiteMapDataSource5" runat="server" StartingNodeUrl="~/LockSmith"
                     ShowStartingNode="false" />
                 <%--  </telerik:RadPane>
                     <telerik:RadSplitBar ID="RadSplitBar1" runat="server" CollapseMode="Forward"></telerik:RadSplitBar>

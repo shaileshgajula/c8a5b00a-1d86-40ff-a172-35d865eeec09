@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Backoffice/BackOffice.Master" AutoEventWireup="true"
+﻿<%@ Page Title="Image Display" Language="C#" MasterPageFile="~/Backoffice/BackOffice.Master" AutoEventWireup="true"
     CodeBehind="ImageViewer.aspx.cs" Inherits="StrongerOrg.Backoffice.ImageViewer" %>
 
 <%@ Register Src="UserControls/ImageViewer.ascx" TagName="ImageViewer" TagPrefix="uc1" %>
