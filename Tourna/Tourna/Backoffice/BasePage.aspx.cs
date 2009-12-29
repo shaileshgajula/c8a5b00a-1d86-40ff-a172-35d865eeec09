@@ -28,10 +28,10 @@ namespace StrongerOrg.Backoffice
                 this.UserRole = "Accountants";
                 this.Theme = "Accountants";
             }
-            else
+            else if (Context.User.IsInRole("LockSmithUser"))
             {
-                this.UserRole = "ContentManager";
-                this.Theme = "ContentManager";
+                this.UserRole = "Lock Smith User";
+                this.Theme = "Moderator";
             }
             base.OnPreInit(e);
         }

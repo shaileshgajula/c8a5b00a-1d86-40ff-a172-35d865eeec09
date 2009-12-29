@@ -61,6 +61,16 @@
       <siteMapNode title="Content Managment Section" url="ContentManager">
         <siteMapNode title="Tournament Rules" url="~/Backoffice/Rules.aspx?a"/>
       </siteMapNode>
+      <siteMapNode title="LockSmith Managment Section" url="LockSmith">
+        <siteMapNode title="Organisation Info" url="~\Backoffice\OrganisationInfo.aspx?a"/>
+        <siteMapNode title="Stock Managment" url=""/>
+        <siteMapNode title="Emploeeys" url=""/>
+        <siteMapNode title="Orders" url=""/>
+        <siteMapNode title="Saleries" url=""/>
+        <siteMapNode title="Event gallery" url="~\Backoffice\EventGallery.aspx?a"/>
+        <siteMapNode title="Outstanding Jobs" url="~\Backoffice\LockSmith\OutstandingJobs.aspx"/>
+      </siteMapNode>
+      
     </siteMapNode>
   </siteMapNode>
 </siteMap>

@@ -87,6 +87,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Backoffice\ImageViewer.aspx" />
+    <Content Include="Backoffice\LockSmith\OutstandingJobs.aspx" />
     <Content Include="Backoffice\TournamentBuilder.aspx" />
     <Content Include="Backoffice\UserControls\GalleryUploader.ascx" />
     <Content Include="Backoffice\UserControls\GalleryViewer.ascx" />
@@ -262,6 +263,13 @@
     </Compile>
     <Compile Include="Backoffice\InvitToTournament.aspx.designer.cs">
       <DependentUpon>InvitToTournament.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backoffice\LockSmith\OutstandingJobs.aspx.cs">
+      <DependentUpon>OutstandingJobs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backoffice\LockSmith\OutstandingJobs.aspx.designer.cs">
+      <DependentUpon>OutstandingJobs.aspx</DependentUpon>
     </Compile>
     <Compile Include="Backoffice\ManageUsers.aspx.cs">
       <DependentUpon>ManageUsers.aspx</DependentUpon>

@@ -117,6 +117,7 @@
                     <asp:ListItem Selected="True">Moderator</asp:ListItem>
                     <asp:ListItem>Accountants</asp:ListItem>
                     <asp:ListItem Value="ContentManager">Content manager</asp:ListItem>
+                    <asp:ListItem Value="LockSmithUser">LockSmithUser</asp:ListItem>
                 </asp:RadioButtonList>
             </td>
         </tr>
