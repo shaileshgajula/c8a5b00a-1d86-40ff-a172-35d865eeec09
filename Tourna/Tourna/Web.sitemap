@@ -63,7 +63,7 @@
       </siteMapNode>
       <siteMapNode title="LockSmith Managment Section" url="LockSmith">
         <siteMapNode title="Organisation Info" url="~\Backoffice\OrganisationInfo.aspx?a"/>
-        <siteMapNode title="Stock Managment" url=""/>
+        <siteMapNode title="Stock Managment" url="~\Backoffice\LockSmith\StockManagment.aspx"/>
         <siteMapNode title="Emploeeys" url=""/>
         <siteMapNode title="Orders" url=""/>
         <siteMapNode title="Saleries" url=""/>

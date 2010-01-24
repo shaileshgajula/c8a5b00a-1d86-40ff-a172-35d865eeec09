@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="GalleryViewer.ascx.cs"
     Inherits="StrongerOrg.Backoffice.UserControls.GalleryViewer" %>
-<asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" RepeatColumns="3"
+<asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" RepeatColumns="5"
     RepeatLayout="Table">
     <ItemTemplate>
         <asp:HyperLink ID="HyperLink1" runat="server" ImageUrl='<%# @"~\OrganisationGalleryImages\ThumbNail\"+Eval("FileName") %>'
