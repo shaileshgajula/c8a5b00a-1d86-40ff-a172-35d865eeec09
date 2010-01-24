@@ -25,8 +25,8 @@ namespace LockSmith.SL.Controls
             string lastName = this.txtFirstName.Text;
             string phone = this.txtFirstName.Text;
 
-            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["StrongerOrgString"].ConnectionString))
-            {
+          //  using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["StrongerOrgString"].ConnectionString))
+            //{
         }
     }
 }
