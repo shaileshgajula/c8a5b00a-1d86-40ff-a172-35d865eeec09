@@ -12,8 +12,8 @@
             </td>
         </tr>
         <tr>
-            <td>
-                <uc1:GalleryUploader ID="GalleryUploader1" runat="server" width="50" />
+            <td align="center">
+                <uc1:GalleryUploader ID="GalleryUploader1" runat="server" />
             </td>
         </tr>
     </table>

@@ -35,6 +35,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=3.0.31106.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Downloads\HDI-ACT-ModalPopup-CS\HDI-ACT-ModalPopup-CS\Bin\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core">
@@ -75,12 +79,14 @@
   <ItemGroup>
     <Content Include="Backoffice\ImageViewer.aspx" />
     <Content Include="Backoffice\LockSmith\OutstandingJobs.aspx" />
+    <Content Include="Backoffice\LockSmith\StockManagment.aspx" />
     <Content Include="Backoffice\TournamentBuilder.aspx" />
     <Content Include="Backoffice\UserControls\GalleryUploader.ascx" />
     <Content Include="Backoffice\UserControls\GalleryViewer.ascx" />
     <Content Include="Backoffice\UserControls\ImageViewer.ascx" />
     <Content Include="EmailTemplate\DanielBrith.htm" />
     <Content Include="EmailTemplate\RecoverPassword.htm" />
+    <Content Include="FrontSitePages\MiriMargolin\Default.aspx" />
     <Content Include="googlehostedservice.html" />
     <Content Include="Images\GamesImages\bowling_01wii.jpg" />
     <Content Include="Images\GamesImages\wii-sports-Golf.jpg" />
@@ -93,6 +99,7 @@
     <Content Include="OrganisationLogos\StrongerOrgLogoForEmails.gif" />
     <Content Include="OrganisationSite\EventGallery.aspx" />
     <Content Include="OrganisationSite\ImageViewer.aspx" />
+    <Content Include="Scripts\GMAPJSHelper_Release.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -257,6 +264,13 @@
     </Compile>
     <Compile Include="Backoffice\LockSmith\OutstandingJobs.aspx.designer.cs">
       <DependentUpon>OutstandingJobs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backoffice\LockSmith\StockManagment.aspx.cs">
+      <DependentUpon>StockManagment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backoffice\LockSmith\StockManagment.aspx.designer.cs">
+      <DependentUpon>StockManagment.aspx</DependentUpon>
     </Compile>
     <Compile Include="Backoffice\ManageUsers.aspx.cs">
       <DependentUpon>ManageUsers.aspx</DependentUpon>
@@ -460,6 +474,20 @@
     </Compile>
     <Compile Include="FrontSitePages\Join.aspx.designer.cs">
       <DependentUpon>Join.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrontSitePages\MiriMargolin\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrontSitePages\MiriMargolin\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrontSitePages\MiriMargolin\MiriMargolin.Master.cs">
+      <DependentUpon>MiriMargolin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrontSitePages\MiriMargolin\MiriMargolin.Master.designer.cs">
+      <DependentUpon>MiriMargolin.Master</DependentUpon>
     </Compile>
     <Compile Include="FrontSitePages\Products.aspx.cs">
       <DependentUpon>Products.aspx</DependentUpon>
@@ -707,6 +735,14 @@
     <Content Include="Passwords.txt" />
     <Content Include="SetUp.txt" />
     <Content Include="Web.sitemap" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="FrontSitePages\MiriMargolin\Web.sitemap" />
+    <Content Include="FrontSitePages\MiriMargolin\MiriMargolin.Master" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
@@ -806,7 +842,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
+      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

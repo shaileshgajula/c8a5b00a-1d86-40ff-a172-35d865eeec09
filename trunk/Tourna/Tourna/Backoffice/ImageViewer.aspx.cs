@@ -17,7 +17,8 @@ namespace StrongerOrg.Backoffice
         {
             if (!Page.IsPostBack)
             {
-                this.ImageViewer1.ImageFolder = "~/BackOffice/ImageViewer.aspx?ImgId={0}"; 
+                this.ImageViewer1.ImageFolder = "~/BackOffice/ImageViewer.aspx?ImgId={0}";
+                this.ImageViewer1.IsEditMode = true;
             }
         }
 

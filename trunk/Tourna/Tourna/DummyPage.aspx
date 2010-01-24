@@ -1,4 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DummyPage.aspx.cs" Inherits="StrongerOrg.DummyPage" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajax" %>
+
+
 
 <%@ Register Assembly="TourneyLogic.Web.UI.BracketControl.v2" Namespace="TourneyLogic.Web.UI.WebControls"
     TagPrefix="tl" %>
@@ -104,10 +107,36 @@
             position: relative;
             padding-left: 5px;
         }
+        
+        .popupControl {
+	background-color:#AAD4FF;
+	position:absolute;
+	visibility:hidden;
+	border-style:solid;
+	border-color: Black;
+	border-width: 2px;
+}
+
+.modalBackground {
+	background-color:Gray;
+	filter:alpha(opacity=70);
+	opacity:0.7;
+}
+
+.modalPopup {
+	background-color:#ffffdd;
+	border-width:3px;
+	border-style:solid;
+	border-color:Gray;
+	padding:3px;
+	width:250px;
+}
+
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
+    
     <asp:ScriptManager ID="ScriptManager" runat="server" />
     <telerik:RadSplitter ID="RadSplitter1" runat="server" Width="100%" Height="300">
         <telerik:RadPane ID="RadPane1" runat="server" Width="20%">
@@ -115,7 +144,14 @@
         </telerik:RadPane>
         <telerik:RadSplitBar ID="RadSplitBar1" runat="server" CollapseMode="Forward"></telerik:RadSplitBar>
         <telerik:RadPane ID="MiddlePane1" runat="server" Width="100%">
-            content</telerik:RadPane>
+            <ajax:ModalPopupExtender ID="ModalPopupExtender1" runat="server" TargetControlID="LinkButton1" DropShadow="true" PopupControlID="myPanel" BackgroundCssClass="modalBackground">
+            </ajax:ModalPopupExtender>
+            <asp:Panel runat="server" ID="myPanel" style="display:none" CssClass="modalPopup">
+            assss
+            </asp:Panel>
+        
+            <asp:LinkButton ID="LinkButton1" runat="server" >LinkButton</asp:LinkButton>
+            </telerik:RadPane>
     </telerik:RadSplitter>
     
     </form>
