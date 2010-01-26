@@ -23,7 +23,13 @@
         <siteMapNode title="Update score"/>
       </siteMapNode>
     </siteMapNode>
-
+    <siteMapNode title="MiriMargolin" url="~/FrontSitePages/MiriMargolin/Default.aspx">
+      <siteMapNode title="About Miri" url="~\FrontSitePages\MiriMargolin\About.aspx"/>
+      <siteMapNode title="Galleries" url="~\FrontSitePages\MiriMargolin\Albums.aspx"/>
+      <siteMapNode title="Press" url="~\FrontSitePages\MiriMargolin\Press.aspx"/>
+      <siteMapNode title="Show Case" url="~\FrontSitePages\MiriMargolin\ShowCase.aspx"/>
+      <siteMapNode title="Contact" url="~\FrontSitePages\MiriMargolin\ContactUs.aspx"/>
+    </siteMapNode>
     <siteMapNode title="BackOffice [secured]"  description="" >
       <siteMapNode title="Login page">
         <siteMapNode title="Recover Password"/>
@@ -69,6 +75,10 @@
         <siteMapNode title="Saleries" url=""/>
         <siteMapNode title="Event gallery" url="~\Backoffice\EventGallery.aspx?a"/>
         <siteMapNode title="Outstanding Jobs" url="~\Backoffice\LockSmith\OutstandingJobs.aspx"/>
+      </siteMapNode>
+      <siteMapNode title="MiriMargolinDelegate Section" url="MiriMargolinDelegate">
+        <siteMapNode title="Gallery" url="~\Backoffice\eventGallery.aspx?m"/>
+        <siteMapNode title="About Miri" url="~\Backoffice\MiriMargolin\about.aspx"/>
       </siteMapNode>
       
     </siteMapNode>

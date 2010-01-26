@@ -77,16 +77,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Themes\MiriMargolin\MiriMargolinStyle.css" />
     <Content Include="Backoffice\ImageViewer.aspx" />
     <Content Include="Backoffice\LockSmith\OutstandingJobs.aspx" />
     <Content Include="Backoffice\LockSmith\StockManagment.aspx" />
+    <Content Include="Backoffice\MiriMargolin\About.aspx" />
     <Content Include="Backoffice\TournamentBuilder.aspx" />
     <Content Include="Backoffice\UserControls\GalleryUploader.ascx" />
     <Content Include="Backoffice\UserControls\GalleryViewer.ascx" />
     <Content Include="Backoffice\UserControls\ImageViewer.ascx" />
+    <Content Include="Backoffice\UserControls\TextContent.ascx" />
     <Content Include="EmailTemplate\DanielBrith.htm" />
     <Content Include="EmailTemplate\RecoverPassword.htm" />
+    <Content Include="FrontSitePages\MiriMargolin\About.aspx" />
+    <Content Include="FrontSitePages\MiriMargolin\Albums.aspx" />
+    <Content Include="FrontSitePages\MiriMargolin\ContactUs.aspx" />
     <Content Include="FrontSitePages\MiriMargolin\Default.aspx" />
+    <Content Include="FrontSitePages\MiriMargolin\Gallery.aspx" />
+    <Content Include="FrontSitePages\MiriMargolin\ImageDisplay.aspx" />
+    <Content Include="FrontSitePages\MiriMargolin\Press.aspx" />
+    <Content Include="FrontSitePages\MiriMargolin\ShowCase.aspx" />
     <Content Include="googlehostedservice.html" />
     <Content Include="Images\GamesImages\bowling_01wii.jpg" />
     <Content Include="Images\GamesImages\wii-sports-Golf.jpg" />
@@ -96,6 +106,9 @@
     <Content Include="Images\Icons\next.png" />
     <Content Include="Images\Icons\Previous.png" />
     <Content Include="Images\IMG_0041_S.JPG" />
+    <Content Include="Images\SeperatorMiri.gif" />
+    <Content Include="Images\Staff\MiriMargolinSelf.jpg" />
+    <Content Include="OrganisationLogos\MiriMargolinLogo.gif" />
     <Content Include="OrganisationLogos\StrongerOrgLogoForEmails.gif" />
     <Content Include="OrganisationSite\EventGallery.aspx" />
     <Content Include="OrganisationSite\ImageViewer.aspx" />
@@ -286,6 +299,13 @@
     <Compile Include="Backoffice\MarketingMaterials.aspx.designer.cs">
       <DependentUpon>MarketingMaterials.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Backoffice\MiriMargolin\About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backoffice\MiriMargolin\About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Backoffice\OrganisationInfo.aspx.cs">
       <DependentUpon>OrganisationInfo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -405,6 +425,13 @@
     <Compile Include="Backoffice\Administrator\WhoIsOnline.aspx.designer.cs">
       <DependentUpon>WhoIsOnline.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Backoffice\UserControls\TextContent.ascx.cs">
+      <DependentUpon>TextContent.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backoffice\UserControls\TextContent.ascx.designer.cs">
+      <DependentUpon>TextContent.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Backoffice\UserControls\TournamentDetails.ascx.cs">
       <DependentUpon>TournamentDetails.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -475,6 +502,27 @@
     <Compile Include="FrontSitePages\Join.aspx.designer.cs">
       <DependentUpon>Join.aspx</DependentUpon>
     </Compile>
+    <Compile Include="FrontSitePages\MiriMargolin\About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrontSitePages\MiriMargolin\About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrontSitePages\MiriMargolin\Albums.aspx.cs">
+      <DependentUpon>Albums.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrontSitePages\MiriMargolin\Albums.aspx.designer.cs">
+      <DependentUpon>Albums.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrontSitePages\MiriMargolin\ContactUs.aspx.cs">
+      <DependentUpon>ContactUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrontSitePages\MiriMargolin\ContactUs.aspx.designer.cs">
+      <DependentUpon>ContactUs.aspx</DependentUpon>
+    </Compile>
     <Compile Include="FrontSitePages\MiriMargolin\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -482,12 +530,40 @@
     <Compile Include="FrontSitePages\MiriMargolin\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="FrontSitePages\MiriMargolin\Gallery.aspx.cs">
+      <DependentUpon>Gallery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrontSitePages\MiriMargolin\Gallery.aspx.designer.cs">
+      <DependentUpon>Gallery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrontSitePages\MiriMargolin\ImageDisplay.aspx.cs">
+      <DependentUpon>ImageDisplay.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrontSitePages\MiriMargolin\ImageDisplay.aspx.designer.cs">
+      <DependentUpon>ImageDisplay.aspx</DependentUpon>
+    </Compile>
     <Compile Include="FrontSitePages\MiriMargolin\MiriMargolin.Master.cs">
       <DependentUpon>MiriMargolin.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="FrontSitePages\MiriMargolin\MiriMargolin.Master.designer.cs">
       <DependentUpon>MiriMargolin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="FrontSitePages\MiriMargolin\Press.aspx.cs">
+      <DependentUpon>Press.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrontSitePages\MiriMargolin\Press.aspx.designer.cs">
+      <DependentUpon>Press.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrontSitePages\MiriMargolin\ShowCase.aspx.cs">
+      <DependentUpon>ShowCase.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrontSitePages\MiriMargolin\ShowCase.aspx.designer.cs">
+      <DependentUpon>ShowCase.aspx</DependentUpon>
     </Compile>
     <Compile Include="FrontSitePages\Products.aspx.cs">
       <DependentUpon>Products.aspx</DependentUpon>
@@ -632,6 +708,7 @@
     <None Include="App_Data\RadSpell\de-DE.tdf" />
     <None Include="App_Data\RadSpell\en-US.tdf" />
     <None Include="App_Data\RadSpell\fr-FR.tdf" />
+    <Content Include="App_Themes\MiriMargolin\MiriMargolin.skin" />
     <None Include="Backoffice\Entities\OrganisationInfo.xsc">
       <DependentUpon>OrganisationInfo.xsd</DependentUpon>
     </None>
@@ -741,7 +818,6 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="FrontSitePages\MiriMargolin\Web.sitemap" />
     <Content Include="FrontSitePages\MiriMargolin\MiriMargolin.Master" />
   </ItemGroup>
   <ItemGroup>

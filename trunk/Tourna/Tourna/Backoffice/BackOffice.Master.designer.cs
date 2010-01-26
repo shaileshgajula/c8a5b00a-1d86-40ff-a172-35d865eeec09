@@ -139,6 +139,15 @@ namespace StrongerOrg.Backoffice {
         protected global::System.Web.UI.WebControls.Menu Menu3;
         
         /// <summary>
+        /// Menu4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Menu Menu4;
+        
+        /// <summary>
         /// SiteMapDataSource1 control.
         /// </summary>
         /// <remarks>
@@ -182,6 +191,15 @@ namespace StrongerOrg.Backoffice {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SiteMapDataSource SiteMapDataSource5;
+        
+        /// <summary>
+        /// SiteMapDataSource6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SiteMapDataSource SiteMapDataSource6;
         
         /// <summary>
         /// ContentPlaceHolder1 control.

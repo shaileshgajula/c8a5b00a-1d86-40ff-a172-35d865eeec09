@@ -34,7 +34,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="GrayTextLight">
+                    <td class="GrayTextLight" valign="top">
                         Caption:
                     </td>
                     <td class="GrayTitleNormal">
@@ -60,7 +60,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="GrayTextLight">
+                    <td class="GrayTextLight" valign="top">
                         Story:
                     </td>
                     <td class="GrayTitleNormal">
@@ -114,7 +114,7 @@
                                         <asp:LinkButton ID="btnDeleteAssociatedImage" runat="server" OnClick="btnDeleteAssociatedImage_Click">Delete</asp:LinkButton>
                                     </td>
                                     <td align="right">
-                                        <asp:LinkButton ID="btnCancelAssociatedImage" runat="server">Cancel</asp:LinkButton>
+                                        <asp:LinkButton ID="btnCancelAssociatedImage" runat="server">Close</asp:LinkButton>
                                     </td>
                                 </tr>
                             </table>

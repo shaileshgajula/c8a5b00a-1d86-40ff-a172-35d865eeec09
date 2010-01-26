@@ -98,7 +98,7 @@
                             </ContentTemplate>
                         </asp:RoleGroup>
                         <asp:RoleGroup Roles="LockSmithUser">
-                        <ContentTemplate>    
+                            <ContentTemplate>
                                 <asp:Menu ID="Menu3" Width="100%" runat="server" DataSourceID="SiteMapDataSource5">
                                     <StaticMenuStyle CssClass="navigate" />
                                     <StaticMenuItemStyle HorizontalPadding="10" />
@@ -107,6 +107,17 @@
                                 </asp:Menu>
                             </ContentTemplate>
                         </asp:RoleGroup>
+                        <asp:RoleGroup Roles="MiriMargolinDelegate">
+                            <ContentTemplate>
+                                <asp:Menu ID="Menu4" Width="100%" runat="server" DataSourceID="SiteMapDataSource6">
+                                    <StaticMenuStyle CssClass="navigate" />
+                                    <StaticMenuItemStyle HorizontalPadding="10" />
+                                    <StaticSelectedStyle CssClass="SelectedRowStyle" />
+                                    <StaticHoverStyle CssClass="SelectedRowStyle" />
+                                </asp:Menu>
+                            </ContentTemplate>
+                        </asp:RoleGroup>
+                        
                     </RoleGroups>
                 </asp:LoginView>
                 <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" StartingNodeUrl="~/Login.aspx"
@@ -118,6 +129,8 @@
                 <asp:SiteMapDataSource ID="SiteMapDataSource4" runat="server" StartingNodeUrl="~/ContentManager"
                     ShowStartingNode="false" />
                 <asp:SiteMapDataSource ID="SiteMapDataSource5" runat="server" StartingNodeUrl="~/LockSmith"
+                    ShowStartingNode="false" />
+                    <asp:SiteMapDataSource ID="SiteMapDataSource6" runat="server" StartingNodeUrl="~/MiriMargolinDelegate"
                     ShowStartingNode="false" />
                 <%--  </telerik:RadPane>
                     <telerik:RadSplitBar ID="RadSplitBar1" runat="server" CollapseMode="Forward"></telerik:RadSplitBar>

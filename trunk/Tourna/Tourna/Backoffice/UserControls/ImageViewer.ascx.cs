@@ -20,7 +20,7 @@ namespace StrongerOrg.Backoffice.UserControls
         private int? previousImgId;
         private int? nextImgId;
         private string imageFolder;
-
+        private int albumId;
         private const int thumbHight = 48;
         private const int thumbHWidth = 72;
 
@@ -41,6 +41,7 @@ namespace StrongerOrg.Backoffice.UserControls
             get { return this.currentImgId; }
             set { this.currentImgId = value; ViewState["CurrentImgId"] = value; }
         }
+
         internal int GetCurrentImgId
         {
             get
@@ -111,6 +112,8 @@ namespace StrongerOrg.Backoffice.UserControls
                 this.imageFolder = value;
             }
         }
+        public int AlbumId
+        { get { return this.albumId; } }
         protected void Page_Load(object sender, EventArgs e)
         {
             this.CurrentImgId = int.Parse(Request.QueryString["ImgId"]);
@@ -157,6 +160,7 @@ namespace StrongerOrg.Backoffice.UserControls
                     command.Parameters.Add("@AlbumTitle", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
                     command.Parameters.Add("@ImageStory", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
                     command.Parameters.Add("@ImageSizes", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
+                    command.Parameters.Add("@AlbumId", SqlDbType.Int).Direction = ParameterDirection.Output;
                     conn.Open();
                     command.ExecuteNonQuery();
 
@@ -164,6 +168,7 @@ namespace StrongerOrg.Backoffice.UserControls
 
                 this.CurrentImgName = command.Parameters["@CurrentFileName"].Value.ToString();
                 this.lblAlbumTitle.Text = GetOutputValue(command, "@AlbumTitle");
+                this.albumId = int.Parse(command.Parameters["@AlbumId"].Value.ToString());
                 if (this.IsEditMode)
                 {
                     this.txtImgCaption.Text = GetOutputValue(command, "@ImageCaption");
