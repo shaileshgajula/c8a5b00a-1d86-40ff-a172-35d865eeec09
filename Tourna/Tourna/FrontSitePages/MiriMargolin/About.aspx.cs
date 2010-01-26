@@ -7,15 +7,14 @@ using System.Web.UI.WebControls;
 
 namespace StrongerOrg.FrontSitePages.MiriMargolin
 {
-    public partial class MiriMargolin : System.Web.UI.MasterPage
+    public partial class About : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.lblPageTitle.Text = this.Page.Title;
-        }
-        public string OrgId
-        {
-            get { return this.lblOrganisationId.Text; }
+            if (!this.IsPostBack)
+            {
+                this.lblAbout.Text = TextContentManager.GetTextContent(new Guid(Master.OrgId), "AboutMiriMargolin");
+            }
         }
     }
 }

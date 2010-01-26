@@ -8,7 +8,7 @@ using Telerik.Web.UI;
 
 namespace StrongerOrg.Backoffice
 {
-    public partial class BasePage : RadAjaxPage
+    public partial class BasePage :Page
     {
 
         protected override void OnPreInit(EventArgs e)
@@ -31,6 +31,11 @@ namespace StrongerOrg.Backoffice
             else if (Context.User.IsInRole("LockSmithUser"))
             {
                 this.UserRole = "Lock Smith User";
+                this.Theme = "Moderator";
+            }
+            else if (Context.User.IsInRole("MiriMargolinDelegate"))
+            {
+                this.UserRole = "Miri Margolin Delegate";
                 this.Theme = "Moderator";
             }
             base.OnPreInit(e);

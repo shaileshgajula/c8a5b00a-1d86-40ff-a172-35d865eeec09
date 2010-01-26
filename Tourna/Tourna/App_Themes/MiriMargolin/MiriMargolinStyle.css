@@ -1,0 +1,89 @@
+﻿
+ html, body, form, #wrapper {
+      height:100%;
+      margin: 0;
+      padding: 0;
+      border: none;
+      text-align: center;
+      background-color: #ECECEC;
+	
+   }
+   body
+   {
+   color: #43431f;
+	font-family: Verdana, Helvetica, sans-serif;
+	border-top: 10px solid #74b741;
+    
+   }
+   #wrapper {
+      margin: 0 auto;
+      padding:0 auto;
+      text-align: left;
+      vertical-align: middle;
+      width: 800px;
+      background-color:Red;
+   }
+
+ 
+a
+{
+	color: #74b741;
+	text-decoration: none;
+    
+}
+a:hover
+{
+	text-decoration: underline;
+    COLOR:#43431f;
+    
+}
+
+/*Back office style */
+.GrayTitle
+{
+	font-size: 17px;
+	font-weight: bold;
+    
+    
+}
+.GrayTitleNormal
+{
+	font-size: 15px;
+	font-weight: bold;
+    /*COLOR:#ADADAD;*/
+    
+}
+.GrayTextLight
+{
+	font-size: 13px;
+	font-style:italic;
+	}
+.AlertText
+{
+font-size: 13px;
+	font-style:italic;
+    color:Red;
+}
+/* Modal window settings*/
+
+.modalBackground
+{
+  background-color:#CCCCFF;
+  filter:alpha(opacity=70);
+  opacity:0.7;
+}
+
+.ModalWindow
+{
+  border: solid 2px #cafde0;
+  background:#f0f0f0;
+  padding: 10px 10px 10px 10px;
+  position:absolute;
+  top:-1000px;
+}
+/* ****************** */
+
+input[type=text], input[type=file], select, textarea {
+width: 220px;
+border:1px solid gray;
+} 

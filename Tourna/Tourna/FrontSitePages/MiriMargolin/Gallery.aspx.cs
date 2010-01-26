@@ -7,15 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace StrongerOrg.FrontSitePages.MiriMargolin
 {
-    public partial class MiriMargolin : System.Web.UI.MasterPage
+    public partial class Gallery : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.lblPageTitle.Text = this.Page.Title;
-        }
-        public string OrgId
-        {
-            get { return this.lblOrganisationId.Text; }
+            this.GalleryViewer1.ImageViewerUrl = "~\\FrontSitePages\\MiriMargolin\\ImageDisplay.aspx?ImgId=";
         }
     }
 }

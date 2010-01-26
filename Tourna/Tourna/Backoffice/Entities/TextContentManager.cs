@@ -11,7 +11,7 @@ class TextContentManager
             SqlCommand command = new SqlCommand("TextContentGet", conn);
             command.CommandType = CommandType.StoredProcedure;
             command.Parameters.Add("@OrganisationId", SqlDbType.UniqueIdentifier, 150).Value = organisationId;
-            command.Parameters.Add("@ContentType", SqlDbType.NVarChar, 10).Value = contentType;
+            command.Parameters.Add("@ContentType", SqlDbType.NVarChar, 150).Value = contentType;
             conn.Open();
             object rules = command.ExecuteScalar();
             if (rules != null)
