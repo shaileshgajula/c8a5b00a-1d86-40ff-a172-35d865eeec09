@@ -22,15 +22,6 @@ namespace StrongerOrg.Backoffice.UserControls {
         protected global::System.Web.UI.WebControls.HyperLink hlPrevious;
         
         /// <summary>
-        /// imgBigDisplay control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgBigDisplay;
-        
-        /// <summary>
         /// hlNext control.
         /// </summary>
         /// <remarks>
@@ -38,6 +29,15 @@ namespace StrongerOrg.Backoffice.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink hlNext;
+        
+        /// <summary>
+        /// imgBigDisplay control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgBigDisplay;
         
         /// <summary>
         /// lblImgCaption control.

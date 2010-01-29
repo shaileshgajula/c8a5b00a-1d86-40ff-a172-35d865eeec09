@@ -33,7 +33,7 @@ a
 }
 a:hover
 {
-	text-decoration: underline;
+	
     COLOR:#43431f;
     
 }
@@ -64,6 +64,10 @@ font-size: 13px;
 	font-style:italic;
     color:Red;
 }
+.DisabledImage
+{
+opacity : 0.4;
+    filter: alpha(opacity=40);}
 /* Modal window settings*/
 
 .modalBackground

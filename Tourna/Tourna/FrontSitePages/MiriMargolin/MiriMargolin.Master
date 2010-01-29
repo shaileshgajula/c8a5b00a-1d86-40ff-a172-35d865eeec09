@@ -24,13 +24,13 @@
                     StartingNodeUrl="~/FrontSitePages/MiriMargolin/Default.aspx" />
             </td>
         </tr>
-        <tr><td style="background-image: url('../../Images/SeperatorMiri.gif'); background-repeat: repeat-x"
+        <tr>
+            <td style="background-image: url('../../Images/SeperatorMiri.gif'); background-repeat: repeat-x"
                 colspan="2">
-            
             </td>
         </tr>
         <tr>
-            <td colspan="2" style="padding:15px" class="GrayTitle">
+            <td colspan="2" class="GrayTitle">
                 <asp:Label ID="lblPageTitle" runat="server" Text=""></asp:Label>
             </td>
         </tr>
