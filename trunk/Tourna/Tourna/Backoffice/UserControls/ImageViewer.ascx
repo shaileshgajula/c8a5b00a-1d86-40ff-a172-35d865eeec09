@@ -15,18 +15,19 @@
         }
     }
 </script>
-<table>
+<table border="0" cellpadding="0" cellspacing="0" style="width:100%">
     <tr>
-        <td align="center">
+        <td align="center" colspan="2">
             <asp:HyperLink ID="hlPrevious" runat="server"><img src="../../Images/Icons/Previous.png" border="0" alt="Previous image" /></asp:HyperLink>
+            <asp:HyperLink ID="hlNext" runat="server"><img src="../../Images/Icons/next.png" border="0" alt="next"/></asp:HyperLink>
         </td>
-        <td>
+        
+    </tr>
+    <tr>
+        <td valign="top">
             <asp:Image ID="imgBigDisplay" runat="server" />
         </td>
-        <td>
-            <asp:HyperLink ID="hlNext" runat="server"><img src="../../Images/Icons/next.png" border="0" /></asp:HyperLink>
-        </td>
-        <td style="border: 1px solid #CCCCCC; vertical-align: top">
+        <td style="border: 1px solid #CCCCCC; vertical-align: top" rowspan="2">
             <table width="300" border="0">
                 <tr>
                     <td class="GrayTitleNormal" colspan="2">
@@ -48,15 +49,16 @@
                     </td>
                     <td class="GrayTitleNormal">
                         <asp:Label ID="lblAlbumTitle" runat="server" Text=""></asp:Label>
-                        <asp:DropDownList ID="ddlAlbums" runat="server" Visible="false" DataSourceID="SqlDataSource2" DataTextField="Title" DataValueField="Id" Width="225">
+                        <asp:DropDownList ID="ddlAlbums" runat="server" Visible="false" DataSourceID="SqlDataSource2"
+                            DataTextField="Title" DataValueField="Id" Width="225">
                         </asp:DropDownList>
                         <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:StrongerOrgString %>"
-                    SelectCommand="SELECT [Id], [Title], [Description], [AlbumCover] FROM [Albums] WHERE ([OrganisationId] = @OrganisationId) ORDER BY [Title]"
-                    OnSelected="SqlDataSource1_Selected">
-                    <SelectParameters>
-                        <asp:CookieParameter CookieName="OrganisationId" Name="OrganisationId" Type="String" />
-                    </SelectParameters>
-                </asp:SqlDataSource>
+                            SelectCommand="SELECT [Id], [Title], [Description], [AlbumCover] FROM [Albums] WHERE ([OrganisationId] = @OrganisationId) ORDER BY [Title]"
+                            OnSelected="SqlDataSource1_Selected">
+                            <SelectParameters>
+                                <asp:CookieParameter CookieName="OrganisationId" Name="OrganisationId" Type="String" />
+                            </SelectParameters>
+                        </asp:SqlDataSource>
                     </td>
                 </tr>
                 <tr>
@@ -65,7 +67,8 @@
                     </td>
                     <td class="GrayTitleNormal">
                         <asp:Label ID="lblStory" runat="server" Text=""></asp:Label>
-                        <asp:TextBox ID="tbStory" runat="server" Width="220px" Rows="3" TextMode="MultiLine" Visible="false"></asp:TextBox>
+                        <asp:TextBox ID="tbStory" runat="server" Width="220px" Rows="3" TextMode="MultiLine"
+                            Visible="false"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -79,15 +82,14 @@
                 </tr>
                 <tr>
                     <td align="right" colspan="2">
-                        <asp:LinkButton ID="lbUpdateTicket" runat="server" Visible="false" 
-                            onclick="lbUpdateTicket_Click">Update</asp:LinkButton>
+                        <asp:LinkButton ID="lbUpdateTicket" runat="server" Visible="false" OnClick="lbUpdateTicket_Click">Update</asp:LinkButton>
                     </td>
                 </tr>
             </table>
             <table>
                 <tr>
                     <td class="GrayTitleNormal" colspan="2">
-                        Associated items
+                        Various angles
                     </td>
                 </tr>
                 <tr>
@@ -99,8 +101,8 @@
                         <asp:Panel ID="pnlImageDisplay" runat="server" CssClass="ModalWindow">
                             <table>
                                 <tr>
-                                    <td colspan="3">
-                                        <asp:Image ID="imgAssiciatedFullSizeImage" runat="server" />
+                                    <td colspan="3" align="center">
+                                        <asp:Image ID="imgAssiciatedFullSizeImage" runat="server" AlternateText="Associated Image" />
                                     </td>
                                 </tr>
                                 <tr>

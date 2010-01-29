@@ -25,7 +25,7 @@ namespace StrongerOrg.Backoffice.UserControls
         private const int thumbHWidth = 72;
 
         private const int fullSizeHight = 300;
-        private const int fullSizeHWidth = 400;
+        private const int fullSizeHWidth = 450;
 
         private string CurrentImgName
         {

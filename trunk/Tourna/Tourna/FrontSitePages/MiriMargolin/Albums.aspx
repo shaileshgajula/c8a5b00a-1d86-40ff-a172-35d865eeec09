@@ -5,12 +5,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:DataList ID="dlAlbums" runat="server" DataSourceID="SqlDataSource1" OnItemDataBound="dlAlbums_ItemDataBound">
+    <asp:DataList ID="dlAlbums" runat="server" DataSourceID="SqlDataSource1" OnItemDataBound="dlAlbums_ItemDataBound" Width="100%" 
+    RepeatColumns="2" CellPadding="5" CellSpacing=5>
         <ItemTemplate>
-            <table>
+            <table style="width:100%">
                 <tr>
-                    <td class="GrayTitleNormal">
-                        <%# Eval("Title") %>
+                    <td  style="border-bottom-style:double;border-bottom-width:3px;border-bottom-color:#ADADAD">
+                        <asp:HyperLink ID="hlSeeMore" runat="server" NavigateUrl='<%#Eval("Id", "~/FrontSitePages/MiriMargolin/Gallery.aspx?AlbumId={0}") %>'><%# Eval("Title") %></asp:HyperLink>
                     </td>
                 </tr>
                 <tr>
@@ -18,13 +19,11 @@
                         <asp:DataList ID="dlAlbumPreview" runat="server" DataKeyField="Id" DataSourceID="SqlDataSourceAlbumPreview"
                             RepeatColumns="3">
                             <ItemTemplate>
-                                <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("FileName", "~/OrganisationGalleryImages/ThumbNail/{0}") %>' />
+                                <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("FileName", "~/OrganisationGalleryImages/ThumbNail/{0}") %>' BorderColor="#eeeeee" BorderWidth="1px" Style="margin: 5px;" />
                             </ItemTemplate>
                         </asp:DataList>
                     </td>
-                    <td style="vertical-align: bottom">
-                        <asp:HyperLink ID="hlSeeMore" runat="server" NavigateUrl='<%#Eval("Id", "~/FrontSitePages/MiriMargolin/Gallery.aspx?AlbumId={0}") %>'>See more ...</asp:HyperLink>
-                    </td>
+                    
                 </tr>
             </table>
             <asp:SqlDataSource ID="SqlDataSourceAlbumPreview" runat="server" ConnectionString="<%$ ConnectionStrings:StrongerOrgString %>"
