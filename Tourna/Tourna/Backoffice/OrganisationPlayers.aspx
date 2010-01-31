@@ -15,9 +15,9 @@
         </Columns>
         <EmptyDataTemplate>
             No players found
-            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# BuildUrl() %>' Target="_blank">
+           <%-- <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# BuildUrl() %>' Target="_blank">
             <br />
-            Click here to create a new player[new window]</asp:HyperLink>
+            Click here to create a new player[new window]</asp:HyperLink>--%>
         </EmptyDataTemplate>
     </asp:GridView>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:StrongerOrgString %>"

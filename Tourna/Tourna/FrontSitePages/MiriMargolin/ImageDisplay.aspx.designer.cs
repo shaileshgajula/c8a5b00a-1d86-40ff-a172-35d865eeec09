@@ -29,14 +29,5 @@ namespace StrongerOrg.FrontSitePages.MiriMargolin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::StrongerOrg.Backoffice.UserControls.ImageViewer ImageViewer1;
-        
-        /// <summary>
-        /// hlBackToAlbum control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlBackToAlbum;
     }
 }

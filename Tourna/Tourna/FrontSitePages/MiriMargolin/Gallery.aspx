@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Gallery" Language="C#" MasterPageFile="~/FrontSitePages/MiriMargolin/MiriMargolin.Master" AutoEventWireup="true" CodeBehind="Gallery.aspx.cs" Inherits="StrongerOrg.FrontSitePages.MiriMargolin.Gallery" Theme="MiriMargolin" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/FrontSitePages/MiriMargolin/MiriMargolin.Master" AutoEventWireup="true" CodeBehind="Gallery.aspx.cs" Inherits="StrongerOrg.FrontSitePages.MiriMargolin.Gallery" Theme="MiriMargolin" %>
 <%@ Register src="../../Backoffice/UserControls/GalleryViewer.ascx" tagname="GalleryViewer" tagprefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>

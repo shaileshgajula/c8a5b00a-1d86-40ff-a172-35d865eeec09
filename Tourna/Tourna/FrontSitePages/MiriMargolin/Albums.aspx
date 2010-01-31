@@ -19,7 +19,8 @@
                         <asp:DataList ID="dlAlbumPreview" runat="server" DataKeyField="Id" DataSourceID="SqlDataSourceAlbumPreview"
                             RepeatColumns="3">
                             <ItemTemplate>
-                                <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("FileName", "~/OrganisationGalleryImages/ThumbNail/{0}") %>' BorderColor="#eeeeee" BorderWidth="1px" Style="margin: 5px;" />
+                                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("Id", "ImageDisplay.aspx?ImgId={0}") %>' ImageUrl='<%# Eval("FileName", "~/OrganisationGalleryImages/ThumbNail/{0}") %>' BorderColor="#eeeeee" BorderWidth="1px" Style="margin: 5px;"></asp:HyperLink>
+                                
                             </ItemTemplate>
                         </asp:DataList>
                     </td>
@@ -27,7 +28,7 @@
                 </tr>
             </table>
             <asp:SqlDataSource ID="SqlDataSourceAlbumPreview" runat="server" ConnectionString="<%$ ConnectionStrings:StrongerOrgString %>"
-                SelectCommand="SELECT top 3  [FileName], [Id] FROM [ImageGallery] WHERE ([AlbumId] = @AlbumId) order by id">
+                SelectCommand="SELECT top 3  [FileName], [Id] FROM [ImageGallery] WHERE ([AlbumId] = @AlbumId) order by ImageOrder desc">
                 <SelectParameters>
                     <asp:Parameter Name="AlbumId" Type="Int32" />
                 </SelectParameters>

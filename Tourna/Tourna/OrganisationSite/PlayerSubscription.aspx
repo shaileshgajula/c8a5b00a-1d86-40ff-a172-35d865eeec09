@@ -14,6 +14,28 @@
                     Register to tournament
                 </td>
             </tr>
+             <tr>
+                <td style="vertical-align: top">
+                    Tournament Title:
+                </td>
+                <td>
+                    <%--<asp:RadioButtonList ID="RadioButtonList1" runat="server" DataSourceID="SqlDataSource2"
+                        DataTextField="TournamentName" DataValueField="Id" RepeatColumns="2">
+                    </asp:RadioButtonList>--%>
+                    <asp:FormView ID="FormView1" runat="server" DataSourceID="SqlDataSource2">
+                        <ItemTemplate>
+                            <asp:Label ID="lblTournametTitle" runat="server" Text='<%#Eval("TournamentName") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:FormView>
+                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:StrongerOrgString %>"
+                        SelectCommand="TournamentsGet" SelectCommandType="StoredProcedure" CancelSelectOnNullParameter="false">
+                        <SelectParameters>
+                            <asp:QueryStringParameter Name="OrganisationId" QueryStringField="OrgId" Type="String" ConvertEmptyStringToNull="true" />
+                            <asp:QueryStringParameter Name="TournamentId" QueryStringField="TournamentId" Type="String" />
+                        </SelectParameters>
+                    </asp:SqlDataSource>
+                </td>
+            </tr>
             <tr>
                 <td>
                     Your Name:
@@ -58,32 +80,13 @@
                     <asp:TextBox ID="txtDepartment" runat="server"  />
                 </td>
             </tr>--%>
-            <tr>
-                <td style="vertical-align: top">
-                    Tournament Title:
-                </td>
-                <td>
-                    <%--<asp:RadioButtonList ID="RadioButtonList1" runat="server" DataSourceID="SqlDataSource2"
-                        DataTextField="TournamentName" DataValueField="Id" RepeatColumns="2">
-                    </asp:RadioButtonList>--%>
-                    <asp:FormView ID="FormView1" runat="server" DataSourceID="SqlDataSource2">
-                        <ItemTemplate>
-                            <asp:Label ID="lblTournametTitle" runat="server" Text='<%#Eval("TournamentName") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:FormView>
-                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:StrongerOrgString %>"
-                        SelectCommand="TournamentsGet" SelectCommandType="StoredProcedure">
-                        <SelectParameters>
-                            <asp:QueryStringParameter Name="TournamentId" QueryStringField="TournamentId" Type="String" />
-                        </SelectParameters>
-                    </asp:SqlDataSource>
-                </td>
-            </tr>
+           
             <tr>
                 <td colspan="2" style="text-align: right">
                     <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert"
-                        Text="Insert" OnClick="InsertButton_Click" />&nbsp;
-                    <asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel"
+                        Text="Register" OnClick="InsertButton_Click" />&nbsp;
+                    <img src="../Images/Icons/Seperator.gif" />&nbsp;
+                    <asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="true" CommandName="Cancel"
                         Text="Cancel" />
                 </td>
             </tr>

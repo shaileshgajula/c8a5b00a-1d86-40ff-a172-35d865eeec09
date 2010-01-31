@@ -55,15 +55,7 @@ namespace StrongerOrg.Backoffice
 
         protected void SqlDataSource1_Selected(object sender, SqlDataSourceStatusEventArgs e)
         {
-            if (e.AffectedRows == 0)
-            {
-                this.lblGames.Visible = true;
-                this.hlSetGames.Visible = true;
-            }
-            else
-            {
-
-            }
+                this.lblGames.Visible = (e.AffectedRows == 0);
         }
 
         protected void rbGame_DataBound(object sender, EventArgs e)
