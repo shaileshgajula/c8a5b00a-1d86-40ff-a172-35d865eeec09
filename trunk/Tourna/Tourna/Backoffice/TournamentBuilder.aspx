@@ -33,9 +33,7 @@
                                     <asp:CookieParameter Name="OrganisationId" CookieName="OrganisationId" Type="String" />
                                 </SelectParameters>
                             </asp:SqlDataSource>
-                            <asp:Label ID="lblGames" runat="server" Text="No games selected." Visible="False"></asp:Label>
-                            <asp:HyperLink ID="hlSetGames" runat="server" NavigateUrl="~/Backoffice/Games2Organisation.aspx"
-                                Visible="False">Select Games</asp:HyperLink>
+                            <asp:Label ID="lblGames" runat="server" Text="No games have been opened. Contact us to open the games" Visible="False"></asp:Label>
                         </td>
                     </tr>
                     <tr>

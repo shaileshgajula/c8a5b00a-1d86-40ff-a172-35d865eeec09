@@ -15,13 +15,12 @@
         }
     }
 </script>
-<table border="0" cellpadding="0" cellspacing="0" style="width:100%">
+<table border="0" cellpadding="0" cellspacing="0" style="width: 100%">
     <tr>
         <td align="center" colspan="2">
             <asp:HyperLink ID="hlPrevious" runat="server"><img src="../../Images/Icons/Previous.png" border="0" alt="Previous image" /></asp:HyperLink>
             <asp:HyperLink ID="hlNext" runat="server"><img src="../../Images/Icons/next.png" border="0" alt="next"/></asp:HyperLink>
         </td>
-        
     </tr>
     <tr>
         <td valign="top">
@@ -47,8 +46,9 @@
                     <td class="GrayTextLight">
                         Album:
                     </td>
-                    <td class="GrayTitleNormal">
-                        <asp:Label ID="lblAlbumTitle" runat="server" Text=""></asp:Label>
+                    <td style="font-style:italic">
+                        
+                        <asp:HyperLink ID="hlAlbum" runat="server" NavigateUrl='<%#Eval("id", "Gallery.aspx?AlbumId={0}") %>' Text='<%#Eval("Title") %>'></asp:HyperLink>
                         <asp:DropDownList ID="ddlAlbums" runat="server" Visible="false" DataSourceID="SqlDataSource2"
                             DataTextField="Title" DataValueField="Id" Width="225">
                         </asp:DropDownList>
@@ -78,6 +78,19 @@
                     <td class="GrayTitleNormal">
                         <asp:Label ID="lblSizes" runat="server" Text=""></asp:Label>
                         <asp:TextBox ID="txtSizes" runat="server" Visible="false"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="GrayTextLight">
+                        <asp:Label ID="lblImageOrder" runat="server" Text="Image Order" Visible="false"></asp:Label>
+                    </td>
+                    <td class="GrayTitleNormal">
+                        <asp:DropDownList ID="ddlImageOrder" runat="server" Visible="false">
+                            <asp:ListItem Text="Not important" Value="-1"></asp:ListItem>
+                            <asp:ListItem Text="1" Value="1"></asp:ListItem>
+                            <asp:ListItem Text="2" Value="2"></asp:ListItem>
+                            <asp:ListItem Text="3" Value="3"></asp:ListItem>
+                        </asp:DropDownList>
                     </td>
                 </tr>
                 <tr>

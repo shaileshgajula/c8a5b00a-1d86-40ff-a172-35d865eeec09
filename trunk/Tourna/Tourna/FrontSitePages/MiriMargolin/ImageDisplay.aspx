@@ -9,6 +9,5 @@ Theme="MiriMargolin" %>
     </asp:ScriptManager>
         
     <uc1:ImageViewer ID="ImageViewer1" runat="server" />
-<asp:HyperLink ID="hlBackToAlbum" runat="server" NavigateUrl="dd" onload="hlBackToAlbum_Load" 
-        >Back to album</asp:HyperLink>
+
 </asp:Content>

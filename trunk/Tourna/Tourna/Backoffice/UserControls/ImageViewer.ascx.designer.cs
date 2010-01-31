@@ -58,13 +58,13 @@ namespace StrongerOrg.Backoffice.UserControls {
         protected global::System.Web.UI.WebControls.TextBox txtImgCaption;
         
         /// <summary>
-        /// lblAlbumTitle control.
+        /// hlAlbum control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAlbumTitle;
+        protected global::System.Web.UI.WebControls.HyperLink hlAlbum;
         
         /// <summary>
         /// ddlAlbums control.
@@ -119,6 +119,24 @@ namespace StrongerOrg.Backoffice.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtSizes;
+        
+        /// <summary>
+        /// lblImageOrder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblImageOrder;
+        
+        /// <summary>
+        /// ddlImageOrder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlImageOrder;
         
         /// <summary>
         /// lbUpdateTicket control.

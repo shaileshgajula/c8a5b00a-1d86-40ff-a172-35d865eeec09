@@ -15,8 +15,6 @@
         <siteMapNode title="Rules" url="~\OrganisationSite\Rules.aspx"></siteMapNode>
         <siteMapNode title="Event Gallery" url="~\OrganisationSite\EventGallery.aspx" ></siteMapNode>
         <siteMapNode title="Contact Moderator" url="~\OrganisationSite\ContactModerator.aspx"></siteMapNode>
-        <siteMapNode title="Join Tournament" url="~\OrganisationSite\PlayerSubscription.aspx"></siteMapNode>
-
       </siteMapNode>
       <siteMapNode title="[Half secured]">
         <siteMapNode title="Register to tournament"/>

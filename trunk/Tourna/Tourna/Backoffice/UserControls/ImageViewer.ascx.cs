@@ -127,12 +127,14 @@ namespace StrongerOrg.Backoffice.UserControls
                 this.txtImgCaption.Visible = true;
                 this.lblImgCaption.Visible = false;
                 this.ddlAlbums.Visible = true;
-                this.lblAlbumTitle.Visible = false;
+                this.hlAlbum.Visible = false;
                 this.tbStory.Visible = true;
                 this.lblStory.Visible = false;
                 this.txtSizes.Visible = true;
                 this.lblSizes.Visible = false;
                 this.lbUpdateTicket.Visible = true;
+                this.lblImageOrder.Visible = true;
+                this.ddlImageOrder.Visible = true;
             }
             else
             {
@@ -161,13 +163,14 @@ namespace StrongerOrg.Backoffice.UserControls
                     command.Parameters.Add("@ImageStory", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
                     command.Parameters.Add("@ImageSizes", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
                     command.Parameters.Add("@AlbumId", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    command.Parameters.Add("@ImageOrder", SqlDbType.Int).Direction = ParameterDirection.Output;
                     conn.Open();
                     command.ExecuteNonQuery();
 
                 }
 
                 this.CurrentImgName = command.Parameters["@CurrentFileName"].Value.ToString();
-                this.lblAlbumTitle.Text = GetOutputValue(command, "@AlbumTitle");
+                //this.lblAlbumTitle.Text = GetOutputValue(command, "@AlbumTitle");
                 this.albumId = int.Parse(command.Parameters["@AlbumId"].Value.ToString());
                 if (this.IsEditMode)
                 {
@@ -176,11 +179,17 @@ namespace StrongerOrg.Backoffice.UserControls
 
                     this.tbStory.Text = GetOutputValue(command, "@ImageStory");
                     this.txtSizes.Text = GetOutputValue(command, "@ImageSizes");
+                    ListItem liImageOrder = this.ddlImageOrder.Items.FindByValue(GetOutputValue(command, "@ImageOrder"));
+                    if (liImageOrder != null)
+                    {
+                        liImageOrder.Selected = true;
+                    }
                 }
                 else
                 {
                     this.lblImgCaption.Text = GetOutputValue(command, "@ImageCaption");
-                    this.lblAlbumTitle.Text = GetOutputValue(command, "@AlbumTitle");
+                    this.hlAlbum.Text = GetOutputValue(command, "@AlbumTitle");
+                    this.hlAlbum.NavigateUrl = string.Format(@"~/FrontSitePages/MiriMargolin/Gallery.aspx?AlbumId={0}", command.Parameters["@AlbumId"].Value.ToString());
                     this.lblStory.Text = GetOutputValue(command, "@ImageStory");
                     this.lblSizes.Text = GetOutputValue(command, "@ImageSizes");
                 }
@@ -287,7 +296,7 @@ namespace StrongerOrg.Backoffice.UserControls
 
         protected void SqlDataSource1_Selected(object sender, SqlDataSourceStatusEventArgs e)
         {
-            string albumTitle = this.lblAlbumTitle.Text;
+            string albumTitle = this.hlAlbum.Text;
             ListItem selectedItem = this.ddlAlbums.Items.FindByText(albumTitle);
             if (selectedItem != null)
             {
@@ -349,6 +358,7 @@ namespace StrongerOrg.Backoffice.UserControls
                 command.Parameters.Add("@ImageCaption", SqlDbType.NVarChar, 150).Value = this.txtImgCaption.Text;
                 command.Parameters.Add("@ImageStory", SqlDbType.VarChar, 512).Value = this.tbStory.Text;
                 command.Parameters.Add("@sizes", SqlDbType.VarChar, 50).Value = this.txtSizes.Text;
+                command.Parameters.Add("@ImageOrder", SqlDbType.Int).Value = this.ddlImageOrder.SelectedValue;
                 conn.Open();
                 command.ExecuteNonQuery();
             }

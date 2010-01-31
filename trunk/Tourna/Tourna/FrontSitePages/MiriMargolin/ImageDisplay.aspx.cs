@@ -15,13 +15,6 @@ namespace StrongerOrg.FrontSitePages.MiriMargolin
             this.ImageViewer1.IsEditMode = false;
 
         }
-        
-        protected void hlBackToAlbum_Load(object sender, EventArgs e)
-        {
-            this.hlBackToAlbum.NavigateUrl = string.Format("Gallery.aspx?AlbumId={0}", this.ImageViewer1.AlbumId.ToString());
-        }
-
-
       
     }
 }
