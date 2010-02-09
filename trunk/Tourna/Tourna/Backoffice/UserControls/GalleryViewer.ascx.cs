@@ -32,7 +32,7 @@ namespace StrongerOrg.Backoffice.UserControls
         {
             this.DataList1.DataBind();
         }
-        internal string ImageViewerUrl
+        public string ImageViewerUrl
         {
             get;set;
         }

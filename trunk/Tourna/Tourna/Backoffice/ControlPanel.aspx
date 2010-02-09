@@ -1,6 +1,6 @@
 <%@ Page Title="Control Panel" Language="C#" MasterPageFile="~/Backoffice/BackOffice.Master"
     AutoEventWireup="true" CodeBehind="ControlPanel.aspx.cs" Inherits="StrongerOrg.Backoffice.ControlPanel" %>
-
+<%@ MasterType VirtualPath="~/Backoffice/BackOffice.Master" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <br />
     <asp:LinqDataSource ID="TournamentSource" runat="server" ContextTypeName="StrongerOrg.Backoffice.DataLayer.TournaDataContext"
@@ -28,17 +28,18 @@
                     <Items>
                         <asp:MenuItem Text="Show Players" Value="0"></asp:MenuItem>
                         <asp:MenuItem Value="1" Text="Show Pairs"></asp:MenuItem>
-                        <asp:MenuItem Text=" Schedule Games" Value="2"></asp:MenuItem>
+                        <asp:MenuItem Text=" Scheduled Games" Value="2"></asp:MenuItem>
                     </Items>
                 </asp:Menu>
             </td>
         </tr>
         <tr>
             <td>
-                <asp:MultiView ID="PageView" runat="server" ActiveViewIndex="2">
+                <asp:MultiView ID="PageView" runat="server" ActiveViewIndex="0">
                     <asp:View ID="PlayersView" runat="server">
-                        <asp:TextBox ID="txtNumPlayer" runat="server" />
-                        <asp:LinkButton ID="lbtnAddPlayers" runat="server" Text="Add Players" OnClick="lbtnAddPlayers_Click" />
+                        Add <asp:TextBox ID="txtNumPlayer" runat="server" Height="21px" Width="36px" />
+                        players <asp:LinkButton ID="lbtnAddPlayers" runat="server" Text="Add" 
+                            OnClick="lbtnAddPlayers_Click" />
                         <br />
                         <table style="width: 100%">
                             <tr>
@@ -46,6 +47,7 @@
                                     Number of Players:
                                     <asp:Label ID="lblNumOfPlayers" Text="0" Font-Bold="true" runat="server" />
                                     <asp:LinkButton ID="lbtnPlayersExport" Text="Export" runat="server" OnClick="lbtnPlayersExport_Click" />
+                                    
                                 </td>
                             </tr>
                             <tr>
@@ -81,13 +83,15 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <asp:Label ID="lblMultiGame" Text="Number of Games:" runat="server" Visible="false" />
+                                    <asp:Label ID="lblMultiGame" Text="Number of Games:" runat="server" />
                                 </td>
                                 <td>
-                                    <asp:TextBox ID="txtMultiGame" runat="server" Visible="false" Text="1" />
+                                    <asp:TextBox ID="txtMultiGame" runat="server" Text="1" Height="21px" 
+                                        Width="36px" />
                                 </td>
                                 <td>
-                                    <asp:LinkButton ID="lbtnPairUp" runat="server" Visible="false" Text="Pair" OnClick="lbtnPairUp_Click" />
+                                    <asp:LinkButton ID="lbtnPairUp" runat="server" Text="Pair" 
+                                        OnClick="lbtnPairUp_Click" />
                                 </td>
                             </tr>
                         </table>
@@ -96,6 +100,8 @@
                                 <td style="text-align: right">
                                     Number of Games:
                                     <asp:Label ID="lblNumActiveGames" runat="server" Font-Bold="true" />
+                                    <asp:LinkButton ID="lBtnSave" Text="Save" runat="server" 
+                                        onclick="lBtnSave_Click"  />
                                     <asp:LinkButton ID="lbtnPairsExport" Text="Export" runat="server" OnClick="lbtnPairsExport_Click" />
                                 </td>
                             </tr>
@@ -125,7 +131,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <asp:LinkButton ID="lbtnForceReschedule" runat="server" Text="Reschedule" 
+                                    <asp:LinkButton ID="lbtnForceReschedule" runat="server" Text="Run scheduler" 
                                         onclick="lbtnForceReschedule_Click" />
                                 </td>
                             </tr>

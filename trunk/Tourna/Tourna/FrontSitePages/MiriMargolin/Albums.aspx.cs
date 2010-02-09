@@ -13,17 +13,5 @@ namespace StrongerOrg.FrontSitePages.MiriMargolin
         {
 
         }
-
-        
-
-        protected void dlAlbums_ItemDataBound(object sender, DataListItemEventArgs e)
-        {
-            if (e.Item.ItemType == ListItemType.AlternatingItem || e.Item.ItemType == ListItemType.Item)
-            {
-                string tournamentId = ((System.Data.DataRowView)e.Item.DataItem).Row["Id"].ToString();
-                SqlDataSource sqlDs = e.Item.FindControl("SqlDataSourceAlbumPreview") as SqlDataSource;
-                sqlDs.SelectParameters["AlbumId"].DefaultValue = tournamentId;
-            }
-        }
     }
 }

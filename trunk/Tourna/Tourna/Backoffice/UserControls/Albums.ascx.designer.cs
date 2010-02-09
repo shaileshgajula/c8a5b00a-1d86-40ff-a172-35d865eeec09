@@ -7,30 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace StrongerOrg.Backoffice {
+namespace StrongerOrg.Backoffice.UserControls {
     
     
-    public partial class OrganisationInfo {
+    public partial class Albums {
         
         /// <summary>
-        /// OrganisationInfo1 control.
+        /// dlAlbums control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::StrongerOrg.Backoffice.UserControls.OrganisationInfo OrganisationInfo1;
+        protected global::System.Web.UI.WebControls.DataList dlAlbums;
         
         /// <summary>
-        /// Master property.
+        /// SqlDataSource1 control.
         /// </summary>
         /// <remarks>
-        /// Auto-generated property.
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        public new StrongerOrg.Backoffice.BackOffice Master {
-            get {
-                return ((StrongerOrg.Backoffice.BackOffice)(base.Master));
-            }
-        }
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
     }
 }

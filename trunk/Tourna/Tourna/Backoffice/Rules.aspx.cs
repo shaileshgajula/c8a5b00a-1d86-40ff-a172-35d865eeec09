@@ -26,7 +26,7 @@ namespace StrongerOrg.Backoffice
             {
                 SqlCommand command = new SqlCommand("TextContentInsert", conn);
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add("@OrganisationId", SqlDbType.UniqueIdentifier, 150).Value = new Guid(HttpContext.Current.Profile.GetPropertyValue("OrganisationId").ToString());
+                command.Parameters.Add("@OrganisationId", SqlDbType.UniqueIdentifier, 150).Value = this.Master.OrgBasicInfo.Id;
                 command.Parameters.Add("@ContentType", SqlDbType.VarChar, 50).Value = "Rules";
                 command.Parameters.Add("@Content", SqlDbType.Text).Value = this.reRules.Content;
                 conn.Open();

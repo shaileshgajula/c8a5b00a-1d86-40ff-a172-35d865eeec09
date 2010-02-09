@@ -14,7 +14,7 @@
         </tr>
         <tr>
             <td align="center">
-            <uc1:ImageViewer ID="ImageViewer1" runat="server" />
+            <uc1:ImageViewer ID="ImageViewer1" runat="server"  />
             </td>
         </tr>
     </table>

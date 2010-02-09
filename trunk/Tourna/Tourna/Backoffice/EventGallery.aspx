@@ -2,13 +2,16 @@
     AutoEventWireup="true" CodeBehind="EventGallery.aspx.cs" Inherits="StrongerOrg.Backoffice.EventGallery" %>
 
 <%@ Register Src="UserControls/GalleryUploader.ascx" TagName="GalleryUploader" TagPrefix="uc1" %>
-<%@ Register Src="UserControls/GalleryViewer.ascx" TagName="GalleryViewer" TagPrefix="uc2" %>
+
+<%@ Register src="UserControls/Albums.ascx" tagname="Albums" tagprefix="uc2" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <table border=0 width="100%" style="height:100%">
         <tr>
             <td align="center">
-                <uc2:GalleryViewer ID="GalleryViewer1" runat="server" />
+                
+                <uc2:Albums ID="Albums1" runat="server" BaseNavigationUrl="~/BackOffice" />
+                
             </td>
         </tr>
         <tr>

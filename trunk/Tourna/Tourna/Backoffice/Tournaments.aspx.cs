@@ -37,7 +37,7 @@ namespace StrongerOrg.Backoffice
                      Select(y =>
                          new
                          {
-                             Id=y.Id,
+                             Id = y.Id,
                              StartDate = y.Start,
                              PlayerAId = y.PlayerA,
                              PlayerA = db.Players.Where(p => p.Id == y.PlayerA).Select(n => n.Name).First(),
@@ -45,7 +45,10 @@ namespace StrongerOrg.Backoffice
                              PlayerB = db.Players.Where(p => p.Id == y.PlayerB).Select(n => n.Name).First(),
                              ScoreA = y.ScoreA,
                              ScoreB = y.ScoreB,
-                             WinnerId = y.Winner
+                             WinnerId = (y.ScoreA.HasValue && y.ScoreB.HasValue) ?
+                                    (y.ScoreA > y.ScoreB) ? 0 : 1 : -1,
+                                    MatchupId = y.MatchUpId
+
                              //Score = (y.ScoreA.HasValue && y.ScoreB.HasValue) ? string.Format("{0}-{1}", y.ScoreA.Value.ToString(), y.ScoreB.Value.ToString()) : string.Empty
                          })
                      .ToList();
@@ -75,19 +78,23 @@ namespace StrongerOrg.Backoffice
                     this.Bracket1.Results.Clear();
                     BracketControlCollection<BracketCompetitor> bcc = new BracketControlCollection<BracketCompetitor>();
                     BracketCollection<BracketMatchupResult> bcBm = new BracketCollection<BracketMatchupResult>();
+                    int i=1;
                     foreach (var item in dateInfo)
                     {
-                        bcc.Add(new BracketCompetitor() { CompetitorId = item.PlayerAId.ToString(), CompetitorName = item.PlayerA });
-                        bcc.Add(new BracketCompetitor() { CompetitorId = item.PlayerBId.ToString(), CompetitorName = item.PlayerB });
-                        if (item.WinnerId != null)
+                        
+                        if (item.WinnerId != -1)
                         {
-                            bcBm.Add(new BracketMatchupResult() { WinningCompetitorId = item.WinnerId.ToString() });
+                            bcBm.Add(new BracketMatchupResult() { MatchupID = item.MatchupId, WinningCompetitorId = "BracketCompetitor" + (i + item.WinnerId).ToString() });
                         }
+                        bcc.Add(new BracketCompetitor() {  CompetitorId = item.PlayerAId.ToString(), CompetitorName = item.PlayerA});
+                        bcc.Add(new BracketCompetitor() { CompetitorId = item.PlayerBId.ToString(), CompetitorName = item.PlayerB});
+                        i += 2;
                         
                     }
+                    this.Bracket1.Results = bcBm;
                     this.Bracket1.Competitors = bcc;
 
-                    this.Bracket1.Results = bcBm;
+                   
 
                     //this.Bracket1.Competitors.Add(new BracketCompetitor() { CompetitorName = "pini", CompetitorId = "5" });
                     //this.brcStandings.DataSource = dateInfo.Select((x) => new
@@ -103,6 +110,13 @@ namespace StrongerOrg.Backoffice
                 else
                 {
                     cal.Visible = false;
+                    string noMatchupFoundMsg = string.Format(@"No match ups have been created yet. The auto match up process will start on 
+                        {0} .If you wish to run the match up with the current registred players  
+                        ", this.GridView1.Rows[this.GridView1.SelectedIndex].Cells[2].Text);
+                    this.lblCalendarMatchupResult.Visible = true;
+                    this.lblRememberEdit.Visible = true;
+                    this.lbCreateMatchUps.Visible = true;
+                    this.lblCalendarMatchupResult.Text = noMatchupFoundMsg;
                 }
             }
         }
@@ -129,9 +143,10 @@ namespace StrongerOrg.Backoffice
             this.GridView1.SelectedIndex = 0;
             this.ScheduleViewActivate();
         }
-        
+
         protected void lbEditPicksMode_Click(object sender, EventArgs e)
         {
+            this.lbEditPicksMode.Text = "Save and Colse"; 
             this.Bracket1.DisplayMode = Bracket.BracketDisplayMode.EditPicksMode;
         }
 
@@ -140,6 +155,21 @@ namespace StrongerOrg.Backoffice
 
         }
 
+        protected void lbClearAllScheduledGames_Click(object sender, EventArgs e)
+        {
+            using (TournaDataContext db = new TournaDataContext())
+            {
+                Guid tournamentId = new Guid(this.GridView1.DataKeys[this.GridView1.SelectedIndex].Values["Id"].ToString());
+                db.ScheduleTournamentDelete(tournamentId);
+                this.lblClearAllScheduledGames.Visible = true;
+                this.mvTournament.DataBind();
+            }
+        }
+        public string BuildNavigateUrl(object id, object playerId)
+        {
+            string orgId = Master.OrgBasicInfo.Id.ToString();
+            return string.Format("~/OrganisationSite/StandingUpdate.aspx?OrgId={0}&PlayerId={1}&ScheduleId={2}", orgId, playerId.ToString(), id.ToString());
+        }
         //protected void schedDatesGrid_RowEditing(object sender, GridViewEditEventArgs e)
         //{
         //    schedDatesGrid.EditIndex = e.NewEditIndex;

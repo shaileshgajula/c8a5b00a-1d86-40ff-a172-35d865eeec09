@@ -42,7 +42,8 @@
             Score</td>
         <td>
             <telerik:RadNumericTextBox ID="rntbScoreA" Runat="server" 
-                Culture="English (United States)" DataType="System.Int32" ShowSpinButtons="true" MaxValue="3" MinValue="0" EmptyMessage="Enter the score"
+                Culture="English (United States)" DataType="System.Int32" 
+                ShowSpinButtons="true" MaxValue="30" MinValue="0" EmptyMessage="Enter the score"
                 Width="125px">
                 <NumberFormat DecimalDigits="0" />
             </telerik:RadNumericTextBox>
@@ -51,7 +52,8 @@
             Score</td>
         <td>
             <telerik:RadNumericTextBox ID="rntbScoreB" Runat="server" 
-                Culture="English (United States)" DataType="System.Int32" ShowSpinButtons="true" MaxValue="3" MinValue="0" EmptyMessage="Enter the score" 
+                Culture="English (United States)" DataType="System.Int32" 
+                ShowSpinButtons="true" MaxValue="30" MinValue="0" EmptyMessage="Enter the score" 
                 Width="125px">
                 <NumberFormat DecimalDigits="0" />
             </telerik:RadNumericTextBox>

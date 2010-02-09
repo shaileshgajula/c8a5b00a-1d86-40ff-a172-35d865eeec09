@@ -14,6 +14,7 @@ namespace StrongerOrg.OrganisationSite
             string orgId = Request.QueryString["OrgId"].ToString();
             this.lblOrganisationId.Text = orgId;
             this.GalleryViewer1.ImageViewerUrl = string.Format(@"~\OrganisationSite\ImageViewer.aspx?OrgId={0}&ImgId=",orgId); 
+            
         }
     }
 }

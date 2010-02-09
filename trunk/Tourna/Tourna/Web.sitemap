@@ -9,9 +9,8 @@
       <siteMapNode title="Contact Us"></siteMapNode>
       <siteMapNode title="Events gallery"></siteMapNode>
       <siteMapNode title="Organization Site" url="~/OrganisationSite.aspx" >
-        <siteMapNode title="Leagues" url="~\OrganisationSite\Leagues.aspx"></siteMapNode>
-        <siteMapNode title="Schedules" url="~\OrganisationSite\Schedules.aspx"></siteMapNode>
-        <siteMapNode title="Standings" url="~\OrganisationSite\Standings.aspx"></siteMapNode>
+        <siteMapNode title="Tournaments" url="~\OrganisationSite\Leagues.aspx"></siteMapNode>
+        
         <siteMapNode title="Rules" url="~\OrganisationSite\Rules.aspx"></siteMapNode>
         <siteMapNode title="Event Gallery" url="~\OrganisationSite\EventGallery.aspx" ></siteMapNode>
         <siteMapNode title="Contact Moderator" url="~\OrganisationSite\ContactModerator.aspx"></siteMapNode>
@@ -54,7 +53,7 @@
         <siteMapNode title="Manage Users" url="~/Backoffice/ManageUsers.aspx"/>
         <siteMapNode title="Login as other user" url="~/Backoffice/Administrator/LoginAsOtherUser.aspx"/>
         <siteMapNode title="Default Holidays" url="~/Backoffice/DefaultHolidays.aspx"/>
-        <siteMapNode title="Control Panel" url="~/Backoffice/Administrator/ControlPanel.aspx" description="Use carefully - for me only!!"/>
+        <siteMapNode title="Control Panel" url="~/Backoffice/ControlPanel.aspx" description="Use carefully - for me only!!"/>
         <siteMapNode title="User stats" url="~/Backoffice/Administrator/WhoIsOnline.aspx" description="See which users are on line now (10 min window)"/>
         <siteMapNode title="FAQ" url="~/Backoffice/Administrator/Faq.aspx" description="faq in the front site"/>
         <siteMapNode title="Site Map" url="~/Backoffice/SiteMap.aspx"/>

@@ -173,7 +173,7 @@ opacity : 0.4;
 /* ****************** */
 
 input[type=text], input[type=file], select, textarea {
-width: 220px;
+
 border:1px solid gray;
 } 
 

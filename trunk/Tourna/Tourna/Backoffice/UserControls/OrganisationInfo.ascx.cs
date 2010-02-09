@@ -47,7 +47,7 @@ namespace StrongerOrg.Backoffice.UserControls
             {
                 SqlCommand command = new SqlCommand("OragnisationLogoRemove", conn);
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add("@OrganisationId", SqlDbType.UniqueIdentifier, 50).Value = new Guid(Response.Cookies["OrganisationId"].Value.ToString());
+                command.Parameters.Add("@OrganisationId", SqlDbType.UniqueIdentifier, 50).Value = ((StrongerOrg.Backoffice.BackOffice)this.Page.Master).OrgBasicInfo.Id;
                 conn.Open();
                 command.ExecuteNonQuery();
                 orgLogo.Visible = false;
