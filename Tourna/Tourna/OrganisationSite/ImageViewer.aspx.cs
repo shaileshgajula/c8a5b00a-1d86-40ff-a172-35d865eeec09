@@ -16,6 +16,7 @@ namespace StrongerOrg.OrganisationSite
                 string orgId = Request.QueryString["OrgId"].ToString();
                 this.hlViewAll.NavigateUrl = string.Format("~/OrganisationSite/EventGallery.aspx?OrgId={0}", orgId);
                 this.ImageViewer1.ImageFolder = "~/OrganisationSite/ImageViewer.aspx?OrgId=" + orgId + "&ImgId={0}";
+                this.ImageViewer1.IsEditMode = false;
             }
         }
     }

@@ -4,5 +4,5 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:Label ID="lblOrganisationId" runat="server" Visible="False"></asp:Label>
-    <uc1:GalleryViewer ID="GalleryViewer1" runat="server" />
+    <uc1:GalleryViewer ID="GalleryViewer1" runat="server"  />
 </asp:Content>

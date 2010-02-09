@@ -13,5 +13,16 @@ namespace StrongerOrg.OrganisationSite
         {
 
         }
+
+        protected void SqlDataSource1_Selected(object sender, SqlDataSourceStatusEventArgs e)
+        {
+
+        }
+
+        public string BuildNavigaionUrl(string pageName ,string tournamentId)
+        {
+            string organisationId = Request.QueryString["OrgId"];
+            return string.Format("{0}?OrgId={1}&TournamentId={2}",pageName, organisationId, tournamentId);
+        }
     }
 }

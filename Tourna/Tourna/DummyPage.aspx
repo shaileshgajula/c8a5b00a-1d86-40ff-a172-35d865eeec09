@@ -137,7 +137,23 @@
 <body>
     <form id="form1" runat="server">
     
-    <asp:ScriptManager ID="ScriptManager" runat="server" />
+    <asp:Label ID="Label1" runat="server" Text="Number of players"></asp:Label><asp:TextBox ID="TextBox1"
+        runat="server"></asp:TextBox><asp:Button ID="btnCreatPlayers" 
+        runat="server" Text="Creat players" onclick="btnCreatPlayers_Click" />
+        <asp:Button
+            ID="btnRandomize" runat="server" Text="Randomize" 
+        onclick="btnRandomize_Click" /><asp:Button ID="btnSingle" runat="server" 
+        Text="Single Elimination bye" onclick="btnSingle_Click" /><asp:Button ID="btnSinglePair"
+            runat="server" Text="Single Elimination Pairs" 
+        onclick="btnSinglePair_Click" /><br />
+    <asp:Label ID="Label2" runat="server" Text=""></asp:Label>
+    <asp:GridView ID="gvResults" runat="server" AutoGenerateColumns="true">
+    </asp:GridView>
+    <asp:GridView ID="gvPairs" runat="server">
+    </asp:GridView>
+    <tl:Bracket ID="Bracket1" runat="server"></tl:Bracket>
+    
+    <%--<asp:ScriptManager ID="ScriptManager" runat="server" />
     <telerik:RadSplitter ID="RadSplitter1" runat="server" Width="100%" Height="300">
         <telerik:RadPane ID="RadPane1" runat="server" Width="20%">
             Menue
@@ -152,7 +168,7 @@
         
             <asp:LinkButton ID="LinkButton1" runat="server" >LinkButton</asp:LinkButton>
             </telerik:RadPane>
-    </telerik:RadSplitter>
+    </telerik:RadSplitter>--%>
     
     </form>
 </body>

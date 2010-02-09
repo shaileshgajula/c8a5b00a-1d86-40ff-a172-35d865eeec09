@@ -40,7 +40,7 @@
             <asp:BoundField DataField="RoleName" HeaderText="Role Name" SortExpression="RoleName" />
             <asp:BoundField DataField="LastActivityDate" HeaderText="Last Activity Date" SortExpression="LastActivityDate"
                 DataFormatString="{0:d}" />
-            <asp:BoundField DataField="Description" HeaderText="Role Description" SortExpression="Description" />
+            <asp:BoundField DataField="Email" HeaderText="Role Description" SortExpression="Description" />
             <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" />
         </Columns>
         <EmptyDataTemplate>
@@ -115,10 +115,10 @@
             <td>
                 <asp:RadioButtonList ID="rbRoles" runat="server">
                     <asp:ListItem Selected="True">Moderator</asp:ListItem>
-                    <asp:ListItem>Accountants</asp:ListItem>
+                   <%-- <asp:ListItem>Accountants</asp:ListItem>
                     <asp:ListItem Value="ContentManager">Content manager</asp:ListItem>
                     <asp:ListItem Value="LockSmithUser">LockSmithUser</asp:ListItem>
-                    <asp:ListItem Value="MiriMargolinDelegate">MiriMargolin</asp:ListItem>
+                    <asp:ListItem Value="MiriMargolinDelegate">MiriMargolin</asp:ListItem>--%>
                 </asp:RadioButtonList>
             </td>
         </tr>

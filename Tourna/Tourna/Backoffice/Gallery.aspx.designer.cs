@@ -10,27 +10,15 @@
 namespace StrongerOrg.Backoffice {
     
     
-    public partial class OrganisationInfo {
+    public partial class Gallery {
         
         /// <summary>
-        /// OrganisationInfo1 control.
+        /// GalleryViewer1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::StrongerOrg.Backoffice.UserControls.OrganisationInfo OrganisationInfo1;
-        
-        /// <summary>
-        /// Master property.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated property.
-        /// </remarks>
-        public new StrongerOrg.Backoffice.BackOffice Master {
-            get {
-                return ((StrongerOrg.Backoffice.BackOffice)(base.Master));
-            }
-        }
+        protected global::StrongerOrg.Backoffice.UserControls.GalleryViewer GalleryViewer1;
     }
 }

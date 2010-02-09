@@ -5,11 +5,12 @@
       padding: 0;
       border: none;
       text-align: center;
-      background-color: #ECECEC;
+      /*background-color: #ECECEC;*/
 	
    }
    body
    {
+   background:#b5cce3 url(/images/background_slice_lighterblue.jpg) repeat-y;background-attachment:fixed;background-position: center ;
    color: #43431f;
 	font-family: Verdana, Helvetica, sans-serif;
 	border-top: 10px solid #74b741;

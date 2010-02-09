@@ -11,8 +11,8 @@ namespace StrongerOrg.FrontSitePages.MiriMargolin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.ImageViewer1.ImageFolder = "~/FrontSitePages/MiriMargolin/ImageDisplay.aspx?ImgId={0}";
-            this.ImageViewer1.IsEditMode = false;
+            //this.ImageViewer1.ImageFolder = "~/FrontSitePages/MiriMargolin/ImageDisplay.aspx?ImgId={0}";
+            //this.ImageViewer1.IsEditMode = false;
 
         }
       

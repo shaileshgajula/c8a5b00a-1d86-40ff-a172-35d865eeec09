@@ -268,8 +268,8 @@ namespace StrongerOrg.Backoffice
             }
 
 
-            if (dates.Count() == 0)
-                this.RunScheduler();
+            //if (dates.Count() == 0)
+                //this.RunScheduler();
 
             CalendarVisualizer vis = new CalendarVisualizer(dates);
             vis.Display(schedulesPlaceHolder);
@@ -279,7 +279,7 @@ namespace StrongerOrg.Backoffice
         private void RunScheduler()
         {
             Guid tournamentId = new Guid(this.drpDownTournamentList.SelectedValue);
-            SchedulerAlgo.ScheduleGames(tournamentId);
+            SchedulerAlgo.ScheduleGames(tournamentId, this.drpPairAlgo.SelectedValue, this.drpPairing.SelectedValue);
 
             this.ScheduleViewActivate();
         }
@@ -343,7 +343,7 @@ namespace StrongerOrg.Backoffice
         protected void drpDownTournamentList_DataBound(object sender, EventArgs e)
         {
             string x = this.drpDownTournamentList.SelectedValue;
-            string tournamentId = Request.QueryString["TournamentId"].ToString();
+            string tournamentId = this.Master.OrgBasicInfo.Id.ToString();
             foreach (ListItem item in this.drpDownTournamentList.Items)
             {
                 if (item.Value == tournamentId)
@@ -359,6 +359,13 @@ namespace StrongerOrg.Backoffice
         {
             this.ScheduleViewActivate();
         }
+
+        protected void lBtnSave_Click(object sender, EventArgs e)
+        {
+            RunScheduler();
+        }
+
+       
 
         
 

@@ -45,8 +45,9 @@ namespace StrongerOrg.OrganisationSite
             else
             {
                 this.btnUpdate.Enabled = false;
+                //string timeStamp = (standingDataTable[0].TimeStamp != DBNull.Value) ? standingDataTable[0].TimeStamp.ToString() : "N/A";
                 this.lblMessage.Text = string.Format("The score was updated by {0} at {1}.<br> In case of dispute you can contact the tournament ",
-                    standingDataTable[0].UpdatedBy.ToString(), standingDataTable[0].TimeStamp.ToString());
+                    standingDataTable[0].UpdatedBy.ToString(), "N/A");
                 this.hlContactModerator.Visible = true;
                 this.hlContactModerator.NavigateUrl = string.Format("ContactModerator.aspx?OrgId={0}", orgId);
                 this.rntbScoreA.Value = standingDataTable[0].ScoreA;

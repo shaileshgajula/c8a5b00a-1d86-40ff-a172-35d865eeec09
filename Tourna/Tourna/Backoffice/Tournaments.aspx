@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="Tournaments" Language="C#" MasterPageFile="~/Backoffice/BackOffice.Master"
     AutoEventWireup="true" CodeBehind="Tournaments.aspx.cs" Inherits="StrongerOrg.Backoffice.Tournaments" %>
-
+<%@ MasterType VirtualPath="~/Backoffice/BackOffice.Master" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajax" %>
 <%@ Register Assembly="TourneyLogic.Web.UI.BracketControl.v2" Namespace="TourneyLogic.Web.UI.WebControls"
     TagPrefix="tl" %>
 <%@ Register Src="UserControls/TournamentDetails.ascx" TagName="TournamentDetails"
@@ -65,9 +66,9 @@
                     <Items>
                         <asp:MenuItem Text="Tournament details" Value="0" Selected="true" SeparatorImageUrl="~/Images/Icons/Seperator.gif">
                         </asp:MenuItem>
-                        <asp:MenuItem Text="Standings [Calendar view]" Value="1" SeparatorImageUrl="~/Images/Icons/Seperator.gif">
-                        </asp:MenuItem>
                         <asp:MenuItem Text="Standings [Grid view]" Value="2" SeparatorImageUrl="~/Images/Icons/Seperator.gif">
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Standings [Calendar view]" Value="1" SeparatorImageUrl="~/Images/Icons/Seperator.gif">
                         </asp:MenuItem>
                         <asp:MenuItem Text="Standings [Brackets view]" Value="3" SeparatorImageUrl="~/Images/Icons/Seperator.gif">
                         </asp:MenuItem>
@@ -87,7 +88,12 @@
                         <uc1:TournamentDetails ID="TournamentDetails1" runat="server" />
                     </asp:View>
                     <asp:View ID="View1" runat="server">
-                        <div style="width:100%" align=center>
+                        <div style="width: 100%" align="center">
+                            <asp:Label ID="lblCalendarMatchupResult" runat="server" Text="Label" Visible="false"
+                                CssClass="GrayTextLight"></asp:Label>
+                            <asp:LinkButton ID="lbCreateMatchUps" runat="server" Visible="false" CssClass="GrayTextLight">click here</asp:LinkButton>
+                            <asp:Label ID="lblRememberEdit" runat="server" CssClass="GrayTextLight" Text=".Remember, you can always edit the match up manually."
+                                Visible="false"></asp:Label>
                             <asp:Calendar ID="calSchedules" runat="server" Visible="true" Width="50%" Height="250px">
                             </asp:Calendar>
                         </div>
@@ -101,7 +107,10 @@
                                 <asp:BoundField DataField="Start" HeaderText="Start" SortExpression="Start" ReadOnly="true" />
                                 <asp:TemplateField HeaderText="Game">
                                     <ItemTemplate>
-                                        <%# string.Format("{0} vs. {1}", Eval("PlayerAName").ToString() ,Eval("PlayerBName").ToString())%>
+                                        <asp:HyperLink ID="hlScoreUpdatePlayerA" runat="server" Target="_blank" NavigateUrl='<%#BuildNavigateUrl(Eval("Id"), Eval("PlayerAId")) %>'><%#Eval("PlayerAName") %></asp:HyperLink>
+                                        vs. 
+                                        <asp:HyperLink ID="hlScoreUpdatePlayerB" runat="server" Target="_blank" NavigateUrl='<%#BuildNavigateUrl(Eval("Id"), Eval("PlayerBId")) %>'><%# Eval("PlayerBName")%></asp:HyperLink>
+                                        
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField>
@@ -122,6 +131,7 @@
                                     <HeaderStyle HorizontalAlign="Center" />
                                     <ItemStyle HorizontalAlign="Center" CssClass="navigate" />
                                 </asp:CommandField>
+                                
                             </Columns>
                         </asp:GridView>
                         <asp:SqlDataSource ID="standingsSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:StrongerOrgString %>"
@@ -154,9 +164,14 @@
                             <li>
                                 <asp:LinkButton ID="LinkButton1" runat="server">Schedule registred players</asp:LinkButton></li>
                             <li>
-                                <asp:LinkButton ID="LinkButton5" runat="server">Clear all Scheduled games</asp:LinkButton></li>
+                                <ajax:ConfirmButtonExtender ID="ConfirmButtonExtender1" runat="server" TargetControlID="lbClearAllScheduledGames"
+                                    ConfirmText="By deleting all match up you are deleteing any scores and you will not be able to reproduce it">
+                                </ajax:ConfirmButtonExtender>
+                                <asp:LinkButton ID="lbClearAllScheduledGames" runat="server" OnClick="lbClearAllScheduledGames_Click">Clear all Scheduled games</asp:LinkButton></li>
+                            <asp:Label ID="lblClearAllScheduledGames" runat="server" Text="All scheduled games have been deleted"
+                                Visible="false"></asp:Label>
                             <li>
-                                <asp:LinkButton ID="LinkButton3" runat="server">Close registration</asp:LinkButton></li>
+                                <asp:LinkButton ID="lblCloseRegistration" runat="server">Close registration</asp:LinkButton></li>
                             <li>
                                 <asp:LinkButton ID="LinkButton4" runat="server">Build Schedules manually...</asp:LinkButton></li>
                         </ul>

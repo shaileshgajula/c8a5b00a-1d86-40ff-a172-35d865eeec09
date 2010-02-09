@@ -34,7 +34,7 @@ namespace StrongerOrg.BackOffice.Scheduler
         //    }
         //}
 
-        internal static void ScheduleGames(Guid tournaId)
+        internal static void ScheduleGames(Guid tournaId, string pairAlgo, string matchType)
         {
             //get org id
             Guid orgId = Guid.Empty;
@@ -56,31 +56,32 @@ namespace StrongerOrg.BackOffice.Scheduler
 
             }
 
-            ScheduleGames(orgId, tournaId, startDate);
+            ScheduleGames(orgId, tournaId, startDate, (PairsMatchType)(Enum.Parse(typeof(PairsMatchType), matchType)),
+                (PairsAlgorithmType)(Enum.Parse(typeof(PairsAlgorithmType), pairAlgo)));
         }
 
-        internal static void ScheduleGames(Guid orgId, Guid tournaId)
-        {
-            //Get tourna startDate
-            DateTime startDate = new DateTime();
-            using (TournaDataContext db = new TournaDataContext())
-            {
-                 startDate  = db.Tournaments.Where(x => x.Id == tournaId)
-                                                   .Select(y => y.StartDate)
-                                                   .FirstOrDefault() ?? new DateTime();
-            }
+        //internal static void ScheduleGames(Guid orgId, Guid tournaId)
+        //{
+        //    //Get tourna startDate
+        //    DateTime startDate = new DateTime();
+        //    using (TournaDataContext db = new TournaDataContext())
+        //    {
+        //         startDate  = db.Tournaments.Where(x => x.Id == tournaId)
+        //                                           .Select(y => y.StartDate)
+        //                                           .FirstOrDefault() ?? new DateTime();
+        //    }
 
-            ScheduleGames(orgId, tournaId, startDate);
-        }
-        internal static void ScheduleGames(Guid orgId, Guid tournaId, DateTime startDate)
+        //    ScheduleGames(orgId, tournaId, startDate);
+        //}
+        internal static void ScheduleGames(Guid orgId, Guid tournaId, DateTime startDate, PairsMatchType matchType, PairsAlgorithmType pairAlgo)
         {
             TournamentInfo info = new TournamentInfo()
             {
                 TournamentId = tournaId,
                 OrganisationId = orgId,
                 StartDate = startDate,
-                MatchType = PairsMatchType.MultiGame,
-                PairAlgo = PairsAlgorithmType.Alphabetical,
+                MatchType = matchType,
+                PairAlgo = pairAlgo
             };
 
             ScheduleGames(info);
@@ -118,7 +119,7 @@ namespace StrongerOrg.BackOffice.Scheduler
             int i = 0;
             int numberOfGamesPerDay = 3;
             DateTime dts = startDate;
-            List<StrongerOrg.Backoffice.DataLayer.Schedule> scheds = new List<StrongerOrg.Backoffice.DataLayer.Schedule>();
+            List<StrongerOrg.Backoffice.DataLayer.Schedules> scheds = new List<StrongerOrg.Backoffice.DataLayer.Schedules>();
             //schedule 3 games per day within 15 min intervals
             
             IEnumerator<DateTime> dayEnumerator = cultManager.GetNextBusinessDay(startDate).GetEnumerator();
@@ -134,7 +135,7 @@ namespace StrongerOrg.BackOffice.Scheduler
 
                 DateTime dte = dts.AddMinutes(15);
                 //insert here
-                scheds.Add(new StrongerOrg.Backoffice.DataLayer.Schedule()
+                scheds.Add(new StrongerOrg.Backoffice.DataLayer.Schedules()
                                 {
                                     TournamentId = tournamentInfo.TournamentId,
                                     PlayerA = matches.PlayerAId,

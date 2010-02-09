@@ -5,13 +5,15 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace StrongerOrg.FrontSitePages.MiriMargolin
+namespace StrongerOrg.Backoffice
 {
-    public partial class Gallery : System.Web.UI.Page
+    public partial class Gallery : BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.GalleryViewer1.ImageViewerUrl = "~\\FrontSitePages\\MiriMargolin\\ImageViewer.aspx?ImgId=";
+          
         }
+
+      
     }
 }

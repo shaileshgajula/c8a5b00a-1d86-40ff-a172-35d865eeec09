@@ -27,11 +27,11 @@ namespace StrongerOrg.Backoffice.Entities
         {
             //check length of players
             List<MetaPlayer> playersList = PairsAlgo.GetPlayers(tournaId, this.AlgoType);
-            int count = playersList.Count();
-            int numOfRounds = 2;
+            //int count = playersList.Count();
+            //int numOfRounds = 2;
 
-            if (count >= 32)
-                numOfRounds = 1;
+           // if (count >= 32)
+              int   numOfRounds = 1;
 
             return PairsAlgo.BuildPairs(tournaId, this.MatchType, playersList, numOfRounds);
         }

@@ -17,13 +17,14 @@
 </script>
 <table border="0" cellpadding="0" cellspacing="0" style="width: 100%">
     <tr>
-        <td align="center" colspan="2">
-            <asp:HyperLink ID="hlPrevious" runat="server"><img src="../../Images/Icons/Previous.png" border="0" alt="Previous image" /></asp:HyperLink>
-            <asp:HyperLink ID="hlNext" runat="server"><img src="../../Images/Icons/next.png" border="0" alt="next"/></asp:HyperLink>
+        <td align="center">
+            <asp:HyperLink ID="hlPrevious" runat="server"><img src="../../Images/Icons/Previous.gif" border="0" alt="Previous image" /></asp:HyperLink>
+            <asp:HyperLink ID="hlNext" runat="server"><img src="../../Images/Icons/next.gif" border="0" alt="Next Image"/></asp:HyperLink>
         </td>
+        <td></td>
     </tr>
     <tr>
-        <td valign="top">
+        <td valign="top" align="center">
             <asp:Image ID="imgBigDisplay" runat="server" />
         </td>
         <td style="border: 1px solid #CCCCCC; vertical-align: top" rowspan="2">
@@ -78,6 +79,14 @@
                     <td class="GrayTitleNormal">
                         <asp:Label ID="lblSizes" runat="server" Text=""></asp:Label>
                         <asp:TextBox ID="txtSizes" runat="server" Visible="false"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="GrayTextLight">
+                       <asp:Label runat="server" ID="lblPrice" Text="Price" Visible="false"></asp:Label>
+                    </td>
+                    <td class="GrayTitleNormal">
+                        <asp:TextBox ID="txtPrice" runat="server" Visible="false"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>

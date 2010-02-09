@@ -50,10 +50,6 @@
     <Reference Include="System.Data.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="System.Web.DataVisualization, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\WINDOWS\assembly\GAC_MSIL\System.Web.DataVisualization\3.5.0.0__31bf3856ad364e35\System.Web.DataVisualization.dll</HintPath>
-    </Reference>
     <Reference Include="System.Web.Extensions">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -78,11 +74,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Themes\MiriMargolin\MiriMargolinStyle.css" />
+    <Content Include="Backoffice\Gallery.aspx" />
     <Content Include="Backoffice\ImageViewer.aspx" />
     <Content Include="Backoffice\LockSmith\OutstandingJobs.aspx" />
     <Content Include="Backoffice\LockSmith\StockManagment.aspx" />
     <Content Include="Backoffice\MiriMargolin\About.aspx" />
     <Content Include="Backoffice\TournamentBuilder.aspx" />
+    <Content Include="Backoffice\UserControls\Albums.ascx" />
     <Content Include="Backoffice\UserControls\GalleryUploader.ascx" />
     <Content Include="Backoffice\UserControls\GalleryViewer.ascx" />
     <Content Include="Backoffice\UserControls\ImageViewer.ascx" />
@@ -94,20 +92,27 @@
     <Content Include="FrontSitePages\MiriMargolin\ContactUs.aspx" />
     <Content Include="FrontSitePages\MiriMargolin\Default.aspx" />
     <Content Include="FrontSitePages\MiriMargolin\Gallery.aspx" />
-    <Content Include="FrontSitePages\MiriMargolin\ImageDisplay.aspx" />
+    <Content Include="FrontSitePages\MiriMargolin\ImageViewer.aspx" />
     <Content Include="FrontSitePages\MiriMargolin\Press.aspx" />
     <Content Include="FrontSitePages\MiriMargolin\ShowCase.aspx" />
     <Content Include="googlehostedservice.html" />
+    <Content Include="Images\background_slice_lighterblue.jpg" />
     <Content Include="Images\GamesImages\bowling_01wii.jpg" />
+    <Content Include="Images\GamesImages\imagesefcfa.jpg" />
+    <Content Include="Images\GamesImages\n32296464496_5812c30dd.jpg" />
     <Content Include="Images\GamesImages\wii-sports-Golf.jpg" />
     <Content Include="Images\GamesImages\wii-sports-tennis.jpg" />
     <Content Include="Images\GamesImages\wiisports_boxing_wii.jpg" />
     <Content Include="Images\Icons\delete-icon.png" />
+    <Content Include="Images\Icons\next.gif" />
     <Content Include="Images\Icons\next.png" />
+    <Content Include="Images\Icons\Previous.gif" />
     <Content Include="Images\Icons\Previous.png" />
     <Content Include="Images\IMG_0041_S.JPG" />
     <Content Include="Images\SeperatorMiri.gif" />
     <Content Include="Images\Staff\MiriMargolinSelf.jpg" />
+    <Content Include="OrganisationLogos\cal_logo980b3.gif" />
+    <Content Include="OrganisationLogos\cal_logo980b38e1c0.gif" />
     <Content Include="OrganisationLogos\MiriMargolinLogo.gif" />
     <Content Include="OrganisationLogos\StrongerOrgLogoForEmails.gif" />
     <Content Include="OrganisationSite\EventGallery.aspx" />
@@ -247,6 +252,13 @@
     </Compile>
     <Compile Include="Backoffice\Administrator\Games.aspx.designer.cs">
       <DependentUpon>Games.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backoffice\Gallery.aspx.cs">
+      <DependentUpon>Gallery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backoffice\Gallery.aspx.designer.cs">
+      <DependentUpon>Gallery.aspx</DependentUpon>
     </Compile>
     <Compile Include="Backoffice\Games2Organisation.aspx.cs">
       <DependentUpon>Games2Organisation.aspx</DependentUpon>
@@ -395,6 +407,13 @@
     <Compile Include="Backoffice\UnscheduledPlayers.aspx.designer.cs">
       <DependentUpon>UnscheduledPlayers.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Backoffice\UserControls\Albums.ascx.cs">
+      <DependentUpon>Albums.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backoffice\UserControls\Albums.ascx.designer.cs">
+      <DependentUpon>Albums.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Backoffice\UserControls\GalleryUploader.ascx.cs">
       <DependentUpon>GalleryUploader.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -542,12 +561,12 @@
     <Compile Include="FrontSitePages\MiriMargolin\Gallery.aspx.designer.cs">
       <DependentUpon>Gallery.aspx</DependentUpon>
     </Compile>
-    <Compile Include="FrontSitePages\MiriMargolin\ImageDisplay.aspx.cs">
-      <DependentUpon>ImageDisplay.aspx</DependentUpon>
+    <Compile Include="FrontSitePages\MiriMargolin\ImageViewer.aspx.cs">
+      <DependentUpon>ImageViewer.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="FrontSitePages\MiriMargolin\ImageDisplay.aspx.designer.cs">
-      <DependentUpon>ImageDisplay.aspx</DependentUpon>
+    <Compile Include="FrontSitePages\MiriMargolin\ImageViewer.aspx.designer.cs">
+      <DependentUpon>ImageViewer.aspx</DependentUpon>
     </Compile>
     <Compile Include="FrontSitePages\MiriMargolin\MiriMargolin.Master.cs">
       <DependentUpon>MiriMargolin.Master</DependentUpon>
@@ -922,7 +941,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>64246</DevelopmentServerPort>
+          <DevelopmentServerPort>57620</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

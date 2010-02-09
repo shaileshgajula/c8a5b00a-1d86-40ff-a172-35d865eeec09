@@ -22,7 +22,7 @@ namespace StrongerOrg.Backoffice.DataLayer
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="PiniTest")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="StrongerOrg")]
 	public partial class TournaDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -63,13 +63,13 @@ namespace StrongerOrg.Backoffice.DataLayer
     partial void InsertDefaultHoliday(DefaultHoliday instance);
     partial void UpdateDefaultHoliday(DefaultHoliday instance);
     partial void DeleteDefaultHoliday(DefaultHoliday instance);
-    partial void InsertSchedule(Schedule instance);
-    partial void UpdateSchedule(Schedule instance);
-    partial void DeleteSchedule(Schedule instance);
+    partial void InsertSchedules(Schedules instance);
+    partial void UpdateSchedules(Schedules instance);
+    partial void DeleteSchedules(Schedules instance);
     #endregion
 		
 		public TournaDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["StrongerOrgString"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["StrongerOrgConnectionString"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -226,11 +226,11 @@ namespace StrongerOrg.Backoffice.DataLayer
 			}
 		}
 		
-		public System.Data.Linq.Table<Schedule> Schedules
+		public System.Data.Linq.Table<Schedules> Schedules
 		{
 			get
 			{
-				return this.GetTable<Schedule>();
+				return this.GetTable<Schedules>();
 			}
 		}
 		
@@ -239,6 +239,13 @@ namespace StrongerOrg.Backoffice.DataLayer
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), organisationId, tournamentId);
 			return ((ISingleResult<PlayersGetResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ScheduleTournamentDelete")]
+		public int ScheduleTournamentDelete([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="UniqueIdentifier")] System.Nullable<System.Guid> tournamentId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), tournamentId);
+			return ((int)(result.ReturnValue));
 		}
 	}
 	
@@ -1262,7 +1269,7 @@ namespace StrongerOrg.Backoffice.DataLayer
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CompanyLogo", DbType="VarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CompanyLogo", DbType="VarChar(250)")]
 		public string CompanyLogo
 		{
 			get
@@ -2025,7 +2032,7 @@ namespace StrongerOrg.Backoffice.DataLayer
 		
 		private System.Nullable<System.DateTime> _DateCreated;
 		
-		private EntitySet<Schedule> _Schedules;
+		private EntitySet<Schedules> _Schedules;
 		
 		private EntityRef<Game> _Game;
 		
@@ -2075,7 +2082,7 @@ namespace StrongerOrg.Backoffice.DataLayer
 		
 		public Tournament()
 		{
-			this._Schedules = new EntitySet<Schedule>(new Action<Schedule>(this.attach_Schedules), new Action<Schedule>(this.detach_Schedules));
+			this._Schedules = new EntitySet<Schedules>(new Action<Schedules>(this.attach_Schedules), new Action<Schedules>(this.detach_Schedules));
 			this._Game = default(EntityRef<Game>);
 			this._Organisation = default(EntityRef<Organisation>);
 			OnCreated();
@@ -2449,8 +2456,8 @@ namespace StrongerOrg.Backoffice.DataLayer
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tournament_Schedule", Storage="_Schedules", ThisKey="Id", OtherKey="TournamentId")]
-		public EntitySet<Schedule> Schedules
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tournament_Schedule1", Storage="_Schedules", ThisKey="Id", OtherKey="TournamentId")]
+		public EntitySet<Schedules> Schedules
 		{
 			get
 			{
@@ -2550,13 +2557,13 @@ namespace StrongerOrg.Backoffice.DataLayer
 			}
 		}
 		
-		private void attach_Schedules(Schedule entity)
+		private void attach_Schedules(Schedules entity)
 		{
 			this.SendPropertyChanging();
 			entity.Tournament = this;
 		}
 		
-		private void detach_Schedules(Schedule entity)
+		private void detach_Schedules(Schedules entity)
 		{
 			this.SendPropertyChanging();
 			entity.Tournament = null;
@@ -3131,7 +3138,7 @@ namespace StrongerOrg.Backoffice.DataLayer
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Schedules")]
-	public partial class Schedule : INotifyPropertyChanging, INotifyPropertyChanged
+	public partial class Schedules : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -3157,6 +3164,8 @@ namespace StrongerOrg.Backoffice.DataLayer
 		private System.Nullable<System.Guid> _UpdatedBy;
 		
 		private System.Nullable<System.DateTime> _TimeStamp;
+		
+		private string _MatchUpId;
 		
 		private EntityRef<Tournament> _Tournament;
 		
@@ -3186,9 +3195,11 @@ namespace StrongerOrg.Backoffice.DataLayer
     partial void OnUpdatedByChanged();
     partial void OnTimeStampChanging(System.Nullable<System.DateTime> value);
     partial void OnTimeStampChanged();
+    partial void OnMatchUpIdChanging(string value);
+    partial void OnMatchUpIdChanged();
     #endregion
 		
-		public Schedule()
+		public Schedules()
 		{
 			this._Tournament = default(EntityRef<Tournament>);
 			OnCreated();
@@ -3418,7 +3429,27 @@ namespace StrongerOrg.Backoffice.DataLayer
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tournament_Schedule", Storage="_Tournament", ThisKey="TournamentId", OtherKey="Id", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MatchUpId", DbType="VarChar(250)")]
+		public string MatchUpId
+		{
+			get
+			{
+				return this._MatchUpId;
+			}
+			set
+			{
+				if ((this._MatchUpId != value))
+				{
+					this.OnMatchUpIdChanging(value);
+					this.SendPropertyChanging();
+					this._MatchUpId = value;
+					this.SendPropertyChanged("MatchUpId");
+					this.OnMatchUpIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tournament_Schedule1", Storage="_Tournament", ThisKey="TournamentId", OtherKey="Id", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
 		public Tournament Tournament
 		{
 			get

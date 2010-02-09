@@ -95,7 +95,7 @@ namespace StrongerOrg.Backoffice.UserControls
 
             }
         }
-        internal bool IsEditMode
+        public bool IsEditMode
         {
             get { return bool.Parse(ViewState["IsEditMode"].ToString()); }
             set { ViewState["IsEditMode"] = value; }
@@ -135,6 +135,8 @@ namespace StrongerOrg.Backoffice.UserControls
                 this.lbUpdateTicket.Visible = true;
                 this.lblImageOrder.Visible = true;
                 this.ddlImageOrder.Visible = true;
+                this.txtPrice.Visible = true;
+                this.lblPrice.Visible = true;
             }
             else
             {
@@ -164,6 +166,7 @@ namespace StrongerOrg.Backoffice.UserControls
                     command.Parameters.Add("@ImageSizes", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
                     command.Parameters.Add("@AlbumId", SqlDbType.Int).Direction = ParameterDirection.Output;
                     command.Parameters.Add("@ImageOrder", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    command.Parameters.Add("@Price", SqlDbType.Int).Direction = ParameterDirection.Output;
                     conn.Open();
                     command.ExecuteNonQuery();
 
@@ -179,7 +182,9 @@ namespace StrongerOrg.Backoffice.UserControls
 
                     this.tbStory.Text = GetOutputValue(command, "@ImageStory");
                     this.txtSizes.Text = GetOutputValue(command, "@ImageSizes");
+                    this.txtPrice.Text = GetOutputValue(command, "@Price");
                     ListItem liImageOrder = this.ddlImageOrder.Items.FindByValue(GetOutputValue(command, "@ImageOrder"));
+
                     if (liImageOrder != null)
                     {
                         liImageOrder.Selected = true;
@@ -359,6 +364,10 @@ namespace StrongerOrg.Backoffice.UserControls
                 command.Parameters.Add("@ImageStory", SqlDbType.VarChar, 512).Value = this.tbStory.Text;
                 command.Parameters.Add("@sizes", SqlDbType.VarChar, 50).Value = this.txtSizes.Text;
                 command.Parameters.Add("@ImageOrder", SqlDbType.Int).Value = this.ddlImageOrder.SelectedValue;
+                if (!string.IsNullOrEmpty(this.txtPrice.Text))
+                {
+                    command.Parameters.Add("@Price", SqlDbType.Money).Value = this.txtPrice.Text;
+                }
                 conn.Open();
                 command.ExecuteNonQuery();
             }

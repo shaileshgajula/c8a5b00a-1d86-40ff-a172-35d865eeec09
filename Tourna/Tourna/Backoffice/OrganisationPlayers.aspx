@@ -5,7 +5,7 @@
     <asp:Label ID="lblTitle" runat="server" Text="" CssClass="GrayTitle"></asp:Label>
     <br /><br />
     <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False"
-        DataKeyNames="Id" DataSourceID="SqlDataSource1">
+        DataKeyNames="Id" DataSourceID="SqlDataSource1" PageSize="20">
         <Columns>
             <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
             <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name"  />
