@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 9.875" name="DataClassesLocksmith">
+  <DataContextMoniker Name="/DataClassesLocksmithDataContext" />
+  <nestedChildShapes>
+    <classShape Id="7c59c9aa-beef-4774-b611-bf9d47f4e146" absoluteBounds="4.75, 2.375, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/DataClassesLocksmithDataContext/Technician" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bcfdcdcd-fa86-4a1b-a504-96a1a7b0414b" absoluteBounds="4.765, 2.835, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6508e961-c568-4d7a-b927-8b1f76fecd4e" absoluteBounds="5.875, 6.5, 2, 3.1170068359375">
+      <DataClassMoniker Name="/DataClassesLocksmithDataContext/Company" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1809ba9b-e096-4e0d-8f2d-d1468fd9e383" absoluteBounds="5.89, 6.96, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

@@ -1,0 +1,71 @@
+﻿<navigation:Page x:Class="Locksmith.Views.NewCompany"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           d:DesignWidth="640" d:DesignHeight="480"
+           Title="NewTechnician Page" xmlns:dataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input">
+  <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock HorizontalAlignment="Left" Name="textBlockTitle" Text="Add New Company" 
+                   VerticalAlignment="Top" Margin="5" FontSize="20" Grid.Row="0"/>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>            
+            <TextBlock x:Name="_textBlockCompanyName" Text="Company Name" Grid.Row="0" Grid.Column="0" Margin="5" FontSize="14"/>                        
+            <TextBlock x:Name="_textBlockAddress" Text="Address" Grid.Row="1" Grid.Column="0" Margin="5" FontSize="14"/>
+            <TextBlock x:Name="_textBlockState" Text="State" Grid.Row="2" Grid.Column="0" Margin="5" FontSize="14"/>
+            <TextBlock x:Name="_textBlockCity" Text="City" Grid.Row="2" Grid.Column="2" Margin="5" FontSize="14"/>
+            <TextBlock x:Name="_textBlockZipCode" Text="Zip Code" Grid.Row="3" Grid.Column="0" Margin="5" FontSize="14"/>
+            <TextBlock x:Name="_textBlockPhone1" Text="Phone1" Grid.Row="4" Grid.Column="0" Margin="5" FontSize="14"/>
+            <TextBlock x:Name="_textBlockPhone2" Text="Phone2" Grid.Row="5" Grid.Column="0" Margin="5" FontSize="14"/>
+            <TextBlock x:Name="_textBlockPhone3" Text="Phone3" Grid.Row="6" Grid.Column="0" Margin="5" FontSize="14"/>
+            <TextBlock x:Name="_textBlockFax" Text="Fax" Grid.Row="7" Grid.Column="0" Margin="5" FontSize="14"/>
+            <TextBlock x:Name="_textBlockUrl" Text="URL" Grid.Row="7" Grid.Column="2" Margin="5" FontSize="14"/>
+            <TextBlock x:Name="_textBlockEmail" Text="E-mail" Grid.Row="8" Grid.Column="0" Margin="5" FontSize="14"/>
+            <TextBox x:Name="_textBoxCompanyName" Grid.Row="0" Grid.Column="1" Margin="5" FontSize="14" MinWidth="200"/>
+            <TextBox x:Name="_textBoxAddress" Grid.Row="1" Grid.Column="1" Margin="5" FontSize="14" MinWidth="200"/>
+            <ComboBox x:Name="_comboBoxStates" Grid.Row="2" Grid.Column="1" Margin="5" FontSize="14" MinWidth="200" SelectedIndex="1">
+                <ComboBoxItem Content="NY"/>
+                <ComboBoxItem Content="NJ"/>
+                <ComboBoxItem Content="PA"/>
+                <ComboBoxItem Content="CT"/>
+            </ComboBox>
+            <TextBox x:Name="_textBoxCity" Grid.Row="2" Grid.Column="3" Margin="5" FontSize="14" MinWidth="200"/>
+            <TextBox x:Name="_textBoxZipCode" Grid.Row="3" Grid.Column="1" Margin="5" FontSize="14" MinWidth="200"/>
+            <TextBox x:Name="_textBoxPhone1" Grid.Row="4" Grid.Column="1" Margin="5" FontSize="14" MinWidth="200"/>
+            <TextBox x:Name="_textBoxPhone2" Grid.Row="5" Grid.Column="1" Margin="5" FontSize="14" MinWidth="200"/>
+            <TextBox x:Name="_textBoxPhone3" Grid.Row="6" Grid.Column="1" Margin="5" FontSize="14" MinWidth="200"/>
+            <TextBox x:Name="_textBoxFax" Grid.Row="7" Grid.Column="1" Margin="5" FontSize="14" MinWidth="200"/>
+            <TextBox x:Name="_textBoxUrl" Grid.Row="7" Grid.Column="3" Margin="5" FontSize="14" MinWidth="200"/>
+            <TextBox x:Name="_textBoxEmail" Grid.Row="8" Grid.Column="1" Margin="5" FontSize="14" MinWidth="200"/>
+        </Grid>
+        <Button x:Name="_buttonSave" 
+                HorizontalAlignment="Left"
+                Content="Save" Margin="10"
+                Grid.Row="2" Width="100" 
+                Height="30" 
+                Click="_buttonSave_Click"/>
+    </Grid>
+</navigation:Page>

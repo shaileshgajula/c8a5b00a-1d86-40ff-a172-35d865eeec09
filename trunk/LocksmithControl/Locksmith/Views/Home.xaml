@@ -1,0 +1,24 @@
+﻿<navigation:Page x:Class="Locksmith.Home"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+    mc:Ignorable="d" d:DesignWidth="640" d:DesignHeight="480"
+    Title="Home"
+    Style="{StaticResource PageStyle}">
+  <Grid x:Name="LayoutRoot">
+    <ScrollViewer x:Name="PageScrollViewer" Style="{StaticResource PageScrollViewerStyle}">
+      <StackPanel x:Name="ContentStackPanel">
+                <TextBlock HorizontalAlignment="Left" Name="textBlockTitle" Text="Home" 
+                   VerticalAlignment="Top" Margin="5" FontSize="20"/>
+                <Image Source="../Images/locksmith_Log.png" 
+               VerticalAlignment="Center" 
+               HorizontalAlignment="Center"
+               Height="400"
+               Width="400"/>
+            </StackPanel>
+        
+    </ScrollViewer>
+  </Grid>
+
+</navigation:Page>
