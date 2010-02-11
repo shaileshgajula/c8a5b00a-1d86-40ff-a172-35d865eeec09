@@ -1,0 +1,174 @@
+﻿<UserControl
+    x:Class="Locksmith.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation" 
+    xmlns:uriMapper="clr-namespace:System.Windows.Navigation;assembly=System.Windows.Controls.Navigation"
+   xmlns:SLToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    mc:Ignorable="d" d:DesignWidth="640" d:DesignHeight="480">
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.15*"/>
+            <RowDefinition Height="0.85*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Border Margin="10"  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" 
+                CornerRadius="4"
+                Background="#FF484848">
+            <Border.Effect>
+                <DropShadowEffect Color="Black" BlurRadius="10" ShadowDepth="10" />
+            </Border.Effect>
+            <StackPanel x:Name="BrandingStackPanel"                                                 
+                        Orientation="Horizontal"
+                        Margin="15,0,0,0"> 
+                <ContentControl Style="{StaticResource LogoIcon}"/>
+                <TextBlock x:Name="ApplicationNameTextBlock" Style="{StaticResource ApplicationNameStyle}" 
+                           Text="Locksmit Manager"/>
+            </StackPanel>        
+        </Border>
+            <navigation:Frame x:Name="ContentFrame" 
+                              Grid.Row="1" Grid.Column="1"
+                              VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+                              Source="/Home" Navigated="ContentFrame_Navigated" NavigationFailed="ContentFrame_NavigationFailed">
+                <navigation:Frame.UriMapper>
+                    <uriMapper:UriMapper>                      
+                        <uriMapper:UriMapping Uri="/{pageName}" MappedUri="/Views/{pageName}.xaml"/>
+                    </uriMapper:UriMapper>
+                </navigation:Frame.UriMapper>
+            </navigation:Frame>  
+        <Border Grid.Row="1" Grid.Column="0" 
+                CornerRadius="4" Margin="13"
+                 Background="#FF484848">
+            <Border.Effect>
+                <DropShadowEffect Color="Black" BlurRadius="10" ShadowDepth="10" />
+            </Border.Effect>
+            <SLToolkit:TreeView x:Name="_treeViewMenu"
+                                Background="Transparent"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Top"
+                                BorderThickness="0"
+                                HorizontalContentAlignment="Stretch">
+                <SLToolkit:TreeViewItem Background="Transparent"  HorizontalAlignment="Stretch"> 
+                   <SLToolkit:TreeViewItem.Header>
+                        <HyperlinkButton x:Name="LinkHome" Style="{StaticResource LinkStyle}" 
+                                  Background="#FF57C7FF" BorderBrush="#FF00AAFF"
+                                  Height="50"
+                                  Width="100"
+                                  
+                                 HorizontalAlignment="Stretch"
+                                 FontWeight="Bold"
+                                 NavigateUri="/Home" TargetName="ContentFrame" Content="Home"/>
+                    </SLToolkit:TreeViewItem.Header>
+                </SLToolkit:TreeViewItem >
+                <SLToolkit:TreeViewItem IsExpanded="True">
+                    <SLToolkit:TreeViewItem.Header>
+                        <HyperlinkButton x:Name="LinkJobs" Style="{StaticResource LinkStyle}" 
+                                 HorizontalAlignment="Stretch"
+                                 FontWeight="Bold"
+                                 TargetName="ContentFrame" Content="Jobs"/>
+                    </SLToolkit:TreeViewItem.Header>
+                    <SLToolkit:TreeViewItem>
+                        <SLToolkit:TreeViewItem.Header>
+                            <HyperlinkButton x:Name="LinkAllJobs" Style="{StaticResource LinkStyle}" 
+                                 HorizontalAlignment="Center"
+                                 FontWeight="Bold"
+                                 NavigateUri="/NewJob" TargetName="ContentFrame" Content="All Jobs"/>
+                        </SLToolkit:TreeViewItem.Header>
+                    </SLToolkit:TreeViewItem>
+                    <SLToolkit:TreeViewItem>
+                        <SLToolkit:TreeViewItem.Header>
+                            <HyperlinkButton x:Name="LinkNewJob" Style="{StaticResource LinkStyle}" 
+                                 HorizontalAlignment="Center"
+                                 FontWeight="Bold"
+                                 NavigateUri="/NewJob" TargetName="ContentFrame" Content="Add New Job"/>
+                        </SLToolkit:TreeViewItem.Header>
+                    </SLToolkit:TreeViewItem>
+                </SLToolkit:TreeViewItem>
+                <SLToolkit:TreeViewItem IsExpanded="True">
+                   <SLToolkit:TreeViewItem.Header>
+                        <HyperlinkButton x:Name="LinkTechnicians" Style="{StaticResource LinkStyle}" 
+                                 HorizontalAlignment="Center"
+                                 FontWeight="Bold"
+                                 TargetName="ContentFrame" Content="Technicians"/>
+                    </SLToolkit:TreeViewItem.Header>
+                    <SLToolkit:TreeViewItem>
+                        <SLToolkit:TreeViewItem.Header>
+                            <HyperlinkButton x:Name="LinkAllTechnicians" Style="{StaticResource LinkStyle}" 
+                                 HorizontalAlignment="Center"
+                                 FontWeight="Bold"
+                                 NavigateUri="/AllTechnicians" TargetName="ContentFrame" Content="All Technicians"/>
+                        </SLToolkit:TreeViewItem.Header>
+                    </SLToolkit:TreeViewItem>
+                    <SLToolkit:TreeViewItem>
+                        <SLToolkit:TreeViewItem.Header>
+                            <HyperlinkButton x:Name="LinkNewTechnicians" Style="{StaticResource LinkStyle}" 
+                                 HorizontalAlignment="Center"
+                                 FontWeight="Bold"
+                                 NavigateUri="/NewTechnician" TargetName="ContentFrame" Content="Add New Technician"/>
+                        </SLToolkit:TreeViewItem.Header>
+                    </SLToolkit:TreeViewItem>
+                </SLToolkit:TreeViewItem>
+                <SLToolkit:TreeViewItem IsExpanded="True">                         
+                    <SLToolkit:TreeViewItem.Header>                        
+                        <HyperlinkButton x:Name="LinkCompanies" Style="{StaticResource LinkStyle}" 
+                                 HorizontalAlignment="Center"
+                                 FontWeight="Bold"
+                                TargetName="ContentFrame" Content="Companies"/>
+                    </SLToolkit:TreeViewItem.Header>
+                    <SLToolkit:TreeViewItem>
+                        <SLToolkit:TreeViewItem.Header>
+                            <HyperlinkButton x:Name="LinkAllCompanies" Style="{StaticResource LinkStyle}" 
+                                 HorizontalAlignment="Center"
+                                 FontWeight="Bold"
+                                 NavigateUri="/NewCompany" TargetName="ContentFrame" Content="All Company"/>
+                        </SLToolkit:TreeViewItem.Header>
+                    </SLToolkit:TreeViewItem>
+                    <SLToolkit:TreeViewItem>
+                        <SLToolkit:TreeViewItem.Header>
+                            <HyperlinkButton x:Name="LinkNewCompany" Style="{StaticResource LinkStyle}" 
+                                 HorizontalAlignment="Center"
+                                 FontWeight="Bold"
+                                 NavigateUri="/NewCompany" TargetName="ContentFrame" Content="Add New Company"/>
+                        </SLToolkit:TreeViewItem.Header>
+                    </SLToolkit:TreeViewItem>
+                </SLToolkit:TreeViewItem>
+                <SLToolkit:TreeViewItem IsExpanded="True">
+                    <SLToolkit:TreeViewItem.Header>
+                        <HyperlinkButton x:Name="LinkReports" Style="{StaticResource LinkStyle}" 
+                                 HorizontalAlignment="Center"
+                                 FontWeight="Bold"
+                                 TargetName="ContentFrame" Content="Reports"/>                       
+                    </SLToolkit:TreeViewItem.Header>
+                    <SLToolkit:TreeViewItem>
+                        <SLToolkit:TreeViewItem.Header>
+                            <HyperlinkButton x:Name="LinkReport1" Style="{StaticResource LinkStyle}" 
+                                 HorizontalAlignment="Center"
+                                 FontWeight="Bold"
+                                 TargetName="ContentFrame" Content="Report 1"/>
+                        </SLToolkit:TreeViewItem.Header>
+                    </SLToolkit:TreeViewItem>
+                    <SLToolkit:TreeViewItem>
+                    <SLToolkit:TreeViewItem.Header>
+                            <HyperlinkButton x:Name="LinkReport2" Style="{StaticResource LinkStyle}" 
+                                 HorizontalAlignment="Center"
+                                 FontWeight="Bold"
+                                 TargetName="ContentFrame" Content="Report 2"/>
+                        </SLToolkit:TreeViewItem.Header>
+                </SLToolkit:TreeViewItem>
+                </SLToolkit:TreeViewItem>          
+                <SLToolkit:TreeViewItem>
+                    <SLToolkit:TreeViewItem.Header>
+                        <HyperlinkButton x:Name="Link5" Style="{StaticResource LinkStyle}" 
+                                 HorizontalAlignment="Center"
+                                 FontWeight="Bold"
+                                 NavigateUri="/About" TargetName="ContentFrame" Content="About"/>
+                    </SLToolkit:TreeViewItem.Header>
+                </SLToolkit:TreeViewItem>
+            </SLToolkit:TreeView>     
+       </Border>
+        </Grid>
+</UserControl>
