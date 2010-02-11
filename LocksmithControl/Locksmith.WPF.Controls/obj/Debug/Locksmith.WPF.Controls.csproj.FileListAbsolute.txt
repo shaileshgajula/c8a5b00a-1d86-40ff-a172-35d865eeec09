@@ -1,5 +1,0 @@
-C:\Users\Dubies\Documents\Visual Studio 2010\Projects\LocksmithControl\Locksmith.WPF.Controls\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\Dubies\Documents\Visual Studio 2010\Projects\LocksmithControl\Locksmith.WPF.Controls\bin\Debug\Locksmith.WPF.Controls.dll
-C:\Users\Dubies\Documents\Visual Studio 2010\Projects\LocksmithControl\Locksmith.WPF.Controls\bin\Debug\Locksmith.WPF.Controls.pdb
-C:\Users\Dubies\Documents\Visual Studio 2010\Projects\LocksmithControl\Locksmith.WPF.Controls\obj\Debug\Locksmith.WPF.Controls.dll
-C:\Users\Dubies\Documents\Visual Studio 2010\Projects\LocksmithControl\Locksmith.WPF.Controls\obj\Debug\Locksmith.WPF.Controls.pdb
