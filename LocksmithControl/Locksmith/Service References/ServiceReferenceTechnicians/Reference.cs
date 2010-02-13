@@ -375,6 +375,381 @@ namespace Locksmith.ServiceReferenceTechnicians {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Job", Namespace="http://schemas.datacontract.org/2004/07/Locksmith.Web")]
+    public partial class Job : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private int IdField;
+        
+        private string StatusField;
+        
+        private string TechnicianField;
+        
+        private string First_NameField;
+        
+        private string Last_NameField;
+        
+        private string AddressField;
+        
+        private string StateField;
+        
+        private string CityField;
+        
+        private string PhoneField;
+        
+        private string Mobile_PhoneField;
+        
+        private string Job_TypeField;
+        
+        private string CompanyField;
+        
+        private string Job_PricingField;
+        
+        private System.Nullable<decimal> TotalField;
+        
+        private System.Nullable<decimal> CostField;
+        
+        private string Payment_MethodField;
+        
+        private string InfoField;
+        
+        private System.Nullable<decimal> GrossField;
+        
+        private System.Nullable<decimal> Gross_CostField;
+        
+        private System.Nullable<decimal> Tech_CutField;
+        
+        private System.Nullable<decimal> Tech_PayoutField;
+        
+        private System.Nullable<decimal> Company_PayoutField;
+        
+        private System.Nullable<decimal> Net_payField;
+        
+        private System.Nullable<decimal> Sum_CashField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Status {
+            get {
+                return this.StatusField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StatusField, value) != true)) {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Technician {
+            get {
+                return this.TechnicianField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TechnicianField, value) != true)) {
+                    this.TechnicianField = value;
+                    this.RaisePropertyChanged("Technician");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public string First_Name {
+            get {
+                return this.First_NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.First_NameField, value) != true)) {
+                    this.First_NameField = value;
+                    this.RaisePropertyChanged("First_Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        public string Last_Name {
+            get {
+                return this.Last_NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Last_NameField, value) != true)) {
+                    this.Last_NameField = value;
+                    this.RaisePropertyChanged("Last_Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+        public string Address {
+            get {
+                return this.AddressField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AddressField, value) != true)) {
+                    this.AddressField = value;
+                    this.RaisePropertyChanged("Address");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+        public string State {
+            get {
+                return this.StateField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StateField, value) != true)) {
+                    this.StateField = value;
+                    this.RaisePropertyChanged("State");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=7)]
+        public string City {
+            get {
+                return this.CityField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CityField, value) != true)) {
+                    this.CityField = value;
+                    this.RaisePropertyChanged("City");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=8)]
+        public string Phone {
+            get {
+                return this.PhoneField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PhoneField, value) != true)) {
+                    this.PhoneField = value;
+                    this.RaisePropertyChanged("Phone");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=9)]
+        public string Mobile_Phone {
+            get {
+                return this.Mobile_PhoneField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Mobile_PhoneField, value) != true)) {
+                    this.Mobile_PhoneField = value;
+                    this.RaisePropertyChanged("Mobile_Phone");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=10)]
+        public string Job_Type {
+            get {
+                return this.Job_TypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Job_TypeField, value) != true)) {
+                    this.Job_TypeField = value;
+                    this.RaisePropertyChanged("Job_Type");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=11)]
+        public string Company {
+            get {
+                return this.CompanyField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CompanyField, value) != true)) {
+                    this.CompanyField = value;
+                    this.RaisePropertyChanged("Company");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=12)]
+        public string Job_Pricing {
+            get {
+                return this.Job_PricingField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Job_PricingField, value) != true)) {
+                    this.Job_PricingField = value;
+                    this.RaisePropertyChanged("Job_Pricing");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=13)]
+        public System.Nullable<decimal> Total {
+            get {
+                return this.TotalField;
+            }
+            set {
+                if ((this.TotalField.Equals(value) != true)) {
+                    this.TotalField = value;
+                    this.RaisePropertyChanged("Total");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=14)]
+        public System.Nullable<decimal> Cost {
+            get {
+                return this.CostField;
+            }
+            set {
+                if ((this.CostField.Equals(value) != true)) {
+                    this.CostField = value;
+                    this.RaisePropertyChanged("Cost");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=15)]
+        public string Payment_Method {
+            get {
+                return this.Payment_MethodField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Payment_MethodField, value) != true)) {
+                    this.Payment_MethodField = value;
+                    this.RaisePropertyChanged("Payment_Method");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=16)]
+        public string Info {
+            get {
+                return this.InfoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.InfoField, value) != true)) {
+                    this.InfoField = value;
+                    this.RaisePropertyChanged("Info");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=17)]
+        public System.Nullable<decimal> Gross {
+            get {
+                return this.GrossField;
+            }
+            set {
+                if ((this.GrossField.Equals(value) != true)) {
+                    this.GrossField = value;
+                    this.RaisePropertyChanged("Gross");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=18)]
+        public System.Nullable<decimal> Gross_Cost {
+            get {
+                return this.Gross_CostField;
+            }
+            set {
+                if ((this.Gross_CostField.Equals(value) != true)) {
+                    this.Gross_CostField = value;
+                    this.RaisePropertyChanged("Gross_Cost");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=19)]
+        public System.Nullable<decimal> Tech_Cut {
+            get {
+                return this.Tech_CutField;
+            }
+            set {
+                if ((this.Tech_CutField.Equals(value) != true)) {
+                    this.Tech_CutField = value;
+                    this.RaisePropertyChanged("Tech_Cut");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=20)]
+        public System.Nullable<decimal> Tech_Payout {
+            get {
+                return this.Tech_PayoutField;
+            }
+            set {
+                if ((this.Tech_PayoutField.Equals(value) != true)) {
+                    this.Tech_PayoutField = value;
+                    this.RaisePropertyChanged("Tech_Payout");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=21)]
+        public System.Nullable<decimal> Company_Payout {
+            get {
+                return this.Company_PayoutField;
+            }
+            set {
+                if ((this.Company_PayoutField.Equals(value) != true)) {
+                    this.Company_PayoutField = value;
+                    this.RaisePropertyChanged("Company_Payout");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=22)]
+        public System.Nullable<decimal> Net_pay {
+            get {
+                return this.Net_payField;
+            }
+            set {
+                if ((this.Net_payField.Equals(value) != true)) {
+                    this.Net_payField = value;
+                    this.RaisePropertyChanged("Net_pay");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=23)]
+        public System.Nullable<decimal> Sum_Cash {
+            get {
+                return this.Sum_CashField;
+            }
+            set {
+                if ((this.Sum_CashField.Equals(value) != true)) {
+                    this.Sum_CashField = value;
+                    this.RaisePropertyChanged("Sum_Cash");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReferenceTechnicians.IServiceLocksmith")]
     public interface IServiceLocksmith {
@@ -398,6 +773,41 @@ namespace Locksmith.ServiceReferenceTechnicians {
         System.IAsyncResult BeginInsertNewComapny(string name, string address, string state, string city, string zip, string url, string email, string phone1, string phone2, string phone3, string fax, System.AsyncCallback callback, object asyncState);
         
         bool EndInsertNewComapny(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IServiceLocksmith/GetJobsList", ReplyAction="http://tempuri.org/IServiceLocksmith/GetJobsListResponse")]
+        System.IAsyncResult BeginGetJobsList(System.AsyncCallback callback, object asyncState);
+        
+        System.Collections.ObjectModel.ObservableCollection<Locksmith.ServiceReferenceTechnicians.Job> EndGetJobsList(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IServiceLocksmith/InsertNewJob", ReplyAction="http://tempuri.org/IServiceLocksmith/InsertNewJobResponse")]
+        System.IAsyncResult BeginInsertNewJob(
+                    string address, 
+                    string city, 
+                    string company, 
+                    decimal cost, 
+                    System.Nullable<decimal> companyPayout, 
+                    string firstName, 
+                    System.Nullable<decimal> gross, 
+                    System.Nullable<decimal> grossMinusCost, 
+                    string Info, 
+                    string jobPricing, 
+                    string jobType, 
+                    string lastName, 
+                    string mobilePhone, 
+                    System.Nullable<decimal> netPay, 
+                    string paymentMethod, 
+                    string phone, 
+                    string state, 
+                    string status, 
+                    System.Nullable<decimal> SumCash, 
+                    System.Nullable<decimal> techCut, 
+                    System.Nullable<decimal> techPayout, 
+                    string technician, 
+                    decimal total, 
+                    System.AsyncCallback callback, 
+                    object asyncState);
+        
+        bool EndInsertNewJob(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -482,6 +892,44 @@ namespace Locksmith.ServiceReferenceTechnicians {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetJobsListCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetJobsListCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public System.Collections.ObjectModel.ObservableCollection<Locksmith.ServiceReferenceTechnicians.Job> Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((System.Collections.ObjectModel.ObservableCollection<Locksmith.ServiceReferenceTechnicians.Job>)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class InsertNewJobCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public InsertNewJobCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public bool Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class ServiceLocksmithClient : System.ServiceModel.ClientBase<Locksmith.ServiceReferenceTechnicians.IServiceLocksmith>, Locksmith.ServiceReferenceTechnicians.IServiceLocksmith {
         
         private BeginOperationDelegate onBeginGetTechnicianListDelegate;
@@ -507,6 +955,18 @@ namespace Locksmith.ServiceReferenceTechnicians {
         private EndOperationDelegate onEndInsertNewComapnyDelegate;
         
         private System.Threading.SendOrPostCallback onInsertNewComapnyCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGetJobsListDelegate;
+        
+        private EndOperationDelegate onEndGetJobsListDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetJobsListCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginInsertNewJobDelegate;
+        
+        private EndOperationDelegate onEndInsertNewJobDelegate;
+        
+        private System.Threading.SendOrPostCallback onInsertNewJobCompletedDelegate;
         
         private BeginOperationDelegate onBeginOpenDelegate;
         
@@ -568,6 +1028,10 @@ namespace Locksmith.ServiceReferenceTechnicians {
         public event System.EventHandler<GetCompanyListCompletedEventArgs> GetCompanyListCompleted;
         
         public event System.EventHandler<InsertNewComapnyCompletedEventArgs> InsertNewComapnyCompleted;
+        
+        public event System.EventHandler<GetJobsListCompletedEventArgs> GetJobsListCompleted;
+        
+        public event System.EventHandler<InsertNewJobCompletedEventArgs> InsertNewJobCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> OpenCompleted;
         
@@ -789,6 +1253,212 @@ namespace Locksmith.ServiceReferenceTechnicians {
                         fax}, this.onEndInsertNewComapnyDelegate, this.onInsertNewComapnyCompletedDelegate, userState);
         }
         
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult Locksmith.ServiceReferenceTechnicians.IServiceLocksmith.BeginGetJobsList(System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetJobsList(callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Collections.ObjectModel.ObservableCollection<Locksmith.ServiceReferenceTechnicians.Job> Locksmith.ServiceReferenceTechnicians.IServiceLocksmith.EndGetJobsList(System.IAsyncResult result) {
+            return base.Channel.EndGetJobsList(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetJobsList(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            return ((Locksmith.ServiceReferenceTechnicians.IServiceLocksmith)(this)).BeginGetJobsList(callback, asyncState);
+        }
+        
+        private object[] OnEndGetJobsList(System.IAsyncResult result) {
+            System.Collections.ObjectModel.ObservableCollection<Locksmith.ServiceReferenceTechnicians.Job> retVal = ((Locksmith.ServiceReferenceTechnicians.IServiceLocksmith)(this)).EndGetJobsList(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetJobsListCompleted(object state) {
+            if ((this.GetJobsListCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetJobsListCompleted(this, new GetJobsListCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetJobsListAsync() {
+            this.GetJobsListAsync(null);
+        }
+        
+        public void GetJobsListAsync(object userState) {
+            if ((this.onBeginGetJobsListDelegate == null)) {
+                this.onBeginGetJobsListDelegate = new BeginOperationDelegate(this.OnBeginGetJobsList);
+            }
+            if ((this.onEndGetJobsListDelegate == null)) {
+                this.onEndGetJobsListDelegate = new EndOperationDelegate(this.OnEndGetJobsList);
+            }
+            if ((this.onGetJobsListCompletedDelegate == null)) {
+                this.onGetJobsListCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetJobsListCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetJobsListDelegate, null, this.onEndGetJobsListDelegate, this.onGetJobsListCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult Locksmith.ServiceReferenceTechnicians.IServiceLocksmith.BeginInsertNewJob(
+                    string address, 
+                    string city, 
+                    string company, 
+                    decimal cost, 
+                    System.Nullable<decimal> companyPayout, 
+                    string firstName, 
+                    System.Nullable<decimal> gross, 
+                    System.Nullable<decimal> grossMinusCost, 
+                    string Info, 
+                    string jobPricing, 
+                    string jobType, 
+                    string lastName, 
+                    string mobilePhone, 
+                    System.Nullable<decimal> netPay, 
+                    string paymentMethod, 
+                    string phone, 
+                    string state, 
+                    string status, 
+                    System.Nullable<decimal> SumCash, 
+                    System.Nullable<decimal> techCut, 
+                    System.Nullable<decimal> techPayout, 
+                    string technician, 
+                    decimal total, 
+                    System.AsyncCallback callback, 
+                    object asyncState) {
+            return base.Channel.BeginInsertNewJob(address, city, company, cost, companyPayout, firstName, gross, grossMinusCost, Info, jobPricing, jobType, lastName, mobilePhone, netPay, paymentMethod, phone, state, status, SumCash, techCut, techPayout, technician, total, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        bool Locksmith.ServiceReferenceTechnicians.IServiceLocksmith.EndInsertNewJob(System.IAsyncResult result) {
+            return base.Channel.EndInsertNewJob(result);
+        }
+        
+        private System.IAsyncResult OnBeginInsertNewJob(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string address = ((string)(inValues[0]));
+            string city = ((string)(inValues[1]));
+            string company = ((string)(inValues[2]));
+            decimal cost = ((decimal)(inValues[3]));
+            System.Nullable<decimal> companyPayout = ((System.Nullable<decimal>)(inValues[4]));
+            string firstName = ((string)(inValues[5]));
+            System.Nullable<decimal> gross = ((System.Nullable<decimal>)(inValues[6]));
+            System.Nullable<decimal> grossMinusCost = ((System.Nullable<decimal>)(inValues[7]));
+            string Info = ((string)(inValues[8]));
+            string jobPricing = ((string)(inValues[9]));
+            string jobType = ((string)(inValues[10]));
+            string lastName = ((string)(inValues[11]));
+            string mobilePhone = ((string)(inValues[12]));
+            System.Nullable<decimal> netPay = ((System.Nullable<decimal>)(inValues[13]));
+            string paymentMethod = ((string)(inValues[14]));
+            string phone = ((string)(inValues[15]));
+            string state = ((string)(inValues[16]));
+            string status = ((string)(inValues[17]));
+            System.Nullable<decimal> SumCash = ((System.Nullable<decimal>)(inValues[18]));
+            System.Nullable<decimal> techCut = ((System.Nullable<decimal>)(inValues[19]));
+            System.Nullable<decimal> techPayout = ((System.Nullable<decimal>)(inValues[20]));
+            string technician = ((string)(inValues[21]));
+            decimal total = ((decimal)(inValues[22]));
+            return ((Locksmith.ServiceReferenceTechnicians.IServiceLocksmith)(this)).BeginInsertNewJob(address, city, company, cost, companyPayout, firstName, gross, grossMinusCost, Info, jobPricing, jobType, lastName, mobilePhone, netPay, paymentMethod, phone, state, status, SumCash, techCut, techPayout, technician, total, callback, asyncState);
+        }
+        
+        private object[] OnEndInsertNewJob(System.IAsyncResult result) {
+            bool retVal = ((Locksmith.ServiceReferenceTechnicians.IServiceLocksmith)(this)).EndInsertNewJob(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnInsertNewJobCompleted(object state) {
+            if ((this.InsertNewJobCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.InsertNewJobCompleted(this, new InsertNewJobCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void InsertNewJobAsync(
+                    string address, 
+                    string city, 
+                    string company, 
+                    decimal cost, 
+                    System.Nullable<decimal> companyPayout, 
+                    string firstName, 
+                    System.Nullable<decimal> gross, 
+                    System.Nullable<decimal> grossMinusCost, 
+                    string Info, 
+                    string jobPricing, 
+                    string jobType, 
+                    string lastName, 
+                    string mobilePhone, 
+                    System.Nullable<decimal> netPay, 
+                    string paymentMethod, 
+                    string phone, 
+                    string state, 
+                    string status, 
+                    System.Nullable<decimal> SumCash, 
+                    System.Nullable<decimal> techCut, 
+                    System.Nullable<decimal> techPayout, 
+                    string technician, 
+                    decimal total) {
+            this.InsertNewJobAsync(address, city, company, cost, companyPayout, firstName, gross, grossMinusCost, Info, jobPricing, jobType, lastName, mobilePhone, netPay, paymentMethod, phone, state, status, SumCash, techCut, techPayout, technician, total, null);
+        }
+        
+        public void InsertNewJobAsync(
+                    string address, 
+                    string city, 
+                    string company, 
+                    decimal cost, 
+                    System.Nullable<decimal> companyPayout, 
+                    string firstName, 
+                    System.Nullable<decimal> gross, 
+                    System.Nullable<decimal> grossMinusCost, 
+                    string Info, 
+                    string jobPricing, 
+                    string jobType, 
+                    string lastName, 
+                    string mobilePhone, 
+                    System.Nullable<decimal> netPay, 
+                    string paymentMethod, 
+                    string phone, 
+                    string state, 
+                    string status, 
+                    System.Nullable<decimal> SumCash, 
+                    System.Nullable<decimal> techCut, 
+                    System.Nullable<decimal> techPayout, 
+                    string technician, 
+                    decimal total, 
+                    object userState) {
+            if ((this.onBeginInsertNewJobDelegate == null)) {
+                this.onBeginInsertNewJobDelegate = new BeginOperationDelegate(this.OnBeginInsertNewJob);
+            }
+            if ((this.onEndInsertNewJobDelegate == null)) {
+                this.onEndInsertNewJobDelegate = new EndOperationDelegate(this.OnEndInsertNewJob);
+            }
+            if ((this.onInsertNewJobCompletedDelegate == null)) {
+                this.onInsertNewJobCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnInsertNewJobCompleted);
+            }
+            base.InvokeAsync(this.onBeginInsertNewJobDelegate, new object[] {
+                        address,
+                        city,
+                        company,
+                        cost,
+                        companyPayout,
+                        firstName,
+                        gross,
+                        grossMinusCost,
+                        Info,
+                        jobPricing,
+                        jobType,
+                        lastName,
+                        mobilePhone,
+                        netPay,
+                        paymentMethod,
+                        phone,
+                        state,
+                        status,
+                        SumCash,
+                        techCut,
+                        techPayout,
+                        technician,
+                        total}, this.onEndInsertNewJobDelegate, this.onInsertNewJobCompletedDelegate, userState);
+        }
+        
         private System.IAsyncResult OnBeginOpen(object[] inValues, System.AsyncCallback callback, object asyncState) {
             return ((System.ServiceModel.ICommunicationObject)(this)).BeginOpen(callback, asyncState);
         }
@@ -930,6 +1600,78 @@ namespace Locksmith.ServiceReferenceTechnicians {
             public bool EndInsertNewComapny(System.IAsyncResult result) {
                 object[] _args = new object[0];
                 bool _result = ((bool)(base.EndInvoke("InsertNewComapny", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginGetJobsList(System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[0];
+                System.IAsyncResult _result = base.BeginInvoke("GetJobsList", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public System.Collections.ObjectModel.ObservableCollection<Locksmith.ServiceReferenceTechnicians.Job> EndGetJobsList(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                System.Collections.ObjectModel.ObservableCollection<Locksmith.ServiceReferenceTechnicians.Job> _result = ((System.Collections.ObjectModel.ObservableCollection<Locksmith.ServiceReferenceTechnicians.Job>)(base.EndInvoke("GetJobsList", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginInsertNewJob(
+                        string address, 
+                        string city, 
+                        string company, 
+                        decimal cost, 
+                        System.Nullable<decimal> companyPayout, 
+                        string firstName, 
+                        System.Nullable<decimal> gross, 
+                        System.Nullable<decimal> grossMinusCost, 
+                        string Info, 
+                        string jobPricing, 
+                        string jobType, 
+                        string lastName, 
+                        string mobilePhone, 
+                        System.Nullable<decimal> netPay, 
+                        string paymentMethod, 
+                        string phone, 
+                        string state, 
+                        string status, 
+                        System.Nullable<decimal> SumCash, 
+                        System.Nullable<decimal> techCut, 
+                        System.Nullable<decimal> techPayout, 
+                        string technician, 
+                        decimal total, 
+                        System.AsyncCallback callback, 
+                        object asyncState) {
+                object[] _args = new object[23];
+                _args[0] = address;
+                _args[1] = city;
+                _args[2] = company;
+                _args[3] = cost;
+                _args[4] = companyPayout;
+                _args[5] = firstName;
+                _args[6] = gross;
+                _args[7] = grossMinusCost;
+                _args[8] = Info;
+                _args[9] = jobPricing;
+                _args[10] = jobType;
+                _args[11] = lastName;
+                _args[12] = mobilePhone;
+                _args[13] = netPay;
+                _args[14] = paymentMethod;
+                _args[15] = phone;
+                _args[16] = state;
+                _args[17] = status;
+                _args[18] = SumCash;
+                _args[19] = techCut;
+                _args[20] = techPayout;
+                _args[21] = technician;
+                _args[22] = total;
+                System.IAsyncResult _result = base.BeginInvoke("InsertNewJob", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public bool EndInsertNewJob(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                bool _result = ((bool)(base.EndInvoke("InsertNewJob", _args, result)));
                 return _result;
             }
         }

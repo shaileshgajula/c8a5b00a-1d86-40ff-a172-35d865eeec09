@@ -25,5 +25,25 @@ namespace Locksmith.Views
         {
         }
 
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            ServiceReferenceTechnicians.ServiceLocksmithClient webService = new ServiceReferenceTechnicians.ServiceLocksmithClient();
+            webService.GetJobsListCompleted += new EventHandler<ServiceReferenceTechnicians.GetJobsListCompletedEventArgs>(webService_GetJobsListCompleted);
+            webService.GetJobsListAsync();
+        }
+
+        void webService_GetJobsListCompleted(object sender, ServiceReferenceTechnicians.GetJobsListCompletedEventArgs e)
+        {
+            _DataGridAllJobs.ItemsSource = e.Result;
+        }
+
+        private void _DataGridAllJobs_CellEditEnded(object sender, DataGridCellEditEndedEventArgs e)
+        {
+            if (!_buttonSubmitChanges.IsEnabled)
+            {
+                _buttonSubmitChanges.IsEnabled = true;
+            }
+        }
+
     }
 }

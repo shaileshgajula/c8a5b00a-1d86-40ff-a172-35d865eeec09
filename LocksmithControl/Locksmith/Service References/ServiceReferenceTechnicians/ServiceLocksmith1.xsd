@@ -44,4 +44,39 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Company" nillable="true" type="tns:Company" />
+  <xs:complexType name="ArrayOfJob">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Job" nillable="true" type="tns:Job" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfJob" nillable="true" type="tns:ArrayOfJob" />
+  <xs:complexType name="Job">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Technician" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="First_Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Last_Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mobile_Phone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Job_Type" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Job_Pricing" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Total" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Cost" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Payment_Method" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Info" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Gross" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Gross_Cost" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Tech_Cut" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Tech_Payout" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Company_Payout" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Net_pay" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Sum_Cash" nillable="true" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Job" nillable="true" type="tns:Job" />
 </xs:schema>
