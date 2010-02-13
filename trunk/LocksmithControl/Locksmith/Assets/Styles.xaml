@@ -64,8 +64,9 @@
         <Setter.Value>
             <ControlTemplate TargetType="ContentControl">
                     <StackPanel Orientation="Horizontal">
-                        <Button Content="X"/>
-                     <Button Content="V"/>
+                        <Button Background="Transparent" BorderThickness="0">
+                            <Image Source="../Images/delete-icon.png" Width="16" Height="16"/>
+                        </Button>
                 </StackPanel>
             </ControlTemplate>
         </Setter.Value>

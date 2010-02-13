@@ -27,8 +27,27 @@ namespace Locksmith.Views
         }
 
         private void _buttonSave_Click(object sender, RoutedEventArgs e)
-        {         
+        {
+            ServiceReferenceTechnicians.ServiceLocksmithClient webService = new ServiceReferenceTechnicians.ServiceLocksmithClient();
+            webService.InsertNewJobCompleted+=new EventHandler<ServiceReferenceTechnicians.InsertNewJobCompletedEventArgs>(webService_InsertNewJobCompleted);
+            webService.InsertNewJobAsync(_textBoxAddress.Text, _textBoxCity.Text, ((ComboBoxItem)_comboBoxCompanies.SelectedItem).Content.ToString(), Convert.ToDecimal(_textBoxCost.Text),
+                                         null, _textBoxFirstName.Text, null, null, _textBoxInfo.Text, ((ComboBoxItem)_comboBoxJobPricing.SelectedItem).Content.ToString(),
+                                         ((ComboBoxItem)_comboBoxJobType.SelectedItem).Content.ToString(), _textBoxLastName.Text, _textBoxMobilePhone.Text, null,
+                                         ((ComboBoxItem)_comboBoxJobPayment.SelectedItem).Content.ToString(), _textBoxPhone.Text, _textBoxMobilePhone.Text, ((ComboBoxItem)_comboBoxStates.SelectedItem).Content.ToString(),
+                                         null, null, null, ((ComboBoxItem)_comboBoxTechnician.SelectedItem).Content.ToString(), Convert.ToDecimal(_textBoxTotal.Text));
 
+        }
+
+        void webService_InsertNewJobCompleted(object sender, ServiceReferenceTechnicians.InsertNewJobCompletedEventArgs e)
+        {
+            if (e.Result)
+            {
+                MessageBox.Show("New Job has saved successfully.");
+            }
+            else
+            {
+                MessageBox.Show("Failed to save new Job.");
+            }
         }
     }
 }

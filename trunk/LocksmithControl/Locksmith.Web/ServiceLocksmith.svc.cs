@@ -29,6 +29,11 @@ namespace Locksmith.Web
             return companyList.ToList();
         }
 
+        public List<Job> GetJobsList()
+        {
+            var jobsList = from job in _dataBase.Jobs select job;
+            return jobsList.ToList();
+        }  
 
         public bool InsertNewTechnician(string firstName, string lastName, string address, string state, string city, string company, string email, string phone, string mobilePhone)
         {
@@ -84,6 +89,49 @@ namespace Locksmith.Web
             }
 
         }
+
+        public bool InsertNewJob(string address, string city, string company, decimal cost, decimal? companyPayout, string firstName, decimal? gross, decimal? grossMinusCost,
+                                 string Info, string jobPricing, string jobType, string lastName, string mobilePhone, decimal? netPay, string paymentMethod,
+                                  string phone, string state, string status, decimal? SumCash, decimal? techCut, decimal? techPayout, string technician, decimal total)        
+        {
+            try
+            {
+                Job job = new Job();
+                job.Address = address;
+                job.City = city;
+                job.Company = company;
+                job.Company_Payout = companyPayout;
+                job.Cost = cost;
+                job.First_Name = firstName;
+                job.Gross = gross;
+                job.Gross_Cost = grossMinusCost;
+                job.Info = Info;
+                job.Job_Pricing = jobPricing;
+                job.Job_Type = jobType;
+                job.Last_Name = lastName;
+                job.Mobile_Phone = mobilePhone;
+                job.Net_pay = netPay;
+                job.Payment_Method = paymentMethod;
+                job.Phone = phone;
+                job.State = state;
+                job.Status = status;
+                job.Sum_Cash = SumCash;
+                job.Tech_Cut = techCut;
+                job.Tech_Payout = techPayout;
+                job.Technician = technician;
+                job.Total = total;     
+
+                _dataBase.Jobs.InsertOnSubmit(job);
+                _dataBase.SubmitChanges();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+
+        }    
     }
 }
  

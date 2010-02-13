@@ -45,39 +45,6 @@ namespace Locksmith.Views
                 MessageBox.Show("Failed to save new Technician.");
             }
         }
-    
-        //void webService_GetTechnicianListCompleted(object sender, ServiceReferenceTechnicians.GetTechnicianListCompletedEventArgs e)
-        //{
-        //    if (e.Result != null && e.Result.Count > 0)
-        //    {               
-        //        _textBoxFirstName.Text = e.Result[0].FirstName;
-        //        _textBoxLastName.Text = e.Result[0].LastName;
-        //        _textBoxAddress.Text = e.Result[0].Address;
-
-        //        for (int i=0; i < _comboBoxStates.Items.Count; i++)
-        //        {
-        //            if (((ComboBoxItem)_comboBoxStates.Items[i]).Content.ToString() == e.Result[0].State)
-        //            {
-        //                _comboBoxStates.SelectedIndex = i;
-        //                break;
-        //            }
-        //        }
-
-        //        for (int i = 0; i < _comboBoxCompanies.Items.Count; i++)
-        //        {
-        //            if (((ComboBoxItem)_comboBoxCompanies.Items[i]).Content.ToString() == e.Result[0].State)
-        //            {
-        //                _comboBoxCompanies.SelectedIndex = i;
-        //                break;
-        //            }
-        //        }
-
-        //        _textBoxCity.Text = e.Result[0].City;
-        //        _textBoxEmail.Text = e.Result[0].email;
-        //        _textBoxMobilePhone.Text = e.Result[0].MobilePhone;
-        //        _textBoxPhone.Text = e.Result[0].Phone;
-        //    }
-        //}
 
     }
 }

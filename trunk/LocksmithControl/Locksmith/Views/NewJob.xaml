@@ -7,16 +7,23 @@
            xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
            d:DesignWidth="640" d:DesignHeight="480"
            Title="NewTechnician Page" xmlns:dataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input" xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls">
-  <Grid x:Name="LayoutRoot">
+    <ScrollViewer>
+        <Grid x:Name="LayoutRoot">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-        <TextBlock HorizontalAlignment="Left" Name="textBlockTitle" Text="Add New Job" 
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>   
+            <TextBlock HorizontalAlignment="Left" Name="textBlockTitle" Text="Add New Job" 
                    VerticalAlignment="Top" Margin="5" FontSize="20" Grid.Row="0"/>
-        <Grid Grid.Row="1" DataContext="{Binding}">
+            <Border Grid.Row="1" CornerRadius="4" BorderBrush="Black" BorderThickness="1" Background="AliceBlue">
+            <Grid  DataContext="{Binding}" Margin="3">
             <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -38,47 +45,58 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions> 
             <controls:DatePicker x:Name="_datePickerJobDate" Grid.Row="0" Grid.Column="0" Margin="5"/>
-            <TextBlock x:Name="_textBlockFirstName" Text="First Name" Grid.Row="1" Grid.Column="0" Margin="5" FontSize="14"/>
-            <TextBlock x:Name="_textBlockLastName" Text="Last Name" Grid.Row="2" Grid.Column="0" Margin="5" FontSize="14"/>    
-            <TextBlock x:Name="_textBlockAddress" Text="Address" Grid.Row="3" Grid.Column="0" Margin="5" FontSize="14"/>
-            <TextBlock x:Name="_textBlockState" Text="State" Grid.Row="4" Grid.Column="0" Margin="5" FontSize="14"/>
-            <TextBlock x:Name="_textBlockCity" Text="City" Grid.Row="4" Grid.Column="2" Margin="5" FontSize="14"/>
-            <TextBlock x:Name="_textBlockPhone" Text="Phone" Grid.Row="5" Grid.Column="0" Margin="5" FontSize="14"/>
-            <TextBlock x:Name="_textBlockMobilePhone" Text="Mobile Phone" Grid.Row="6" Grid.Column="0" Margin="5" FontSize="14"/>
-            <TextBlock x:Name="_textBlockJobType" Text="Job Type" Grid.Row="7" Grid.Column="0" Margin="5" FontSize="14"/>
-            <TextBlock x:Name="_textBlockJobTypeOther" Text="Other" Grid.Row="7" Grid.Column="2" Margin="5" FontSize="14"/>
-            <TextBlock x:Name="_textBlockJobTypeComapny" Text="Company" Grid.Row="8" Grid.Column="0" Margin="5" FontSize="14"/>
-            <TextBlock x:Name="_textBlockJobPricing" Text="Job Pricing" Grid.Row="8" Grid.Column="2" Margin="5" FontSize="14"/>
-            <TextBlock x:Name="_textBlockTotal" Text="Total" Grid.Row="9" Grid.Column="0" Margin="5" FontSize="14"/>
-            <TextBlock x:Name="_textBlockCost" Text="Cost" Grid.Row="9" Grid.Column="2" Margin="5" FontSize="14"/>
-            <TextBlock x:Name="_textBlockPaymentMethod" Text="Payment Method" Grid.Row="10" Grid.Column="0" Margin="5" FontSize="14"/>
-            <TextBlock x:Name="_textBlockInfo" Text="Additional Info" Grid.Row="11" Grid.Column="0" Margin="5" FontSize="14"/>
-            <TextBox x:Name="_textBoxFirstName" Grid.Row="1" Grid.Column="1" Margin="5" FontSize="14" MinWidth="200"/>
-            <TextBox x:Name="_textBoxLastName" Grid.Row="2" Grid.Column="1" Margin="5" FontSize="14" MinWidth="200"/>      
-            <TextBox x:Name="_textBoxAddress" Grid.Row="3" Grid.Column="1" Margin="5" FontSize="14" MinWidth="200"/>
-            <ComboBox x:Name="_comboBoxStates" Grid.Row="4" Grid.Column="1" Margin="5" FontSize="14" MinWidth="200" SelectedIndex="1">
+            <TextBlock x:Name="_textBlockStatus" Text="Status" Grid.Row="1" Grid.Column="0" Margin="5" FontSize="14"/>
+            <TextBlock x:Name="_textBlockTechnician" Text="Technician" Grid.Row="2" Grid.Column="0" Margin="5" FontSize="14"/>
+            <TextBlock x:Name="_textBlockFirstName" Text="First Name" Grid.Row="3" Grid.Column="0" Margin="5" FontSize="14"/>
+            <TextBlock x:Name="_textBlockLastName" Text="Last Name" Grid.Row="4" Grid.Column="0" Margin="5" FontSize="14"/>    
+            <TextBlock x:Name="_textBlockAddress" Text="Address" Grid.Row="5" Grid.Column="0" Margin="5" FontSize="14"/>
+            <TextBlock x:Name="_textBlockState" Text="State" Grid.Row="6" Grid.Column="0" Margin="5" FontSize="14"/>
+            <TextBlock x:Name="_textBlockCity" Text="City" Grid.Row="6" Grid.Column="2" Margin="5" FontSize="14"/>
+            <TextBlock x:Name="_textBlockPhone" Text="Phone" Grid.Row="7" Grid.Column="0" Margin="5" FontSize="14"/>
+            <TextBlock x:Name="_textBlockMobilePhone" Text="Mobile Phone" Grid.Row="8" Grid.Column="0" Margin="5" FontSize="14"/>
+            <TextBlock x:Name="_textBlockJobType" Text="Job Type" Grid.Row="9" Grid.Column="0" Margin="5" FontSize="14"/>
+            <TextBlock x:Name="_textBlockJobTypeOther" Text="Other" Grid.Row="9" Grid.Column="2" Margin="5" FontSize="14"/>
+            <TextBlock x:Name="_textBlockJobTypeComapny" Text="Company" Grid.Row="10" Grid.Column="0" Margin="5" FontSize="14"/>
+            <TextBlock x:Name="_textBlockJobPricing" Text="Job Pricing" Grid.Row="10" Grid.Column="2" Margin="5" FontSize="14"/>
+            <TextBlock x:Name="_textBlockTotal" Text="Total" Grid.Row="11" Grid.Column="0" Margin="5" FontSize="14"/>
+            <TextBlock x:Name="_textBlockCost" Text="Cost" Grid.Row="11" Grid.Column="2" Margin="5" FontSize="14"/>
+            <TextBlock x:Name="_textBlockPaymentMethod" Text="Payment Method" Grid.Row="12" Grid.Column="0" Margin="5" FontSize="14"/>
+            <TextBlock x:Name="_textBlockInfo" Text="Additional Info" Grid.Row="13" Grid.Column="0" Margin="5" FontSize="14"/>
+            <ComboBox x:Name="_comboBoxStatus" Grid.Row="1" Grid.Column="1" Margin="5" SelectedIndex="0">
+                <ComboBoxItem Content="Open"/>
+                <ComboBoxItem Content="Closed"/>
+            </ComboBox>
+            <ComboBox x:Name="_comboBoxTechnician" Grid.Row="2" Grid.Column="1" Margin="5" SelectedIndex="0">
+                <ComboBoxItem Content="Akiva"/>
+                <ComboBoxItem Content="Nadav"/>
+                <ComboBoxItem Content="Haim"/>
+            </ComboBox>
+            <TextBox x:Name="_textBoxFirstName" Grid.Row="3" Grid.Column="1" Margin="5" FontSize="14" MinWidth="200"/>
+            <TextBox x:Name="_textBoxLastName" Grid.Row="4" Grid.Column="1" Margin="5" FontSize="14" MinWidth="200"/>      
+            <TextBox x:Name="_textBoxAddress" Grid.Row="5" Grid.Column="1" Margin="5" FontSize="14" MinWidth="200"/>
+            <ComboBox x:Name="_comboBoxStates" Grid.Row="6" Grid.Column="1" Margin="5" FontSize="14" MinWidth="200" SelectedIndex="1">
                 <ComboBoxItem Content="NY"/>
                 <ComboBoxItem Content="NJ"/>
                 <ComboBoxItem Content="PA"/>
                 <ComboBoxItem Content="CT"/>
             </ComboBox>
-            <TextBox x:Name="_textBoxCity" Grid.Row="4" Grid.Column="3" Margin="5" FontSize="14" MinWidth="200"/>
-            <TextBox x:Name="_textBoxPhone" Grid.Row="5" Grid.Column="1" Margin="5" FontSize="14" MinWidth="200"/>
-            <TextBox x:Name="_textBoxMobilePhone" Grid.Row="6" Grid.Column="1" Margin="5" FontSize="14" MinWidth="200"/>
-            <ComboBox x:Name="_comboBoxJobType" Grid.Row="7" Grid.Column="1" Margin="5" FontSize="14" MinWidth="200" SelectedIndex="1">
+            <TextBox x:Name="_textBoxCity" Grid.Row="6" Grid.Column="3" Margin="5" FontSize="14" MinWidth="200"/>
+            <TextBox x:Name="_textBoxPhone" Grid.Row="7" Grid.Column="1" Margin="5" FontSize="14" MinWidth="200"/>
+            <TextBox x:Name="_textBoxMobilePhone" Grid.Row="8" Grid.Column="1" Margin="5" FontSize="14" MinWidth="200"/>
+            <ComboBox x:Name="_comboBoxJobType" Grid.Row="9" Grid.Column="1" Margin="5" FontSize="14" MinWidth="200" SelectedIndex="1">
                 <ComboBoxItem Content="Lock Out"/>
                 <ComboBoxItem Content="New Locks Installation"/>
                 <ComboBoxItem Content="Safe Installation"/>
                 <ComboBoxItem Content="Other"/>
             </ComboBox>
-            <TextBox x:Name="_textBoxOther" Grid.Row="7" Grid.Column="3" Margin="5" FontSize="14" MinWidth="200"/>
-            <ComboBox x:Name="_comboBoxCompanies" Grid.Row="8" Grid.Column="1" Margin="5" FontSize="14" MinWidth="200" SelectedIndex="1">
+            <TextBox x:Name="_textBoxOther" Grid.Row="9" Grid.Column="3" Margin="5" FontSize="14" MinWidth="200"/>
+            <ComboBox x:Name="_comboBoxCompanies" Grid.Row="10" Grid.Column="1" Margin="5" FontSize="14" MinWidth="200" SelectedIndex="1">
                 <ComboBoxItem Content="Free Lance"/>
                 <ComboBoxItem Content="Alpha Security"/>
                 <ComboBoxItem Content="A &amp; A"/>
                 <ComboBoxItem Content="Artties"/>
             </ComboBox>
-            <ComboBox x:Name="_comboBoxJobPricing" Grid.Row="8" Grid.Column="3" Margin="5" FontSize="14" MinWidth="200" SelectedIndex="0">
+            <ComboBox x:Name="_comboBoxJobPricing" Grid.Row="10" Grid.Column="3" Margin="5" FontSize="14" MinWidth="200" SelectedIndex="0">
                 <ComboBoxItem Content="Day"/>
                 <ComboBoxItem Content="Night"/>
                 <ComboBoxItem Content="Free Lance"/>
@@ -88,20 +106,52 @@
                 <ComboBoxItem Content="40%"/>
                 <ComboBoxItem Content="50%"/>
             </ComboBox>
-            <TextBox x:Name="_textBoxTotal" Grid.Row="9" Grid.Column="1" Margin="5"/>
-            <TextBox x:Name="_textBoxCost" Grid.Row="9" Grid.Column="3" Margin="5"/>
-            <ComboBox x:Name="_comboBoxJobPayment" Grid.Row="10" Grid.Column="1" Margin="5" FontSize="14" MinWidth="200" SelectedIndex="0">
+            <TextBox x:Name="_textBoxTotal" Grid.Row="11" Grid.Column="1" Margin="5"/>
+            <TextBox x:Name="_textBoxCost" Grid.Row="11" Grid.Column="3" Margin="5"/>
+            <ComboBox x:Name="_comboBoxJobPayment" Grid.Row="12" Grid.Column="1" Margin="5" FontSize="14" MinWidth="200" SelectedIndex="0">
                 <ComboBoxItem Content="Cash"/>
                 <ComboBoxItem Content="Credit"/>
                 <ComboBoxItem Content="Check"/>
             </ComboBox>
-            <TextBox x:Name="_textBoxInfo" TextWrapping="Wrap" Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="4"/>         
-        </Grid>
-        <Button x:Name="_buttonSave" 
-                Content="Save" Margin="10"
-                Grid.Row="2" Width="100" 
+            <TextBox x:Name="_textBoxInfo" TextWrapping="Wrap" Grid.Row="14" Grid.Column="0"  Margin="5" Grid.ColumnSpan="4"/>
+                <Button x:Name="_buttonSave" 
+                Content="Save" Margin="5"
+                Grid.Row="15" Width="100" 
                 Height="30" 
                 HorizontalAlignment="Left"
-                Click="_buttonSave_Click"/>        
+                Click="_buttonSave_Click"/>
+            </Grid>
+        </Border>
+            <Border Grid.Row="2" CornerRadius="4" BorderBrush="Black"  BorderThickness="1" Background="LightYellow" Margin="0,10,0,0">
+            <Grid Margin="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock x:Name="_textBlockGross" Text="Gross" Grid.Row="0" Grid.Column="0" Margin="5" FontSize="14"/>
+                <TextBlock x:Name="_textBlockGrossCost" Text="Gross-Cost" Grid.Row="0" Grid.Column="2" Margin="5" FontSize="14"/>
+                <TextBlock x:Name="_textBlockTechnicianCut" Text="Technician Cut" Grid.Row="1" Grid.Column="0" Margin="5" FontSize="14"/>
+                <TextBlock x:Name="_textBlockTechnicianPayout" Text="Technician Payout" Grid.Row="1" Grid.Column="2" Margin="5" FontSize="14"/>
+                <TextBlock x:Name="_textBlockCompanyPayout" Text="Company Payout" Grid.Row="2" Grid.Column="0" Margin="5" FontSize="14"/>
+                <TextBlock x:Name="_textBlockNetPayment" Text="Net Payment" Grid.Row="2" Grid.Column="2" Margin="5" FontSize="14"/>
+                <TextBlock x:Name="_textBlockSumCash" Text="Sum Cash" Grid.Row="3" Grid.Column="0" Margin="5" FontSize="14"/>
+                <TextBox x:Name="_textBoxGross" Grid.Row="0" Grid.Column="1" Margin="5" IsReadOnly="True"/>
+                <TextBox x:Name="_textBoxGrossCost" Grid.Row="0" Grid.Column="3" Margin="5" IsReadOnly="True"/>
+                <TextBox x:Name="_textBoxTechnicianCut" Grid.Row="1" Grid.Column="1" Margin="5" IsReadOnly="True"/>
+                <TextBox x:Name="_textBoxTechnicianPayout" Grid.Row="1" Grid.Column="3" Margin="5" IsReadOnly="True"/>
+                <TextBox x:Name="_textBoxCompanyPayout" Grid.Row="2" Grid.Column="1" Margin="5" IsReadOnly="True"/>
+                <TextBox x:Name="_textBoxNetPayment" Grid.Row="2" Grid.Column="3" Margin="5" IsReadOnly="True"/>
+                <TextBox x:Name="_textBoxSumCash" Grid.Row="3" Grid.Column="1" Margin="5"  IsReadOnly="True"/>
+            </Grid>         
+        </Border>          
     </Grid>
+    </ScrollViewer>
 </navigation:Page>

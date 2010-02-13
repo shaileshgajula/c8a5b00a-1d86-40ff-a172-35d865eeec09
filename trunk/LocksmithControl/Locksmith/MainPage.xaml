@@ -77,7 +77,7 @@
                             <HyperlinkButton x:Name="LinkAllJobs" Style="{StaticResource LinkStyle}" 
                                  HorizontalAlignment="Center"
                                  FontWeight="Bold"
-                                 NavigateUri="/NewJob" TargetName="ContentFrame" Content="All Jobs"/>
+                                 NavigateUri="/AllOpenJobs" TargetName="ContentFrame" Content="All Jobs"/>
                         </SLToolkit:TreeViewItem.Header>
                     </SLToolkit:TreeViewItem>
                     <SLToolkit:TreeViewItem>
