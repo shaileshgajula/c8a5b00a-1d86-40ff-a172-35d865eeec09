@@ -85,7 +85,6 @@
     <Content Include="Backoffice\UserControls\GalleryViewer.ascx" />
     <Content Include="Backoffice\UserControls\ImageViewer.ascx" />
     <Content Include="Backoffice\UserControls\TextContent.ascx" />
-    <Content Include="EmailTemplate\DanielBrith.htm" />
     <Content Include="EmailTemplate\RecoverPassword.htm" />
     <Content Include="FrontSitePages\MiriMargolin\About.aspx" />
     <Content Include="FrontSitePages\MiriMargolin\Albums.aspx" />
@@ -109,8 +108,14 @@
     <Content Include="Images\Icons\Previous.gif" />
     <Content Include="Images\Icons\Previous.png" />
     <Content Include="Images\IMG_0041_S.JPG" />
+    <Content Include="Images\MiriMargolin\1266497108.jpg" />
+    <Content Include="Images\MiriMargolin\1266497180.jpg" />
+    <Content Include="Images\MiriMargolin\1266497201.jpg" />
+    <Content Include="Images\MiriMargolin\1266497243.jpg" />
+    <Content Include="Images\MiriMargolin\1266597646.jpg" />
     <Content Include="Images\SeperatorMiri.gif" />
     <Content Include="Images\Staff\MiriMargolinSelf.jpg" />
+    <Content Include="OrganisationGalleryImages\ThumbNail\1266497108bd581.jpg" />
     <Content Include="OrganisationLogos\cal_logo980b3.gif" />
     <Content Include="OrganisationLogos\cal_logo980b38e1c0.gif" />
     <Content Include="OrganisationLogos\MiriMargolinLogo.gif" />
@@ -238,6 +243,12 @@
       <DependentUpon>Standings.dbml</DependentUpon>
     </Compile>
     <Compile Include="Backoffice\Entities\TextContentManager.cs" />
+    <Compile Include="Backoffice\Entities\TournamentAlgorithm\Competitor.cs" />
+    <Compile Include="Backoffice\Entities\TournamentAlgorithm\ITournament.cs" />
+    <Compile Include="Backoffice\Entities\TournamentAlgorithm\Matchup.cs" />
+    <Compile Include="Backoffice\Entities\TournamentAlgorithm\SingleElimination.cs" />
+    <Compile Include="Backoffice\Entities\TournamentAlgorithm\Tournament.cs" />
+    <Compile Include="Backoffice\Entities\TournamentAlgorithm\TournamentTypes.cs" />
     <Compile Include="Backoffice\Entities\TournamentManager.cs" />
     <Compile Include="Backoffice\EventGallery.aspx.cs">
       <DependentUpon>EventGallery.aspx</DependentUpon>
@@ -918,9 +929,7 @@
       <DependentUpon>Tourna.dbml</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="OrganisationGalleryImages\ThumbNail\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Backoffice\Entities\Albums.dbml.layout">
       <DependentUpon>Albums.dbml</DependentUpon>
@@ -952,7 +961,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
+      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

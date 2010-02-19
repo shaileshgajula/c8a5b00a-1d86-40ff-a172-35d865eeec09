@@ -3,11 +3,13 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Web;
 using System;
+using StrongerOrg.Backoffice.DataLayer;
+using System.Linq;
 public class TournamentManager
 {
     //public static void BuildTournament()
     //{ 
-    
+
     //}
 
     internal static string BuildTournament(Guid organisationId, string tournamentName, string tournamentAbstract, string locations,
@@ -44,10 +46,10 @@ public class TournamentManager
     {
         using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["StrongerOrgString"].ConnectionString))
         {
-            SqlCommand command = new SqlCommand("Select EmailTemplate from Tournaments where Id='" + tournamentId+"'", conn);
+            SqlCommand command = new SqlCommand("Select EmailTemplate from Tournaments where Id='" + tournamentId + "'", conn);
             command.CommandType = System.Data.CommandType.Text;
             conn.Open();
-            object result =command.ExecuteScalar();
+            object result = command.ExecuteScalar();
             if (result != null)
             {
                 return result.ToString();
@@ -56,7 +58,7 @@ public class TournamentManager
             {
                 return string.Empty;
             }
-            
+
         }
     }
     internal static string UpdateTournamentEmailTemplate(string tournamentId)
@@ -90,5 +92,27 @@ public class TournamentManager
             conn.Open();
             command.ExecuteNonQuery();
         }
+    }
+
+    internal static bool IsTournamentOpen(Guid orgId, Guid tournamentId)
+    {
+        using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["StrongerOrgString"].ConnectionString))
+        {
+            SqlCommand command = new SqlCommand("TournamentsGet", conn);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.Add("@OrganisationId", SqlDbType.UniqueIdentifier).Value = orgId;
+            command.Parameters.Add("@TournamentId", SqlDbType.UniqueIdentifier).Value = tournamentId;
+            conn.Open();
+            SqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                int numberOfPlayersLimit = int.Parse(reader["NumberOfPlayersLimit"].ToString());
+                int registeredPlayers = int.Parse(reader["RegisteredPlayers"].ToString());
+                string tournamentName = reader["TournamentName"].ToString();
+                bool isTournamentOpen = bool.Parse(reader["IsOpen"].ToString());
+                return isTournamentOpen && numberOfPlayersLimit > registeredPlayers;
+            }
+        }
+        return false;
     }
 }

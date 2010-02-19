@@ -1,6 +1,11 @@
 ﻿using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
+using System;
+using StrongerOrg.Backoffice.DataLayer;
+using System.Linq;
+using StrongerOrg.Backoffice.Entities.TournamentAlgorithm;
+using System.Collections.Generic;
 
 public class PlayersManager
 {
@@ -23,5 +28,19 @@ public class PlayersManager
             conn.Open();
             int returnCount = command.ExecuteNonQuery();
         }
+    }
+
+    internal static List<Competitor> GetPlayers(Guid orgId, Guid tournamentId) 
+    { 
+        TournaDataContext tournamentDC = new TournaDataContext(ConfigurationManager.ConnectionStrings["StrongerOrgString"].ConnectionString);
+        var players = from p2t in tournamentDC.Players2Tournaments
+                join p in tournamentDC.Players on p2t.PlayerId equals p.Id
+                where p2t.TournamentId == tournamentId
+                select new Competitor()
+                {
+                    Id = p2t.PlayerId,
+                    Name= p.Name,
+                };
+        return players.ToList();
     }
 }

@@ -13,7 +13,7 @@ namespace StrongerOrg.Backoffice
         private const string joinTournamentTemplate = @"Hello All,<br>
                                                         {0} is happy to invite you to participate in our {1}.<br>
                                                         If you care to join please click the following link<br>
-                                                        <a href='../OrganisationSite/PlayerSubscription.aspx?OrgId={2}&TournamentId={3}'>Join to tournament</a><br>
+                                                        <a href='../OrganisationSite/PlayerSubscription.aspx?OrgId={2}&TournamentId={3}' Target='_blank'>Join to tournament</a><br>
                                                         The tournament is open between {4}pm - {5}pm<br> in {6}
                                                         The prizes are:<br>
                                                         Prize I:{7}<br>

@@ -21,7 +21,7 @@
         </EmptyDataTemplate>
     </asp:GridView>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:StrongerOrgString %>"
-        DeleteCommand="DELETE FROM [Players] WHERE [Id] = @Id" InsertCommand="INSERT INTO [Players] ([Name], [Email], [NickName], [Department], [Id]) VALUES (@Name, @Email, @NickName, @Department, @Id)"
+        DeleteCommand="DELETE FROM [Players] WHERE [Id] = @Id;Delete from Players2Tournaments where playerId=@Id" InsertCommand="INSERT INTO [Players] ([Name], [Email], [NickName], [Department], [Id]) VALUES (@Name, @Email, @NickName, @Department, @Id)"
         SelectCommand="PlayersGet" SelectCommandType="StoredProcedure"
         CancelSelectOnNullParameter="false"       
         UpdateCommand="UPDATE [Players] SET [Name] = @Name, [Email] = @Email, [NickName] = @NickName, [Department] = @Department WHERE [Id] = @Id" >

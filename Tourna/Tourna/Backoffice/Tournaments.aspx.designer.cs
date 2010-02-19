@@ -139,58 +139,13 @@ namespace StrongerOrg.Backoffice {
         protected global::System.Web.UI.WebControls.View View2;
         
         /// <summary>
-        /// GridView2 control.
+        /// gvStandingsPreview control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView2;
-        
-        /// <summary>
-        /// hlScoreUpdatePlayerA control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlScoreUpdatePlayerA;
-        
-        /// <summary>
-        /// hlScoreUpdatePlayerB control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlScoreUpdatePlayerB;
-        
-        /// <summary>
-        /// TextBox1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
-        
-        /// <summary>
-        /// TextBox2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
-        
-        /// <summary>
-        /// standingsSqlDataSource control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource standingsSqlDataSource;
+        protected global::System.Web.UI.WebControls.GridView gvStandingsPreview;
         
         /// <summary>
         /// View3 control.
@@ -229,15 +184,6 @@ namespace StrongerOrg.Backoffice {
         protected global::System.Web.UI.WebControls.HyperLink HyperLink2;
         
         /// <summary>
-        /// Bracket1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::TourneyLogic.Web.UI.WebControls.Bracket Bracket1;
-        
-        /// <summary>
         /// View4 control.
         /// </summary>
         /// <remarks>
@@ -247,13 +193,13 @@ namespace StrongerOrg.Backoffice {
         protected global::System.Web.UI.WebControls.View View4;
         
         /// <summary>
-        /// LinkButton1 control.
+        /// lbScheduleRegisteredPlayer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
+        protected global::System.Web.UI.WebControls.LinkButton lbScheduleRegisteredPlayer;
         
         /// <summary>
         /// ConfirmButtonExtender1 control.

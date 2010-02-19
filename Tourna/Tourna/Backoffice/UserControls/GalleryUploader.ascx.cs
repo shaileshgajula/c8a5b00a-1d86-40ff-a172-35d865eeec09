@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Configuration;
 using System.Drawing;
-using System.Linq;
+
 namespace StrongerOrg.Backoffice.UserControls
 {
     public partial class GalleryUploader : System.Web.UI.UserControl
@@ -20,12 +20,13 @@ namespace StrongerOrg.Backoffice.UserControls
 
         private const int fullSizeHight = 600;
         private const int fullSizeHWidth = 800;
-
+        
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
+        
         protected void lbUpload_Click(object sender, EventArgs e)
         {
             string imageCaption = this.txtCaption.Text;
@@ -43,7 +44,7 @@ namespace StrongerOrg.Backoffice.UserControls
 
                 Bitmap bmThumb = new Bitmap(imgStream);
                 System.Drawing.Image im;
-                // if it is smaller then thumbnail size
+                // if it is smaller then thumbnail size and Resize is needed(property)
                 if ((bmThumb.Height > thumbHight && bmThumb.Width > thumbHWidth) || (bmThumb.Height > thumbHWidth && bmThumb.Width > thumbHight))
                 {
                     // determine if it is landscape or portrait image
@@ -76,11 +77,9 @@ namespace StrongerOrg.Backoffice.UserControls
                 }
                 else
                 {
-
-                    postedFile.SaveAs(Server.MapPath("~\\OrganisationGalleryImages\\ThumbNail\\").ToString() + fullFileName);
+                    postedFile.SaveAs(Server.MapPath("~\\OrganisationGalleryImages\\") + newFileName);
                 }
                 this.txtCaption.Text = string.Empty;
-
             }
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["StrongerOrgString"].ConnectionString))
             {

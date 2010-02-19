@@ -26,7 +26,7 @@ namespace StrongerOrg.Backoffice.UserControls
 
         private const int fullSizeHight = 300;
         private const int fullSizeHWidth = 450;
-
+        string albumTitle;
         private string CurrentImgName
         {
             get { return this.currentImgName; }
@@ -178,7 +178,7 @@ namespace StrongerOrg.Backoffice.UserControls
                 if (this.IsEditMode)
                 {
                     this.txtImgCaption.Text = GetOutputValue(command, "@ImageCaption");
-                    string albumTitle = GetOutputValue(command, "@AlbumTitle");
+                    albumTitle = GetOutputValue(command, "@AlbumTitle");
 
                     this.tbStory.Text = GetOutputValue(command, "@ImageStory");
                     this.txtSizes.Text = GetOutputValue(command, "@ImageSizes");
@@ -301,7 +301,7 @@ namespace StrongerOrg.Backoffice.UserControls
 
         protected void SqlDataSource1_Selected(object sender, SqlDataSourceStatusEventArgs e)
         {
-            string albumTitle = this.hlAlbum.Text;
+            //string albumTitle = this.hlAlbum.Text;
             ListItem selectedItem = this.ddlAlbums.Items.FindByText(albumTitle);
             if (selectedItem != null)
             {

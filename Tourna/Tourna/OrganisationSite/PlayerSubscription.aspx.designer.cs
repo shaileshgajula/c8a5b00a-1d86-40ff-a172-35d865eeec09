@@ -101,5 +101,17 @@ namespace StrongerOrg {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton InsertCancelButton;
+        
+        /// <summary>
+        /// Master property.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated property.
+        /// </remarks>
+        public new StrongerOrg.OrganisationSite.OrgSite Master {
+            get {
+                return ((StrongerOrg.OrganisationSite.OrgSite)(base.Master));
+            }
+        }
     }
 }

@@ -1,7 +1,7 @@
 <%@ Page Title="" Language="C#" MasterPageFile="~/OrganisationSite/OrgSite.Master"
     AutoEventWireup="true" CodeBehind="PlayerSubscription.aspx.cs" Inherits="StrongerOrg.PlayerSubscription"
     Theme="OrganisationSite" %>
-
+    <%@ MasterType VirtualPath="~/OrganisationSite/OrgSite.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Join a tournament</title>
 </asp:Content>
@@ -90,6 +90,7 @@
                         Text="Cancel" />
                 </td>
             </tr>
+            
         </table>
     </asp:Panel>
 </asp:Content>

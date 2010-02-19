@@ -13,5 +13,10 @@ namespace StrongerOrg.FrontSitePages.MiriMargolin
         {
 
         }
+
+        protected void Menu1_MenuItemClick(object sender, MenuEventArgs e)
+        {
+            mvShowCase.ActiveViewIndex = int.Parse(this.Menu1.SelectedValue);
+        }
     }
 }

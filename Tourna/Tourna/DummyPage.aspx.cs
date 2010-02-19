@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using TourneyLogic.Web.UI.WebControls;
+using StrongerOrg.Backoffice.Entities.TournamentAlgorithm;
 
 namespace StrongerOrg
 {
@@ -13,13 +14,13 @@ namespace StrongerOrg
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            List<Competitor> compList = new List<Competitor>() { new Competitor() { Name = "A" }, new Competitor() { Name = "B" }, new Competitor() { Name = "C" },
-                                                                new Competitor() { Name = "D" }, new Competitor() { Name = "E" }, new Competitor() { Name = "F" }, 
-                                                                new Competitor() { Name = "G" }, new Competitor() { Name = "H" }, new Competitor() { Name = "I" },
-                                                                new Competitor() { Name = "J" }};
-            List<Matchup> mathcupList = this.Execute(compList);
-            this.gvResults.DataSource = mathcupList;
-            this.gvResults.DataBind();
+            //List<Competitor> compList = new List<Competitor>() { new Competitor() { Name = "A" }, new Competitor() { Name = "B" }, new Competitor() { Name = "C" },
+            //                                                    new Competitor() { Name = "D" }, new Competitor() { Name = "E" }, new Competitor() { Name = "F" }, 
+            //                                                    new Competitor() { Name = "G" }, new Competitor() { Name = "H" }, new Competitor() { Name = "I" },
+            //                                                    new Competitor() { Name = "J" }};
+            //List<Matchup> mathcupList = this.Execute(compList);
+            //this.gvResults.DataSource = mathcupList;
+            //this.gvResults.DataBind();
         }
 
         protected void btnCreatPlayers_Click(object sender, EventArgs e)
@@ -29,11 +30,11 @@ namespace StrongerOrg
             for (int i = 0; i < cnt; i++)
             {
                 string name = ((char)(65 + i)).ToString();
-                playerList.Add(new Competitor() { Name = name, Id = i });
+                playerList.Add(new Competitor() { Name = name, Id = Guid.NewGuid() });
             }
             ViewState["PlayerArry"] = playerList;
-            this.gvResults.DataSource = playerList;
-            this.gvResults.DataBind();
+            this.gvPairs.DataSource = playerList;
+            this.gvPairs.DataBind();
         }
 
         protected void btnRandomize_Click(object sender, EventArgs e)
@@ -41,8 +42,8 @@ namespace StrongerOrg
             List<Competitor> playerList = ViewState["PlayerArry"] as List<Competitor>;
 
             List<Competitor> mixed = MixList(playerList);
-            this.gvResults.DataSource = mixed;
-            this.gvResults.DataBind();
+            this.gvPairs.DataSource = mixed;
+            this.gvPairs.DataBind();
             ViewState["PlayerArry"] = mixed;
         }
         private List<E> MixList<E>(List<E> inputList)
@@ -87,10 +88,16 @@ namespace StrongerOrg
         protected void btnSinglePair_Click(object sender, EventArgs e)
         {
             List<Competitor> playerList = ViewState["PlayerArry"] as List<Competitor>;
-            List<Matchup> mathcupList = this.Execute(playerList);
+            
+            this.Bracket1.DataSource = playerList;
+            this.Bracket1.DataCompetitorNameField = "Name";
+            this.Bracket1.DataCompetitorIdField = "Id";
+            
+            this.Bracket1.DataBind();
+            
+            List<Matchup> mathcupList = Tournament.TournamentFactory(TournamentTypes.SingleElimination).Execute(playerList);
             this.gvResults.DataSource = mathcupList;
             this.gvResults.DataBind();
-
             //List<Matchup> matchups = new List<Matchup>();
             //for (int i = 0; i < playerList.Count; i++)
             //{
@@ -133,7 +140,6 @@ namespace StrongerOrg
             int compCount = compList.Count;
             int numberOfRounds = (int)Math.Ceiling(Math.Log(compCount, 2));
             List<Matchup> matchupList = new List<Matchup>();
-            int nextMatch = 0;
             int matchUpCounter = 0;
             for (int r = 1; r <= numberOfRounds; r++)
             {
@@ -146,40 +152,56 @@ namespace StrongerOrg
                 {
                     compInRound = (int)Math.Pow(2, numberOfRounds - r) * 2;
                 }
-                nextMatch += compInRound/2;
-                int j = 0;
-                int x = nextMatch;
 
                 for (int i = 0; i < compInRound; i += 2)
                 {
-                    
-                    x += (((j%2) == 0)? 1:0);
-                    matchupList.Add(new Matchup() { MatchUpId = ++matchUpCounter,  Round = r, PlayerA = compList[i].Name, PlayerB = compList[i + 1].Name, NextMatchId = (r == numberOfRounds)?-1:x });
+                    matchupList.Add(new Matchup()
+                    {
+                        MatchUpId = ++matchUpCounter,
+                        Round = r,
+                        PlayerA = compList[i].Name,
+                        PlayerB = compList[i + 1].Name,
+                        HouseSize = (string.IsNullOrEmpty(compList[i].Name) ? 0 : 1) + (string.IsNullOrEmpty(compList[i + 1].Name) ? 0 : 1)
+                    });
                     compList.Add(new Competitor());
-                    j++;
-                    
+
                 }
                 compList.RemoveRange(0, compInRound);
             }
+            foreach (Matchup matchUp in matchupList)
+            {
+                Matchup mup = matchupList.Find(m =>
+                {
+                    return (m.Round == (matchUp.Round + 1)) &&
+                        (string.IsNullOrEmpty(m.PlayerA) || string.IsNullOrEmpty(m.PlayerB)) &&
+                        m.HouseSize < 2;
+                });
+                if (mup != null)
+                {
+                    matchUp.NextMatchId = mup.MatchUpId;
+                    mup.HouseSize++;
+                }
+
+            }
             return matchupList;
         }
+        
+        protected void gvPairs_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            { 
+                int round = int.Parse(e.Row.Cells[1].Text);
+                if ((round % 2) == 0)
+                {
+                    e.Row.BackColor = System.Drawing.SystemColors.ActiveBorder;
+                }
+                else
+                {
+                    e.Row.BackColor = System.Drawing.SystemColors.Desktop;
+                }
+            }
+        }
     }
-    [Serializable]
-    public class Competitor
-    {
-        int round = 1;
-        public string Name { get; set; }
-        public int Round { get { return round; } set { this.round = value; } }
-        public bool IsBye { get; set; }
-        public int Id { get; set; }
-
-    }
-    public class Matchup
-    {
-        public int MatchUpId { get; set; }
-        public int Round { get; set; }
-        public string PlayerA { get; set; }
-        public string PlayerB { get; set; }
-        public int NextMatchId { get; set; }
-    }
+    
+   
 }
