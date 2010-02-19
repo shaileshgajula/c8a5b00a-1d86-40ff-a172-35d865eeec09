@@ -74,25 +74,25 @@ namespace StrongerOrg.Backoffice
                     {
                         cal.SelectedDates.Add(date);
                     }
-                    this.Bracket1.Competitors.Clear();
-                    this.Bracket1.Results.Clear();
-                    BracketControlCollection<BracketCompetitor> bcc = new BracketControlCollection<BracketCompetitor>();
-                    BracketCollection<BracketMatchupResult> bcBm = new BracketCollection<BracketMatchupResult>();
-                    int i=1;
-                    foreach (var item in dateInfo)
-                    {
+                    //this.Bracket1.Competitors.Clear();
+                    //this.Bracket1.Results.Clear();
+                    //BracketControlCollection<BracketCompetitor> bcc = new BracketControlCollection<BracketCompetitor>();
+                    //BracketCollection<BracketMatchupResult> bcBm = new BracketCollection<BracketMatchupResult>();
+                    //int i=1;
+                    //foreach (var item in dateInfo)
+                    //{
                         
-                        if (item.WinnerId != -1)
-                        {
-                            bcBm.Add(new BracketMatchupResult() { MatchupID = item.MatchupId, WinningCompetitorId = "BracketCompetitor" + (i + item.WinnerId).ToString() });
-                        }
-                        bcc.Add(new BracketCompetitor() {  CompetitorId = item.PlayerAId.ToString(), CompetitorName = item.PlayerA});
-                        bcc.Add(new BracketCompetitor() { CompetitorId = item.PlayerBId.ToString(), CompetitorName = item.PlayerB});
-                        i += 2;
+                    //    if (item.WinnerId != -1)
+                    //    {
+                    //        bcBm.Add(new BracketMatchupResult() { MatchupID = item.MatchupId, WinningCompetitorId = "BracketCompetitor" + (i + item.WinnerId).ToString() });
+                    //    }
+                    //    bcc.Add(new BracketCompetitor() {  CompetitorId = item.PlayerAId.ToString(), CompetitorName = item.PlayerA});
+                    //    bcc.Add(new BracketCompetitor() { CompetitorId = item.PlayerBId.ToString(), CompetitorName = item.PlayerB});
+                    //    i += 2;
                         
-                    }
-                    this.Bracket1.Results = bcBm;
-                    this.Bracket1.Competitors = bcc;
+                    //}
+                    //this.Bracket1.Results = bcBm;
+                   // this.Bracket1.Competitors = bcc;
 
                    
 
@@ -147,7 +147,7 @@ namespace StrongerOrg.Backoffice
         protected void lbEditPicksMode_Click(object sender, EventArgs e)
         {
             this.lbEditPicksMode.Text = "Save and Colse"; 
-            this.Bracket1.DisplayMode = Bracket.BracketDisplayMode.EditPicksMode;
+            //this.Bracket1.DisplayMode = Bracket.BracketDisplayMode.EditPicksMode;
         }
 
         protected void standingsSqlDataSource_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
@@ -170,6 +170,37 @@ namespace StrongerOrg.Backoffice
             string orgId = Master.OrgBasicInfo.Id.ToString();
             return string.Format("~/OrganisationSite/StandingUpdate.aspx?OrgId={0}&PlayerId={1}&ScheduleId={2}", orgId, playerId.ToString(), id.ToString());
         }
+
+        protected void lbScheduleRegisteredPlayer_Click(object sender, EventArgs e)
+        {
+            Guid tournamentId = new Guid(this.GridView1.DataKeys[this.GridView1.SelectedIndex].Values["Id"].ToString());
+            List<StrongerOrg.Backoffice.Entities.TournamentAlgorithm.Competitor> competitorsList = PlayersManager.GetPlayers(this.Master.OrgBasicInfo.Id, tournamentId);
+            List<StrongerOrg.Backoffice.Entities.TournamentAlgorithm.Matchup> mathcupList = 
+                StrongerOrg.Backoffice.Entities.TournamentAlgorithm.Tournament.TournamentFactory(TournamentTypes.SingleElimination).Execute(competitorsList);
+
+            this.mvTournament.ActiveViewIndex = 2;
+            this.Menu1.Items[1].Selected = true;
+            this.gvStandingsPreview.DataSource = mathcupList;
+            this.gvStandingsPreview.DataBind();
+        }
+
+        protected void gvStandingsPreview_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                int round = int.Parse(e.Row.Cells[1].Text);
+                if ((round % 2) == 0)
+                {
+                    e.Row.BackColor = System.Drawing.ColorTranslator.FromHtml("#F0F0FC");
+                }
+                else
+                {
+                    e.Row.BackColor = System.Drawing.Color.White;
+                }
+            }
+        }
+
+        
         //protected void schedDatesGrid_RowEditing(object sender, GridViewEditEventArgs e)
         //{
         //    schedDatesGrid.EditIndex = e.NewEditIndex;

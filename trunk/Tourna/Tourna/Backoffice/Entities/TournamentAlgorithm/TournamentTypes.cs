@@ -1,0 +1,4 @@
+﻿internal enum TournamentTypes
+{
+    SingleElimination
+}

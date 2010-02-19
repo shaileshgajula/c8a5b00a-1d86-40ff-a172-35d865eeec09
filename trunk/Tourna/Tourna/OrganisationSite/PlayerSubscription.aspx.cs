@@ -9,34 +9,46 @@ namespace StrongerOrg
 {
     public partial class PlayerSubscription : System.Web.UI.Page
     {
-        string orgId;
         protected void Page_Load(object sender, EventArgs e)
         {
-            object orgIdObj = Request.QueryString["OrgId"];
-            if ( orgIdObj != null && !string.IsNullOrEmpty(orgIdObj.ToString()))
+            object tournamentIdObject = Request.QueryString["TournamentId"];
+            if (tournamentIdObject != null && !string.IsNullOrEmpty(tournamentIdObject.ToString()))
             {
+                string tournamentId = tournamentIdObject.ToString();
                 try
                 {
-                    orgId = orgIdObj.ToString();
-                    Guid guid = new Guid(orgId);
+                    Guid guid = new Guid(tournamentId);
+                    bool isTournamentOpen = TournamentManager.IsTournamentOpen(this.Master.OrgBasicInfo.Id, guid);
+                    if (!isTournamentOpen)
+                    {
+                        this.Panel1.Enabled = false;
+                        this.lblMsg.Text = string.Format("The Registrantion to the tournament is closed. Contact your <a href='ContactModerator.aspx?OrgId={0}'>moderator</a>  for any issue you have.",
+                            this.Master.OrgBasicInfo.Id);
+                        this.lblMsg.CssClass = "AlertText";
+                    }
                 }
                 catch (Exception)
                 {
-                    this.lblMsg.Text = "Invalid request";
-                    this.Panel1.Visible = false;
+                    this.InvalidRequest();
                 }
             }
             else
             {
-                this.lblMsg.Text = "Invalid request";
-                this.Panel1.Visible = false;
+                this.InvalidRequest();
             }
+        }
+
+        private void InvalidRequest()
+        {
+            this.Panel1.Visible = false;
+            this.lblMsg.Text = "Invalid request";
+            this.lblMsg.CssClass = "AlertText";
         }
 
         protected void FormView1_ItemInserted(object sender, FormViewInsertedEventArgs e)
         {
             this.Panel1.Visible = false;
-            
+
         }
 
         protected void InsertButton_Click(object sender, EventArgs e)
@@ -47,9 +59,11 @@ namespace StrongerOrg
             string email = this.txtEmail.Text;
             //string department = this.txtDepartment.Text;
             string tournamentId = Request.QueryString["TournamentId"].ToString();
-            PlayersManager.InsertPlayer(this.orgId, name, string.Empty, email, string.Empty, tournamentId);
+            PlayersManager.InsertPlayer(this.Master.OrgBasicInfo.Id.ToString(), name, string.Empty, email, string.Empty, tournamentId);
             this.Panel1.Visible = false;
-            this.lblMsg.Text = string.Format("Thank you for register. An invitaion for your first match will be sent to your email[{0}]",email) ;
+            this.lblMsg.Text = string.Format("Thank you for register. An invitaion for your first match will be sent to your email[{0}]", email);
         }
+
+
     }
 }

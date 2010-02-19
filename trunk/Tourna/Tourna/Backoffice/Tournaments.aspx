@@ -19,6 +19,7 @@
                 DataFormatString="{0:d}" />
             <asp:BoundField DataField="Title" HeaderText="Game Title" SortExpression="Title" />
             <asp:BoundField DataField="NumberOfPlayersLimit" HeaderText="Limit" SortExpression="NumberOfPlayersLimit" />
+            <asp:BoundField DataField="IsOpen" HeaderText="Open"/>
             <asp:HyperLinkField DataNavigateUrlFields="Id,TournamentName" DataNavigateUrlFormatString="OrganisationPlayers.aspx?TournamentId={0}&TournamentName={1}"
                 DataTextField="RegisteredPlayers" HeaderText="Registered" />
             <asp:CommandField HeaderText="Del" ShowDeleteButton="True" DeleteText="Del" />
@@ -99,7 +100,7 @@
                         </div>
                     </asp:View>
                     <asp:View ID="View2" runat="server">
-                        <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataKeyNames="Id"
+                       <%-- <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataKeyNames="Id"
                             DataSourceID="standingsSqlDataSource">
                             <EmptyDataTemplate>
                             </EmptyDataTemplate>
@@ -131,7 +132,6 @@
                                     <HeaderStyle HorizontalAlign="Center" />
                                     <ItemStyle HorizontalAlign="Center" CssClass="navigate" />
                                 </asp:CommandField>
-                                
                             </Columns>
                         </asp:GridView>
                         <asp:SqlDataSource ID="standingsSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:StrongerOrgString %>"
@@ -145,7 +145,18 @@
                                 <asp:Parameter Name="ScoreA" Type="Int32" />
                                 <asp:Parameter Name="ScoreB" Type="Int32" />
                             </UpdateParameters>
-                        </asp:SqlDataSource>
+                        </asp:SqlDataSource>--%>
+                        <asp:GridView ID="gvStandingsPreview" runat="server" 
+                            AutoGenerateColumns="false" onrowdatabound="gvStandingsPreview_RowDataBound">
+                            <Columns>
+                                <asp:BoundField DataField="MatchUpId" HeaderText="Id" />
+                                <asp:BoundField DataField="Round" HeaderText="Round" />
+                                <asp:BoundField DataField="PlayerA" HeaderText="Player A" />
+                                <asp:BoundField DataField="PlayerB" HeaderText="Player B" />
+                                <asp:BoundField DataField="NextMatchId" HeaderText="NextMatch Id" />
+                                <asp:BoundField DataField="StartDate" HeaderText="StartDate" />
+                            </Columns>
+                        </asp:GridView>
                     </asp:View>
                     <asp:View ID="View3" runat="server">
                         <div style="text-align: right">
@@ -155,14 +166,14 @@
                             <img src="../Images/Icons/PdfIcon.gif" />
                             <asp:HyperLink ID="HyperLink2" runat="server">Export to pdf</asp:HyperLink>
                         </div>
-                        <tl:Bracket runat="server" ID="Bracket1" ChampionshipText="Champion" DisplayMode="ViewMode"
-                            RoundWidth="100"></tl:Bracket>
+                        
                     </asp:View>
                     <asp:View ID="View4" runat="server">
                         Actions:
                         <ul>
                             <li>
-                                <asp:LinkButton ID="LinkButton1" runat="server">Schedule registred players</asp:LinkButton></li>
+                                <asp:LinkButton ID="lbScheduleRegisteredPlayer" runat="server" 
+                                    onclick="lbScheduleRegisteredPlayer_Click">Schedule registred players</asp:LinkButton></li>
                             <li>
                                 <ajax:ConfirmButtonExtender ID="ConfirmButtonExtender1" runat="server" TargetControlID="lbClearAllScheduledGames"
                                     ConfirmText="By deleting all match up you are deleteing any scores and you will not be able to reproduce it">

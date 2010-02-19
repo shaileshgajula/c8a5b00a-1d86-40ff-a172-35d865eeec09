@@ -33,6 +33,22 @@ namespace StrongerOrg.BackOffice.Scheduler
         //        i++;
         //    }
         //}
+        internal static void ScheduleGames(ref List<StrongerOrg.Backoffice.Entities.TournamentAlgorithm.Matchup> matchups, DateTime startDate)
+        {
+            int numberOfGamesPerDay = 3;
+            int numberOfGamesCounter = 1;
+            foreach (StrongerOrg.Backoffice.Entities.TournamentAlgorithm.Matchup mu in matchups)
+            {
+                if (numberOfGamesCounter % 3 == 0)
+                { 
+                    
+                }
+
+                mu.StartDate = startDate;
+                startDate = startDate.AddMinutes(15);
+                numberOfGamesCounter++;
+            }
+        }
 
         internal static void ScheduleGames(Guid tournaId, string pairAlgo, string matchType)
         {

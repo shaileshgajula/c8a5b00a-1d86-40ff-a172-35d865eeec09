@@ -76,6 +76,7 @@
       <siteMapNode title="MiriMargolinDelegate Section" url="MiriMargolinDelegate">
         <siteMapNode title="Gallery" url="~\Backoffice\eventGallery.aspx?m"/>
         <siteMapNode title="About Miri" url="~\Backoffice\MiriMargolin\about.aspx"/>
+        <siteMapNode title="Show case" url="~\Backoffice\MiriMargolin\ShowCase.aspx"/>
       </siteMapNode>
       
     </siteMapNode>

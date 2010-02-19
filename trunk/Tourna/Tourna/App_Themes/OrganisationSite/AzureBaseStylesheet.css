@@ -26,6 +26,11 @@ a:active
 {
 	color: #027d9e;
 }
+a[disabled='disabled']
+{
+    color:#43431f;
+    text-decoration: none;
+}
 .H1Title
 {
 	font-size: 15px;
@@ -51,4 +56,10 @@ opacity : 0.4;
   padding: 10px 10px 10px 10px;
   position:absolute;
   top:-1000px;
+}
+.AlertText
+{
+font-size: 13px;
+	font-style:italic;
+    color:Red;
 }

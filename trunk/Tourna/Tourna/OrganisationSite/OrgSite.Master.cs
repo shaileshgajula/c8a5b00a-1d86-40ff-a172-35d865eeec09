@@ -11,35 +11,48 @@ namespace StrongerOrg.OrganisationSite
 {
     public partial class OrgSite : System.Web.UI.MasterPage
     {
-        string orgId;
-        protected void Page_Load(object sender, EventArgs e)
+        protected override void OnInit(EventArgs e)
         {
-            orgId = Request.QueryString["OrgId"].ToString();
-            OrganisationManager.OrganisationBasicInfo orgBasicInfo;
-            if (HttpContext.Current.Cache[orgId] != null)
+            base.OnInit(e);
+            object orgIdObj = Request.QueryString["OrgId"];
+
+            if (orgIdObj != null && !string.IsNullOrEmpty(orgIdObj.ToString()))
             {
-                orgBasicInfo = HttpContext.Current.Cache[orgId] as OrganisationManager.OrganisationBasicInfo;
+                string orgId = orgIdObj.ToString();
+                if (HttpContext.Current.Cache[orgId] != null)
+                {
+                    this.OrgBasicInfo = HttpContext.Current.Cache[orgId] as OrganisationManager.OrganisationBasicInfo;
+                }
+                else
+                {
+                    this.OrgBasicInfo = OrganisationManager.GetOrganisationInfo(new Guid(orgId));
+                    HttpContext.Current.Cache.Add(orgId, this.OrgBasicInfo, null, DateTime.MaxValue, new TimeSpan(0, 35, 0), CacheItemPriority.Normal, null);
+                }
+                this.Page.Title = this.OrgBasicInfo.Name;
+                if (string.IsNullOrEmpty(this.OrgBasicInfo.Logo))
+                {
+                    this.imgOrgLogo.Visible = false;
+                    this.lblOrgLotoText.Text = this.OrgBasicInfo.Name;
+                }
+                else
+                {
+                    this.imgOrgLogo.ImageUrl = string.Format("~/OrganisationLogos/{0}", this.OrgBasicInfo.Logo);
+                }
             }
             else
             {
-                orgBasicInfo = OrganisationManager.GetOrganisationInfo(new Guid(orgId));
-                HttpContext.Current.Cache.Add(orgId, orgBasicInfo, null, DateTime.MaxValue, new TimeSpan(0, 35, 0), CacheItemPriority.Normal, null);
-            }
-            this.Page.Title = orgBasicInfo.Name;
-            if (string.IsNullOrEmpty(orgBasicInfo.Logo))
-            {
-                this.imgOrgLogo.Visible = false;
-                this.lblOrgLotoText.Text = orgBasicInfo.Name;
-            }
-            else
-            {
-                this.imgOrgLogo.ImageUrl = string.Format("~/OrganisationLogos/{0}", orgBasicInfo.Logo);
+                Response.Redirect("http:\\www.ynet.co.il");
             }
         }
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            
+        }
+        public OrganisationManager.OrganisationBasicInfo OrgBasicInfo { get; set; }
 
         protected void Menu1_MenuItemDataBound(object sender, MenuEventArgs e)
         {
-            e.Item.NavigateUrl += string.Format("?OrgId={0}", orgId);
+            e.Item.NavigateUrl += string.Format("?OrgId={0}", this.OrgBasicInfo.Id);
         }
     }
 }
