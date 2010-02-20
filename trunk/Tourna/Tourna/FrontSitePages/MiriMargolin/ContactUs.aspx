@@ -9,29 +9,30 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <table style="width:80%">
+    <table style="width:70%">
         <tr>
             <td>
                 Name</td>
             <td align="right">
-                <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox></td>
+                <asp:TextBox ID="txtName" runat="server"></asp:TextBox></td>
         </tr>
         <tr>
             <td>
                 Phone or Email</td>
             <td align="right">
-                <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox></td>
+                <asp:TextBox ID="txtPhoneOrEmail" runat="server"></asp:TextBox></td>
         </tr>
         <tr>
             <td style="vertical-align:top">
                 Message</td>
             <td align="right">
-                <asp:TextBox ID="TextBox3" runat="server" Rows="5" TextMode="MultiLine"></asp:TextBox></td>
+                <asp:TextBox ID="txtMessage" runat="server" Rows="5" TextMode="MultiLine"></asp:TextBox></td>
         </tr>
         <tr>
            
             <td colspan="2" align="right">
-                <asp:LinkButton ID="LinkButton1" runat="server">Send</asp:LinkButton></td>
+                <asp:Label ID="lblMsg" runat="server"></asp:Label>
+                <asp:LinkButton ID="lbSend" runat="server" onclick="lbSend_Click">Send</asp:LinkButton></td>
         </tr>
     </table>
 

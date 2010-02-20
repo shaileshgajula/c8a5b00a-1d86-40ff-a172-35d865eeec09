@@ -25,6 +25,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <ExcludeGeneratedDebugSymbol>true</ExcludeGeneratedDebugSymbol>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -85,6 +86,7 @@
     <Content Include="Backoffice\UserControls\GalleryViewer.ascx" />
     <Content Include="Backoffice\UserControls\ImageViewer.ascx" />
     <Content Include="Backoffice\UserControls\TextContent.ascx" />
+    <Content Include="EmailTemplate\MiriMargolinContact.htm" />
     <Content Include="EmailTemplate\RecoverPassword.htm" />
     <Content Include="FrontSitePages\MiriMargolin\About.aspx" />
     <Content Include="FrontSitePages\MiriMargolin\Albums.aspx" />
@@ -113,6 +115,11 @@
     <Content Include="Images\MiriMargolin\1266497201.jpg" />
     <Content Include="Images\MiriMargolin\1266497243.jpg" />
     <Content Include="Images\MiriMargolin\1266597646.jpg" />
+    <Content Include="Images\MiriMargolin\1266683082.jpg" />
+    <Content Include="Images\MiriMargolin\1266683159.jpg" />
+    <Content Include="Images\MiriMargolin\1266683187.jpg" />
+    <Content Include="Images\MiriMargolin\1266683230.jpg" />
+    <Content Include="Images\MiriMargolin\1266683512.jpg" />
     <Content Include="Images\SeperatorMiri.gif" />
     <Content Include="Images\Staff\MiriMargolinSelf.jpg" />
     <Content Include="OrganisationGalleryImages\ThumbNail\1266497108bd581.jpg" />
