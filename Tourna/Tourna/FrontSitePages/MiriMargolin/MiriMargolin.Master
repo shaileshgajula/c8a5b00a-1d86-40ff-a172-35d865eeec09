@@ -14,11 +14,12 @@
     <table id="wrapper" border="0" style="background-color: #FFFFFF;">
         <tr>
             <td style="height: 82px">
-                <img src="../../OrganisationLogos/MiriMargolinLogo.gif" alt="Miri Margolin Logo" />
+                <a href="http://www.mirimargolin.com"  ><img src="../../OrganisationLogos/MiriMargolinLogo.gif" alt="Miri Margolin Logo" border="0" /></a>
             </td>
             <td align="right" valign="bottom">
                 <asp:Menu ID="Menu1" runat="server" DataSourceID="SiteMapDataSource1" StaticBottomSeparatorImageUrl="~/Images/Icons/Seperator.gif"
                     StaticMenuItemStyle-HorizontalPadding="5" Orientation="Horizontal">
+                    <StaticSelectedStyle Font-Bold="true"/>
                 </asp:Menu>
                 <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" ShowStartingNode="false"
                     StartingNodeUrl="~/FrontSitePages/MiriMargolin/Default.aspx" />

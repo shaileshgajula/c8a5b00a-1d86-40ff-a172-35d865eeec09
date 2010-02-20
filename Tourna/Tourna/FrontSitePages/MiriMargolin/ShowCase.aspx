@@ -9,9 +9,9 @@
         <StaticSelectedStyle Font-Underline="true" />
         <StaticMenuItemStyle HorizontalPadding="10" Font-Italic="true" />
         <Items>
-            <asp:MenuItem Text="Houses" Value="0" Selected="true" SeparatorImageUrl="~/Images/Icons/Seperator.gif">
+            <asp:MenuItem Text="Houses(1)" Value="0" Selected="true" SeparatorImageUrl="~/Images/Icons/Seperator.gif">
             </asp:MenuItem>
-            <asp:MenuItem Text="Museums" Value="1" Selected="false" SeparatorImageUrl="~/Images/Icons/Seperator.gif">
+            <asp:MenuItem Text="Houses(2)" Value="1" Selected="false" SeparatorImageUrl="~/Images/Icons/Seperator.gif">
             </asp:MenuItem>
             <asp:MenuItem Text="Others" Value="2" Selected="false"></asp:MenuItem>
         </Items>
@@ -41,19 +41,20 @@
         <asp:View runat="server" ID="View2">
             <table border="0" cellpadding="2" cellspacing="2" align="center">
                 <tr>
+                    
                     <td>
-                        <img src="../../Images/MiriMargolin/1266497108.jpg" title="here we need to enter the name of the statue we see" />
+                    <img src="../../Images/MiriMargolin/1266683082.jpg" title="here we need to enter the name of the statue we see" />
                     </td>
                     <td>
-                        <img src="../../Images/MiriMargolin/1266497180.jpg" />
+                        <img src="../../Images/MiriMargolin/1266683159.jpg" />
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <img src="../../Images/MiriMargolin/1266497201.jpg" />
+                        <img src="../../Images/MiriMargolin/1266683187.jpg" />
                     </td>
                     <td>
-                       
+                        <img src="../../Images/MiriMargolin/1266683512.jpg" />
                     </td>
                 </tr>
             </table>
