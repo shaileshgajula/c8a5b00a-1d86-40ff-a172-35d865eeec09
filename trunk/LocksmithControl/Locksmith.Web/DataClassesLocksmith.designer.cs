@@ -782,27 +782,27 @@ namespace Locksmith.Web
 		
 		private string _Job_Pricing;
 		
-		private System.Nullable<decimal> _Total;
+		private string _Total;
 		
-		private System.Nullable<decimal> _Cost;
+		private string _Cost;
 		
 		private string _Payment_Method;
 		
 		private string _Info;
 		
-		private System.Nullable<decimal> _Gross;
+		private string _Gross;
 		
-		private System.Nullable<decimal> _Gross_Cost;
+		private string _Gross_Cost;
 		
-		private System.Nullable<decimal> _Tech_Cut;
+		private string _Tech_Cut;
 		
-		private System.Nullable<decimal> _Tech_Payout;
+		private string _Tech_Payout;
 		
-		private System.Nullable<decimal> _Company_Payout;
+		private string _Company_Payout;
 		
-		private System.Nullable<decimal> _Net_pay;
+		private string _Net_pay;
 		
-		private System.Nullable<decimal> _Sum_Cash;
+		private string _Sum_Cash;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -834,27 +834,27 @@ namespace Locksmith.Web
     partial void OnCompanyChanged();
     partial void OnJob_PricingChanging(string value);
     partial void OnJob_PricingChanged();
-    partial void OnTotalChanging(System.Nullable<decimal> value);
+    partial void OnTotalChanging(string value);
     partial void OnTotalChanged();
-    partial void OnCostChanging(System.Nullable<decimal> value);
+    partial void OnCostChanging(string value);
     partial void OnCostChanged();
     partial void OnPayment_MethodChanging(string value);
     partial void OnPayment_MethodChanged();
     partial void OnInfoChanging(string value);
     partial void OnInfoChanged();
-    partial void OnGrossChanging(System.Nullable<decimal> value);
+    partial void OnGrossChanging(string value);
     partial void OnGrossChanged();
-    partial void OnGross_CostChanging(System.Nullable<decimal> value);
+    partial void OnGross_CostChanging(string value);
     partial void OnGross_CostChanged();
-    partial void OnTech_CutChanging(System.Nullable<decimal> value);
+    partial void OnTech_CutChanging(string value);
     partial void OnTech_CutChanged();
-    partial void OnTech_PayoutChanging(System.Nullable<decimal> value);
+    partial void OnTech_PayoutChanging(string value);
     partial void OnTech_PayoutChanged();
-    partial void OnCompany_PayoutChanging(System.Nullable<decimal> value);
+    partial void OnCompany_PayoutChanging(string value);
     partial void OnCompany_PayoutChanged();
-    partial void OnNet_payChanging(System.Nullable<decimal> value);
+    partial void OnNet_payChanging(string value);
     partial void OnNet_payChanged();
-    partial void OnSum_CashChanging(System.Nullable<decimal> value);
+    partial void OnSum_CashChanging(string value);
     partial void OnSum_CashChanged();
     #endregion
 		
@@ -1136,9 +1136,9 @@ namespace Locksmith.Web
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Total", DbType="Decimal(18,2)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Total", DbType="VarChar(50)")]
 		[global::System.Runtime.Serialization.DataMemberAttribute(Order=14)]
-		public System.Nullable<decimal> Total
+		public string Total
 		{
 			get
 			{
@@ -1157,9 +1157,9 @@ namespace Locksmith.Web
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cost", DbType="Decimal(18,2)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cost", DbType="VarChar(50)")]
 		[global::System.Runtime.Serialization.DataMemberAttribute(Order=15)]
-		public System.Nullable<decimal> Cost
+		public string Cost
 		{
 			get
 			{
@@ -1220,9 +1220,9 @@ namespace Locksmith.Web
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Gross", DbType="Decimal(18,2)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Gross", DbType="VarChar(50)")]
 		[global::System.Runtime.Serialization.DataMemberAttribute(Order=18)]
-		public System.Nullable<decimal> Gross
+		public string Gross
 		{
 			get
 			{
@@ -1241,9 +1241,9 @@ namespace Locksmith.Web
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Gross-Cost]", Storage="_Gross_Cost", DbType="Decimal(18,2)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Gross-Cost]", Storage="_Gross_Cost", DbType="VarChar(50)")]
 		[global::System.Runtime.Serialization.DataMemberAttribute(Order=19)]
-		public System.Nullable<decimal> Gross_Cost
+		public string Gross_Cost
 		{
 			get
 			{
@@ -1262,9 +1262,9 @@ namespace Locksmith.Web
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Tech Cut]", Storage="_Tech_Cut", DbType="Decimal(18,2)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Tech Cut]", Storage="_Tech_Cut", DbType="VarChar(50)")]
 		[global::System.Runtime.Serialization.DataMemberAttribute(Order=20)]
-		public System.Nullable<decimal> Tech_Cut
+		public string Tech_Cut
 		{
 			get
 			{
@@ -1283,9 +1283,9 @@ namespace Locksmith.Web
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Tech Payout]", Storage="_Tech_Payout", DbType="Decimal(18,2)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Tech Payout]", Storage="_Tech_Payout", DbType="VarChar(50)")]
 		[global::System.Runtime.Serialization.DataMemberAttribute(Order=21)]
-		public System.Nullable<decimal> Tech_Payout
+		public string Tech_Payout
 		{
 			get
 			{
@@ -1304,9 +1304,9 @@ namespace Locksmith.Web
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Company Payout]", Storage="_Company_Payout", DbType="Decimal(18,2)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Company Payout]", Storage="_Company_Payout", DbType="VarChar(50)")]
 		[global::System.Runtime.Serialization.DataMemberAttribute(Order=22)]
-		public System.Nullable<decimal> Company_Payout
+		public string Company_Payout
 		{
 			get
 			{
@@ -1325,9 +1325,9 @@ namespace Locksmith.Web
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Net pay]", Storage="_Net_pay", DbType="Decimal(18,2)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Net pay]", Storage="_Net_pay", DbType="VarChar(50)")]
 		[global::System.Runtime.Serialization.DataMemberAttribute(Order=23)]
-		public System.Nullable<decimal> Net_pay
+		public string Net_pay
 		{
 			get
 			{
@@ -1346,9 +1346,9 @@ namespace Locksmith.Web
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Sum Cash]", Storage="_Sum_Cash", DbType="Decimal(18,2)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Sum Cash]", Storage="_Sum_Cash", DbType="VarChar(50)")]
 		[global::System.Runtime.Serialization.DataMemberAttribute(Order=24)]
-		public System.Nullable<decimal> Sum_Cash
+		public string Sum_Cash
 		{
 			get
 			{

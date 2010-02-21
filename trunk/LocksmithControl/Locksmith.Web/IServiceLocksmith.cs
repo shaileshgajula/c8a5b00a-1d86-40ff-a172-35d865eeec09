@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using Locksmith.CalculationEngine;
 
 namespace Locksmith.Web
 {
@@ -29,9 +30,9 @@ namespace Locksmith.Web
 
 
         [OperationContract]
-        bool InsertNewJob(string address, string city, string company, decimal cost, decimal? companyPayout, string firstName, decimal? gross, decimal? grossMinusCost,
-                                  string Info, string jobPricing, string jobType, string lastName, string mobilePhone, decimal? netPay, string paymentMethod,
-                                   string phone, string state, string status, decimal? SumCash, decimal? techCut, decimal? techPayout, string technician, decimal total); 
+        NewJobCalculator InsertNewJob(string address, string city, string company, double cost, string firstName, 
+                                   string Info, string jobPricing, string jobType, string lastName, string mobilePhone, string paymentMethod,
+                                   string phone, string state, string status, string technician, double total); 
 
        
     }

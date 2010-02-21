@@ -11,7 +11,7 @@
         <client>
             <endpoint address="http://localhost:5135/ServiceLocksmith.svc"
                 binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IServiceLocksmith"
-                contract="ServiceReferenceTechnicians.IServiceLocksmith" name="BasicHttpBinding_IServiceLocksmith" />
+                contract="ServiceReferenceLocksmith.IServiceLocksmith" name="BasicHttpBinding_IServiceLocksmith" />
         </client>
     </system.serviceModel>
 </configuration>

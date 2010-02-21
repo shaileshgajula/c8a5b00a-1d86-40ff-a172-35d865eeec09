@@ -85,7 +85,12 @@
       <DependentUpon>ServiceLocksmith.svc</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Locksmith.CalculationEngine\Locksmith.CalculationEngine.csproj">
+      <Project>{6B463211-8BA5-4AC5-B7DF-B83137B1C04A}</Project>
+      <Name>Locksmith.CalculationEngine</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <None Include="DataClassesLocksmith.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
