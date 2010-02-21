@@ -27,12 +27,12 @@ namespace Locksmith.Views
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            ServiceReferenceTechnicians.ServiceLocksmithClient webService = new ServiceReferenceTechnicians.ServiceLocksmithClient();
-            webService.GetTechnicianListCompleted += new EventHandler<ServiceReferenceTechnicians.GetTechnicianListCompletedEventArgs>(webService_GetTechnicianListCompleted);
+            ServiceReferenceLocksmith.ServiceLocksmithClient webService = new ServiceReferenceLocksmith.ServiceLocksmithClient();
+            webService.GetTechnicianListCompleted += new EventHandler<ServiceReferenceLocksmith.GetTechnicianListCompletedEventArgs>(webService_GetTechnicianListCompleted);
             webService.GetTechnicianListAsync();  
         }
 
-        void webService_GetTechnicianListCompleted(object sender, ServiceReferenceTechnicians.GetTechnicianListCompletedEventArgs e)
+        void webService_GetTechnicianListCompleted(object sender, ServiceReferenceLocksmith.GetTechnicianListCompletedEventArgs e)
         {
             _DataGridAllTechnicians.ItemsSource = e.Result;
         }

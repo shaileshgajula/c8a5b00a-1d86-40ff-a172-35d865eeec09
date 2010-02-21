@@ -27,14 +27,14 @@ namespace Locksmith.Views
 
         private void _buttonSave_Click(object sender, RoutedEventArgs e)
         {
-            ServiceReferenceTechnicians.ServiceLocksmithClient webService = new ServiceReferenceTechnicians.ServiceLocksmithClient();
-            webService.InsertNewTechnicianCompleted += new EventHandler<ServiceReferenceTechnicians.InsertNewTechnicianCompletedEventArgs>(webService_InsertNewTechnicianCompleted);
+            ServiceReferenceLocksmith.ServiceLocksmithClient webService = new ServiceReferenceLocksmith.ServiceLocksmithClient();
+            webService.InsertNewTechnicianCompleted += new EventHandler<ServiceReferenceLocksmith.InsertNewTechnicianCompletedEventArgs>(webService_InsertNewTechnicianCompleted);
             webService.InsertNewTechnicianAsync(_textBoxFirstName.Text, _textBoxLastName.Text, _textBoxAddress.Text, ((ComboBoxItem)_comboBoxStates.SelectedItem).Content.ToString(),
                                                 _textBoxCity.Text, ((ComboBoxItem)_comboBoxCompanies.SelectedItem).Content.ToString(), _textBoxEmail.Text, _textBoxPhone.Text, _textBoxMobilePhone.Text);                     
 
         }
 
-        void webService_InsertNewTechnicianCompleted(object sender, ServiceReferenceTechnicians.InsertNewTechnicianCompletedEventArgs e)
+        void webService_InsertNewTechnicianCompleted(object sender, ServiceReferenceLocksmith.InsertNewTechnicianCompletedEventArgs e)
         {
             if (e.Result)
             {
