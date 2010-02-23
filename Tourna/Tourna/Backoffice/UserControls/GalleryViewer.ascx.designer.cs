@@ -13,13 +13,13 @@ namespace StrongerOrg.Backoffice.UserControls {
     public partial class GalleryViewer {
         
         /// <summary>
-        /// lblAlbumTitle control.
+        /// mGalleries control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAlbumTitle;
+        protected global::System.Web.UI.WebControls.Menu mGalleries;
         
         /// <summary>
         /// DataList1 control.

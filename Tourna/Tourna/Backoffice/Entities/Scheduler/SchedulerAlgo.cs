@@ -33,20 +33,25 @@ namespace StrongerOrg.BackOffice.Scheduler
         //        i++;
         //    }
         //}
-        internal static void ScheduleGames(ref List<StrongerOrg.Backoffice.Entities.TournamentAlgorithm.Matchup> matchups, DateTime startDate)
+        internal static void ScheduleGames(ref List<StrongerOrg.Backoffice.Entities.TournamentAlgorithm.Matchup> matchups, DateTime dts, Guid orgId)
         {
             int numberOfGamesPerDay = 3;
-            int numberOfGamesCounter = 1;
+            int numberOfGamesCounter = 0;
+            CultureManager cultureManager = new CultureManager(orgId);
+            IEnumerator<DateTime> dayEnumerator = cultureManager.GetNextBusinessDay(dts).GetEnumerator();
+            DateTime dt;
             foreach (StrongerOrg.Backoffice.Entities.TournamentAlgorithm.Matchup mu in matchups)
             {
-                if (numberOfGamesCounter % 3 == 0)
-                { 
-                    
+                if (numberOfGamesCounter % numberOfGamesPerDay == 0)
+                {
+                    dayEnumerator.MoveNext();
+                    dts = dayEnumerator.Current;
+                    dts = new DateTime(dts.Year, dts.Month, dts.Day, 12, 0, 0);
                 }
-
-                mu.StartDate = startDate;
-                startDate = startDate.AddMinutes(15);
+                
+                mu.StartDate = dts;
                 numberOfGamesCounter++;
+                dts = dts.AddMinutes(15);
             }
         }
 

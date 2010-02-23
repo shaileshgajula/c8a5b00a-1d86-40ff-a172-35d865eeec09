@@ -12,6 +12,7 @@ namespace StrongerOrg.FrontSitePages.MiriMargolin
         protected void Page_Load(object sender, EventArgs e)
         {
             this.GalleryViewer1.ImageViewerUrl = "~\\FrontSitePages\\MiriMargolin\\ImageViewer.aspx?ImgId=";
+            this.GalleryViewer1.OrgId = new Guid(this.Master.OrgId);
         }
     }
 }

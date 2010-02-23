@@ -14,6 +14,10 @@ namespace StrongerOrg.FrontSitePages.MiriMargolin
         private const string RECIPIENTS = "piniusha@gmail.com";
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!this.IsPostBack && Request.QueryString["Item"] != null) 
+            {
+                this.txtMessage.Text = "Please contact me regarding " + Request.QueryString["Item"].ToString();
+            }
 
         }
 

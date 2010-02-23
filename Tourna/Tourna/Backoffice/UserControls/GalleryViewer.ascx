@@ -1,7 +1,9 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="GalleryViewer.ascx.cs"
     Inherits="StrongerOrg.Backoffice.UserControls.GalleryViewer" %>
-<asp:Label ID="lblAlbumTitle" Width="100%" runat="server" Text="" Style="border-bottom-style: double;
-    border-bottom-width: 3px; border-bottom-color: #ADADAD; width: 100%"></asp:Label>
+<asp:Menu ID="mGalleries" runat="server" Orientation="Horizontal" StaticBottomSeparatorImageUrl="~/Images/Icons/Seperator.gif">
+    <StaticMenuItemStyle HorizontalPadding="10" />
+    <StaticSelectedStyle CssClass="SelectedRowStyle" />
+</asp:Menu>
 <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" RepeatColumns="5"
     RepeatLayout="Table">
     <ItemStyle VerticalAlign="Top" CssClass="GrayTextLight" HorizontalAlign="Center" />

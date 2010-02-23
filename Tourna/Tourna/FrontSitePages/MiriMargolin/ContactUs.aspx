@@ -14,19 +14,19 @@
             <td>
                 Name</td>
             <td align="right">
-                <asp:TextBox ID="txtName" runat="server"></asp:TextBox></td>
+                <asp:TextBox ID="txtName" runat="server" Width="350"></asp:TextBox></td>
         </tr>
         <tr>
             <td>
                 Phone or Email</td>
             <td align="right">
-                <asp:TextBox ID="txtPhoneOrEmail" runat="server"></asp:TextBox></td>
+                <asp:TextBox ID="txtPhoneOrEmail" runat="server" Width="350"></asp:TextBox></td>
         </tr>
         <tr>
             <td style="vertical-align:top">
                 Message</td>
             <td align="right">
-                <asp:TextBox ID="txtMessage" runat="server" Rows="5" TextMode="MultiLine"></asp:TextBox></td>
+                <asp:TextBox ID="txtMessage" runat="server" Rows="5" TextMode="MultiLine" Width="350"></asp:TextBox></td>
         </tr>
         <tr>
            

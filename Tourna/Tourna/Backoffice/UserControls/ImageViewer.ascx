@@ -15,19 +15,22 @@
         }
     }
 </script>
-<table border="0" cellpadding="0" cellspacing="0" style="width: 100%">
+<table border="0" cellpadding="0" cellspacing="4" style="width: 100%">
     <tr>
         <td align="center">
             <asp:HyperLink ID="hlPrevious" runat="server"><img src="../../Images/Icons/Previous.gif" border="0" alt="Previous image" /></asp:HyperLink>
             <asp:HyperLink ID="hlNext" runat="server"><img src="../../Images/Icons/next.gif" border="0" alt="Next Image"/></asp:HyperLink>
         </td>
-        <td></td>
+        <td>
+        </td>
     </tr>
     <tr>
-        <td valign="top" align="center">
+        <td valign="top" align="center" rowspan="2">
             <asp:Image ID="imgBigDisplay" runat="server" />
         </td>
-        <td style="border: 1px solid #CCCCCC; vertical-align: top" rowspan="2">
+    </tr>
+    <tr>
+        <td style="border: 1px solid #CCCCCC; vertical-align: top">
             <table width="300" border="0">
                 <tr>
                     <td class="GrayTitleNormal" colspan="2">
@@ -47,9 +50,9 @@
                     <td class="GrayTextLight">
                         Album:
                     </td>
-                    <td style="font-style:italic">
-                        
-                        <asp:HyperLink ID="hlAlbum" runat="server" NavigateUrl='<%#Eval("id", "Gallery.aspx?AlbumId={0}") %>' Text='<%#Eval("Title") %>'></asp:HyperLink>
+                    <td style="font-style: italic">
+                        <asp:HyperLink ID="hlAlbum" runat="server" NavigateUrl='<%#Eval("id", "Gallery.aspx?AlbumId={0}") %>'
+                            Text='<%#Eval("Title") %>'></asp:HyperLink>
                         <asp:DropDownList ID="ddlAlbums" runat="server" Visible="false" DataSourceID="SqlDataSource2"
                             DataTextField="Title" DataValueField="Id" Width="225">
                         </asp:DropDownList>
@@ -83,7 +86,7 @@
                 </tr>
                 <tr>
                     <td class="GrayTextLight">
-                       <asp:Label runat="server" ID="lblPrice" Text="Price" Visible="false"></asp:Label>
+                        <asp:Label runat="server" ID="lblPrice" Text="Price" Visible="false"></asp:Label>
                     </td>
                     <td class="GrayTitleNormal">
                         <asp:TextBox ID="txtPrice" runat="server" Visible="false"></asp:TextBox>
@@ -108,7 +111,7 @@
                     </td>
                 </tr>
             </table>
-            <table>
+            <table border="0" width="100%">
                 <tr>
                     <td class="GrayTitleNormal" colspan="2">
                         Various angles
@@ -208,6 +211,16 @@
                     </td>
                 </tr>
             </table>
+        </td>
+    </tr>
+    <tr>
+        <td>
+        </td>
+        <td style="border: 1px solid #74b741">
+            <b>Limited Edition.</b><br>
+            Click
+            <asp:HyperLink ID="hlCheckAvailability" runat="server">here</asp:HyperLink>
+            to check availability and price.
         </td>
     </tr>
 </table>

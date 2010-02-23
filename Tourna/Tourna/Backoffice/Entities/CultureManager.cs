@@ -9,11 +9,12 @@ namespace StrongerOrg.Backoffice.Entities
     {
         private Guid _organistaionId;
         private IEnumerable<DateTime> _invalidDates;
+        private CultureEnvironment env;
         public CultureManager(Guid orgId)
         {
             this._organistaionId = orgId;
 
-            CultureEnvironment env = CultureEnvironment.Instance;
+            env = CultureEnvironment.Instance;
             this._invalidDates = env.GetInvalidDates(orgId);
         }
 
@@ -27,11 +28,16 @@ namespace StrongerOrg.Backoffice.Entities
                 if (strtDt.DayOfWeek == DayOfWeek.Sunday)
                     continue;
 
-                if (this._invalidDates.Contains(strtDt))
+                if (this._invalidDates.FirstOrDefault(d => d.Date == strtDt.Date) != DateTime.MinValue)
                     continue;
 
                 yield return strtDt;
             }
+        }
+
+        public void ClearCache() 
+        {
+            env.ClearCache(this._organistaionId);
         }
     }
 }

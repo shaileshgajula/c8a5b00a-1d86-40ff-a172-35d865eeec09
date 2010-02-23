@@ -20,5 +20,17 @@ namespace StrongerOrg.FrontSitePages.MiriMargolin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::StrongerOrg.Backoffice.UserControls.GalleryViewer GalleryViewer1;
+        
+        /// <summary>
+        /// Master property.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated property.
+        /// </remarks>
+        public new StrongerOrg.FrontSitePages.MiriMargolin.MiriMargolin Master {
+            get {
+                return ((StrongerOrg.FrontSitePages.MiriMargolin.MiriMargolin)(base.Master));
+            }
+        }
     }
 }
