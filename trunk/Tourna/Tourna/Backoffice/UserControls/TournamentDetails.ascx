@@ -1,36 +1,52 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="TournamentDetails.ascx.cs"
     Inherits="StrongerOrg.Backoffice.UserControls.TournamentDetails" %>
-<asp:DetailsView ID="DetailsView1" runat="server" DataKeyNames="Id" DataSourceID="SqlDataSource1" >
+<asp:DetailsView ID="DetailsView1" runat="server" DataKeyNames="Id" 
+    DataSourceID="SqlDataSource1" AutoGenerateRows="False" 
+    EnableModelValidation="True" >
     <Fields>
-        <asp:BoundField DataField="TournamentName" HeaderText="Tournament Name" SortExpression="TournamentName" HeaderStyle-Width="200px"  />
-        <asp:BoundField DataField="IsOpen" HeaderText="Is Open"  />
-        <asp:BoundField DataField="StartDate" HeaderText="Start Date" SortExpression="Start Date" />
+        <asp:BoundField DataField="Id" HeaderText="Id" SortExpression="Id" 
+            HeaderStyle-Width="200px" ReadOnly="True"  />
+        <asp:BoundField DataField="OrganisationId" HeaderText="OrganisationId" 
+            SortExpression="OrganisationId"  />
+        <asp:BoundField DataField="TournamentName" HeaderText="TournamentName" 
+            SortExpression="TournamentName" />
         <asp:BoundField DataField="Abstract" HeaderText="Abstract" SortExpression="Abstract" />
         <asp:BoundField DataField="Locations" HeaderText="Locations" SortExpression="Locations" />
-        <asp:BoundField DataField="NumberOfPlayersLimit" HeaderText="Players Limit"
+        <asp:BoundField DataField="NumberOfPlayersLimit" HeaderText="NumberOfPlayersLimit"
             SortExpression="NumberOfPlayersLimit" />
-        <asp:BoundField DataField="TimeWindowStart" HeaderText="Time Window Start" SortExpression="TimeWindowStart" />
-        <asp:BoundField DataField="TimeWindowEnd" HeaderText="Time Window End" SortExpression="TimeWindowEnd" />
-        <asp:CheckBoxField DataField="IsOpenAllDay" HeaderText="Is OpenAll Day" SortExpression="IsOpenAllDay" />
-        <asp:BoundField DataField="FirstPrize" HeaderText="First Prize" SortExpression="FirstPrize" />
-        <asp:BoundField DataField="SecondPrize" HeaderText="Second Prize" SortExpression="SecondPrize" />
-        <asp:BoundField DataField="ThirdPrize" HeaderText="Third Prize" SortExpression="Third Prize" />
+        <asp:BoundField DataField="GameId" HeaderText="GameId" 
+            SortExpression="GameId" />
+        <asp:BoundField DataField="MatchingAlgo" HeaderText="MatchingAlgo" 
+            SortExpression="MatchingAlgo" />
+        <asp:BoundField DataField="TimeWindowStart" HeaderText="TimeWindowStart" 
+            SortExpression="TimeWindowStart" />
+        <asp:BoundField DataField="TimeWindowEnd" HeaderText="TimeWindowEnd" 
+            SortExpression="TimeWindowEnd" />
+        <asp:CheckBoxField DataField="IsOpenAllDay" HeaderText="IsOpenAllDay" 
+            SortExpression="IsOpenAllDay" />
+        <asp:BoundField DataField="FirstPrize" HeaderText="FirstPrize" 
+            SortExpression="FirstPrize" />
+        <asp:BoundField DataField="SecondPrize" HeaderText="SecondPrize" 
+            SortExpression="SecondPrize" />
+        <asp:BoundField DataField="ThirdPrize" HeaderText="ThirdPrize" 
+            SortExpression="ThirdPrize" />
         
-        <asp:TemplateField HeaderStyle-VerticalAlign="Top">
-            <HeaderTemplate>
-                Email Invitation [<asp:HyperLink ID="hlEditEmailInvitation" NavigateUrl='<%# Eval("Id", "~/Backoffice/InvitToTournament.aspx?TournamentId={0}" ) %>' runat="server">Edit</asp:HyperLink>]
-                </HeaderTemplate>
-            <ItemTemplate>
-                <%#Eval("EmailTemplate")%>
-            </ItemTemplate>
-        </asp:TemplateField>
-        <asp:BoundField DataField="DateCreated" HeaderText="DateCreated" SortExpression="DateCreated" />
+        <asp:BoundField DataField="StartDate" HeaderText="StartDate" 
+            SortExpression="StartDate" />
+        <asp:BoundField DataField="EmailTemplate" HeaderText="EmailTemplate" 
+            SortExpression="EmailTemplate" />
+        <asp:CheckBoxField DataField="IsApproved" HeaderText="IsApproved" 
+            SortExpression="IsApproved" />
+        <asp:BoundField DataField="DateCreated" HeaderText="DateCreated" 
+            SortExpression="DateCreated" />
+        <asp:CheckBoxField DataField="IsOpen" HeaderText="IsOpen" 
+            SortExpression="IsOpen" />
     </Fields>
 </asp:DetailsView>
 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:StrongerOrgString %>"
     SelectCommand="SELECT * FROM [Tournaments] WHERE ([Id] = @Id)">
     <SelectParameters>
-        <asp:ControlParameter ControlID="GridView1" Name="Id" PropertyName="SelectedValue"
-            Type="Object" />
+        <asp:QueryStringParameter Name="Id" QueryStringField="TournamentId" 
+            Type="String" />
     </SelectParameters>
 </asp:SqlDataSource>

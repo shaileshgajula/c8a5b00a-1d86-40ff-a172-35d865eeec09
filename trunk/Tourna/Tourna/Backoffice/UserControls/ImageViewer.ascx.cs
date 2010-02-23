@@ -171,7 +171,7 @@ namespace StrongerOrg.Backoffice.UserControls
                     command.ExecuteNonQuery();
 
                 }
-
+                
                 this.CurrentImgName = command.Parameters["@CurrentFileName"].Value.ToString();
                 //this.lblAlbumTitle.Text = GetOutputValue(command, "@AlbumTitle");
                 this.albumId = int.Parse(command.Parameters["@AlbumId"].Value.ToString());
@@ -192,11 +192,13 @@ namespace StrongerOrg.Backoffice.UserControls
                 }
                 else
                 {
-                    this.lblImgCaption.Text = GetOutputValue(command, "@ImageCaption");
+                    string caption = GetOutputValue(command, "@ImageCaption");
+                    this.lblImgCaption.Text = caption;
                     this.hlAlbum.Text = GetOutputValue(command, "@AlbumTitle");
                     this.hlAlbum.NavigateUrl = string.Format(@"~/FrontSitePages/MiriMargolin/Gallery.aspx?AlbumId={0}", command.Parameters["@AlbumId"].Value.ToString());
                     this.lblStory.Text = GetOutputValue(command, "@ImageStory");
                     this.lblSizes.Text = GetOutputValue(command, "@ImageSizes");
+                    this.hlCheckAvailability.NavigateUrl = string.Format(@"~/FrontSitePages/MiriMargolin/ContactUs.aspx?item={0} item-{1}",caption, this.CurrentImgId.Value);
                 }
 
                 imgBigDisplay.ImageUrl = @"~\OrganisationGalleryImages\" + this.CurrentImgName;

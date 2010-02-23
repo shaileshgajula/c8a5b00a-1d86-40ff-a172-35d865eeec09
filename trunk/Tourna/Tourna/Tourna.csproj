@@ -80,6 +80,7 @@
     <Content Include="Backoffice\LockSmith\OutstandingJobs.aspx" />
     <Content Include="Backoffice\LockSmith\StockManagment.aspx" />
     <Content Include="Backoffice\MiriMargolin\About.aspx" />
+    <Content Include="Backoffice\Tournament.aspx" />
     <Content Include="Backoffice\TournamentBuilder.aspx" />
     <Content Include="Backoffice\UserControls\Albums.ascx" />
     <Content Include="Backoffice\UserControls\GalleryUploader.ascx" />
@@ -120,6 +121,8 @@
     <Content Include="Images\MiriMargolin\1266683187.jpg" />
     <Content Include="Images\MiriMargolin\1266683230.jpg" />
     <Content Include="Images\MiriMargolin\1266683512.jpg" />
+    <Content Include="Images\MiriMargolin\1266872378.jpg" />
+    <Content Include="Images\MiriMargolin\SabaBoaz.jpg" />
     <Content Include="Images\SeperatorMiri.gif" />
     <Content Include="Images\Staff\MiriMargolinSelf.jpg" />
     <Content Include="OrganisationGalleryImages\ThumbNail\1266497108bd581.jpg" />
@@ -410,6 +413,13 @@
     </Compile>
     <Compile Include="Backoffice\Standings.aspx.designer.cs">
       <DependentUpon>Standings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backoffice\Tournament.aspx.cs">
+      <DependentUpon>Tournament.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backoffice\Tournament.aspx.designer.cs">
+      <DependentUpon>Tournament.aspx</DependentUpon>
     </Compile>
     <Compile Include="Backoffice\Tournaments.aspx.cs">
       <DependentUpon>Tournaments.aspx</DependentUpon>

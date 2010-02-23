@@ -48,6 +48,10 @@ namespace StrongerOrg.Backoffice.Entities
             return holidays;
         }
 
+        public bool ClearCache(Guid orgId)
+        {
+            return this._holidayCache.Remove(orgId);
+        }
       
 
 

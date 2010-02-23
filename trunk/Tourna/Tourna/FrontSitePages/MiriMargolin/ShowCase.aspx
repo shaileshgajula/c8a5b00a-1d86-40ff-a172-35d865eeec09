@@ -5,15 +5,16 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" OnMenuItemClick="Menu1_MenuItemClick" Width="250">
-        <StaticSelectedStyle Font-Underline="true" />
-        <StaticMenuItemStyle HorizontalPadding="10" Font-Italic="true" />
+    <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" OnMenuItemClick="Menu1_MenuItemClick"
+        Width="250">
+        <StaticMenuItemStyle HorizontalPadding="10" />
+        <StaticSelectedStyle CssClass="SelectedRowStyle" />
         <Items>
-            <asp:MenuItem Text="Houses(1)" Value="0" Selected="true" SeparatorImageUrl="~/Images/Icons/Seperator.gif">
+            <asp:MenuItem Text="Houses 1" Value="0" Selected="true" SeparatorImageUrl="~/Images/Icons/Seperator.gif">
             </asp:MenuItem>
-            <asp:MenuItem Text="Houses(2)" Value="1" Selected="false" SeparatorImageUrl="~/Images/Icons/Seperator.gif">
+            <asp:MenuItem Text="Houses 2" Value="1" Selected="false" SeparatorImageUrl="~/Images/Icons/Seperator.gif">
             </asp:MenuItem>
-            <asp:MenuItem Text="Others" Value="2" Selected="false"></asp:MenuItem>
+            <asp:MenuItem Text="Buildings/Offices" Value="2" Selected="false"></asp:MenuItem>
         </Items>
     </asp:Menu>
     <br />
@@ -22,10 +23,10 @@
             <table border="0" cellpadding="2" cellspacing="2" align="center">
                 <tr>
                     <td>
-                        <img src="../../Images/MiriMargolin/1266497108.jpg" title="here we need to enter the name of the statue we see" />
+                        <img src="../../Images/MiriMargolin/1266497180.jpg" width="350" height="234" />
                     </td>
                     <td>
-                        <img src="../../Images/MiriMargolin/1266497180.jpg" />
+                        <img src="../../Images/MiriMargolin/1266872378.jpg" width="350" height="234"  />
                     </td>
                 </tr>
                 <tr>
@@ -41,9 +42,8 @@
         <asp:View runat="server" ID="View2">
             <table border="0" cellpadding="2" cellspacing="2" align="center">
                 <tr>
-                    
                     <td>
-                    <img src="../../Images/MiriMargolin/1266683082.jpg" title="here we need to enter the name of the statue we see" />
+                        <img src="../../Images/MiriMargolin/1266683082.jpg" title="here we need to enter the name of the statue we see" />
                     </td>
                     <td>
                         <img src="../../Images/MiriMargolin/1266683159.jpg" />
@@ -60,25 +60,21 @@
             </table>
         </asp:View>
         <asp:View runat="server" ID="View3">
-        <table border="0" cellpadding="2" cellspacing="2" align="center">
+            <table border="0" cellpadding="2" cellspacing="2" align="center">
                 <tr>
                     <td>
-                        <img src="../../Images/MiriMargolin/1266597646.jpg" />
+                        <img src="../../Images/MiriMargolin/SabaBoaz.jpg" title="Boaz Margolin" />
                     </td>
                     <td>
-                        
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        
                     </td>
                     <td>
-                       
                     </td>
                 </tr>
             </table>
-            
         </asp:View>
     </asp:MultiView>
 </asp:Content>

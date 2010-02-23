@@ -11,7 +11,7 @@ namespace StrongerOrg.Backoffice
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-          
+            this.GalleryViewer1.OrgId = this.Master.OrgBasicInfo.Id;
         }
 
       
