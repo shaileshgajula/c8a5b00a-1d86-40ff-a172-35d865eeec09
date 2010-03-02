@@ -80,9 +80,11 @@
     <Content Include="Backoffice\LockSmith\OutstandingJobs.aspx" />
     <Content Include="Backoffice\LockSmith\StockManagment.aspx" />
     <Content Include="Backoffice\MiriMargolin\About.aspx" />
+    <Content Include="Backoffice\MiriMargolin\GuestBook.aspx" />
     <Content Include="Backoffice\Tournament.aspx" />
     <Content Include="Backoffice\TournamentBuilder.aspx" />
     <Content Include="Backoffice\UserControls\Albums.ascx" />
+    <Content Include="Backoffice\UserControls\Feedbacks.ascx" />
     <Content Include="Backoffice\UserControls\GalleryUploader.ascx" />
     <Content Include="Backoffice\UserControls\GalleryViewer.ascx" />
     <Content Include="Backoffice\UserControls\ImageViewer.ascx" />
@@ -94,6 +96,7 @@
     <Content Include="FrontSitePages\MiriMargolin\ContactUs.aspx" />
     <Content Include="FrontSitePages\MiriMargolin\Default.aspx" />
     <Content Include="FrontSitePages\MiriMargolin\Gallery.aspx" />
+    <Content Include="FrontSitePages\MiriMargolin\GuestBook.aspx" />
     <Content Include="FrontSitePages\MiriMargolin\ImageViewer.aspx" />
     <Content Include="FrontSitePages\MiriMargolin\Press.aspx" />
     <Content Include="FrontSitePages\MiriMargolin\ShowCase.aspx" />
@@ -105,7 +108,9 @@
     <Content Include="Images\GamesImages\wii-sports-Golf.jpg" />
     <Content Include="Images\GamesImages\wii-sports-tennis.jpg" />
     <Content Include="Images\GamesImages\wiisports_boxing_wii.jpg" />
+    <Content Include="Images\Icons\collapse.jpg" />
     <Content Include="Images\Icons\delete-icon.png" />
+    <Content Include="Images\Icons\expand.jpg" />
     <Content Include="Images\Icons\next.gif" />
     <Content Include="Images\Icons\next.png" />
     <Content Include="Images\Icons\Previous.gif" />
@@ -344,6 +349,13 @@
     <Compile Include="Backoffice\MiriMargolin\About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Backoffice\MiriMargolin\GuestBook.aspx.cs">
+      <DependentUpon>GuestBook.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backoffice\MiriMargolin\GuestBook.aspx.designer.cs">
+      <DependentUpon>GuestBook.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Backoffice\OrganisationInfo.aspx.cs">
       <DependentUpon>OrganisationInfo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -441,6 +453,13 @@
     </Compile>
     <Compile Include="Backoffice\UserControls\Albums.ascx.designer.cs">
       <DependentUpon>Albums.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Backoffice\UserControls\Feedbacks.ascx.cs">
+      <DependentUpon>Feedbacks.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backoffice\UserControls\Feedbacks.ascx.designer.cs">
+      <DependentUpon>Feedbacks.ascx</DependentUpon>
     </Compile>
     <Compile Include="Backoffice\UserControls\GalleryUploader.ascx.cs">
       <DependentUpon>GalleryUploader.ascx</DependentUpon>
@@ -588,6 +607,13 @@
     </Compile>
     <Compile Include="FrontSitePages\MiriMargolin\Gallery.aspx.designer.cs">
       <DependentUpon>Gallery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrontSitePages\MiriMargolin\GuestBook.aspx.cs">
+      <DependentUpon>GuestBook.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrontSitePages\MiriMargolin\GuestBook.aspx.designer.cs">
+      <DependentUpon>GuestBook.aspx</DependentUpon>
     </Compile>
     <Compile Include="FrontSitePages\MiriMargolin\ImageViewer.aspx.cs">
       <DependentUpon>ImageViewer.aspx</DependentUpon>
@@ -967,7 +993,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>57620</DevelopmentServerPort>
+          <DevelopmentServerPort>53015</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
@@ -978,7 +1004,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
+      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

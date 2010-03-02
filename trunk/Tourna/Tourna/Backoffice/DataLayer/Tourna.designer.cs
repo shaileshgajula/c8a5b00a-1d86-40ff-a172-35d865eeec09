@@ -66,6 +66,9 @@ namespace StrongerOrg.Backoffice.DataLayer
     partial void InsertTournament(Tournament instance);
     partial void UpdateTournament(Tournament instance);
     partial void DeleteTournament(Tournament instance);
+    partial void InsertTextContent(TextContent instance);
+    partial void UpdateTextContent(TextContent instance);
+    partial void DeleteTextContent(TextContent instance);
     #endregion
 		
 		public TournaDataContext() : 
@@ -210,14 +213,6 @@ namespace StrongerOrg.Backoffice.DataLayer
 			}
 		}
 		
-		public System.Data.Linq.Table<TextContent> TextContents
-		{
-			get
-			{
-				return this.GetTable<TextContent>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Schedules> Schedules
 		{
 			get
@@ -231,6 +226,14 @@ namespace StrongerOrg.Backoffice.DataLayer
 			get
 			{
 				return this.GetTable<Tournament>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TextContent> TextContents
+		{
+			get
+			{
+				return this.GetTable<TextContent>();
 			}
 		}
 		
@@ -1097,6 +1100,8 @@ namespace StrongerOrg.Backoffice.DataLayer
 		
 		private EntitySet<Tournament> _Tournaments;
 		
+		private EntitySet<TextContent> _TextContents;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1126,6 +1131,7 @@ namespace StrongerOrg.Backoffice.DataLayer
 			this._Players = new EntitySet<Player>(new Action<Player>(this.attach_Players), new Action<Player>(this.detach_Players));
 			this._OrganisationHolidays = new EntitySet<OrganisationHoliday>(new Action<OrganisationHoliday>(this.attach_OrganisationHolidays), new Action<OrganisationHoliday>(this.detach_OrganisationHolidays));
 			this._Tournaments = new EntitySet<Tournament>(new Action<Tournament>(this.attach_Tournaments), new Action<Tournament>(this.detach_Tournaments));
+			this._TextContents = new EntitySet<TextContent>(new Action<TextContent>(this.attach_TextContents), new Action<TextContent>(this.detach_TextContents));
 			OnCreated();
 		}
 		
@@ -1348,6 +1354,19 @@ namespace StrongerOrg.Backoffice.DataLayer
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Organisation_TextContent", Storage="_TextContents", ThisKey="Id", OtherKey="OrganisationId")]
+		public EntitySet<TextContent> TextContents
+		{
+			get
+			{
+				return this._TextContents;
+			}
+			set
+			{
+				this._TextContents.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1399,6 +1418,18 @@ namespace StrongerOrg.Backoffice.DataLayer
 		}
 		
 		private void detach_Tournaments(Tournament entity)
+		{
+			this.SendPropertyChanging();
+			entity.Organisation = null;
+		}
+		
+		private void attach_TextContents(TextContent entity)
+		{
+			this.SendPropertyChanging();
+			entity.Organisation = this;
+		}
+		
+		private void detach_TextContents(TextContent entity)
 		{
 			this.SendPropertyChanging();
 			entity.Organisation = null;
@@ -2458,105 +2489,6 @@ namespace StrongerOrg.Backoffice.DataLayer
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TextContent")]
-	public partial class TextContent
-	{
-		
-		private int _Id;
-		
-		private System.Guid _OrganisationId;
-		
-		private string _ContentType;
-		
-		private string _Caption;
-		
-		private string _Content;
-		
-		public TextContent()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
-		public int Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this._Id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrganisationId", DbType="UniqueIdentifier NOT NULL")]
-		public System.Guid OrganisationId
-		{
-			get
-			{
-				return this._OrganisationId;
-			}
-			set
-			{
-				if ((this._OrganisationId != value))
-				{
-					this._OrganisationId = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContentType", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string ContentType
-		{
-			get
-			{
-				return this._ContentType;
-			}
-			set
-			{
-				if ((this._ContentType != value))
-				{
-					this._ContentType = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Caption", DbType="NVarChar(1050)")]
-		public string Caption
-		{
-			get
-			{
-				return this._Caption;
-			}
-			set
-			{
-				if ((this._Caption != value))
-				{
-					this._Caption = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Content", DbType="Text", UpdateCheck=UpdateCheck.Never)]
-		public string Content
-		{
-			get
-			{
-				return this._Content;
-			}
-			set
-			{
-				if ((this._Content != value))
-				{
-					this._Content = value;
-				}
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Schedules")]
 	public partial class Schedules : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -3525,6 +3457,229 @@ namespace StrongerOrg.Backoffice.DataLayer
 		{
 			this.SendPropertyChanging();
 			entity.Tournament = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TextContent")]
+	public partial class TextContent : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private System.Guid _OrganisationId;
+		
+		private string _ContentType;
+		
+		private string _Caption;
+		
+		private string _Content;
+		
+		private System.DateTime _CreateDate;
+		
+		private EntityRef<Organisation> _Organisation;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnOrganisationIdChanging(System.Guid value);
+    partial void OnOrganisationIdChanged();
+    partial void OnContentTypeChanging(string value);
+    partial void OnContentTypeChanged();
+    partial void OnCaptionChanging(string value);
+    partial void OnCaptionChanged();
+    partial void OnContentChanging(string value);
+    partial void OnContentChanged();
+    partial void OnCreateDateChanging(System.DateTime value);
+    partial void OnCreateDateChanged();
+    #endregion
+		
+		public TextContent()
+		{
+			this._Organisation = default(EntityRef<Organisation>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrganisationId", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid OrganisationId
+		{
+			get
+			{
+				return this._OrganisationId;
+			}
+			set
+			{
+				if ((this._OrganisationId != value))
+				{
+					if (this._Organisation.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnOrganisationIdChanging(value);
+					this.SendPropertyChanging();
+					this._OrganisationId = value;
+					this.SendPropertyChanged("OrganisationId");
+					this.OnOrganisationIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContentType", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string ContentType
+		{
+			get
+			{
+				return this._ContentType;
+			}
+			set
+			{
+				if ((this._ContentType != value))
+				{
+					this.OnContentTypeChanging(value);
+					this.SendPropertyChanging();
+					this._ContentType = value;
+					this.SendPropertyChanged("ContentType");
+					this.OnContentTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Caption", DbType="NVarChar(1050)")]
+		public string Caption
+		{
+			get
+			{
+				return this._Caption;
+			}
+			set
+			{
+				if ((this._Caption != value))
+				{
+					this.OnCaptionChanging(value);
+					this.SendPropertyChanging();
+					this._Caption = value;
+					this.SendPropertyChanged("Caption");
+					this.OnCaptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Content", DbType="Text", UpdateCheck=UpdateCheck.Never)]
+		public string Content
+		{
+			get
+			{
+				return this._Content;
+			}
+			set
+			{
+				if ((this._Content != value))
+				{
+					this.OnContentChanging(value);
+					this.SendPropertyChanging();
+					this._Content = value;
+					this.SendPropertyChanged("Content");
+					this.OnContentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateDate", DbType="DateTime NOT NULL")]
+		public System.DateTime CreateDate
+		{
+			get
+			{
+				return this._CreateDate;
+			}
+			set
+			{
+				if ((this._CreateDate != value))
+				{
+					this.OnCreateDateChanging(value);
+					this.SendPropertyChanging();
+					this._CreateDate = value;
+					this.SendPropertyChanged("CreateDate");
+					this.OnCreateDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Organisation_TextContent", Storage="_Organisation", ThisKey="OrganisationId", OtherKey="Id", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public Organisation Organisation
+		{
+			get
+			{
+				return this._Organisation.Entity;
+			}
+			set
+			{
+				Organisation previousValue = this._Organisation.Entity;
+				if (((previousValue != value) 
+							|| (this._Organisation.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Organisation.Entity = null;
+						previousValue.TextContents.Remove(this);
+					}
+					this._Organisation.Entity = value;
+					if ((value != null))
+					{
+						value.TextContents.Add(this);
+						this._OrganisationId = value.Id;
+					}
+					else
+					{
+						this._OrganisationId = default(System.Guid);
+					}
+					this.SendPropertyChanged("Organisation");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	

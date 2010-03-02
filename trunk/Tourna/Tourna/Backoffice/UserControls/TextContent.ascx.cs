@@ -35,7 +35,8 @@ namespace StrongerOrg.Backoffice.UserControls
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.Add("@OrganisationId", SqlDbType.UniqueIdentifier, 150).Value = ((BackOffice)this.Page.Master).OrgBasicInfo.Id;
                 command.Parameters.Add("@ContentType", SqlDbType.VarChar, 50).Value = TextContentName;
-                command.Parameters.Add("@Content", SqlDbType.Text).Value = this.reRules.Content;
+                command.Parameters.Add("@Caption", SqlDbType.NVarChar, 50).Value = DBNull.Value;
+                command.Parameters.Add("@Content", SqlDbType.NText).Value = this.reRules.Content;
                 conn.Open();
                 command.ExecuteNonQuery();
             }

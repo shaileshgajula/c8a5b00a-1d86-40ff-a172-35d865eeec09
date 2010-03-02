@@ -23,18 +23,18 @@
             <table border="0" cellpadding="2" cellspacing="2" align="center">
                 <tr>
                     <td>
-                        <img src="../../Images/MiriMargolin/1266497180.jpg" width="350" height="234" />
+                        <a href="/FrontSitePages/MiriMargolin/Gallery.aspx?AlbumId=19"><img src="../../Images/MiriMargolin/1266497180.jpg" width="350" height="234" border="0" alt="Abstract" title="Abstract" /></a>
                     </td>
                     <td>
-                        <img src="../../Images/MiriMargolin/1266872378.jpg" width="350" height="234"  />
+                        <a href="/FrontSitePages/MiriMargolin/ImageViewer.aspx?ImgId=57"><img src="../../Images/MiriMargolin/1266872378.jpg" width="350" height="234"  border="0" alt="She & He" title="She & He"  /></a>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <img src="../../Images/MiriMargolin/1266497201.jpg" />
+                        <a href="/FrontSitePages/MiriMargolin/Gallery.aspx?AlbumId=20"><img src="../../Images/MiriMargolin/1266497201.jpg"  border="0" alt="Figures" title="Figures" /></a>
                     </td>
                     <td>
-                        <img src="../../Images/MiriMargolin/1266497243.jpg" />
+                        <a href="/FrontSitePages/MiriMargolin/ImageViewer.aspx?ImgId=43"><img src="../../Images/MiriMargolin/1266497243.jpg"  border="0" alt="Shabi" title="Shabi" /></a>
                     </td>
                 </tr>
             </table>
@@ -43,18 +43,18 @@
             <table border="0" cellpadding="2" cellspacing="2" align="center">
                 <tr>
                     <td>
-                        <img src="../../Images/MiriMargolin/1266683082.jpg" title="here we need to enter the name of the statue we see" />
+                        <a href="/FrontSitePages/MiriMargolin/ImageViewer.aspx?ImgId=47"><img src="../../Images/MiriMargolin/1266683082.jpg"  border="0" title="Ballerina" alt="Ballerina" /></a>
                     </td>
                     <td>
-                        <img src="../../Images/MiriMargolin/1266683159.jpg" />
+                        <a href="/FrontSitePages/MiriMargolin/ImageViewer.aspx?ImgId=50"><img src="../../Images/MiriMargolin/1266683159.jpg"  border="0" title="Yoga" alt="Yoga" /></a>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <img src="../../Images/MiriMargolin/1266683187.jpg" />
+                        <a href="/FrontSitePages/MiriMargolin/ImageViewer.aspx?ImgId=45"><img src="../../Images/MiriMargolin/1266683187.jpg"  border="0" title="" alt=""/></a>
                     </td>
                     <td>
-                        <img src="../../Images/MiriMargolin/1266683512.jpg" />
+                        <a href="/FrontSitePages/MiriMargolin/ImageViewer.aspx?ImgId=47"><img src="../../Images/MiriMargolin/1266683512.jpg" border="0" title="" alt="" /></a>
                     </td>
                 </tr>
             </table>
@@ -63,7 +63,7 @@
             <table border="0" cellpadding="2" cellspacing="2" align="center">
                 <tr>
                     <td>
-                        <img src="../../Images/MiriMargolin/SabaBoaz.jpg" title="Boaz Margolin" />
+                        <a href="/FrontSitePages/MiriMargolin/ImageViewer.aspx?ImgId=97"><img src="../../Images/MiriMargolin/SabaBoaz.jpg" title="Saba Boaz"  border="0" alt="Saba Boaz" /></a>
                     </td>
                     <td>
                     </td>
