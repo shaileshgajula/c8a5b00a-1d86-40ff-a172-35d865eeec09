@@ -88,14 +88,14 @@
         <classShapeMoniker Id="957f9bf8-dc35-415d-93df-7f5419f005cc" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(9.40625 : 3.20723714192708); (9.40625 : 8.44732814290365); (10.25 : 8.44732814290365)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(9.40625 : 3.20723714192708); (9.40625 : 8.44732814290365); (10.25 : 8.44732814290365)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/TournaDataContext/Game/Game_Organisation2Game" />
       <nodes>
         <classShapeMoniker Id="c08599a9-867b-4dd2-b3ad-ba7541b0e1dc" />
         <classShapeMoniker Id="7bbd9d39-d2d5-476c-87c1-69922f162892" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(6.5 : 7.98599812825521); (10.25 : 7.98599812825521)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(6.5 : 7.98599812825521); (9.32291666666667 : 7.98599812825521 : JumpStart); (9.48958333333333 : 7.98599812825521 : JumpEnd); (10.25 : 7.98599812825521)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/TournaDataContext/Organisation/Organisation_Organisation2Game" />
       <nodes>
         <classShapeMoniker Id="97d3708e-38a6-4d54-b212-6b61f17fef40" />
@@ -149,19 +149,6 @@
         <elementListCompartment Id="ca363c71-9c41-4fd1-904c-0f2a96f336b5" absoluteBounds="5.39, 3.585, 1.9700000000000002, 0.86484781901041674" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="3330f94f-f518-4698-9f34-2f1ff03bf753" absoluteBounds="7.375, 9.125, 2, 1.5891951497395831">
-      <DataClassMoniker Name="/TournaDataContext/TextContent" />
-      <nestedChildShapes>
-        <elementListCompartment Id="2b3c5745-bb18-40e5-a11a-3f8e493d0c0b" absoluteBounds="7.39, 9.585, 1.9700000000000002, 1.0291951497395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <associationConnector edgePoints="[(6.5 : 8.5867510641276); (8.375 : 8.5867510641276); (8.375 : 9.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/TournaDataContext/Organisation/Organisation_TextContent" />
-      <nodes>
-        <classShapeMoniker Id="97d3708e-38a6-4d54-b212-6b61f17fef40" />
-        <classShapeMoniker Id="3330f94f-f518-4698-9f34-2f1ff03bf753" />
-      </nodes>
-    </associationConnector>
     <classShape Id="9fea83fa-a80c-4895-b0dc-7ce9d0ee6076" absoluteBounds="15.375, 2.625, 2, 2.73962646484375">
       <DataClassMoniker Name="/TournaDataContext/Schedules" />
       <nestedChildShapes>
@@ -195,11 +182,24 @@
         <classShapeMoniker Id="ac587b1d-54c7-4665-90b0-5db622f6a67a" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(6.5 : 7.25752888997396); (11.125 : 7.25752888997396)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(6.5 : 7.25752888997396); (9.32291666666667 : 7.25752888997396 : JumpStart); (9.48958333333333 : 7.25752888997396 : JumpEnd); (11.125 : 7.25752888997396)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/TournaDataContext/Organisation/Organisation_Tournament" />
       <nodes>
         <classShapeMoniker Id="97d3708e-38a6-4d54-b212-6b61f17fef40" />
         <classShapeMoniker Id="ac587b1d-54c7-4665-90b0-5db622f6a67a" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="3ded9fb7-1e5b-4d9a-a51a-d1d38139e5b5" absoluteBounds="8.125, 9.125, 2, 1.75354248046875">
+      <DataClassMoniker Name="/TournaDataContext/TextContent" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ab230953-e6da-4929-ad65-b6fe6816295a" absoluteBounds="8.14, 9.585, 1.9700000000000002, 1.19354248046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6.5 : 8.78616357145182); (8.765625 : 8.78616357145182); (8.765625 : 9.125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/TournaDataContext/Organisation/Organisation_TextContent" />
+      <nodes>
+        <classShapeMoniker Id="97d3708e-38a6-4d54-b212-6b61f17fef40" />
+        <classShapeMoniker Id="3ded9fb7-1e5b-4d9a-a51a-d1d38139e5b5" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

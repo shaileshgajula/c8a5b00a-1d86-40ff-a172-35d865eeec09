@@ -5,8 +5,7 @@ Theme="MiriMargolin" %>
    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:ScriptManager ID="ScriptManager1" runat="server">
-    </asp:ScriptManager>
+  
         
     <uc1:ImageViewer ID="ImageViewer1" runat="server" ImageFolder ="~/FrontSitePages/MiriMargolin/ImageViewer.aspx?ImgId={0}" IsEditMode="false" />
 

@@ -5,11 +5,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Miri Margolin</title>
+    <link rel="canonical" href="http://www.mirimargolin.com/FrontSitePages/MiriMargolin/ContactUs.aspx" />
+    <meta name="description" content="Miri Margolin autobiography, her work, busts, abstract, figures mesh" />
+    <meta name="keywords" content="Miri Margolin Abstract,Figures,Famous Figures,Mesh,visual art, statues" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
+      <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
     <asp:Label ID="lblOrganisationId" Visible="false" runat="server" Text="Label">6df2dfc8-6bea-475a-b252-5919603677a5</asp:Label>
     <table id="wrapper" border="0" style="background-color: #FFFFFF;">
         <tr>

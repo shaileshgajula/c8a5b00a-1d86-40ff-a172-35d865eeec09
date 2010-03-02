@@ -25,6 +25,7 @@
       <siteMapNode title="Galleries" url="~\FrontSitePages\MiriMargolin\Albums.aspx"/>
       <siteMapNode title="Press" url="~\FrontSitePages\MiriMargolin\Press.aspx"/>
       <siteMapNode title="Show Case" url="~\FrontSitePages\MiriMargolin\ShowCase.aspx"/>
+      <siteMapNode title="Guest Book" url="~\FrontSitePages\MiriMargolin\GuestBook.aspx"/>
       <siteMapNode title="Contact" url="~\FrontSitePages\MiriMargolin\ContactUs.aspx"/>
     </siteMapNode>
     <siteMapNode title="BackOffice [secured]"  description="" >
@@ -76,7 +77,7 @@
       <siteMapNode title="MiriMargolinDelegate Section" url="MiriMargolinDelegate">
         <siteMapNode title="Gallery" url="~\Backoffice\eventGallery.aspx?m"/>
         <siteMapNode title="About Miri" url="~\Backoffice\MiriMargolin\about.aspx"/>
-        <siteMapNode title="Show case" url="~\Backoffice\MiriMargolin\ShowCase.aspx"/>
+        <siteMapNode title="Guest Book" url="~\Backoffice\MiriMargolin\GuestBook.aspx"/>
       </siteMapNode>
       
     </siteMapNode>

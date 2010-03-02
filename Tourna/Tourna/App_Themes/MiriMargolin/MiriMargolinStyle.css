@@ -13,6 +13,7 @@
    background:#b5cce3 url(/images/background_slice_lighterblue.jpg) repeat-y;background-attachment:fixed;background-position: center ;
    color: #43431f;
 	font-family: Verdana, Helvetica, sans-serif;
+    font-size:13px;
 	border-top: 10px solid #74b741;
     
    }
@@ -59,6 +60,13 @@ a:hover
 	font-size: 13px;
 	font-style:italic;
 	}
+    .LightGrayTextLight
+{
+	font-size: 13px;
+	font-style:italic;
+    color:#AAAAAA
+	}
+
 .AlertText
 {
 font-size: 13px;
