@@ -4,10 +4,7 @@
     DataSourceID="SqlDataSource1" AutoGenerateRows="False" 
     EnableModelValidation="True" >
     <Fields>
-        <asp:BoundField DataField="Id" HeaderText="Id" SortExpression="Id" 
-            HeaderStyle-Width="200px" ReadOnly="True"  />
-        <asp:BoundField DataField="OrganisationId" HeaderText="OrganisationId" 
-            SortExpression="OrganisationId"  />
+        
         <asp:BoundField DataField="TournamentName" HeaderText="TournamentName" 
             SortExpression="TournamentName" />
         <asp:BoundField DataField="Abstract" HeaderText="Abstract" SortExpression="Abstract" />
@@ -35,8 +32,6 @@
             SortExpression="StartDate" />
         <asp:BoundField DataField="EmailTemplate" HeaderText="EmailTemplate" 
             SortExpression="EmailTemplate" />
-        <asp:CheckBoxField DataField="IsApproved" HeaderText="IsApproved" 
-            SortExpression="IsApproved" />
         <asp:BoundField DataField="DateCreated" HeaderText="DateCreated" 
             SortExpression="DateCreated" />
         <asp:CheckBoxField DataField="IsOpen" HeaderText="IsOpen" 

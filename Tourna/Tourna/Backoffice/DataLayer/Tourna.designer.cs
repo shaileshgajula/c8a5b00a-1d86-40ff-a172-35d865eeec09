@@ -60,15 +60,15 @@ namespace StrongerOrg.Backoffice.DataLayer
     partial void InsertDefaultHoliday(DefaultHoliday instance);
     partial void UpdateDefaultHoliday(DefaultHoliday instance);
     partial void DeleteDefaultHoliday(DefaultHoliday instance);
-    partial void InsertSchedules(Schedules instance);
-    partial void UpdateSchedules(Schedules instance);
-    partial void DeleteSchedules(Schedules instance);
     partial void InsertTournament(Tournament instance);
     partial void UpdateTournament(Tournament instance);
     partial void DeleteTournament(Tournament instance);
     partial void InsertTextContent(TextContent instance);
     partial void UpdateTextContent(TextContent instance);
     partial void DeleteTextContent(TextContent instance);
+    partial void InsertSchedule(Schedule instance);
+    partial void UpdateSchedule(Schedule instance);
+    partial void DeleteSchedule(Schedule instance);
     #endregion
 		
 		public TournaDataContext() : 
@@ -213,14 +213,6 @@ namespace StrongerOrg.Backoffice.DataLayer
 			}
 		}
 		
-		public System.Data.Linq.Table<Schedules> Schedules
-		{
-			get
-			{
-				return this.GetTable<Schedules>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Tournament> Tournaments
 		{
 			get
@@ -234,6 +226,14 @@ namespace StrongerOrg.Backoffice.DataLayer
 			get
 			{
 				return this.GetTable<TextContent>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Schedule> Schedules
+		{
+			get
+			{
+				return this.GetTable<Schedule>();
 			}
 		}
 		
@@ -2489,373 +2489,6 @@ namespace StrongerOrg.Backoffice.DataLayer
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Schedules")]
-	public partial class Schedules : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Id;
-		
-		private System.Guid _TournamentId;
-		
-		private System.Guid _PlayerA;
-		
-		private System.Guid _PlayerB;
-		
-		private System.DateTime _Start;
-		
-		private System.DateTime _End;
-		
-		private System.Nullable<System.Guid> _Winner;
-		
-		private System.Nullable<int> _ScoreA;
-		
-		private System.Nullable<int> _ScoreB;
-		
-		private System.Nullable<System.Guid> _UpdatedBy;
-		
-		private System.Nullable<System.DateTime> _TimeStamp;
-		
-		private string _MatchUpId;
-		
-		private EntityRef<Tournament> _Tournament;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OnTournamentIdChanging(System.Guid value);
-    partial void OnTournamentIdChanged();
-    partial void OnPlayerAChanging(System.Guid value);
-    partial void OnPlayerAChanged();
-    partial void OnPlayerBChanging(System.Guid value);
-    partial void OnPlayerBChanged();
-    partial void OnStartChanging(System.DateTime value);
-    partial void OnStartChanged();
-    partial void OnEndChanging(System.DateTime value);
-    partial void OnEndChanged();
-    partial void OnWinnerChanging(System.Nullable<System.Guid> value);
-    partial void OnWinnerChanged();
-    partial void OnScoreAChanging(System.Nullable<int> value);
-    partial void OnScoreAChanged();
-    partial void OnScoreBChanging(System.Nullable<int> value);
-    partial void OnScoreBChanged();
-    partial void OnUpdatedByChanging(System.Nullable<System.Guid> value);
-    partial void OnUpdatedByChanged();
-    partial void OnTimeStampChanging(System.Nullable<System.DateTime> value);
-    partial void OnTimeStampChanged();
-    partial void OnMatchUpIdChanging(string value);
-    partial void OnMatchUpIdChanged();
-    #endregion
-		
-		public Schedules()
-		{
-			this._Tournament = default(EntityRef<Tournament>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TournamentId", DbType="UniqueIdentifier NOT NULL")]
-		public System.Guid TournamentId
-		{
-			get
-			{
-				return this._TournamentId;
-			}
-			set
-			{
-				if ((this._TournamentId != value))
-				{
-					if (this._Tournament.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnTournamentIdChanging(value);
-					this.SendPropertyChanging();
-					this._TournamentId = value;
-					this.SendPropertyChanged("TournamentId");
-					this.OnTournamentIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PlayerA", DbType="UniqueIdentifier NOT NULL")]
-		public System.Guid PlayerA
-		{
-			get
-			{
-				return this._PlayerA;
-			}
-			set
-			{
-				if ((this._PlayerA != value))
-				{
-					this.OnPlayerAChanging(value);
-					this.SendPropertyChanging();
-					this._PlayerA = value;
-					this.SendPropertyChanged("PlayerA");
-					this.OnPlayerAChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PlayerB", DbType="UniqueIdentifier NOT NULL")]
-		public System.Guid PlayerB
-		{
-			get
-			{
-				return this._PlayerB;
-			}
-			set
-			{
-				if ((this._PlayerB != value))
-				{
-					this.OnPlayerBChanging(value);
-					this.SendPropertyChanging();
-					this._PlayerB = value;
-					this.SendPropertyChanged("PlayerB");
-					this.OnPlayerBChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Start", DbType="DateTime NOT NULL")]
-		public System.DateTime Start
-		{
-			get
-			{
-				return this._Start;
-			}
-			set
-			{
-				if ((this._Start != value))
-				{
-					this.OnStartChanging(value);
-					this.SendPropertyChanging();
-					this._Start = value;
-					this.SendPropertyChanged("Start");
-					this.OnStartChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[End]", Storage="_End", DbType="DateTime NOT NULL")]
-		public System.DateTime End
-		{
-			get
-			{
-				return this._End;
-			}
-			set
-			{
-				if ((this._End != value))
-				{
-					this.OnEndChanging(value);
-					this.SendPropertyChanging();
-					this._End = value;
-					this.SendPropertyChanged("End");
-					this.OnEndChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Winner", DbType="UniqueIdentifier")]
-		public System.Nullable<System.Guid> Winner
-		{
-			get
-			{
-				return this._Winner;
-			}
-			set
-			{
-				if ((this._Winner != value))
-				{
-					this.OnWinnerChanging(value);
-					this.SendPropertyChanging();
-					this._Winner = value;
-					this.SendPropertyChanged("Winner");
-					this.OnWinnerChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ScoreA", DbType="Int")]
-		public System.Nullable<int> ScoreA
-		{
-			get
-			{
-				return this._ScoreA;
-			}
-			set
-			{
-				if ((this._ScoreA != value))
-				{
-					this.OnScoreAChanging(value);
-					this.SendPropertyChanging();
-					this._ScoreA = value;
-					this.SendPropertyChanged("ScoreA");
-					this.OnScoreAChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ScoreB", DbType="Int")]
-		public System.Nullable<int> ScoreB
-		{
-			get
-			{
-				return this._ScoreB;
-			}
-			set
-			{
-				if ((this._ScoreB != value))
-				{
-					this.OnScoreBChanging(value);
-					this.SendPropertyChanging();
-					this._ScoreB = value;
-					this.SendPropertyChanged("ScoreB");
-					this.OnScoreBChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdatedBy", DbType="UniqueIdentifier")]
-		public System.Nullable<System.Guid> UpdatedBy
-		{
-			get
-			{
-				return this._UpdatedBy;
-			}
-			set
-			{
-				if ((this._UpdatedBy != value))
-				{
-					this.OnUpdatedByChanging(value);
-					this.SendPropertyChanging();
-					this._UpdatedBy = value;
-					this.SendPropertyChanged("UpdatedBy");
-					this.OnUpdatedByChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeStamp", DbType="DateTime")]
-		public System.Nullable<System.DateTime> TimeStamp
-		{
-			get
-			{
-				return this._TimeStamp;
-			}
-			set
-			{
-				if ((this._TimeStamp != value))
-				{
-					this.OnTimeStampChanging(value);
-					this.SendPropertyChanging();
-					this._TimeStamp = value;
-					this.SendPropertyChanged("TimeStamp");
-					this.OnTimeStampChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MatchUpId", DbType="VarChar(250)")]
-		public string MatchUpId
-		{
-			get
-			{
-				return this._MatchUpId;
-			}
-			set
-			{
-				if ((this._MatchUpId != value))
-				{
-					this.OnMatchUpIdChanging(value);
-					this.SendPropertyChanging();
-					this._MatchUpId = value;
-					this.SendPropertyChanged("MatchUpId");
-					this.OnMatchUpIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tournament_Schedules", Storage="_Tournament", ThisKey="TournamentId", OtherKey="Id", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
-		public Tournament Tournament
-		{
-			get
-			{
-				return this._Tournament.Entity;
-			}
-			set
-			{
-				Tournament previousValue = this._Tournament.Entity;
-				if (((previousValue != value) 
-							|| (this._Tournament.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Tournament.Entity = null;
-						previousValue.Schedules.Remove(this);
-					}
-					this._Tournament.Entity = value;
-					if ((value != null))
-					{
-						value.Schedules.Add(this);
-						this._TournamentId = value.Id;
-					}
-					else
-					{
-						this._TournamentId = default(System.Guid);
-					}
-					this.SendPropertyChanged("Tournament");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Tournaments")]
 	public partial class Tournament : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -2900,7 +2533,7 @@ namespace StrongerOrg.Backoffice.DataLayer
 		
 		private System.Nullable<bool> _IsOpen;
 		
-		private EntitySet<Schedules> _Schedules;
+		private EntitySet<Schedule> _Schedules;
 		
 		private EntityRef<Game> _Game;
 		
@@ -2952,7 +2585,7 @@ namespace StrongerOrg.Backoffice.DataLayer
 		
 		public Tournament()
 		{
-			this._Schedules = new EntitySet<Schedules>(new Action<Schedules>(this.attach_Schedules), new Action<Schedules>(this.detach_Schedules));
+			this._Schedules = new EntitySet<Schedule>(new Action<Schedule>(this.attach_Schedules), new Action<Schedule>(this.detach_Schedules));
 			this._Game = default(EntityRef<Game>);
 			this._Organisation = default(EntityRef<Organisation>);
 			OnCreated();
@@ -3346,8 +2979,8 @@ namespace StrongerOrg.Backoffice.DataLayer
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tournament_Schedules", Storage="_Schedules", ThisKey="Id", OtherKey="TournamentId")]
-		public EntitySet<Schedules> Schedules
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tournament_Schedule", Storage="_Schedules", ThisKey="Id", OtherKey="TournamentId")]
+		public EntitySet<Schedule> Schedules
 		{
 			get
 			{
@@ -3447,13 +3080,13 @@ namespace StrongerOrg.Backoffice.DataLayer
 			}
 		}
 		
-		private void attach_Schedules(Schedules entity)
+		private void attach_Schedules(Schedule entity)
 		{
 			this.SendPropertyChanging();
 			entity.Tournament = this;
 		}
 		
-		private void detach_Schedules(Schedules entity)
+		private void detach_Schedules(Schedule entity)
 		{
 			this.SendPropertyChanging();
 			entity.Tournament = null;
@@ -3658,6 +3291,421 @@ namespace StrongerOrg.Backoffice.DataLayer
 						this._OrganisationId = default(System.Guid);
 					}
 					this.SendPropertyChanged("Organisation");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Schedules")]
+	public partial class Schedule : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private System.Guid _TournamentId;
+		
+		private System.Guid _PlayerA;
+		
+		private System.Guid _PlayerB;
+		
+		private System.DateTime _Start;
+		
+		private System.DateTime _End;
+		
+		private System.Nullable<System.Guid> _Winner;
+		
+		private System.Nullable<int> _ScoreA;
+		
+		private System.Nullable<int> _ScoreB;
+		
+		private System.Nullable<System.Guid> _UpdatedBy;
+		
+		private System.Nullable<System.DateTime> _TimeStamp;
+		
+		private System.Nullable<int> _MatchUpId;
+		
+		private System.Nullable<int> _Round;
+		
+		private System.Nullable<int> _NextRound;
+		
+		private EntityRef<Tournament> _Tournament;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnTournamentIdChanging(System.Guid value);
+    partial void OnTournamentIdChanged();
+    partial void OnPlayerAChanging(System.Guid value);
+    partial void OnPlayerAChanged();
+    partial void OnPlayerBChanging(System.Guid value);
+    partial void OnPlayerBChanged();
+    partial void OnStartChanging(System.DateTime value);
+    partial void OnStartChanged();
+    partial void OnEndChanging(System.DateTime value);
+    partial void OnEndChanged();
+    partial void OnWinnerChanging(System.Nullable<System.Guid> value);
+    partial void OnWinnerChanged();
+    partial void OnScoreAChanging(System.Nullable<int> value);
+    partial void OnScoreAChanged();
+    partial void OnScoreBChanging(System.Nullable<int> value);
+    partial void OnScoreBChanged();
+    partial void OnUpdatedByChanging(System.Nullable<System.Guid> value);
+    partial void OnUpdatedByChanged();
+    partial void OnTimeStampChanging(System.Nullable<System.DateTime> value);
+    partial void OnTimeStampChanged();
+    partial void OnMatchUpIdChanging(System.Nullable<int> value);
+    partial void OnMatchUpIdChanged();
+    partial void OnRoundChanging(System.Nullable<int> value);
+    partial void OnRoundChanged();
+    partial void OnNextRoundChanging(System.Nullable<int> value);
+    partial void OnNextRoundChanged();
+    #endregion
+		
+		public Schedule()
+		{
+			this._Tournament = default(EntityRef<Tournament>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TournamentId", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid TournamentId
+		{
+			get
+			{
+				return this._TournamentId;
+			}
+			set
+			{
+				if ((this._TournamentId != value))
+				{
+					if (this._Tournament.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnTournamentIdChanging(value);
+					this.SendPropertyChanging();
+					this._TournamentId = value;
+					this.SendPropertyChanged("TournamentId");
+					this.OnTournamentIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PlayerA", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid PlayerA
+		{
+			get
+			{
+				return this._PlayerA;
+			}
+			set
+			{
+				if ((this._PlayerA != value))
+				{
+					this.OnPlayerAChanging(value);
+					this.SendPropertyChanging();
+					this._PlayerA = value;
+					this.SendPropertyChanged("PlayerA");
+					this.OnPlayerAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PlayerB", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid PlayerB
+		{
+			get
+			{
+				return this._PlayerB;
+			}
+			set
+			{
+				if ((this._PlayerB != value))
+				{
+					this.OnPlayerBChanging(value);
+					this.SendPropertyChanging();
+					this._PlayerB = value;
+					this.SendPropertyChanged("PlayerB");
+					this.OnPlayerBChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Start", DbType="DateTime NOT NULL")]
+		public System.DateTime Start
+		{
+			get
+			{
+				return this._Start;
+			}
+			set
+			{
+				if ((this._Start != value))
+				{
+					this.OnStartChanging(value);
+					this.SendPropertyChanging();
+					this._Start = value;
+					this.SendPropertyChanged("Start");
+					this.OnStartChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[End]", Storage="_End", DbType="DateTime NOT NULL")]
+		public System.DateTime End
+		{
+			get
+			{
+				return this._End;
+			}
+			set
+			{
+				if ((this._End != value))
+				{
+					this.OnEndChanging(value);
+					this.SendPropertyChanging();
+					this._End = value;
+					this.SendPropertyChanged("End");
+					this.OnEndChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Winner", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> Winner
+		{
+			get
+			{
+				return this._Winner;
+			}
+			set
+			{
+				if ((this._Winner != value))
+				{
+					this.OnWinnerChanging(value);
+					this.SendPropertyChanging();
+					this._Winner = value;
+					this.SendPropertyChanged("Winner");
+					this.OnWinnerChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ScoreA", DbType="Int")]
+		public System.Nullable<int> ScoreA
+		{
+			get
+			{
+				return this._ScoreA;
+			}
+			set
+			{
+				if ((this._ScoreA != value))
+				{
+					this.OnScoreAChanging(value);
+					this.SendPropertyChanging();
+					this._ScoreA = value;
+					this.SendPropertyChanged("ScoreA");
+					this.OnScoreAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ScoreB", DbType="Int")]
+		public System.Nullable<int> ScoreB
+		{
+			get
+			{
+				return this._ScoreB;
+			}
+			set
+			{
+				if ((this._ScoreB != value))
+				{
+					this.OnScoreBChanging(value);
+					this.SendPropertyChanging();
+					this._ScoreB = value;
+					this.SendPropertyChanged("ScoreB");
+					this.OnScoreBChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdatedBy", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> UpdatedBy
+		{
+			get
+			{
+				return this._UpdatedBy;
+			}
+			set
+			{
+				if ((this._UpdatedBy != value))
+				{
+					this.OnUpdatedByChanging(value);
+					this.SendPropertyChanging();
+					this._UpdatedBy = value;
+					this.SendPropertyChanged("UpdatedBy");
+					this.OnUpdatedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeStamp", DbType="DateTime")]
+		public System.Nullable<System.DateTime> TimeStamp
+		{
+			get
+			{
+				return this._TimeStamp;
+			}
+			set
+			{
+				if ((this._TimeStamp != value))
+				{
+					this.OnTimeStampChanging(value);
+					this.SendPropertyChanging();
+					this._TimeStamp = value;
+					this.SendPropertyChanged("TimeStamp");
+					this.OnTimeStampChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MatchUpId", DbType="Int")]
+		public System.Nullable<int> MatchUpId
+		{
+			get
+			{
+				return this._MatchUpId;
+			}
+			set
+			{
+				if ((this._MatchUpId != value))
+				{
+					this.OnMatchUpIdChanging(value);
+					this.SendPropertyChanging();
+					this._MatchUpId = value;
+					this.SendPropertyChanged("MatchUpId");
+					this.OnMatchUpIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Round", DbType="Int")]
+		public System.Nullable<int> Round
+		{
+			get
+			{
+				return this._Round;
+			}
+			set
+			{
+				if ((this._Round != value))
+				{
+					this.OnRoundChanging(value);
+					this.SendPropertyChanging();
+					this._Round = value;
+					this.SendPropertyChanged("Round");
+					this.OnRoundChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NextRound", DbType="Int")]
+		public System.Nullable<int> NextRound
+		{
+			get
+			{
+				return this._NextRound;
+			}
+			set
+			{
+				if ((this._NextRound != value))
+				{
+					this.OnNextRoundChanging(value);
+					this.SendPropertyChanging();
+					this._NextRound = value;
+					this.SendPropertyChanged("NextRound");
+					this.OnNextRoundChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tournament_Schedule", Storage="_Tournament", ThisKey="TournamentId", OtherKey="Id", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public Tournament Tournament
+		{
+			get
+			{
+				return this._Tournament.Entity;
+			}
+			set
+			{
+				Tournament previousValue = this._Tournament.Entity;
+				if (((previousValue != value) 
+							|| (this._Tournament.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Tournament.Entity = null;
+						previousValue.Schedules.Remove(this);
+					}
+					this._Tournament.Entity = value;
+					if ((value != null))
+					{
+						value.Schedules.Add(this);
+						this._TournamentId = value.Id;
+					}
+					else
+					{
+						this._TournamentId = default(System.Guid);
+					}
+					this.SendPropertyChanged("Tournament");
 				}
 			}
 		}

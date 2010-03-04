@@ -115,6 +115,7 @@
     <Content Include="Images\Icons\next.png" />
     <Content Include="Images\Icons\Previous.gif" />
     <Content Include="Images\Icons\Previous.png" />
+    <Content Include="Images\Icons\trash.gif" />
     <Content Include="Images\IMG_0041_S.JPG" />
     <Content Include="Images\MiriMargolin\1266497108.jpg" />
     <Content Include="Images\MiriMargolin\1266497180.jpg" />
@@ -221,9 +222,9 @@
       <DependentUpon>DefaultHolidays.aspx</DependentUpon>
     </Compile>
     <Compile Include="Backoffice\Entities\Albums.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>Albums.dbml</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="Backoffice\Entities\CultureEnvironment.cs" />
     <Compile Include="Backoffice\Entities\CultureManager.cs" />
@@ -250,13 +251,14 @@
     <Compile Include="Backoffice\Entities\PairsAlgorithm\PairsAlgorithmType\RandomPairs.cs" />
     <Compile Include="Backoffice\Entities\PlayerManager.cs" />
     <Compile Include="Backoffice\Entities\PlayersManager.cs" />
+    <Compile Include="Backoffice\Entities\ScheduleManager.cs" />
     <Compile Include="Backoffice\Entities\Scheduler\SchedulerAlgo.cs" />
     <Compile Include="Backoffice\Entities\Scheduler\SchedulesBL.cs" />
-    <Compile Include="Backoffice\Entities\Standings.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Standings.dbml</DependentUpon>
-    </Compile>
+    <Compile Include="Backoffice\Entities\ShuffleAlgorithm\AlphabeticalShuffle.cs" />
+    <Compile Include="Backoffice\Entities\ShuffleAlgorithm\RandomShuffle.cs" />
+    <Compile Include="Backoffice\Entities\ShuffleAlgorithm\ShuffleTypes.cs" />
+    <Compile Include="Backoffice\Entities\ShuffleAlgorithm\IShuffle.cs" />
+    <Compile Include="Backoffice\Entities\ShuffleAlgorithm\Shuffle.cs" />
     <Compile Include="Backoffice\Entities\TextContentManager.cs" />
     <Compile Include="Backoffice\Entities\TournamentAlgorithm\Competitor.cs" />
     <Compile Include="Backoffice\Entities\TournamentAlgorithm\ITournament.cs" />
@@ -788,9 +790,12 @@
     <None Include="App_Data\RadSpell\fr-FR.tdf" />
     <Content Include="App_Themes\MiriMargolin\MiriMargolin.skin" />
     <None Include="Backoffice\Entities\Albums.dbml">
+      <SubType>Designer</SubType>
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>Albums.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
+    </None>
+    <None Include="Backoffice\Entities\Albums.dbml.layout">
+      <DependentUpon>Albums.dbml</DependentUpon>
     </None>
     <None Include="Backoffice\Entities\OrganisationInfo.xsc">
       <DependentUpon>OrganisationInfo.xsd</DependentUpon>
@@ -802,11 +807,6 @@
     </None>
     <None Include="Backoffice\Entities\OrganisationInfo.xss">
       <DependentUpon>OrganisationInfo.xsd</DependentUpon>
-    </None>
-    <None Include="Backoffice\Entities\Standings.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>Standings.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
     </None>
     <None Include="ClassDiagram1.cd" />
     <Content Include="App_Data\RadEditor\BasicTools.xml" />
@@ -923,9 +923,6 @@
     <None Include="Backoffice\Entities\GameStanding.xss">
       <DependentUpon>GameStanding.xsd</DependentUpon>
     </None>
-    <None Include="Backoffice\Entities\Standings.dbml.layout">
-      <DependentUpon>Standings.dbml</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Themes\Administrator\AdministratorStyle.css" />
@@ -973,11 +970,6 @@
     </None>
   </ItemGroup>
   <ItemGroup />
-  <ItemGroup>
-    <None Include="Backoffice\Entities\Albums.dbml.layout">
-      <DependentUpon>Albums.dbml</DependentUpon>
-    </None>
-  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

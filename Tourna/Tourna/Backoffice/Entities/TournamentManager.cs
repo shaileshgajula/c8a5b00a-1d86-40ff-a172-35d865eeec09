@@ -115,4 +115,15 @@ public class TournamentManager
         }
         return false;
     }
+
+    internal static DateTime GetTournamentStartDate(Guid tournamentId)
+    {
+        using (TournaDataContext db = new TournaDataContext(ConfigurationManager.ConnectionStrings["StrongerOrgString"].ConnectionString))
+        {
+            DateTime d = (from t in db.Tournaments
+                          where t.Id == tournamentId
+                          select t.StartDate.Value).SingleOrDefault<DateTime>();
+            return d;
+        }
+    }
 }
