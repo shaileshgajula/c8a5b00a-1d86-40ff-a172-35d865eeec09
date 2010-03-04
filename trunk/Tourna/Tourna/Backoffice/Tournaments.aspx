@@ -18,7 +18,7 @@
             <asp:BoundField DataField="IsOpen" HeaderText="Open"/>
             <asp:HyperLinkField DataNavigateUrlFields="Id,TournamentName" DataNavigateUrlFormatString="OrganisationPlayers.aspx?TournamentId={0}&TournamentName={1}"
                 DataTextField="RegisteredPlayers" HeaderText="Registered" />
-            <asp:CommandField HeaderText="Del" ShowDeleteButton="True" DeleteText="Del" />
+            <asp:CommandField HeaderText="Delete" ShowDeleteButton="True"  ButtonType="Image" DeleteImageUrl="~/Images/Icons/trash.gif" ItemStyle-HorizontalAlign="Center" HeaderStyle-HorizontalAlign="Center"  />
         </Columns>
         <EmptyDataTemplate>
             No Data Found

@@ -37,6 +37,7 @@ namespace StrongerOrg.BackOffice.Scheduler
         {
             int numberOfGamesPerDay = 3;
             int numberOfGamesCounter = 0;
+            int minutesPerGame = 15;
             CultureManager cultureManager = new CultureManager(orgId);
             IEnumerator<DateTime> dayEnumerator = cultureManager.GetNextBusinessDay(dts).GetEnumerator();
             DateTime dt;
@@ -51,7 +52,8 @@ namespace StrongerOrg.BackOffice.Scheduler
                 
                 mu.StartDate = dts;
                 numberOfGamesCounter++;
-                dts = dts.AddMinutes(15);
+                dts = dts.AddMinutes(minutesPerGame);
+                mu.EndDate = dts;
             }
         }
 
@@ -140,7 +142,7 @@ namespace StrongerOrg.BackOffice.Scheduler
             int i = 0;
             int numberOfGamesPerDay = 3;
             DateTime dts = startDate;
-            List<StrongerOrg.Backoffice.DataLayer.Schedules> scheds = new List<StrongerOrg.Backoffice.DataLayer.Schedules>();
+            List<StrongerOrg.Backoffice.DataLayer.Schedule> scheds = new List<StrongerOrg.Backoffice.DataLayer.Schedule>();
             //schedule 3 games per day within 15 min intervals
             
             IEnumerator<DateTime> dayEnumerator = cultManager.GetNextBusinessDay(startDate).GetEnumerator();
@@ -156,7 +158,7 @@ namespace StrongerOrg.BackOffice.Scheduler
 
                 DateTime dte = dts.AddMinutes(15);
                 //insert here
-                scheds.Add(new StrongerOrg.Backoffice.DataLayer.Schedules()
+                scheds.Add(new StrongerOrg.Backoffice.DataLayer.Schedule()
                                 {
                                     TournamentId = tournamentInfo.TournamentId,
                                     PlayerA = matches.PlayerAId,

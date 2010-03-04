@@ -1,4 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="TextContent.ascx.cs" Inherits="StrongerOrg.Backoffice.UserControls.TextContent" %>
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit.HTMLEditor" tagprefix="ajax" %>
+
 <table>
         <tr>
             <td>
@@ -7,6 +9,7 @@
                     <Content>
                     </Content>
                 </telerik:RadEditor>
+                
             </td>
         </tr>
         <tr>

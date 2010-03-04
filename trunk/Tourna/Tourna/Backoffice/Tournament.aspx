@@ -106,11 +106,11 @@
                                 <asp:CommandField EditText="Change Date" ShowEditButton="True"  />
                             </Columns>
                         </asp:GridView>
-                        <asp:LinkButton ID="lbShuffle" runat="server">Shuffle again</asp:LinkButton> 
+                        <asp:LinkButton ID="lbShuffle" runat="server" onclick="lbShuffle_Click">Shuffle again</asp:LinkButton> 
                         <ajax:ConfirmButtonExtender ID="ConfirmButtonExtender2" runat="server"  ConfirmText="By doing so you are going to close the tournament and player will not be able to register any more"
                         TargetControlID="lbSave">
                         </ajax:ConfirmButtonExtender>
-                        <asp:LinkButton ID="lbSave" runat="server">Save and Close</asp:LinkButton>
+                        <asp:LinkButton ID="lbSave" runat="server" onclick="lbSave_Click">Save and Close</asp:LinkButton>
                         
                     </asp:View>
                     <asp:View ID="View1" runat="server">
