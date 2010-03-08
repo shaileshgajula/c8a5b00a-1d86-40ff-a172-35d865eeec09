@@ -1,0 +1,67 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MiriMargolin.master.cs"
+    Inherits="StrongerOrg.FrontSitePages.MiriMargolin.MiriMargolin" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Miri Margolin</title>
+    <link rel="canonical" href="http://www.mirimargolin.com/FrontSitePages/MiriMargolin/ContactUs.aspx" />
+    <meta name="description" content="Miri Margolin autobiography, her work, busts, abstract, figures mesh" />
+    <meta name="keywords" content="Miri Margolin Abstract,Figures,Famous Figures,Mesh,visual art, statues" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+      <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+    <asp:Label ID="lblOrganisationId" Visible="false" runat="server" Text="Label">6df2dfc8-6bea-475a-b252-5919603677a5</asp:Label>
+    <table id="wrapper" border="0" style="background-color: #FFFFFF;">
+        <tr>
+            <td style="height: 82px">
+                <a href="http://www.mirimargolin.com"  ><img src="../../OrganisationLogos/MiriMargolinLogo.gif" alt="Miri Margolin Logo" border="0" /></a>
+            </td>
+            <td align="right" valign="bottom">
+                <asp:Menu ID="Menu1" runat="server" DataSourceID="SiteMapDataSource1" StaticBottomSeparatorImageUrl="~/Images/Icons/Seperator.gif"
+                    StaticMenuItemStyle-HorizontalPadding="5" Orientation="Horizontal">
+                    <StaticSelectedStyle Font-Bold="true"/>
+                </asp:Menu>
+                <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" ShowStartingNode="false"
+                    StartingNodeUrl="~/FrontSitePages/MiriMargolin/Default.aspx" />
+            </td>
+        </tr>
+        <tr>
+            <td style="background-image: url('../../Images/SeperatorMiri.gif'); background-repeat: repeat-x"
+                colspan="2">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="GrayTitle">
+                <asp:Label ID="lblPageTitle" runat="server" Text=""></asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="height: 100%; vertical-align: top; padding: 15px;">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </td>
+        </tr>
+        <tr>
+            <td style="background-color: #393939; color: White; height: 15px; text-align: center"
+                colspan="2">
+               
+            </td>
+        </tr>
+    </table>
+    </form>
+    <script type="text/javascript">
+        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+        try {
+            var pageTracker = _gat._getTracker("UA-10085548-2");
+            pageTracker._trackPageview();
+        } catch (err) { }</script>
+</body>
+</html>

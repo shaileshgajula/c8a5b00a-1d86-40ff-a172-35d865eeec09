@@ -1,0 +1,191 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="BackOffice.master.cs"
+    Inherits="StrongerOrg.Backoffice.BackOffice" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+</head>
+<body>
+    <form id="form1" runat="server">
+    <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
+    </telerik:RadScriptManager>
+    <table style="width: 100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td colspan="2" style="height: 64px;">
+                <asp:Image ID="Logo" runat="server" ImageUrl="~/Images/StrongerOrgLogoBackOffice.gif"
+                    AlternateText="Stronger org logo" />
+            </td>
+            <td style="text-align: right; vertical-align: bottom; padding-right: 5px">
+                <asp:Label ID="lblOrganisationId" runat="server" ForeColor="White"></asp:Label>
+                <asp:Label ID="lblOrganisationName" runat="server" CssClass="GrayTitle"></asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" style="background-color: #cccccc; height: 1px">
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: left; width: 15%; white-space: nowrap; border-right: 1px solid #cccccc;">
+                <asp:LoginView ID="LoginView1" runat="server">
+                    <LoggedInTemplate>
+                        Welcome back,
+                        <asp:LoginName ID="LoginName1" runat="server" />
+                        <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutAction="RedirectToLoginPage" />
+                    </LoggedInTemplate>
+                    <AnonymousTemplate>
+                        This is restricted area. You are not suppose to be here.
+                    </AnonymousTemplate>
+                </asp:LoginView>
+            </td>
+            <td style="text-align: left; padding-left: 5px;">
+                <asp:Label ID="lblTitle" runat="server" Text="Label" CssClass="GrayTitle">Org info</asp:Label>
+            </td>
+            <td style="text-align: right; padding-right: 5px;">
+                <asp:HyperLink ID="hlOpenSite" runat="server" Target="_blank">open site</asp:HyperLink>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" style="background-color: #cccccc; height: 1px">
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: left; border-right: 1px solid #cccccc; height: 500px; vertical-align: top;
+                padding-top: 10px">
+                <%--<telerik:RadSplitter ID="RadSplitter1" runat="server" Width="100%" Height="650" BorderSize="0">
+                    <telerik:RadPane ID="RadPane1" runat="server" Width="13%">--%>
+                <asp:LoginView ID="LoginView2" runat="server">
+                    <RoleGroups>
+                        <asp:RoleGroup Roles="Administrator">
+                            <ContentTemplate>
+                                <asp:Menu ID="Menu2" Width="100%" runat="server" DataSourceID="SiteMapDataSource2">
+                                    <StaticMenuStyle CssClass="navigate" />
+                                    <StaticMenuItemStyle HorizontalPadding="10" />
+                                    <StaticSelectedStyle CssClass="SelectedRowStyle" />
+                                    <StaticHoverStyle CssClass="SelectedRowStyle" />
+                                </asp:Menu>
+                            </ContentTemplate>
+                        </asp:RoleGroup>
+                        <asp:RoleGroup Roles="Moderator">
+                            <ContentTemplate>
+                                <asp:Menu ID="Menu1" Width="100%" runat="server" DataSourceID="SiteMapDataSource1">
+                                    <StaticMenuStyle CssClass="navigate" />
+                                    <StaticMenuItemStyle HorizontalPadding="10" />
+                                    <StaticSelectedStyle CssClass="SelectedRowStyle" />
+                                    <StaticHoverStyle CssClass="SelectedRowStyle" />
+                                </asp:Menu>
+                            </ContentTemplate>
+                        </asp:RoleGroup>
+                        <asp:RoleGroup Roles="Accountants">
+                            <ContentTemplate>
+                                <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SiteMapDataSource3">
+                                    <ItemTemplate>
+                                        <li>
+                                            <asp:HyperLink ID="lnkMenuItem" runat="server" NavigateUrl='<%# Eval("Url") %>'><%# Eval("Title") %></asp:HyperLink>
+                                        </li>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+                            </ContentTemplate>
+                        </asp:RoleGroup>
+                        <asp:RoleGroup Roles="ContentManager">
+                            <ContentTemplate>
+                                <asp:Repeater ID="Repeater2" runat="server" DataSourceID="SiteMapDataSource4">
+                                    <ItemTemplate>
+                                        <li>
+                                            <asp:HyperLink ID="lnkMenuItem" runat="server" NavigateUrl='<%# Eval("Url") %>'><%# Eval("Title") %></asp:HyperLink>
+                                        </li>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+                            </ContentTemplate>
+                        </asp:RoleGroup>
+                        <asp:RoleGroup Roles="LockSmithUser">
+                            <ContentTemplate>
+                                <asp:Menu ID="Menu3" Width="100%" runat="server" DataSourceID="SiteMapDataSource5">
+                                    <StaticMenuStyle CssClass="navigate" />
+                                    <StaticMenuItemStyle HorizontalPadding="10" />
+                                    <StaticSelectedStyle CssClass="SelectedRowStyle" />
+                                    <StaticHoverStyle CssClass="SelectedRowStyle" />
+                                </asp:Menu>
+                            </ContentTemplate>
+                        </asp:RoleGroup>
+                        <asp:RoleGroup Roles="MiriMargolinDelegate">
+                            <ContentTemplate>
+                                <asp:Menu ID="Menu4" Width="100%" runat="server" DataSourceID="SiteMapDataSource6">
+                                    <StaticMenuStyle CssClass="navigate" />
+                                    <StaticMenuItemStyle HorizontalPadding="10" />
+                                    <StaticSelectedStyle CssClass="SelectedRowStyle" />
+                                    <StaticHoverStyle CssClass="SelectedRowStyle" />
+                                </asp:Menu>
+                            </ContentTemplate>
+                        </asp:RoleGroup>
+                        
+                    </RoleGroups>
+                </asp:LoginView>
+                <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" StartingNodeUrl="~/Login.aspx"
+                    ShowStartingNode="false" />
+                <asp:SiteMapDataSource ID="SiteMapDataSource2" runat="server" StartingNodeUrl="~/AdminSection.aspx"
+                    ShowStartingNode="false" />
+                <asp:SiteMapDataSource ID="SiteMapDataSource3" runat="server" StartingNodeUrl="~/Accountents"
+                    ShowStartingNode="false" />
+                <asp:SiteMapDataSource ID="SiteMapDataSource4" runat="server" StartingNodeUrl="~/ContentManager"
+                    ShowStartingNode="false" />
+                <asp:SiteMapDataSource ID="SiteMapDataSource5" runat="server" StartingNodeUrl="~/LockSmith"
+                    ShowStartingNode="false" />
+                    <asp:SiteMapDataSource ID="SiteMapDataSource6" runat="server" StartingNodeUrl="~/MiriMargolinDelegate"
+                    ShowStartingNode="false" />
+                <%--  </telerik:RadPane>
+                    <telerik:RadSplitBar ID="RadSplitBar1" runat="server" CollapseMode="Forward"></telerik:RadSplitBar>
+                    <telerik:RadPane ID="MiddlePane1" runat="server" Width="85%">
+                <div style="padding: 10px">--%>
+            </td>
+            <td colspan="2" style="text-align: left; padding: 10px;vertical-align:top">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+                <%-- </div>
+                    </telerik:RadPane>
+                </telerik:RadSplitter>--%>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" style="background-color: #cccccc; height: 1px">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" class="GrayTextLight">
+                User Role:
+                <asp:Label ID="lblRole" runat="server" Text=""></asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" style="background-color: #cccccc; height: 1px">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" align="center">
+                All Rights Reserved. | <a href="">Terms of Use</a> |
+                <asp:LoginView ID="LoginView3" runat="server">
+                    <RoleGroups>
+                        <asp:RoleGroup Roles="Administrator">
+                            <ContentTemplate>
+                                <a href="http://www.google.com/analytics/" target="_blank">Google Analytics</a>
+                                |
+                            </ContentTemplate>
+                        </asp:RoleGroup>
+                    </RoleGroups>
+                </asp:LoginView>
+                <a href="">Privacy Statement © </a>2009 STRONGERORG.COM Corporation.
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" align="center">
+                <iframe src="http://www.google.com/talk/service/badge/Show?tk=z01q6amlqgej3viuot0n4t2ov3qn81sd1mapmrg91shvc1a4atu1s2pgtd211sgq3inbm0a04baktkf26av728cvc86k9rjbal5shmna0ef91ius49v6mb22rdsmjvtsuc93ot9uuguic0qjjerknplb79bnglr2qkou4idka&amp;w=300&amp;h=18"
+                    allowtransparency="true" width="300" frameborder="0" height="18"></iframe>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" class="FooterSeperator">
+            </td>
+        </tr>
+    </table>
+    </form>
+</body>
+</html>
