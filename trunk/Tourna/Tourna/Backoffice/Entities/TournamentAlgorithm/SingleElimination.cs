@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace StrongerOrg.Backoffice.Entities.TournamentAlgorithm
+namespace StrongerOrg.BL.TournamentAlgorithm
 {
     public class SingleElimination: ITournament
     {
@@ -29,12 +29,12 @@ namespace StrongerOrg.Backoffice.Entities.TournamentAlgorithm
                 {
                     matchupList.Add(new Matchup()
                     {
-                        MatchUpId = ++matchUpCounter,
+                        MatchupId = ++matchUpCounter,
                         Round = r,
-                        PlayerA = compList[i].Name,
                         PlayerAId = compList[i].Id,
-                        PlayerB = compList[i + 1].Name,
+                        PlayerA = compList[i].Name,
                         PlayerBId = compList[i + 1].Id,
+                        PlayerB = compList[i+1].Name,
                         HouseSize = (string.IsNullOrEmpty(compList[i].Name) ? 0 : 1) + (string.IsNullOrEmpty(compList[i + 1].Name) ? 0 : 1)
                     });
                     compList.Add(new Competitor());
@@ -47,12 +47,12 @@ namespace StrongerOrg.Backoffice.Entities.TournamentAlgorithm
                 Matchup mup = matchupList.Find(m =>
                 {
                     return (m.Round == (matchUp.Round + 1)) &&
-                        (string.IsNullOrEmpty(m.PlayerA) || string.IsNullOrEmpty(m.PlayerB)) &&
+                        (string.IsNullOrEmpty(m.PlayerA) || string.IsNullOrEmpty(m.PlayerB )) &&
                         m.HouseSize < 2;
                 });
                 if (mup != null)
                 {
-                    matchUp.NextMatchId = mup.MatchUpId;
+                    matchUp.NextMatchId = mup.MatchupId;
                     mup.HouseSize++;
                 }
 

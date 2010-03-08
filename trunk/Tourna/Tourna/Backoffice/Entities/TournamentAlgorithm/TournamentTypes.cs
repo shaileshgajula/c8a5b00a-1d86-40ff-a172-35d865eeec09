@@ -1,4 +1,7 @@
-﻿internal enum TournamentTypes
+﻿namespace StrongerOrg.BL.TournamentAlgorithm
 {
-    SingleElimination
+    internal enum TournamentTypes
+    {
+        SingleElimination
+    }
 }

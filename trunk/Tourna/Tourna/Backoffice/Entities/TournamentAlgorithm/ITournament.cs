@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace StrongerOrg.Backoffice.Entities.TournamentAlgorithm
+
+namespace StrongerOrg.BL.TournamentAlgorithm
 {
     interface ITournament
     {
