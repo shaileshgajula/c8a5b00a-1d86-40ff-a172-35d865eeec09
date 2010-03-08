@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using StrongerOrg.Backoffice.Entities.TournamentAlgorithm;
 
-namespace StrongerOrg.Backoffice.Entities.ShuffleAlgorithm
+namespace StrongerOrg.BL.ShuffleAlgorithm
 {
     public class RandomShuffle<T>:IShuffle<T>
     {
