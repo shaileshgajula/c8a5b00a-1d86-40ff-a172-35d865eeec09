@@ -63,6 +63,10 @@
       <Project>{788ED948-293C-4CEB-9B88-6E812E90482F}</Project>
       <Name>PDFDrawer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\StrongerOrg.BL\StrongerOrg.BL.csproj">
+      <Project>{1848B181-87F7-4BD9-ABC7-2FAF634D3ACD}</Project>
+      <Name>StrongerOrg.BL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Tourna\Tourna.csproj">
       <Project>{03F91329-4C4C-489B-9A40-EAE09778C9BD}</Project>
       <Name>Tourna</Name>

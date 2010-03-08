@@ -91,7 +91,16 @@ namespace StrongerOrgTest
             
 
         }
+
+        [TestMethod]
+        public void TestGetTournamentForMatchups()
+        {
+           var c= StrongerOrg.BL.Jobs.TournamentMatchup.GetTournamentForMatchups();
+
+
+        }
     }
+
 
     public enum Test
     {
