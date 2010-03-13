@@ -7,6 +7,9 @@ using StrongerOrg.BL.TournamentAlgorithm;
 using StrongerOrg.BL.DL;
 using StrongerOrg.BL.Entities;
 using System.Configuration;
+using System.Net.Mail;
+using System.IO;
+using System.Diagnostics;
 
 namespace StrongerOrg.BL.Jobs
 {
@@ -22,6 +25,12 @@ namespace StrongerOrg.BL.Jobs
             DateTime startDate = GetTournamentStartDate(tournamentId);
             ScheduleGames(ref matchupList, startDate, orgId);
             SaveMatchUps(tournamentId, matchupList);
+            SendModeratorNotification(orgId);
+        }
+
+        private static void SendModeratorNotification(Guid orgId)
+        {
+            
         }
 
         private static void SaveMatchUps(Guid tournamentId, List<Matchup> matchupList)
@@ -77,10 +86,41 @@ namespace StrongerOrg.BL.Jobs
         {
             using (TournamentsDataContext tdc = new TournamentsDataContext())
             {
-                return tdc.Tournaments.Where(t => t.LastRegistrationDate.Date == DateTime.Now.Date).
+                return tdc.Tournaments.Where(t => t.LastRegistrationDate.Date == DateTime.Now.Date && t.TournamentMatchups.Count(tm => tm.TournamentId == t.Id) == 0).
                     Select(t => new TournamentOrganisation() { TournamentId = t.Id, OrganisationId = t.OrganisationId }).ToList();
             }
         }
+        public static void NotifiModerator(Guid tournamentId, Guid organisationId)
+        {
+            using (TournamentsDataContext tdc = new TournamentsDataContext())
+            { 
+            
+            }
+            string moderatorName = string.Empty;
+            SmtpClient client = new SmtpClient(); //host and port picked from web.config
+            client.EnableSsl = true;
+            string executablePath = Process.GetCurrentProcess().MainModule.FileName;
+            string templatePath = string.Format("{0}\\EmailTemplate\\MatchupsReady.htm", Path.GetDirectoryName(executablePath));
+            MailMessage message = new MailMessage();
+            string matchUpReady = File.ReadAllText(templatePath);
+            matchUpReady = matchUpReady.Replace("<% ModeratorName %>", moderatorName);
+            matchUpReady = matchUpReady.Replace("<% TournamentName %>", moderatorName);
+            matchUpReady = matchUpReady.Replace("<% StartDate %>", moderatorName);
+            matchUpReady = matchUpReady.Replace("<% TournamentId %>", moderatorName);
 
+            message.Body = "test from winservice";
+            message.IsBodyHtml = true;
+            message.From = new MailAddress("donotreply@strongerorg.com");
+            message.Subject = "MiriMargolin - Contact Us Form";
+            message.To.Add(new MailAddress("piniusha@gmail.com"));
+            try
+            {
+                client.Send(message);
+            }
+            catch (Exception)
+            {
+               
+            }
+        }
     }
 }
