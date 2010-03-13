@@ -38,6 +38,8 @@ public class TextContentManager
             db.SubmitChanges();
         }
     }
+
+    
     [DataObjectMethodAttribute(DataObjectMethodType.Select)]
     public List<TextContentItem> GetTextContents(string orgId, string contentType)
     {

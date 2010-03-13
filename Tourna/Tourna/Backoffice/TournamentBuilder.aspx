@@ -128,7 +128,22 @@
                     </tr>
                     <tr>
                         <td>
-                            Start date
+                            Last registration date
+                        </td>
+                        <td>
+                            <telerik:RadDatePicker ID="rdpLastRegistrationDate" runat="server" Culture="English (United States)"
+                                SelectedDate="2009-07-28" Width="216px">
+                                <Calendar UseColumnHeadersAsSelectors="False" UseRowHeadersAsSelectors="False" ViewSelectorText="x">
+                                </Calendar>
+                                <DateInput LabelCssClass="" >
+                                </DateInput>
+                                <DatePopupButton CssClass="" HoverImageUrl="" ImageUrl="" />
+                            </telerik:RadDatePicker>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Start tournament date
                         </td>
                         <td>
                             <telerik:RadDatePicker ID="rdpStartDate" runat="server" Culture="English (United States)"
@@ -141,6 +156,7 @@
                             </telerik:RadDatePicker>
                         </td>
                     </tr>
+                    
                     <tr>
                         <td class="style2">
                             &nbsp;

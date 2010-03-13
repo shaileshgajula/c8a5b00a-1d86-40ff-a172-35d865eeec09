@@ -26,6 +26,7 @@ namespace StrongerOrg.FrontSitePages.MiriMargolin
             SmtpClient client = new SmtpClient(); //host and port picked from web.config
             client.EnableSsl = true;
             MailDefinition message = new MailDefinition();
+            
             message.BodyFileName = @"~\EmailTemplate\MiriMargolinContact.htm";
             message.IsBodyHtml = true;
             message.From = "donotreply@strongerorg.com";

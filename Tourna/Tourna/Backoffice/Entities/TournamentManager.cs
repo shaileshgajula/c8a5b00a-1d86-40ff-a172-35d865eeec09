@@ -14,7 +14,7 @@ public class TournamentManager
 
     internal static string BuildTournament(Guid organisationId, string tournamentName, string tournamentAbstract, string locations,
         int numberOfPlayersLimit, int gameId, string matchingAlgo, int timeWindowStart, int timeWindowEnd, bool isOpenAllDay,
-        int firstPrize, int secondPrize, int thirdPrize, System.DateTime startDate)
+        string firstPrize, string secondPrize, string thirdPrize, DateTime startDate, DateTime lastRegistrationDate)
     {
         using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["StrongerOrgString"].ConnectionString))
         {
@@ -30,10 +30,12 @@ public class TournamentManager
             command.Parameters.Add("@TimeWindowStart", SqlDbType.Int, 4).Value = timeWindowStart;
             command.Parameters.Add("@TimeWindowEnd", SqlDbType.Int, 4).Value = timeWindowEnd;
             command.Parameters.Add("@IsOpenAllDay", SqlDbType.Bit).Value = isOpenAllDay;
-            command.Parameters.Add("@FirstPrize", SqlDbType.Int, 4).Value = firstPrize;
-            command.Parameters.Add("@SecondPrize", SqlDbType.Int, 4).Value = secondPrize;
-            command.Parameters.Add("@ThirdPrize", SqlDbType.Int, 4).Value = thirdPrize;
+            command.Parameters.Add("@FirstPrize", SqlDbType.NVarChar, 150).Value = firstPrize;
+            command.Parameters.Add("@SecondPrize", SqlDbType.NVarChar, 150).Value = secondPrize;
+            command.Parameters.Add("@ThirdPrize", SqlDbType.NVarChar, 150).Value = thirdPrize;
+            command.Parameters.Add("@LastRegistrationDate", SqlDbType.DateTime).Value = lastRegistrationDate;
             command.Parameters.Add("@StartDate", SqlDbType.DateTime).Value = startDate;
+
             command.Parameters.Add("@TournamentId", SqlDbType.UniqueIdentifier).Direction = ParameterDirection.Output;
             conn.Open();
             command.ExecuteNonQuery();
@@ -96,24 +98,13 @@ public class TournamentManager
 
     internal static bool IsTournamentOpen(Guid orgId, Guid tournamentId)
     {
-        using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["StrongerOrgString"].ConnectionString))
+        using (TournaDataContext db = new TournaDataContext(ConfigurationManager.ConnectionStrings["StrongerOrgString"].ConnectionString))
         {
-            SqlCommand command = new SqlCommand("TournamentsGet", conn);
-            command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@OrganisationId", SqlDbType.UniqueIdentifier).Value = orgId;
-            command.Parameters.Add("@TournamentId", SqlDbType.UniqueIdentifier).Value = tournamentId;
-            conn.Open();
-            SqlDataReader reader = command.ExecuteReader();
-            while (reader.Read())
-            {
-                int numberOfPlayersLimit = int.Parse(reader["NumberOfPlayersLimit"].ToString());
-                int registeredPlayers = int.Parse(reader["RegisteredPlayers"].ToString());
-                string tournamentName = reader["TournamentName"].ToString();
-                bool isTournamentOpen = bool.Parse(reader["IsOpen"].ToString());
-                return isTournamentOpen && numberOfPlayersLimit > registeredPlayers;
-            }
+            Tournament tournament = db.Tournaments.Single(t => t.Id == tournamentId && t.StartDate >= DateTime.Now
+                && t.IsTournamentOver == false
+                && t.NumberOfPlayersLimit >= db.Players2Tournaments.Where(p2t => p2t.TournamentId == tournamentId).Count());
+            return (tournament != null);
         }
-        return false;
     }
 
     internal static DateTime GetTournamentStartDate(Guid tournamentId)
@@ -122,8 +113,17 @@ public class TournamentManager
         {
             DateTime d = (from t in db.Tournaments
                           where t.Id == tournamentId
-                          select t.StartDate.Value).SingleOrDefault<DateTime>();
+                          select t.StartDate).SingleOrDefault<DateTime>();
             return d;
+        }
+    }
+
+    internal static string GetTournamentName(Guid tournamentId)
+    {
+        using (TournaDataContext db = new TournaDataContext())
+        {
+            string tournamentName = db.Tournaments.Single(t => t.Id == tournamentId).TournamentName;
+            return tournamentName;
         }
     }
 }

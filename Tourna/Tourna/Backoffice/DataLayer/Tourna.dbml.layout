@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 17.625, 13.5" name="Tourna">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 16.625, 13.5" name="Tourna">
   <DataContextMoniker Name="/TournaDataContext" />
   <nestedChildShapes>
     <classShape Id="0c1babee-4efa-4a57-b6ed-60c236ce5a56" absoluteBounds="1.125, 0.875, 2, 2.24658447265625">
@@ -95,7 +95,7 @@
         <classShapeMoniker Id="7bbd9d39-d2d5-476c-87c1-69922f162892" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(6.5 : 7.98599812825521); (9.32291666666667 : 7.98599812825521 : JumpStart); (9.48958333333333 : 7.98599812825521 : JumpEnd); (10.25 : 7.98599812825521)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(6.5 : 7.98599812825521); (10.25 : 7.98599812825521)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/TournaDataContext/Organisation/Organisation_Organisation2Game" />
       <nodes>
         <classShapeMoniker Id="97d3708e-38a6-4d54-b212-6b61f17fef40" />
@@ -116,7 +116,7 @@
         <classShapeMoniker Id="eab1c904-8ba9-4309-8501-29a50b302afa" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.83980769230769 : 4.75); (2.83980769230769 : 3.12158447265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.83980769230769 : 4.75); (2.83980769230769 : 3.12158447265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/TournaDataContext/Room/Room_Appointment" />
       <nodes>
         <classShapeMoniker Id="48fd1816-fa01-4334-a5c2-f93e8f9b3316" />
@@ -149,33 +149,6 @@
         <elementListCompartment Id="ca363c71-9c41-4fd1-904c-0f2a96f336b5" absoluteBounds="5.39, 3.585, 1.9700000000000002, 0.86484781901041674" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="ac587b1d-54c7-4665-90b0-5db622f6a67a" absoluteBounds="11.125, 3.625, 2, 3.8900577799479166">
-      <DataClassMoniker Name="/TournaDataContext/Tournament" />
-      <nestedChildShapes>
-        <elementListCompartment Id="39cf5b77-2798-48ea-a2a3-87c1e3bf4ce4" absoluteBounds="11.14, 4.085, 1.9700000000000002, 3.3300577799479165" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <associationConnector edgePoints="[(12.84375 : 7.51505777994792); (12.84375 : 12.548076578776); (12 : 12.548076578776)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/TournaDataContext/Tournament/Tournament_Players2Tournament" />
-      <nodes>
-        <classShapeMoniker Id="ac587b1d-54c7-4665-90b0-5db622f6a67a" />
-        <classShapeMoniker Id="eab1c904-8ba9-4309-8501-29a50b302afa" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(9.5 : 2.16611857096354); (12.125 : 2.16611857096354); (12.125 : 3.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/TournaDataContext/Game/Game_Tournament" />
-      <nodes>
-        <classShapeMoniker Id="c08599a9-867b-4dd2-b3ad-ba7541b0e1dc" />
-        <classShapeMoniker Id="ac587b1d-54c7-4665-90b0-5db622f6a67a" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(6.5 : 7.25752888997396); (9.32291666666667 : 7.25752888997396 : JumpStart); (9.48958333333333 : 7.25752888997396 : JumpEnd); (11.125 : 7.25752888997396)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/TournaDataContext/Organisation/Organisation_Tournament" />
-      <nodes>
-        <classShapeMoniker Id="97d3708e-38a6-4d54-b212-6b61f17fef40" />
-        <classShapeMoniker Id="ac587b1d-54c7-4665-90b0-5db622f6a67a" />
-      </nodes>
-    </associationConnector>
     <classShape Id="3ded9fb7-1e5b-4d9a-a51a-d1d38139e5b5" absoluteBounds="8.125, 9.125, 2, 1.75354248046875">
       <DataClassMoniker Name="/TournaDataContext/TextContent" />
       <nestedChildShapes>
@@ -189,18 +162,37 @@
         <classShapeMoniker Id="3ded9fb7-1e5b-4d9a-a51a-d1d38139e5b5" />
       </nodes>
     </associationConnector>
-    <classShape Id="4a3db451-b689-4a64-9157-7ccae678d848" absoluteBounds="15.375, 5.25, 2, 3.0683211263020831">
-      <DataClassMoniker Name="/TournaDataContext/Schedule" />
+    <classShape Id="6718c0c8-f493-42b0-b20f-22c922d851ae" absoluteBounds="13.125, 1.375, 2, 3.2326684570312505">
+      <DataClassMoniker Name="/TournaDataContext/TournamentMatchup" />
       <nestedChildShapes>
-        <elementListCompartment Id="085c84c2-c20f-4706-a2db-bc763cc5afed" absoluteBounds="15.39, 5.71, 1.9700000000000002, 2.508321126302083" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="f41f856e-ff41-4376-a27d-566adf60ab65" absoluteBounds="13.14, 1.835, 1.9700000000000002, 2.67266845703125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(13.125 : 6.38252888997396); (15.375 : 6.38252888997396)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/TournaDataContext/Tournament/Tournament_Schedule" />
+    <classShape Id="8a0ebec9-0487-42ad-925d-075e9c6b0e43" absoluteBounds="10.375, 1, 2, 3.8900577799479166">
+      <DataClassMoniker Name="/TournaDataContext/Tournament" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bf465101-5e30-499c-82b0-a85c333aaa77" absoluteBounds="10.39, 1.46, 1.9700000000000002, 3.3300577799479165" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(11.375 : 4.89005777994792); (11.375 : 7.5); (12.75 : 7.5); (12.75 : 12.548076578776); (12 : 12.548076578776)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/TournaDataContext/Tournament/Tournament_Players2Tournament" />
       <nodes>
-        <classShapeMoniker Id="ac587b1d-54c7-4665-90b0-5db622f6a67a" />
-        <classShapeMoniker Id="4a3db451-b689-4a64-9157-7ccae678d848" />
+        <classShapeMoniker Id="8a0ebec9-0487-42ad-925d-075e9c6b0e43" />
+        <classShapeMoniker Id="eab1c904-8ba9-4309-8501-29a50b302afa" />
       </nodes>
     </associationConnector>
+    <associationConnector edgePoints="[(12.375 : 2.99133422851563); (13.125 : 2.99133422851563)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/TournaDataContext/Tournament/Tournament_TournamentMatchup" />
+      <nodes>
+        <classShapeMoniker Id="8a0ebec9-0487-42ad-925d-075e9c6b0e43" />
+        <classShapeMoniker Id="6718c0c8-f493-42b0-b20f-22c922d851ae" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="e5e1ac7b-e125-4b41-9938-de7193719824" absoluteBounds="14.375, 6, 2, 1.75354248046875">
+      <DataClassMoniker Name="/TournaDataContext/FeedBack" />
+      <nestedChildShapes>
+        <elementListCompartment Id="def14000-29a7-4e2f-826d-99ba17fc36fd" absoluteBounds="14.39, 6.46, 1.9700000000000002, 1.19354248046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

@@ -39,13 +39,13 @@ namespace StrongerOrg.Backoffice
             int timeWindowStart = rsTimeWindow.SelectionStart;
             int timeWindowEnd = rsTimeWindow.SelectionEnd;
             bool isOpenAllDay = this.cbIsOpenAllDay.Checked;
-            int firstPrize = int.Parse(this.txtFirstPrize.Text);
-            int secondPrize = int.Parse(this.txtSecondPrize.Text);
-            int thirdPrize = int.Parse(this.txtThirdPrize.Text);
+            string firstPrize = this.txtFirstPrize.Text;
+            string secondPrize = this.txtSecondPrize.Text;
+            string thirdPrize = this.txtThirdPrize.Text;
             DateTime startDate = this.rdpStartDate.SelectedDate.Value;
-
+            DateTime lastRegistrationDate = this.rdpLastRegistrationDate.SelectedDate.Value;
             string tournamentId = TournamentManager.BuildTournament(Master.OrgBasicInfo.Id, tournamentName, tournamentAbstract, locations, numberOfPlayersLimit, gameId, matchingAlog, timeWindowStart,
-                timeWindowEnd, isOpenAllDay, firstPrize, secondPrize, thirdPrize, startDate);
+                timeWindowEnd, isOpenAllDay, firstPrize, secondPrize, thirdPrize, startDate, lastRegistrationDate);
             string emailTemplate = string.Format(joinTournamentTemplate, Master.OrgBasicInfo.Name, tournamentName,
                                                     Master.OrgBasicInfo.Id.ToString(),tournamentId, timeWindowStart.ToString(), timeWindowEnd.ToString(),locations,
                                                     this.txtFirstPrize.Text, this.txtSecondPrize.Text, this.txtThirdPrize.Text);
