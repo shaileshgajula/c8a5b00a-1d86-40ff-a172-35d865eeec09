@@ -16,17 +16,21 @@ namespace StrongerOrg.WinSrv
     {
         private Timer timer;
         private DateTime lastRun = DateTime.Now;
+        private List<Action> jobs = new List<Action>();
 
         public StrongerOrgJobsService()
         {
             InitializeComponent();
+            jobs.Add(this.BuildNewTournaments);
+            jobs.Add(this.SendMatchupAlerts);
         }
 
         protected override void OnStart(string[] args)
         {
-            //Debugger.Launch();
-            Debug.Listeners["logging"].WriteLine("service started");
-            timer = new Timer(8 * 60 * 60 * 1000); // every 12H
+            Debugger.Launch();
+            Debug.Listeners["logging"].WriteLine("Service started");
+            timer = new Timer(12 * 60 * 60 * 1000); // every 12H
+            //timer = new Timer(15 * 1000); // every 15Sec
             timer.Elapsed += new ElapsedEventHandler(timer_Elapsed);
             timer.Start();
             this.BuildNewTournaments();
@@ -35,23 +39,33 @@ namespace StrongerOrg.WinSrv
 
         void timer_Elapsed(object sender, ElapsedEventArgs e)
         {
-            BuildNewTournaments();
+            foreach (Action job in jobs)
+            {
+                job();
+            }
         }
 
         private void BuildNewTournaments()
         {
-            
             List<TournamentOrganisation> tournamentsToRun = TournamentMatchup.GetTournamentForMatchups();
             Debug.Listeners["logging"].WriteLine(string.Format("{0} Found {1} tournaments to build ", DateTime.Now.ToString(), tournamentsToRun.Count.ToString()));
-            if(tournamentsToRun.Count>0)
+            Debug.Flush();
+            if (tournamentsToRun.Count > 0)
             {
                 foreach (TournamentOrganisation to in tournamentsToRun)
                 {
                     TournamentMatchup.Build(to.TournamentId, to.OrganisationId);
+                    //TournamentMatchup.NotifiModerator(to.TournamentId, to.OrganisationId);
+                    TournamentMatchup.NotifiModerator(Guid.Empty, Guid.Empty);
+
                 }
             }
         }
 
+        private void SendMatchupAlerts()
+        {
+        
+        }
         protected override void OnStop()
         {
         }
