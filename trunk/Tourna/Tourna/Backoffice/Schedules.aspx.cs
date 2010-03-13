@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Telerik.Web.UI;
 using System.Text;
-using StrongerOrg.BackOffice.Scheduler;
+
 
 namespace StrongerOrg.Backoffice
 {
@@ -72,7 +72,7 @@ namespace StrongerOrg.Backoffice
                 Guid ddlPlayerAGuid = new Guid(ddlPlayerA.SelectedValue);
                 Guid ddlPlayerBGuid = new Guid(ddlPlayerB.SelectedValue);
                 string subject = string.Format("{0} vs. {1}", ddlPlayerA.SelectedItem.Text, ddlPlayerB.SelectedItem.Text);
-                SchedulesBL.ScheduleInsert(tournamentId, ddlPlayerAGuid, ddlPlayerBGuid, sd, ed);
+                //SchedulesBL.ScheduleInsert(tournamentId, ddlPlayerAGuid, ddlPlayerBGuid, sd, ed);
             }
         }
 

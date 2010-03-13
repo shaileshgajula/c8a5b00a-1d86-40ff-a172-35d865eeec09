@@ -241,7 +241,7 @@ namespace StrongerOrg.Backoffice
             IEnumerable<DateTime> dates;                       
             using (TournaDataContext db = new TournaDataContext())
             {
-               var  dateInfo = db.Schedules.Where(y => y.TournamentId == tournamentId).
+               var  dateInfo = db.TournamentMatchups.Where(y => y.TournamentId == tournamentId).
                     Select(y =>
                         new 
                             {

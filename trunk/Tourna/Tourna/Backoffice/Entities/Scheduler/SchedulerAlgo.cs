@@ -6,8 +6,9 @@ using System.Configuration;
 using System.Data;
 using StrongerOrg.BackOffice.PairsAlgorithm;
 using StrongerOrg.Backoffice.Entities;
-using StrongerOrg.Backoffice.DataLayer;
 using System.Data.Linq;
+using StrongerOrg.Backoffice.Entities.TournamentAlgorithm;
+using StrongerOrg.Backoffice.DataLayer;
 
 namespace StrongerOrg.BackOffice.Scheduler
 {
@@ -33,7 +34,7 @@ namespace StrongerOrg.BackOffice.Scheduler
         //        i++;
         //    }
         //}
-        internal static void ScheduleGames(ref List<StrongerOrg.Backoffice.Entities.TournamentAlgorithm.Matchup> matchups, DateTime dts, Guid orgId)
+        internal static void ScheduleGames(ref List<Matchup> matchups, DateTime dts, Guid orgId)
         {
             int numberOfGamesPerDay = 3;
             int numberOfGamesCounter = 0;
@@ -41,7 +42,7 @@ namespace StrongerOrg.BackOffice.Scheduler
             CultureManager cultureManager = new CultureManager(orgId);
             IEnumerator<DateTime> dayEnumerator = cultureManager.GetNextBusinessDay(dts).GetEnumerator();
             DateTime dt;
-            foreach (StrongerOrg.Backoffice.Entities.TournamentAlgorithm.Matchup mu in matchups)
+            foreach (Matchup mu in matchups)
             {
                 if (numberOfGamesCounter % numberOfGamesPerDay == 0)
                 {
@@ -50,10 +51,10 @@ namespace StrongerOrg.BackOffice.Scheduler
                     dts = new DateTime(dts.Year, dts.Month, dts.Day, 12, 0, 0);
                 }
                 
-                mu.StartDate = dts;
+                mu.Start = dts;
                 numberOfGamesCounter++;
                 dts = dts.AddMinutes(minutesPerGame);
-                mu.EndDate = dts;
+                mu.End = dts;
             }
         }
 
@@ -75,7 +76,7 @@ namespace StrongerOrg.BackOffice.Scheduler
                     throw new DataException("Could not generate data for tournament");
 
                  orgId = data.OrgId;
-                 startDate = data.StartDate ?? new DateTime();
+                 startDate = data.StartDate ;
 
             }
 
@@ -142,7 +143,7 @@ namespace StrongerOrg.BackOffice.Scheduler
             int i = 0;
             int numberOfGamesPerDay = 3;
             DateTime dts = startDate;
-            List<StrongerOrg.Backoffice.DataLayer.Schedule> scheds = new List<StrongerOrg.Backoffice.DataLayer.Schedule>();
+            List<Matchup> scheds = new List<Matchup>();
             //schedule 3 games per day within 15 min intervals
             
             IEnumerator<DateTime> dayEnumerator = cultManager.GetNextBusinessDay(startDate).GetEnumerator();
@@ -158,11 +159,13 @@ namespace StrongerOrg.BackOffice.Scheduler
 
                 DateTime dte = dts.AddMinutes(15);
                 //insert here
-                scheds.Add(new StrongerOrg.Backoffice.DataLayer.Schedule()
+                scheds.Add(new Matchup()
                                 {
                                     TournamentId = tournamentInfo.TournamentId,
-                                    PlayerA = matches.PlayerAId,
-                                    PlayerB = matches.PlayerBId,
+                                    PlayerAId = matches.PlayerAId,
+                                    PlayerA = matches.PlayerAName,
+                                    PlayerBId = matches.PlayerBId,
+                                    PlayerB = matches.PlayerBName,
                                     Start = dts,
                                     End = dts.AddMinutes(15) // i need end date, otherwise i cant insert.
                                 });
@@ -173,9 +176,9 @@ namespace StrongerOrg.BackOffice.Scheduler
             using (TournaDataContext db = new TournaDataContext())
             {
 
-                db.Schedules.DeleteAllOnSubmit(db.Schedules.Where(x => x.TournamentId == tournamentInfo.TournamentId));
-                db.Schedules.InsertAllOnSubmit(scheds);
-                db.SubmitChanges();
+                //db.TournamentMatchups.DeleteAllOnSubmit(db.TournamentMatchups.Where(x => x.TournamentId == tournamentInfo.TournamentId));
+                //db.TournamentMatchups.InsertAllOnSubmit(scheds);
+                //db.SubmitChanges();
             }
             
         }

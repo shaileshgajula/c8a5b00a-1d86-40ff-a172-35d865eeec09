@@ -193,6 +193,15 @@ namespace StrongerOrg.Backoffice {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
         
         /// <summary>
+        /// rdpLastRegistrationDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadDatePicker rdpLastRegistrationDate;
+        
+        /// <summary>
         /// rdpStartDate control.
         /// </summary>
         /// <remarks>

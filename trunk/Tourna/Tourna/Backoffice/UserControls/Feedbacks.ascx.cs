@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using StrongerOrg.Backoffice.Entities;
 
 namespace StrongerOrg.Backoffice.UserControls
 {
@@ -16,17 +17,12 @@ namespace StrongerOrg.Backoffice.UserControls
 
         public string OrganisationId { get; set; }
 
-        public string TextContentName
-        {
-            get { return ViewState["TextContentName"].ToString(); }
-            set { ViewState["TextContentName"] = value; }
-        }
-
         protected void lbSend_Click(object sender, EventArgs e)
         {
-            TextContentManager.TextContentInsert(new Guid(this.OrganisationId), TextContentName,this.txtName.Text, this.txtMessage.Text);
+            FeedbacksManager.FeedbackInsert(new Guid(this.OrganisationId), this.txtName.Text, this.txtMessage.Text, this.txtEmail.Text);
             this.txtName.Text = string.Empty;
             this.txtMessage.Text = string.Empty;
+            this.txtEmail.Text = string.Empty;
             //this.lblSendMsg.Text = "Thank you for your message. ";
             this.lvFeedbacks.DataBind();
             this.CollapsiblePanelExtender1.Collapsed = true;
@@ -42,13 +38,15 @@ namespace StrongerOrg.Backoffice.UserControls
         protected void ObjectDataSource1_Selecting(object sender, ObjectDataSourceSelectingEventArgs e)
         {
             e.InputParameters["orgId"] = this.OrganisationId;
-            e.InputParameters["ContentType"] = this.TextContentName;
+            //e.InputParameters["ContentType"] = this.TextContentName;
         }
 
         protected void lvFeedbacks_ItemCreated(object sender, ListViewItemEventArgs e)
         {
             LinkButton lb = e.Item.FindControl("lbDelete") as LinkButton;
             lb.Visible = this.IsEditMode;
+            Label l = e.Item.FindControl("lblFeedbackWriterEmail") as Label;
+            l.Visible = this.IsEditMode;
         }
 
        

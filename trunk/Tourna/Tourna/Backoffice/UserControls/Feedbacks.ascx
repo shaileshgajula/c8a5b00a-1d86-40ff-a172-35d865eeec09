@@ -14,6 +14,14 @@
             </td>
         </tr>
         <tr>
+            <td>
+                Email:
+            </td>
+            <td align="right">
+                <asp:TextBox ID="txtEmail" runat="server" Width="350"></asp:TextBox>
+            </td>
+        </tr>
+        <tr>
             <td valign="top">
                 Message:
             </td>
@@ -29,8 +37,8 @@
         </tr>
     </table>
 </asp:Panel>
-<ajax:CollapsiblePanelExtender ID="CollapsiblePanelExtender1" runat="server" Collapsed="true"
-    CollapsedSize="0" ExpandedSize="170" ExpandControlID="lbShowAddNew" CollapseControlID="lbShowAddNew"
+<ajax:CollapsiblePanelExtender ID="CollapsiblePanelExtender1" runat="server" Collapsed="false"
+    CollapsedSize="0" ExpandedSize="200" ExpandControlID="lbShowAddNew" CollapseControlID="lbShowAddNew"
     AutoCollapse="False" AutoExpand="false" TextLabelID="lblFeedbackHeader" ExpandedImage="~/Images/Icons/expand.jpg"
     CollapsedImage="~/Images/Icons/collapse.jpg" TargetControlID="Panel1" ExpandDirection="Vertical"
     ImageControlID="Image1">
@@ -55,7 +63,7 @@
     <ItemTemplate>
         <tr>
             <td>
-                <%# Eval("Content") %>
+                <%# Eval("FeedbackContent")%>
             </td>
             <td style="vertical-align:top;text-align:right">
                 <asp:LinkButton ID="lbDelete" runat="server" CommandName="Delete">Delete</asp:LinkButton>
@@ -63,7 +71,8 @@
         </tr>
         <tr>
             <td align="right" class="LightGrayTextLight" colspan="2">
-                <%# Eval("Caption") %> (<%# Eval("CreateDate") %>)
+                <%# Eval("FeedbackWriterName")%> (<%# String.Format("{0:ddd, MMM d, yyyy}", Eval("DateStamp")) %>) 
+                <asp:Label ID="lblFeedbackWriterEmail" runat="server" Text=""><%# Eval("FeedbackWriterEmail")%></asp:Label>
             </td>
         </tr>
     </ItemTemplate>
@@ -76,14 +85,13 @@
             PreviousPageText="Previous" />
     </Fields>
 </asp:DataPager>
-<asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="GetTextContents"
-    TypeName="TextContentManager" OnSelecting="ObjectDataSource1_Selecting" 
-    DeleteMethod="DeleteTextContents">
+<asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="GetFeedbacks"
+    TypeName="StrongerOrg.Backoffice.Entities.FeedbacksManager" OnSelecting="ObjectDataSource1_Selecting" 
+    DeleteMethod="DeleteFeedback">
     <DeleteParameters>
         <asp:Parameter Name="Id" Type="Int32" />
     </DeleteParameters>
     <SelectParameters>
         <asp:Parameter Name="orgId" Type="String" />
-        <asp:Parameter Name="contentType" Type="String" />
     </SelectParameters>
 </asp:ObjectDataSource>

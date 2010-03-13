@@ -89,6 +89,7 @@
     <Content Include="Backoffice\UserControls\GalleryViewer.ascx" />
     <Content Include="Backoffice\UserControls\ImageViewer.ascx" />
     <Content Include="Backoffice\UserControls\TextContent.ascx" />
+    <Content Include="EmailTemplate\MiriMargolinShareWithAFriend.htm" />
     <Content Include="EmailTemplate\MiriMargolinContact.htm" />
     <Content Include="EmailTemplate\RecoverPassword.htm" />
     <Content Include="FrontSitePages\MiriMargolin\About.aspx" />
@@ -138,7 +139,33 @@
     <Content Include="OrganisationLogos\StrongerOrgLogoForEmails.gif" />
     <Content Include="OrganisationSite\EventGallery.aspx" />
     <Content Include="OrganisationSite\ImageViewer.aspx" />
-    <Content Include="Scripts\GMAPJSHelper_Release.js" />
+    <Content Include="Scripts\colorbox\jquery.colorbox-min.js" />
+    <Content Include="Scripts\colorbox\jquery.colorbox.js" />
+    <Content Include="Scripts\content\ajax.html" />
+    <Content Include="Scripts\content\flash.html" />
+    <Content Include="Scripts\content\homer.jpg" />
+    <Content Include="Scripts\content\marylou.jpg" />
+    <Content Include="Scripts\content\ohoopee1.jpg" />
+    <Content Include="Scripts\content\ohoopee2.jpg" />
+    <Content Include="Scripts\content\ohoopee3.jpg" />
+    <Content Include="Scripts\colorbox.css" />
+    <Content Include="Scripts\images\border.png" />
+    <Content Include="Scripts\images\controls.png" />
+    <Content Include="Scripts\images\internet_explorer\borderBottomCenter.png" />
+    <Content Include="Scripts\images\internet_explorer\borderBottomLeft.png" />
+    <Content Include="Scripts\images\internet_explorer\borderBottomRight.png" />
+    <Content Include="Scripts\images\internet_explorer\borderMiddleLeft.png" />
+    <Content Include="Scripts\images\internet_explorer\borderMiddleRight.png" />
+    <Content Include="Scripts\images\internet_explorer\borderTopCenter.png" />
+    <Content Include="Scripts\images\internet_explorer\borderTopLeft.png" />
+    <Content Include="Scripts\images\internet_explorer\borderTopRight.png" />
+    <Content Include="Scripts\images\loading.gif" />
+    <Content Include="Scripts\images\loading_background.png" />
+    <Content Include="Scripts\images\overlay.png" />
+    <Content Include="Scripts\example1\index.html" />
+    <Content Include="Scripts\jquery.js" />
+    <Content Include="Scripts\JQueryTest.aspx" />
+    <Content Include="Scripts\JQueryTest.htm" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -228,6 +255,7 @@
     </Compile>
     <Compile Include="Backoffice\Entities\CultureEnvironment.cs" />
     <Compile Include="Backoffice\Entities\CultureManager.cs" />
+    <Compile Include="Backoffice\Entities\FeedbacksManager.cs" />
     <Compile Include="Backoffice\Entities\GameStanding.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -251,9 +279,10 @@
     <Compile Include="Backoffice\Entities\PairsAlgorithm\PairsAlgorithmType\RandomPairs.cs" />
     <Compile Include="Backoffice\Entities\PlayerManager.cs" />
     <Compile Include="Backoffice\Entities\PlayersManager.cs" />
-    <Compile Include="Backoffice\Entities\ScheduleManager.cs" />
-    <Compile Include="Backoffice\Entities\Scheduler\SchedulerAlgo.cs" />
-    <Compile Include="Backoffice\Entities\Scheduler\SchedulesBL.cs" />
+    <Compile Include="Backoffice\Entities\Scheduler\SchedulerAlgo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Backoffice\Entities\TournamentMatchupManager.cs" />
     <Compile Include="Backoffice\Entities\ShuffleAlgorithm\AlphabeticalShuffle.cs" />
     <Compile Include="Backoffice\Entities\ShuffleAlgorithm\RandomShuffle.cs" />
     <Compile Include="Backoffice\Entities\ShuffleAlgorithm\ShuffleTypes.cs" />
@@ -264,7 +293,7 @@
     <Compile Include="Backoffice\Entities\TournamentAlgorithm\ITournament.cs" />
     <Compile Include="Backoffice\Entities\TournamentAlgorithm\Matchup.cs" />
     <Compile Include="Backoffice\Entities\TournamentAlgorithm\SingleElimination.cs" />
-    <Compile Include="Backoffice\Entities\TournamentAlgorithm\Tournament.cs" />
+    <Compile Include="Backoffice\Entities\TournamentAlgorithm\TournamentFactory.cs" />
     <Compile Include="Backoffice\Entities\TournamentAlgorithm\TournamentTypes.cs" />
     <Compile Include="Backoffice\Entities\TournamentManager.cs" />
     <Compile Include="Backoffice\EventGallery.aspx.cs">
@@ -547,13 +576,6 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="DummyPage.aspx.cs">
-      <DependentUpon>DummyPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="DummyPage.aspx.designer.cs">
-      <DependentUpon>DummyPage.aspx</DependentUpon>
-    </Compile>
     <Compile Include="FrontSite.Master.cs">
       <DependentUpon>FrontSite.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -783,6 +805,13 @@
     <Compile Include="Backoffice\SiteMap.aspx.designer.cs">
       <DependentUpon>SiteMap.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Scripts\JQueryTest.aspx.cs">
+      <DependentUpon>JQueryTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Scripts\JQueryTest.aspx.designer.cs">
+      <DependentUpon>JQueryTest.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App_Data\RadSpell\de-DE.tdf" />
@@ -826,7 +855,6 @@
     <Content Include="FrontSitePages\Contact.aspx" />
     <Content Include="FrontSitePages\Customers.aspx" />
     <Content Include="Default.aspx" />
-    <Content Include="DummyPage.aspx" />
     <Content Include="FrontSitePages\FAQ.aspx" />
     <Content Include="FrontSitePages\Join.aspx" />
     <Content Include="FrontSitePages\Products.aspx" />
@@ -985,7 +1013,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>53015</DevelopmentServerPort>
+          <DevelopmentServerPort>63054</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

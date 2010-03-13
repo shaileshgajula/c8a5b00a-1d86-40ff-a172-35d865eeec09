@@ -8,23 +8,43 @@
     <link rel="canonical" href="http://www.mirimargolin.com/FrontSitePages/MiriMargolin/ContactUs.aspx" />
     <meta name="description" content="Miri Margolin autobiography, her work, busts, abstract, figures mesh" />
     <meta name="keywords" content="Miri Margolin Abstract,Figures,Famous Figures,Mesh,visual art, statues" />
+    <%--<link type="text/css" media="screen" rel="stylesheet" href="/scripts/colorbox.css" />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+    <script type="text/javascript" src="/scripts/colorbox/jquery.colorbox.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //Examples of how to assign the ColorBox event to elements
+            //$("a[rel='example1']").colorbox();
+            $(".shareWithAFriend").colorbox({ width: "40%", inline: true, href: "#inline_example1" });
+
+
+            //Example of preserving a JavaScript event for inline calls.
+            $("#click").click(function () {
+                $('#click').css({ "background-color": "#f00", "color": "#fff", "cursor": "inherit" }).text("Open this window again and this message will still be here.");
+                return false;
+            });
+
+        });
+    </script>--%>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
-      <asp:ScriptManager ID="ScriptManager1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
     <asp:Label ID="lblOrganisationId" Visible="false" runat="server" Text="Label">6df2dfc8-6bea-475a-b252-5919603677a5</asp:Label>
     <table id="wrapper" border="0" style="background-color: #FFFFFF;">
         <tr>
             <td style="height: 82px">
-                <a href="http://www.mirimargolin.com"  ><img src="../../OrganisationLogos/MiriMargolinLogo.gif" alt="Miri Margolin Logo" border="0" /></a>
+                <a href="http://www.mirimargolin.com">
+                    <img src="../../OrganisationLogos/MiriMargolinLogo.gif" alt="Miri Margolin Logo"
+                        border="0" /></a>
             </td>
             <td align="right" valign="bottom">
                 <asp:Menu ID="Menu1" runat="server" DataSourceID="SiteMapDataSource1" StaticBottomSeparatorImageUrl="~/Images/Icons/Seperator.gif"
                     StaticMenuItemStyle-HorizontalPadding="5" Orientation="Horizontal">
-                    <StaticSelectedStyle Font-Bold="true"/>
+                    <StaticSelectedStyle Font-Bold="true" />
                 </asp:Menu>
                 <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" ShowStartingNode="false"
                     StartingNodeUrl="~/FrontSitePages/MiriMargolin/Default.aspx" />
@@ -49,10 +69,63 @@
         <tr>
             <td style="background-color: #393939; color: White; height: 15px; text-align: center"
                 colspan="2">
-               
+               <%-- <a class='shareWithAFriend' href="#">Share with a friend</a>--%>
             </td>
         </tr>
     </table>
+    <%--<div style='display: none'>
+        <div id='inline_example1' style='padding: 10px; background: #fff;'>
+            <table border="0" cellpadding="3" cellspacing="3" style="width: 100%">
+                <tr>
+                    <td colspan="3" align="left">
+                        <strong>Share this page with a friend</strong>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left">
+                        Your name:
+                    </td>
+                    <td align="right">
+                        <asp:TextBox ID="txtYourName" runat="server"></asp:TextBox>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left">
+                        Friend's Email:<span class="AlertText">*</span>
+                    </td>
+                    <td align="right">
+                        <asp:TextBox ID="txtFriendsEmail" runat="server"></asp:TextBox>
+                    </td>
+                    <td style="width: 150px; text-align: left">
+                       <%-- <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtFriendsEmail"
+                            Display="Dynamic" ErrorMessage="Required Field"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtFriendsEmail"
+                            ErrorMessage="Email is not valid" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
+                            Display="Dynamic"></asp:RegularExpressionValidator>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left">
+                        Message:
+                    </td>
+                    <td align="right">
+                        <asp:TextBox ID="txtMessage" runat="server"></asp:TextBox>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="right">
+                        <asp:LinkButton ID="lbSendToFriend" runat="server" OnClick="lbSendToFriend_Click">Send</asp:LinkButton>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>--%>
     </form>
     <script type="text/javascript">
         var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");

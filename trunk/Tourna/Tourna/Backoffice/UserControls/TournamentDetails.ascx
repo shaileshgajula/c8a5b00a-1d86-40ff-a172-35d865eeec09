@@ -27,15 +27,18 @@
             SortExpression="SecondPrize" />
         <asp:BoundField DataField="ThirdPrize" HeaderText="ThirdPrize" 
             SortExpression="ThirdPrize" />
-        
+        <asp:BoundField DataField="LastRegistrationDate" HeaderText="LastRegistrationDate"/>
         <asp:BoundField DataField="StartDate" HeaderText="StartDate" 
             SortExpression="StartDate" />
-        <asp:BoundField DataField="EmailTemplate" HeaderText="EmailTemplate" 
-            SortExpression="EmailTemplate" />
+            <asp:TemplateField>
+            <ItemTemplate>
+                <%#Eval("EmailTemplate") %>
+            </ItemTemplate>
+            </asp:TemplateField>
+        
         <asp:BoundField DataField="DateCreated" HeaderText="DateCreated" 
             SortExpression="DateCreated" />
-        <asp:CheckBoxField DataField="IsOpen" HeaderText="IsOpen" 
-            SortExpression="IsOpen" />
+        <asp:CheckBoxField DataField="IsTournamentOver" HeaderText="IsTournamentOver" />
     </Fields>
 </asp:DetailsView>
 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:StrongerOrgString %>"

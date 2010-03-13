@@ -7,7 +7,6 @@ using System.Web.UI.WebControls;
 using StrongerOrg.Backoffice.DataLayer;
 using TourneyLogic.Web.UI.WebControls;
 using TourneyLogic.Web.UI.WebControls.Collections;
-using StrongerOrg.BackOffice.Scheduler;
 
 namespace StrongerOrg.Backoffice
 {

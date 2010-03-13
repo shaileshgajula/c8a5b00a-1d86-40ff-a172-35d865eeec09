@@ -1,13 +1,14 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Backoffice/BackOffice.Master" AutoEventWireup="true" CodeBehind="Tournament.aspx.cs" Inherits="StrongerOrg.Backoffice.Tournament" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Backoffice/BackOffice.Master" AutoEventWireup="true"
+    CodeBehind="Tournament.aspx.cs" Inherits="StrongerOrg.Backoffice.Tournament" %>
+
 <%@ MasterType VirtualPath="~/Backoffice/BackOffice.Master" %>
 <%@ Register Src="UserControls/TournamentDetails.ascx" TagName="TournamentDetails"
     TagPrefix="uc1" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajax" %>
 <%@ Register Assembly="TourneyLogic.Web.UI.BracketControl.v2" Namespace="TourneyLogic.Web.UI.WebControls"
     TagPrefix="tl" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
- <br />
+    <br />
     <table style="width: 100%;" cellpadding="0" cellspacing="5">
         <tr>
             <td class="GrayTitle">
@@ -30,7 +31,6 @@
                         </asp:MenuItem>
                         <asp:MenuItem Text="Standings [Brackets view]" Value="3" SeparatorImageUrl="~/Images/Icons/Seperator.gif">
                         </asp:MenuItem>
-                        <asp:MenuItem Text="Actions" Value="4"></asp:MenuItem>
                     </Items>
                 </asp:Menu>
             </td>
@@ -46,7 +46,7 @@
                         <uc1:TournamentDetails ID="TournamentDetails1" runat="server" />
                     </asp:View>
                     <asp:View ID="View2" runat="server">
-                       <%-- <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataKeyNames="Id"
+                        <%-- <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataKeyNames="Id"
                             DataSourceID="standingsSqlDataSource">
                             <EmptyDataTemplate>
                             </EmptyDataTemplate>
@@ -92,26 +92,81 @@
                                 <asp:Parameter Name="ScoreB" Type="Int32" />
                             </UpdateParameters>
                         </asp:SqlDataSource>--%>
-                        <asp:GridView ID="gvStandingsPreview" runat="server" 
-                            AutoGenerateColumns="False" 
-                            onrowdatabound="gvStandingsPreview_RowDataBound" EnableModelValidation="True" >
+                        <ajax:ModalPopupExtender ID="ModalPopupExtender1" runat="server" PopupControlID="pnlImageDisplay"
+                            TargetControlID="hiddenTargetControlForModalPopup" CancelControlID="btnCancel"
+                            BackgroundCssClass="modalBackground" BehaviorID="imgAssociatedModal">
+                        </ajax:ModalPopupExtender>
+                        <asp:Panel ID="pnlImageDisplay" runat="server" CssClass="ModalWindow" Width="250">
+                            <table style="width:100%" cellpadding="2" cellspacing="2">
+                                <tr>
+                                    <td>Start Date:
+                                    </td>
+                                    <td align="right">
+                                        <asp:TextBox ID="tbStartDate" runat="server" Width="82"></asp:TextBox>
+                                        <ajax:MaskedEditExtender ID="MaskedEditExtender1" runat="server" TargetControlID="tbStartDate"  
+                                         Mask="99/99/9999" MaskType="Date"  MessageValidatorTip="true">
+                                        </ajax:MaskedEditExtender>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Start Time:
+                                    </td>
+                                    <td align="right" >
+                                        <asp:DropDownList ID="ddlHours" runat="server">
+                                            <asp:ListItem>00</asp:ListItem>
+                                            <asp:ListItem>01</asp:ListItem>
+                                            <asp:ListItem>02</asp:ListItem>
+                                            <asp:ListItem>03</asp:ListItem>
+                                            <asp:ListItem>04</asp:ListItem>
+                                            <asp:ListItem>05</asp:ListItem>
+                                            <asp:ListItem>06</asp:ListItem>
+                                            <asp:ListItem>07</asp:ListItem>
+                                            <asp:ListItem>08</asp:ListItem>
+                                            <asp:ListItem>09</asp:ListItem>
+                                            <asp:ListItem>10</asp:ListItem>
+                                            <asp:ListItem>11</asp:ListItem>
+                                            <asp:ListItem>12</asp:ListItem>
+                                        </asp:DropDownList>
+                                        <asp:DropDownList ID="ddlMinutes" runat="server">
+                                            <asp:ListItem>00</asp:ListItem>
+                                            <asp:ListItem>15</asp:ListItem>
+                                            <asp:ListItem>30</asp:ListItem>
+                                            <asp:ListItem>45</asp:ListItem>
+                                        </asp:DropDownList>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right" colspan="2">
+                                    <br />
+                                        <asp:LinkButton ID="btnUpdateStartDate" runat="server" OnClick="btnUpdateStartDate_Click">Update</asp:LinkButton> 
+                                        <img src="../Images/Icons/Seperator.gif" />
+                                         <asp:LinkButton ID="btnCancel" runat="server">Close</asp:LinkButton>
+                                    </td>
+                                </tr>
+                            </table>
+                        </asp:Panel>
+                        <asp:Button runat="server" ID="hiddenTargetControlForModalPopup" Style="display: none" />
+                        <asp:GridView ID="gvStandingsPreview" runat="server" AutoGenerateColumns="False"
+                            OnRowDataBound="gvStandingsPreview_RowDataBound" EnableModelValidation="True">
                             <Columns>
                                 <asp:BoundField DataField="MatchUpId" HeaderText="Id" ReadOnly="True" />
                                 <asp:BoundField DataField="Round" HeaderText="Round" ReadOnly="True" />
                                 <asp:BoundField DataField="PlayerA" HeaderText="Player A" ReadOnly="True" />
                                 <asp:BoundField DataField="PlayerB" HeaderText="Player B" ReadOnly="false" />
-                                <asp:BoundField DataField="NextMatchId" HeaderText="NextMatch Id" 
-                                    ReadOnly="True" />
-                                <asp:BoundField DataField="StartDate" HeaderText="StartDate" />
-                                <asp:CommandField EditText="Change Date" ShowEditButton="True"  />
+                                <asp:BoundField DataField="NextMatchId" HeaderText="NextMatch Id" ReadOnly="True" />
+                                
+                                <asp:TemplateField HeaderText="Game start">
+                                    <ItemTemplate>
+                                        <asp:LinkButton ID="lbStartDate" runat="server" CommandArgument='<%# Eval("Start")+"*"+Eval("MatchUpId") %>'
+                                            OnCommand="lbStartDate_Command"><%# Eval("Start") %> </asp:LinkButton>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
                             </Columns>
+                            <EmptyDataTemplate>
+                               There are no matchup to show. This can happen if the scheduler hasn't run yet or no one register to the tournament.
+                            </EmptyDataTemplate>
                         </asp:GridView>
-                        <asp:LinkButton ID="lbShuffle" runat="server" onclick="lbShuffle_Click">Shuffle again</asp:LinkButton> 
-                        <ajax:ConfirmButtonExtender ID="ConfirmButtonExtender2" runat="server"  ConfirmText="By doing so you are going to close the tournament and player will not be able to register any more"
-                        TargetControlID="lbSave">
-                        </ajax:ConfirmButtonExtender>
-                        <asp:LinkButton ID="lbSave" runat="server" onclick="lbSave_Click">Save and Close</asp:LinkButton>
-                        
                     </asp:View>
                     <asp:View ID="View1" runat="server">
                         <div style="width: 100%" align="center">
@@ -132,27 +187,8 @@
                             <img src="../Images/Icons/PdfIcon.gif" />
                             <asp:HyperLink ID="HyperLink2" runat="server">Export to pdf</asp:HyperLink>
                         </div>
-                        
                     </asp:View>
-                    <asp:View ID="View4" runat="server">
-                        Actions:
-                        <ul>
-                            <li>
-                                <asp:LinkButton ID="lbScheduleRegisteredPlayer" runat="server" 
-                                    onclick="lbScheduleRegisteredPlayer_Click">Schedule registred players</asp:LinkButton></li>
-                            <li>
-                                <ajax:ConfirmButtonExtender ID="ConfirmButtonExtender1" runat="server" TargetControlID="lbClearAllScheduledGames"
-                                    ConfirmText="By deleting all match up you are deleteing any scores and you will not be able to reproduce it">
-                                </ajax:ConfirmButtonExtender>
-                                <asp:LinkButton ID="lbClearAllScheduledGames" runat="server" OnClick="lbClearAllScheduledGames_Click">Clear all Scheduled games</asp:LinkButton></li>
-                            <asp:Label ID="lblClearAllScheduledGames" runat="server" Text="All scheduled games have been deleted"
-                                Visible="false"></asp:Label>
-                            <li>
-                                <asp:LinkButton ID="lblCloseRegistration" runat="server">Close registration</asp:LinkButton></li>
-                            <li>
-                                <asp:LinkButton ID="LinkButton4" runat="server">Build Schedules manually...</asp:LinkButton></li>
-                        </ul>
-                    </asp:View>
+                   
                 </asp:MultiView>
             </td>
         </tr>

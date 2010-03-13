@@ -43,6 +43,7 @@
                     <td align="right">
                         <asp:LinkButton ID="EditButton" runat="server" CausesValidation="False" CommandName="Edit"
                             Text="Edit" />
+                        <img src="../Images/Icons/Seperator.gif" />
                         <asp:LinkButton   ID="LinkButton1" runat="server" CausesValidation="False" CommandName="SendToModerator"
                             Text="Send to [moderator]" Enabled="false" />
                     </td>
