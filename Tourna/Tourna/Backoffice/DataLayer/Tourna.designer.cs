@@ -261,6 +261,13 @@ namespace StrongerOrg.Backoffice.DataLayer
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), tournamentId);
 			return ((int)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MatchupGet")]
+		public ISingleResult<MatchupGetResult> MatchupGet([global::System.Data.Linq.Mapping.ParameterAttribute(Name="TournamentMatchupId", DbType="Int")] System.Nullable<int> tournamentMatchupId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), tournamentMatchupId);
+			return ((ISingleResult<MatchupGetResult>)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Appointments")]
@@ -3903,6 +3910,176 @@ namespace StrongerOrg.Backoffice.DataLayer
 				if ((this._Department != value))
 				{
 					this._Department = value;
+				}
+			}
+		}
+	}
+	
+	public partial class MatchupGetResult
+	{
+		
+		private System.Nullable<int> _ScoreA;
+		
+		private System.Nullable<int> _ScoreB;
+		
+		private System.DateTime _End;
+		
+		private System.Nullable<System.Guid> _UpdatedBy;
+		
+		private System.Nullable<System.Guid> _Winner;
+		
+		private string _PlayerAName;
+		
+		private string _PlayerBName;
+		
+		private System.Guid _PlayerAId;
+		
+		private System.Nullable<System.Guid> _PlayerBId;
+		
+		public MatchupGetResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ScoreA", DbType="Int")]
+		public System.Nullable<int> ScoreA
+		{
+			get
+			{
+				return this._ScoreA;
+			}
+			set
+			{
+				if ((this._ScoreA != value))
+				{
+					this._ScoreA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ScoreB", DbType="Int")]
+		public System.Nullable<int> ScoreB
+		{
+			get
+			{
+				return this._ScoreB;
+			}
+			set
+			{
+				if ((this._ScoreB != value))
+				{
+					this._ScoreB = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[End]", Storage="_End", DbType="DateTime NOT NULL")]
+		public System.DateTime End
+		{
+			get
+			{
+				return this._End;
+			}
+			set
+			{
+				if ((this._End != value))
+				{
+					this._End = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdatedBy", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> UpdatedBy
+		{
+			get
+			{
+				return this._UpdatedBy;
+			}
+			set
+			{
+				if ((this._UpdatedBy != value))
+				{
+					this._UpdatedBy = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Winner", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> Winner
+		{
+			get
+			{
+				return this._Winner;
+			}
+			set
+			{
+				if ((this._Winner != value))
+				{
+					this._Winner = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PlayerAName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string PlayerAName
+		{
+			get
+			{
+				return this._PlayerAName;
+			}
+			set
+			{
+				if ((this._PlayerAName != value))
+				{
+					this._PlayerAName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PlayerBName", DbType="NVarChar(50)")]
+		public string PlayerBName
+		{
+			get
+			{
+				return this._PlayerBName;
+			}
+			set
+			{
+				if ((this._PlayerBName != value))
+				{
+					this._PlayerBName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PlayerAId", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid PlayerAId
+		{
+			get
+			{
+				return this._PlayerAId;
+			}
+			set
+			{
+				if ((this._PlayerAId != value))
+				{
+					this._PlayerAId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PlayerBId", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> PlayerBId
+		{
+			get
+			{
+				return this._PlayerBId;
+			}
+			set
+			{
+				if ((this._PlayerBId != value))
+				{
+					this._PlayerBId = value;
 				}
 			}
 		}

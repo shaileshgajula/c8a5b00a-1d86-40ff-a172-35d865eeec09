@@ -6,10 +6,10 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using StrongerOrg.Backoffice.DataLayer;
 
-using StrongerOrg.Backoffice.Entities.ShuffleAlgorithm;
 using StrongerOrg.Backoffice.Entities;
-using StrongerOrg.Backoffice.Entities.TournamentAlgorithm;
+
 using StrongerOrg.BackOffice.Scheduler;
+using StrongerOrg.Backoffice.TournamentAlgorithm;
 
 namespace StrongerOrg.Backoffice
 {

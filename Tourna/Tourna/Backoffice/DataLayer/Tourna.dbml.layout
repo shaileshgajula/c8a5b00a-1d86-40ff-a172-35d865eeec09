@@ -174,7 +174,7 @@
         <elementListCompartment Id="bf465101-5e30-499c-82b0-a85c333aaa77" absoluteBounds="10.39, 1.46, 1.9700000000000002, 3.3300577799479165" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(11.375 : 4.89005777994792); (11.375 : 7.5); (12.75 : 7.5); (12.75 : 12.548076578776); (12 : 12.548076578776)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(11.375 : 4.89005777994792); (11.375 : 7.5); (12.75 : 7.5); (12.75 : 12.548076578776); (12 : 12.548076578776)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/TournaDataContext/Tournament/Tournament_Players2Tournament" />
       <nodes>
         <classShapeMoniker Id="8a0ebec9-0487-42ad-925d-075e9c6b0e43" />

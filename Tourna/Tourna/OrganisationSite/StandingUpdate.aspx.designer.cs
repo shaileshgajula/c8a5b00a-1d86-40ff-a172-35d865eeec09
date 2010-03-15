@@ -13,6 +13,24 @@ namespace StrongerOrg.OrganisationSite {
     public partial class StandingUpdate {
         
         /// <summary>
+        /// btnPlayerA control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnPlayerA;
+        
+        /// <summary>
+        /// btnPlayerB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnPlayerB;
+        
+        /// <summary>
         /// lblTournamentName control.
         /// </summary>
         /// <remarks>

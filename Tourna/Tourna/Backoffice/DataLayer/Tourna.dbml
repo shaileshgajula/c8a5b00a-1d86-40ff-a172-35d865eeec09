@@ -217,4 +217,18 @@
     <Parameter Name="tournamentId" Type="System.Guid" DbType="UniqueIdentifier" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.MatchupGet" Method="MatchupGet">
+    <Parameter Name="TournamentMatchupId" Parameter="tournamentMatchupId" Type="System.Int32" DbType="Int" />
+    <ElementType Name="MatchupGetResult">
+      <Column Name="ScoreA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ScoreB" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[End]" Member="End" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UpdatedBy" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="Winner" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="PlayerAName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PlayerBName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PlayerAId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="PlayerBId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>
