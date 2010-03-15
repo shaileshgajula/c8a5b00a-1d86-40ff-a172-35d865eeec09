@@ -70,4 +70,32 @@
       <Association Name="Tournament_Players2Tournament" Member="Players2Tournaments" ThisKey="Id" OtherKey="TournamentId" Type="Players2Tournament" />
     </Type>
   </Table>
+  <Function Name="dbo.OrganisationUsersGet" Method="OrganisationUsersGet">
+    <Parameter Name="OrganisationId" Parameter="organisationId" Type="System.Guid" DbType="UniqueIdentifier" />
+    <ElementType Name="OrganisationUsersGetResult">
+      <Column Name="RoleName" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="LastActivityDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MatchupsToNotifyGet" Method="MatchupsToNotify">
+    <ElementType Name="MatchupsToNotifyGetResult">
+      <Column Name="OrganisationId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="TournamentId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="PlayerAId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="PlayerAName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PlayerAEmail" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PlayerBId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="PlayerBName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PlayerBEmail" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Start" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="TournamentName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Locations" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Round" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
 </Database>

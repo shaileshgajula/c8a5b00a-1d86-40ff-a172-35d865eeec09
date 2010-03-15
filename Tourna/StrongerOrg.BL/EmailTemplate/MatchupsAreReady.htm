@@ -10,7 +10,7 @@
     </style>
 </head>
 <body>
-    <table class="style1">
+    <table class="style1" cellpadding=2 cellpadding="2">
         <tr>
             <td>
                 <img src="http://www.strongerorg.com/OrganisationLogos/StrongerOrgLogoForEmails.gif" />
@@ -19,25 +19,31 @@
         <tr>
             <td style="font-family: Arial;">
                 Dear
-                <% ModeratorName %>,
+                <% ModeratorName %> moderator, 
             </td>
         </tr>
         <tr>
             <td style="font-family: Arial;">
-                The matchups for tournament:<% TournamentName %>
+                The matchups for tournament: <strong><% TournamentName %></strong>
                 are ready for your review.
             </td>
         </tr>
         <tr>
             <td style="font-family: Arial;">
                 The emails to the players will be sent on
-                <% StartDate %>.
+                <strong><% StartDate %></strong>.
             </td>
         </tr>
         <tr>
             <td style="font-family: Arial;">
                 To review and edit the tournament matchup <a href="http://www.strongerorg.com/Backoffice/Tournament.aspx?TournamentId=<% TournamentId %>"
                     target="_blank">click here</a>.
+            </td>
+        </tr>
+        <tr>
+            <td style="font-family: Arial;">
+                Thanks, 
+               StrongerOrg team.
             </td>
         </tr>
     </table>
