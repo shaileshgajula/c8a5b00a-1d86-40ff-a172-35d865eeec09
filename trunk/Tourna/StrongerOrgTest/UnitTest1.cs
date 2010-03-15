@@ -95,8 +95,15 @@ namespace StrongerOrgTest
         [TestMethod]
         public void TestGetTournamentForMatchups()
         {
-           var c= StrongerOrg.BL.Jobs.TournamentMatchup.GetTournamentForMatchups();
+           var c= StrongerOrg.BL.Jobs.TournamentMatchupManager.GetTournamentForMatchups();
 
+
+        }
+        [TestMethod]
+        public void TestNotifiModerator()
+        {
+            StrongerOrg.BL.Jobs.TournamentMatchupManager.NotifiModerator(Guid.Empty, new Guid("57baf8c4-3524-4273-a12b-c6cea946e920"),"test1", DateTime.Now); 
+            
 
         }
     }
