@@ -113,6 +113,20 @@ namespace StrongerOrg.BL.DL
 				return this.GetTable<Tournament>();
 			}
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.OrganisationUsersGet")]
+		public ISingleResult<OrganisationUsersGetResult> OrganisationUsersGet([global::System.Data.Linq.Mapping.ParameterAttribute(Name="OrganisationId", DbType="UniqueIdentifier")] System.Nullable<System.Guid> organisationId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), organisationId);
+			return ((ISingleResult<OrganisationUsersGetResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MatchupsToNotifyGet")]
+		public ISingleResult<MatchupsToNotifyGetResult> MatchupsToNotify()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<MatchupsToNotifyGetResult>)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TournamentMatchups")]
@@ -1434,6 +1448,364 @@ namespace StrongerOrg.BL.DL
 		{
 			this.SendPropertyChanging();
 			entity.Tournament = null;
+		}
+	}
+	
+	public partial class OrganisationUsersGetResult
+	{
+		
+		private string _RoleName;
+		
+		private string _UserName;
+		
+		private System.DateTime _LastActivityDate;
+		
+		private string _Description;
+		
+		private string _Name;
+		
+		private string _Email;
+		
+		public OrganisationUsersGetResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RoleName", DbType="NVarChar(256) NOT NULL", CanBeNull=false)]
+		public string RoleName
+		{
+			get
+			{
+				return this._RoleName;
+			}
+			set
+			{
+				if ((this._RoleName != value))
+				{
+					this._RoleName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserName", DbType="NVarChar(256) NOT NULL", CanBeNull=false)]
+		public string UserName
+		{
+			get
+			{
+				return this._UserName;
+			}
+			set
+			{
+				if ((this._UserName != value))
+				{
+					this._UserName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastActivityDate", DbType="DateTime NOT NULL")]
+		public System.DateTime LastActivityDate
+		{
+			get
+			{
+				return this._LastActivityDate;
+			}
+			set
+			{
+				if ((this._LastActivityDate != value))
+				{
+					this._LastActivityDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(256)")]
+		public string Description
+		{
+			get
+			{
+				return this._Description;
+			}
+			set
+			{
+				if ((this._Description != value))
+				{
+					this._Description = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(250) NOT NULL", CanBeNull=false)]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this._Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(256)")]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this._Email = value;
+				}
+			}
+		}
+	}
+	
+	public partial class MatchupsToNotifyGetResult
+	{
+		
+		private System.Guid _OrganisationId;
+		
+		private System.Guid _TournamentId;
+		
+		private System.Guid _PlayerAId;
+		
+		private string _PlayerAName;
+		
+		private string _PlayerAEmail;
+		
+		private System.Nullable<System.Guid> _PlayerBId;
+		
+		private string _PlayerBName;
+		
+		private string _PlayerBEmail;
+		
+		private System.DateTime _Start;
+		
+		private string _TournamentName;
+		
+		private string _Locations;
+		
+		private int _Id;
+		
+		private int _Round;
+		
+		public MatchupsToNotifyGetResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrganisationId", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid OrganisationId
+		{
+			get
+			{
+				return this._OrganisationId;
+			}
+			set
+			{
+				if ((this._OrganisationId != value))
+				{
+					this._OrganisationId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TournamentId", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid TournamentId
+		{
+			get
+			{
+				return this._TournamentId;
+			}
+			set
+			{
+				if ((this._TournamentId != value))
+				{
+					this._TournamentId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PlayerAId", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid PlayerAId
+		{
+			get
+			{
+				return this._PlayerAId;
+			}
+			set
+			{
+				if ((this._PlayerAId != value))
+				{
+					this._PlayerAId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PlayerAName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string PlayerAName
+		{
+			get
+			{
+				return this._PlayerAName;
+			}
+			set
+			{
+				if ((this._PlayerAName != value))
+				{
+					this._PlayerAName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PlayerAEmail", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string PlayerAEmail
+		{
+			get
+			{
+				return this._PlayerAEmail;
+			}
+			set
+			{
+				if ((this._PlayerAEmail != value))
+				{
+					this._PlayerAEmail = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PlayerBId", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> PlayerBId
+		{
+			get
+			{
+				return this._PlayerBId;
+			}
+			set
+			{
+				if ((this._PlayerBId != value))
+				{
+					this._PlayerBId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PlayerBName", DbType="NVarChar(50)")]
+		public string PlayerBName
+		{
+			get
+			{
+				return this._PlayerBName;
+			}
+			set
+			{
+				if ((this._PlayerBName != value))
+				{
+					this._PlayerBName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PlayerBEmail", DbType="VarChar(50)")]
+		public string PlayerBEmail
+		{
+			get
+			{
+				return this._PlayerBEmail;
+			}
+			set
+			{
+				if ((this._PlayerBEmail != value))
+				{
+					this._PlayerBEmail = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Start", DbType="DateTime NOT NULL")]
+		public System.DateTime Start
+		{
+			get
+			{
+				return this._Start;
+			}
+			set
+			{
+				if ((this._Start != value))
+				{
+					this._Start = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TournamentName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string TournamentName
+		{
+			get
+			{
+				return this._TournamentName;
+			}
+			set
+			{
+				if ((this._TournamentName != value))
+				{
+					this._TournamentName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Locations", DbType="NVarChar(50)")]
+		public string Locations
+		{
+			get
+			{
+				return this._Locations;
+			}
+			set
+			{
+				if ((this._Locations != value))
+				{
+					this._Locations = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL")]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this._Id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Round", DbType="Int NOT NULL")]
+		public int Round
+		{
+			get
+			{
+				return this._Round;
+			}
+			set
+			{
+				if ((this._Round != value))
+				{
+					this._Round = value;
+				}
+			}
 		}
 	}
 }

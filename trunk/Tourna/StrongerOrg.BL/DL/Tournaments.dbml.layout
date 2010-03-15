@@ -32,14 +32,14 @@
         <elementListCompartment Id="a020f726-bb42-487e-bba6-e2d9c44cab7c" absoluteBounds="0.51500000000000012, 1.835, 1.9700000000000002, 3.3300577799479165" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.5 : 4.07002888997396); (3.5 : 4.07002888997396)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.5 : 4.07002888997396); (3.5 : 4.07002888997396)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/TournamentsDataContext/Tournament/Tournament_TournamentMatchup" />
       <nodes>
         <classShapeMoniker Id="dcb38f87-0517-4d06-9183-7b2cf7dbb7b8" />
         <classShapeMoniker Id="e1368284-8bff-4624-a36b-1fb11a51eed4" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.5 : 1.79807657877604); (3.5 : 1.79807657877604)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.5 : 1.79807657877604); (3.5 : 1.79807657877604)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/TournamentsDataContext/Tournament/Tournament_Players2Tournament" />
       <nodes>
         <classShapeMoniker Id="dcb38f87-0517-4d06-9183-7b2cf7dbb7b8" />
