@@ -7,8 +7,10 @@ using System.Data;
 using StrongerOrg.BackOffice.PairsAlgorithm;
 using StrongerOrg.Backoffice.Entities;
 using System.Data.Linq;
-using StrongerOrg.Backoffice.Entities.TournamentAlgorithm;
+
 using StrongerOrg.Backoffice.DataLayer;
+using StrongerOrg.Backoffice.TournamentAlgorithm;
+
 
 namespace StrongerOrg.BackOffice.Scheduler
 {

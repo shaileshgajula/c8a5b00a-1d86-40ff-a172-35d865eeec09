@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace StrongerOrg.BL.TournamentAlgorithm
+namespace StrongerOrg.Backoffice.TournamentAlgorithm
 {
     [Serializable]
     public class Competitor

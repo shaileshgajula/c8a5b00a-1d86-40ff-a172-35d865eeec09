@@ -283,18 +283,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Backoffice\Entities\TournamentMatchupManager.cs" />
-    <Compile Include="Backoffice\Entities\ShuffleAlgorithm\AlphabeticalShuffle.cs" />
-    <Compile Include="Backoffice\Entities\ShuffleAlgorithm\RandomShuffle.cs" />
-    <Compile Include="Backoffice\Entities\ShuffleAlgorithm\ShuffleTypes.cs" />
-    <Compile Include="Backoffice\Entities\ShuffleAlgorithm\IShuffle.cs" />
-    <Compile Include="Backoffice\Entities\ShuffleAlgorithm\Shuffle.cs" />
     <Compile Include="Backoffice\Entities\TextContentManager.cs" />
     <Compile Include="Backoffice\Entities\TournamentAlgorithm\Competitor.cs" />
-    <Compile Include="Backoffice\Entities\TournamentAlgorithm\ITournament.cs" />
     <Compile Include="Backoffice\Entities\TournamentAlgorithm\Matchup.cs" />
-    <Compile Include="Backoffice\Entities\TournamentAlgorithm\SingleElimination.cs" />
-    <Compile Include="Backoffice\Entities\TournamentAlgorithm\TournamentFactory.cs" />
-    <Compile Include="Backoffice\Entities\TournamentAlgorithm\TournamentTypes.cs" />
     <Compile Include="Backoffice\Entities\TournamentManager.cs" />
     <Compile Include="Backoffice\EventGallery.aspx.cs">
       <DependentUpon>EventGallery.aspx</DependentUpon>
@@ -997,7 +988,6 @@
       <DependentUpon>Tourna.dbml</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -1024,7 +1014,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
+      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

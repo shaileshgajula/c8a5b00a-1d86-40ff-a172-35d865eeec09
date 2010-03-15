@@ -5,8 +5,8 @@ using System.Web;
 
 using System.Configuration;
 using StrongerOrg.Backoffice.DataLayer;
-using StrongerOrg.Backoffice.Entities.TournamentAlgorithm;
 using System.ComponentModel;
+using StrongerOrg.Backoffice.TournamentAlgorithm;
 
 namespace StrongerOrg.Backoffice.Entities
 {
