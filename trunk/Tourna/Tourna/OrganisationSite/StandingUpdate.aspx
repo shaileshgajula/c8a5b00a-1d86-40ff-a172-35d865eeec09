@@ -17,14 +17,27 @@
         }
         .player
         {
-            border: 3px solid black;
+            border: 2px solid black;
+            font-size: 18px;
+            background-color: white;
+        }
+        .playerSelected
+        {
+            border: 3px solid Orange;
+            font-size: 18px;
+            background-color: white;
+            color:Black;
+        }
+        .playerNotSelected
+        {
+            border: 2px solid gray;
             font-size: 18px;
             background-color: white;
         }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <table border="0" cellpadding="0" cellspacing="0" style="width: 100%; text-align: center">
+    <table border="0" cellpadding="0" cellspacing="0" style="width: 80%; text-align: center" align="center">
         <tr>
             <td colspan="3">
                 Click on the winner
@@ -33,82 +46,33 @@
         <tr>
             <td>
                 <asp:Button ID="btnPlayerA" runat="server" Width="150" Height="150" CssClass="player"
-                    Text="Pini Usha" />
+                    Text="" OnClick="btnPlayer_Click" />
             </td>
             <td>
                 vs.
             </td>
             <td>
-            <asp:Button ID="btnPlayerB" runat="server" Width="150" Height="150" CssClass="player"
-                    Text="Daniel Usha" />    
+                <asp:Button ID="btnPlayerB" runat="server" Width="150" Height="150" CssClass="player"
+                    Text="" OnClick="btnPlayer_Click" />
+            </td>
+        </tr>
+         <tr>
+            <td colspan="3" style="height:70px">
+                <asp:Label ID="lblUpdateMessage" runat="server" Text="" CssClass="AlertText"></asp:Label>
             </td>
         </tr>
     </table>
-    Game details
-    <table class="style2">
-        <tr>
-            <td colspan="4">
-                <asp:Label ID="lblTournamentName" runat="server"></asp:Label>
-            </td>
-        </tr>
-        <tr>
-            <td rowspan="2">
-                Pic A
-            </td>
-            <td>
-                <asp:Label ID="lblPlayerA" runat="server"></asp:Label>
-            </td>
-            <td rowspan="2">
-                Pic B
-            </td>
-            <td>
-                <asp:Label ID="lblPlayerB" runat="server"></asp:Label>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <asp:Label ID="lblDescriptionA" runat="server"></asp:Label>
-            </td>
-            <td>
-                <asp:Label ID="lblDescriptionB" runat="server"></asp:Label>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Score
-            </td>
-            <td>
-                <telerik:RadNumericTextBox ID="rntbScoreA" runat="server" Culture="English (United States)"
-                    DataType="System.Int32" ShowSpinButtons="true" MaxValue="30" MinValue="0" EmptyMessage="Enter the score"
-                    Width="125px">
-                    <NumberFormat DecimalDigits="0" />
-                </telerik:RadNumericTextBox>
-            </td>
-            <td>
-                Score
-            </td>
-            <td>
-                <telerik:RadNumericTextBox ID="rntbScoreB" runat="server" Culture="English (United States)"
-                    DataType="System.Int32" ShowSpinButtons="true" MaxValue="30" MinValue="0" EmptyMessage="Enter the score"
-                    Width="125px">
-                    <NumberFormat DecimalDigits="0" />
-                </telerik:RadNumericTextBox>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="4">
-                I don&#39;t remember the score but i do remember<asp:RadioButtonList ID="rblPlayers"
-                    runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow">
-                </asp:RadioButtonList>
-                won.
-            </td>
-        </tr>
-        <tr>
-            <td colspan="4">
-                <asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" /><br />
-                <asp:Label ID="lblMessage" runat="server"></asp:Label>
-                <asp:HyperLink ID="hlContactModerator" runat="server" Visible="False">Moderator</asp:HyperLink>
-            </td>
-        </tr>
-    </table>
+   <br /><br /><br />
+    <asp:Panel ID="pnlGameDetails" runat="server">
+        <asp:DetailsView ID="dvGameDetails" runat="server"  AutoGenerateRows="false"  >
+        <HeaderTemplate>Game details</HeaderTemplate>
+        
+        <Fields>
+            <asp:BoundField DataField="TournamentName" HeaderText="Tournament Name:" HeaderStyle-Font-Bold="true" />
+            <asp:BoundField DataField="Round" HeaderText="Round:" HeaderStyle-Font-Bold="true" />
+            <asp:BoundField DataField="Start" HeaderText="Start:" DataFormatString="{0:f}" HeaderStyle-Font-Bold="true" />
+        </Fields>
+    </asp:DetailsView>
+    </asp:Panel>
+    
 </asp:Content>

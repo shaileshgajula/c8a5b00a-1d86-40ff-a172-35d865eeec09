@@ -162,6 +162,13 @@
                                             OnCommand="lbStartDate_Command"><%# Eval("Start") %> </asp:LinkButton>
                                     </ItemTemplate>
                                 </asp:TemplateField>
+                                <asp:BoundField DataField="WinnerName" HeaderText="WinnerName" ReadOnly="True" />
+                                <asp:TemplateField HeaderText="Reset Score">
+                                    <ItemTemplate>
+                                        <asp:LinkButton ID="lbResetScore" runat="server" CommandArgument='<%# Eval("Id") %>'
+                                            OnCommand="lbResetScore_Command">Go</asp:LinkButton>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
                             </Columns>
                             <EmptyDataTemplate>
                                There are no matchup to show. This can happen if the scheduler hasn't run yet or no one register to the tournament.

@@ -163,5 +163,12 @@ namespace StrongerOrg.Backoffice
             this.ddlMinutes.SelectedValue = (startDate.Minute == 0) ? "00" : startDate.Minute.ToString();
             this.ModalPopupExtender1.Show();
         }
+        protected void lbResetScore_Command(object sender, CommandEventArgs e)
+        { 
+            int id = int.Parse(e.CommandArgument.ToString());
+            TournamentMatchupManager.ResetScore(id);
+            this.ScheduleViewActivate();
+            this.mvTournament.ActiveViewIndex = 1;
+        }
     }
 }

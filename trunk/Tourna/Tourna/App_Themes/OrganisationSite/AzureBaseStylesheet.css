@@ -59,7 +59,11 @@ opacity : 0.4;
 }
 .AlertText
 {
-font-size: 13px;
+    font-size: 13px;
 	font-style:italic;
     color:Red;
+}
+.AlternatingRow
+{
+	background-color:#f7f7f6;
 }

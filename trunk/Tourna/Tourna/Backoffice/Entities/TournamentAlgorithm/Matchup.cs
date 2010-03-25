@@ -8,6 +8,7 @@ namespace StrongerOrg.Backoffice.TournamentAlgorithm
     [Serializable]
     public class Matchup
     {
+        public int Id { get; set; }
         public Guid TournamentId { get; set; }
         public int MatchupId { get; set; }
         public int Round { get; set; }
@@ -21,7 +22,8 @@ namespace StrongerOrg.Backoffice.TournamentAlgorithm
         public DateTime End { get; set; }
         public int? ScoreA { get; set; }
         public int? ScoreB { get; set; }
-        public int WinnerId { get; set; }
+        public Guid? WinnerId { get; set; }
+        public string WinnerName { get; set; }
         
     }
 }

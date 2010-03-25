@@ -15,7 +15,6 @@
                 Select Tournament:
                 <asp:DropDownList ID="drpDownTournamentList" runat="server" DataSourceID="TournamentSource"
                     DataTextField="TournamentName" DataValueField="Id" AutoPostBack="True" 
-                    ondatabound="drpDownTournamentList_DataBound" 
                     onselectedindexchanged="drpDownTournamentList_SelectedIndexChanged">
                 </asp:DropDownList>
             </td>
@@ -40,6 +39,12 @@
                         Add <asp:TextBox ID="txtNumPlayer" runat="server" Height="21px" Width="36px" />
                         players <asp:LinkButton ID="lbtnAddPlayers" runat="server" Text="Add" 
                             OnClick="lbtnAddPlayers_Click" />
+                        <br />
+                        <asp:LinkButton ID="lbRunSchuler" runat="server" onclick="lbRunSchuler_Click">Run scheduler</asp:LinkButton>
+                        &nbsp;|&nbsp;<asp:LinkButton ID="lbNotifyPlayers" runat="server" 
+                            onclick="lbNotifyPlayers_Click">Notify Players</asp:LinkButton>
+                            &nbsp;|&nbsp;<asp:LinkButton ID="lblClearMatchups" runat="server" 
+                            onclick="lblClearMatchups_Click">Clear matchups</asp:LinkButton>
                         <br />
                         <table style="width: 100%">
                             <tr>

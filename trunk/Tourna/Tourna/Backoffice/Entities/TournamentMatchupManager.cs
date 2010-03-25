@@ -23,7 +23,7 @@ namespace StrongerOrg.Backoffice.Entities
                      Select(y =>
                          new Matchup
                          {
-
+                             Id = y.Id,
                              Start = y.Start,
                              PlayerAId = y.PlayerA,
                              PlayerA = db.Players.Where(p => p.Id == y.PlayerA).Select(n => n.Name).First(),
@@ -31,19 +31,34 @@ namespace StrongerOrg.Backoffice.Entities
                              PlayerB = db.Players.Where(p => p.Id == y.PlayerB).Select(n => n.Name).First(),
                              ScoreA = y.ScoreA,
                              ScoreB = y.ScoreB,
-                             WinnerId = (y.ScoreA.HasValue && y.ScoreB.HasValue) ?
-                                    (y.ScoreA > y.ScoreB) ? 0 : 1 : -1,
+                             WinnerId = y.Winner,
+                             //WinnerName = (y.Winner.HasValue) ? (y.PlayerA == y.Winner) ? db.Players.Where(p => p.Id == y.PlayerA).Select(n => n.Name).First() :
+                             //db.Players.Where(p => p.Id == y.PlayerB).Select(n => n.Name).First() : string.Empty,
                              MatchupId = y.MatchUpId,
                              Round = y.Round,
-                             NextMatchId = y.NextMatchId
+                             NextMatchId = y.NextMatchId,
+
                              //Score = (y.ScoreA.HasValue && y.ScoreB.HasValue) ? string.Format("{0}-{1}", y.ScoreA.Value.ToString(), y.ScoreB.Value.ToString()) : string.Empty
                          })
                      .ToList();
+                matchups.ForEach(m =>
+                {
+                    if (m.WinnerId.HasValue)
+                    {
+                        m.WinnerName = (m.PlayerAId == m.WinnerId.Value) ? m.PlayerA : m.PlayerB;
+                    }
+                    else
+                    {
+                        m.WinnerName = "--";
+                    }
+                    m.PlayerA = (string.IsNullOrEmpty(m.PlayerA)) ? "--" : m.PlayerA;
+                    m.PlayerB = (string.IsNullOrEmpty(m.PlayerB)) ? "--" : m.PlayerB;
+                });
                 return matchups;
             }
         }
 
-        
+
         public static void Save(Guid tournamentId, List<Matchup> matchupList)
         {
             using (TournaDataContext db = new TournaDataContext(ConfigurationManager.ConnectionStrings["StrongerOrgString"].ConnectionString))
@@ -80,6 +95,15 @@ namespace StrongerOrg.Backoffice.Entities
             using (TournaDataContext db = new TournaDataContext())
             {
                 db.TournamentMatchups.Single(tm => tm.TournamentId == tournamentId && tm.MatchUpId == matchUpId).Start = newStartDate;
+                db.SubmitChanges();
+            }
+        }
+
+        internal static void ResetScore(int id)
+        {
+            using (TournaDataContext db = new TournaDataContext())
+            {
+                db.TournamentMatchups.Single(tm => tm.Id == id).Winner = null;
                 db.SubmitChanges();
             }
         }
