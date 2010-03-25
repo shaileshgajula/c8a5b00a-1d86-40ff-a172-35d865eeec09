@@ -81,7 +81,10 @@
       <Column Name="Email" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.MatchupsToNotifyGet" Method="MatchupsToNotify">
+  <Function Name="dbo.MatchupsToNotifyGet" Method="MatchupsToNotifyGet">
+    <Parameter Name="TournamentId" Parameter="tournamentId" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="FilterByDate" Parameter="filterByDate" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="MatchupId" Parameter="matchupId" Type="System.Int32" DbType="Int" />
     <ElementType Name="MatchupsToNotifyGetResult">
       <Column Name="OrganisationId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
       <Column Name="TournamentId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />

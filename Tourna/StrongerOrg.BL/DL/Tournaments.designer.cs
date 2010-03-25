@@ -122,9 +122,9 @@ namespace StrongerOrg.BL.DL
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MatchupsToNotifyGet")]
-		public ISingleResult<MatchupsToNotifyGetResult> MatchupsToNotify()
+		public ISingleResult<MatchupsToNotifyGetResult> MatchupsToNotifyGet([global::System.Data.Linq.Mapping.ParameterAttribute(Name="TournamentId", DbType="UniqueIdentifier")] System.Nullable<System.Guid> tournamentId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FilterByDate", DbType="Bit")] System.Nullable<bool> filterByDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MatchupId", DbType="Int")] System.Nullable<int> matchupId)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), tournamentId, filterByDate, matchupId);
 			return ((ISingleResult<MatchupsToNotifyGetResult>)(result.ReturnValue));
 		}
 	}

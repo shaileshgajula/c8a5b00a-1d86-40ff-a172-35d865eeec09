@@ -5,17 +5,19 @@
     
 </head>
 <body>
-    <table style="width:60%" cellpadding="2" cellspacing="2" align="center">
+    <table style="width:60%" border=0 cellpadding="2" cellspacing="2" align="center">
         <tr>
-            <td colspan="4">
-                <img src="http://www.strongerorg.com/OrganisationLogos/StrongerOrgLogoForEmails.gif" />
+            <td >
+                <img src="http://www.strongerorg.com/OrganisationLogos/StrongerOrgLogoForEmails.gif" title="StrongerOrg Logo" alt="StrongerOrg Logo" />
             </td>
+            <td colspan="2" style="font-family: Arial;font-size: 45px;color:Orange"><% FinalesTitle %></td>
         </tr>
         <tr>
-            <td colspan="4">
-                <strong>
+            <td colspan="3">
+                You are all wellcome to come watch <strong>
                     <% TournamentName %></strong> tournament <% Location %>
             </td>
+            
         </tr>
         <tr>
             <td style="font-family: Arial;height: 125px;font-size: 25px;width: 45%;vertical-align: middle;text-align: center;border: 3px solid black;" height="125px">
@@ -27,30 +29,19 @@
                 Round(<% Round %>)
             </td>
             <td style="font-family: Arial;height: 125px;font-size: 25px;width: 45%;vertical-align: middle;text-align: center;border: 3px solid black;" height="125px">
-                <a href="mailto:<% OpponentEmail %>" target="_blank">
-                    <% Opponent %></a>
+                    <% Opponent %>
             </td>
         </tr>
         <tr>
-            <td style="font-family: Arial;font-size: 20px;text-align: center;color:Gray;height:60px" colspan="4" align="center">
+            <td style="font-family: Arial;font-size: 20px;text-align: center;color:Gray;height:60px" colspan="3" align="center">
                 <% GameDate %><br />  &nbsp;
             </td>
         </tr>
-        <tr>
-            <td style="font-family: Arial;font-size: 13px;text-align: center;color:Red;font-style:italic" colspan="4" align="center">
-                <% Message %>
-            </td>
-        </tr>
-        <tr>
-            <td style="font-family: Arial;font-size: 13px;text-align: center;color:Gray;height:60px" colspan="4" align="center">
-                After the game is over please visit this link to <a href="http://www.strongerorg.com/OrganisationSite/StandingUpdate.aspx?OrgId=<% OrgId %>&PlayerId=<% PlayerId %>&MatchupId=<% MatchupId %>">update the score</a>
-                <br />  &nbsp;
-            </td>
-        </tr>
+        
         <tr>
             <td colspan="4" style="font-family: Arial;font-size: 11px;text-align: left;color:Gray;height:60px">
                <a href="http://www.strongerorg.com/OrganisationSite/Schedules.aspx?OrgId=<% OrgId %>&TournamentId=<% TournamentId %>"
-                    target="_blank">SCORES & SCHEDULES</a> | <a href="#">YOU CAN'T MAKE IT TO THE GAME</a>
+                    target="_blank">SCORES & SCHEDULES</a>
             </td>
         </tr>
         <tr>
