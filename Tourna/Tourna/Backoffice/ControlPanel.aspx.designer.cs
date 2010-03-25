@@ -76,6 +76,33 @@ namespace StrongerOrg.Backoffice {
         protected global::System.Web.UI.WebControls.LinkButton lbtnAddPlayers;
         
         /// <summary>
+        /// lbRunSchuler control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbRunSchuler;
+        
+        /// <summary>
+        /// lbNotifyPlayers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbNotifyPlayers;
+        
+        /// <summary>
+        /// lblClearMatchups control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lblClearMatchups;
+        
+        /// <summary>
         /// lblNumOfPlayers control.
         /// </summary>
         /// <remarks>

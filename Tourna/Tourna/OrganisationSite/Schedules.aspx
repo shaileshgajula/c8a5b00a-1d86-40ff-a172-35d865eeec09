@@ -21,17 +21,30 @@
         </SelectParameters>
     </asp:SqlDataSource>--%>
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="ObjectDataSource1"
-        EnableModelValidation="True">
+        EnableModelValidation="True" style="width:100%" RowStyle-HorizontalAlign="Center">
         <Columns>
-            <asp:BoundField DataField="MatchupId" HeaderText="MatchupId" SortExpression="MatchupId" />
-            <asp:BoundField DataField="Round" HeaderText="Round" SortExpression="Round" />
+            <asp:BoundField DataField="MatchupId" HeaderText="Id"  />
+            <asp:BoundField DataField="Round" HeaderText="Round"/>
             <asp:TemplateField HeaderText="Game">
                 <ItemTemplate>
                     <%# string.Format("{0} vs. {1}", Eval("PlayerA") ,Eval("PlayerB"))%>
                 </ItemTemplate>
             </asp:TemplateField>
-            <asp:BoundField DataField="NextMatchId" HeaderText="NextMatchId" SortExpression="NextMatchId" />
-            <asp:BoundField DataField="Start" HeaderText="Start" SortExpression="Start" />
+            <asp:TemplateField HeaderText="Next Match Id">
+                <ItemTemplate>
+                    <%# Eval("NextMatchId").ToString() == "0" ? "Final Game" : Eval("NextMatchId") %>
+                </ItemTemplate>
+            </asp:TemplateField>
+            
+            <asp:BoundField DataField="Start" HeaderText="Start" SortExpression="Start"  DataFormatString="{0:f}" />
+            <asp:TemplateField>
+            <HeaderTemplate>
+                Winner
+            </HeaderTemplate>
+            <ItemTemplate>
+                <strong><%# Eval("WinnerName")%></strong>
+            </ItemTemplate>
+            </asp:TemplateField>
         </Columns>
         <EmptyDataTemplate>
             No mathchups yet!!

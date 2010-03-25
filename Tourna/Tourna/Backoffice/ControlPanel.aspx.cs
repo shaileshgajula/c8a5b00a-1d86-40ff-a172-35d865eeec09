@@ -340,20 +340,7 @@ namespace StrongerOrg.Backoffice
             this.RunScheduler();
         }
 
-        protected void drpDownTournamentList_DataBound(object sender, EventArgs e)
-        {
-            string x = this.drpDownTournamentList.SelectedValue;
-            string tournamentId = this.Master.OrgBasicInfo.Id.ToString();
-            foreach (ListItem item in this.drpDownTournamentList.Items)
-            {
-                if (item.Value == tournamentId)
-                {
-                    item.Selected = true;
-                    this.ScheduleViewActivate();
-                    return;
-                }
-            }
-        }
+       
 
         protected void drpDownTournamentList_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -365,13 +352,24 @@ namespace StrongerOrg.Backoffice
             RunScheduler();
         }
 
-       
+        protected void lbRunSchuler_Click(object sender, EventArgs e)
+        {
+            StrongerOrg.BL.Jobs.TournamentMatchupManager.Build(new Guid(this.drpDownTournamentList.SelectedValue), this.Master.OrgBasicInfo.Id );
+        }
 
-        
+        protected void lbNotifyPlayers_Click(object sender, EventArgs e)
+        {
+           List<StrongerOrg.BL.DL.MatchupsToNotifyGetResult> result= StrongerOrg.BL.Jobs.TournamentMatchupManager.GetMatchupsToNotify(new Guid(this.drpDownTournamentList.SelectedValue));
+           foreach (StrongerOrg.BL.DL.MatchupsToNotifyGetResult item in result)
+           {
+               StrongerOrg.BL.Jobs.TournamentMatchupManager.NotifyPlayers(item);
+           }
+        }
 
-
-
-
+        protected void lblClearMatchups_Click(object sender, EventArgs e)
+        {
+            StrongerOrg.Backoffice.Entities.TournamentMatchupManager.Delete(new Guid(this.drpDownTournamentList.SelectedValue));
+        }
 
     }
 }
