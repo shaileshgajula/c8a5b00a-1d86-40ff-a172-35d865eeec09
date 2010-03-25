@@ -19,6 +19,7 @@ namespace StrongerOrg.BL.DL
                           {
                               Id = p2t.PlayerId,
                               Name = p.Name,
+                              Email=p.Email
                           };
             return players.ToList();
         }
