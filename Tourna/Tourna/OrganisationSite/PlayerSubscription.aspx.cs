@@ -61,7 +61,8 @@ namespace StrongerOrg
             string tournamentId = Request.QueryString["TournamentId"].ToString();
             PlayersManager.InsertPlayer(this.Master.OrgBasicInfo.Id.ToString(), name, string.Empty, email, string.Empty, tournamentId);
             this.Panel1.Visible = false;
-            this.lblMsg.Text = string.Format("Thank you for register. An invitaion for your first match will be sent to your email[{0}]", email);
+            this.phRegister.Visible = true;
+            this.lblMsg.Text = string.Format("Thank you for register. An invitaion for your first match will be sent to your email [{0}]", email);
         }
 
 

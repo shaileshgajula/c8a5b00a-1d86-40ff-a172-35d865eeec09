@@ -4,6 +4,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+    <link type="text/css" href="../scripts/css/smoothness/jquery-ui-1.8.custom.css" rel="stylesheet" />
+    <script type="text/javascript" src="../scripts/js/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="../scripts/js/jquery-ui-1.8.custom.min.js"></script>
+    <asp:ContentPlaceHolder ID="ContentPlaceHolderHead" runat="server">
+    </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -117,7 +122,6 @@
                                 </asp:Menu>
                             </ContentTemplate>
                         </asp:RoleGroup>
-                        
                     </RoleGroups>
                 </asp:LoginView>
                 <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" StartingNodeUrl="~/Login.aspx"
@@ -130,14 +134,14 @@
                     ShowStartingNode="false" />
                 <asp:SiteMapDataSource ID="SiteMapDataSource5" runat="server" StartingNodeUrl="~/LockSmith"
                     ShowStartingNode="false" />
-                    <asp:SiteMapDataSource ID="SiteMapDataSource6" runat="server" StartingNodeUrl="~/MiriMargolinDelegate"
+                <asp:SiteMapDataSource ID="SiteMapDataSource6" runat="server" StartingNodeUrl="~/MiriMargolinDelegate"
                     ShowStartingNode="false" />
                 <%--  </telerik:RadPane>
                     <telerik:RadSplitBar ID="RadSplitBar1" runat="server" CollapseMode="Forward"></telerik:RadSplitBar>
                     <telerik:RadPane ID="MiddlePane1" runat="server" Width="85%">
                 <div style="padding: 10px">--%>
             </td>
-            <td colspan="2" style="text-align: left; padding: 10px;vertical-align:top">
+            <td colspan="2" style="text-align: left; padding: 10px; vertical-align: top">
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 </asp:ContentPlaceHolder>
                 <%-- </div>

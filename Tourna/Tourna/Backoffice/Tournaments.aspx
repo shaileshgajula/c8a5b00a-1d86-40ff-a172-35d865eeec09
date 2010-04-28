@@ -3,8 +3,8 @@
 
 <%@ MasterType VirtualPath="~/Backoffice/BackOffice.Master" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Backoffice/TournamentBuilder.aspx">+ Compose a new tournament</asp:HyperLink><br />&nbsp
-    
+    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Backoffice/TournamentBuilder.aspx">+ Compose a new tournament</asp:HyperLink><br />
+    &nbsp
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Id, TournamentName"
         DataSourceID="SqlDataSource1">
         <Columns>
@@ -13,19 +13,23 @@
                     <asp:HyperLink ID="hlTournament" runat="server" NavigateUrl='<%# Eval("Id", "Tournament.aspx?TournamentId={0}") %>'><%#Eval("TournamentName")%></asp:HyperLink>
                 </ItemTemplate>
             </asp:TemplateField>
-            <asp:BoundField DataField="LastRegistrationDate" HeaderText="Last Registration" DataFormatString="{0:d}" />
+            <asp:BoundField DataField="LastRegistrationDate" HeaderText="Last Registration" DataFormatString="{0:D}" />
             <asp:BoundField DataField="StartDate" HeaderText="Start Date" SortExpression="StartDate"
-                DataFormatString="{0:d}" />
+                DataFormatString="{0:D}" />
             <asp:BoundField DataField="Title" HeaderText="Game Title" SortExpression="Title" />
             <asp:BoundField DataField="NumberOfPlayersLimit" HeaderText="Limit" SortExpression="NumberOfPlayersLimit" />
             <asp:HyperLinkField DataNavigateUrlFields="Id,TournamentName" DataNavigateUrlFormatString="OrganisationPlayers.aspx?TournamentId={0}&TournamentName={1}"
                 DataTextField="RegisteredPlayers" HeaderText="Registered" />
-            <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ButtonType="Image"
-                DeleteImageUrl="~/Images/Icons/trash.gif" ItemStyle-HorizontalAlign="Center"
-                HeaderStyle-HorizontalAlign="Center" />
+            <asp:TemplateField HeaderText="Delete" HeaderStyle-HorizontalAlign="Center">
+                <ItemStyle HorizontalAlign="Center" />
+                <ItemTemplate>
+                    <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Images/Icons/trash.gif"
+                        CommandName="Delete" OnClientClick="return confirm('Are you sure you want to delete')" />
+                </ItemTemplate>
+            </asp:TemplateField>
         </Columns>
         <EmptyDataTemplate>
-            No tournaments has been found
+            No tournaments have been found
         </EmptyDataTemplate>
     </asp:GridView>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:StrongerOrgString %>"

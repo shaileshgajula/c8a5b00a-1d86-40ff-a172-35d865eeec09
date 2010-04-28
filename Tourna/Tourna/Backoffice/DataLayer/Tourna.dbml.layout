@@ -95,7 +95,7 @@
         <classShapeMoniker Id="7bbd9d39-d2d5-476c-87c1-69922f162892" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(6.5 : 7.98599812825521); (10.25 : 7.98599812825521)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(6.5 : 7.98599812825521); (9.32291666666667 : 7.98599812825521 : JumpStart); (9.48958333333333 : 7.98599812825521 : JumpEnd); (10.25 : 7.98599812825521)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/TournaDataContext/Organisation/Organisation_Organisation2Game" />
       <nodes>
         <classShapeMoniker Id="97d3708e-38a6-4d54-b212-6b61f17fef40" />
@@ -116,7 +116,7 @@
         <classShapeMoniker Id="eab1c904-8ba9-4309-8501-29a50b302afa" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.83980769230769 : 4.75); (2.83980769230769 : 3.12158447265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.83980769230769 : 4.75); (2.83980769230769 : 3.12158447265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/TournaDataContext/Room/Room_Appointment" />
       <nodes>
         <classShapeMoniker Id="48fd1816-fa01-4334-a5c2-f93e8f9b3316" />
@@ -187,7 +187,7 @@
         <elementListCompartment Id="151a868d-8078-4637-8be3-2bb58a135d6c" absoluteBounds="14.89, 2.585, 1.9700000000000002, 2.508321126302083" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(12.375 : 3.50752888997396); (14.875 : 3.50752888997396)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(12.375 : 3.50752888997396); (14.875 : 3.50752888997396)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/TournaDataContext/Tournament/Tournament_TournamentMatchup" />
       <nodes>
         <classShapeMoniker Id="8a0ebec9-0487-42ad-925d-075e9c6b0e43" />

@@ -26,6 +26,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ExcludeGeneratedDebugSymbol>true</ExcludeGeneratedDebugSymbol>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -81,9 +82,11 @@
     <Content Include="Backoffice\LockSmith\StockManagment.aspx" />
     <Content Include="Backoffice\MiriMargolin\About.aspx" />
     <Content Include="Backoffice\MiriMargolin\GuestBook.aspx" />
+    <Content Include="Backoffice\MiriMargolin\Newsletter.aspx" />
     <Content Include="Backoffice\Tournament.aspx" />
     <Content Include="Backoffice\TournamentBuilder.aspx" />
     <Content Include="Backoffice\UserControls\Albums.ascx" />
+    <Content Include="Backoffice\UserControls\FakeUsers.ascx" />
     <Content Include="Backoffice\UserControls\Feedbacks.ascx" />
     <Content Include="Backoffice\UserControls\GalleryUploader.ascx" />
     <Content Include="Backoffice\UserControls\GalleryViewer.ascx" />
@@ -92,6 +95,7 @@
     <Content Include="EmailTemplate\MiriMargolinShareWithAFriend.htm" />
     <Content Include="EmailTemplate\MiriMargolinContact.htm" />
     <Content Include="EmailTemplate\RecoverPassword.htm" />
+    <Content Include="EmailTemplate\TournamentInvintation.htm" />
     <Content Include="FrontSitePages\MiriMargolin\About.aspx" />
     <Content Include="FrontSitePages\MiriMargolin\Albums.aspx" />
     <Content Include="FrontSitePages\MiriMargolin\ContactUs.aspx" />
@@ -109,6 +113,7 @@
     <Content Include="Images\GamesImages\wii-sports-Golf.jpg" />
     <Content Include="Images\GamesImages\wii-sports-tennis.jpg" />
     <Content Include="Images\GamesImages\wiisports_boxing_wii.jpg" />
+    <Content Include="Images\Icons\calendar.gif" />
     <Content Include="Images\Icons\collapse.jpg" />
     <Content Include="Images\Icons\delete-icon.png" />
     <Content Include="Images\Icons\expand.jpg" />
@@ -132,6 +137,7 @@
     <Content Include="Images\MiriMargolin\SabaBoaz.jpg" />
     <Content Include="Images\SeperatorMiri.gif" />
     <Content Include="Images\Staff\MiriMargolinSelf.jpg" />
+    <Content Include="OrganisationSite\JqueryTests.aspx" />
     <Content Include="OrganisationGalleryImages\ThumbNail\1266497108bd581.jpg" />
     <Content Include="OrganisationLogos\cal_logo980b3.gif" />
     <Content Include="OrganisationLogos\cal_logo980b38e1c0.gif" />
@@ -139,6 +145,7 @@
     <Content Include="OrganisationLogos\StrongerOrgLogoForEmails.gif" />
     <Content Include="OrganisationSite\EventGallery.aspx" />
     <Content Include="OrganisationSite\ImageViewer.aspx" />
+    <Content Include="OrganisationSite\PrintTournament.aspx" />
     <Content Include="Scripts\colorbox\jquery.colorbox-min.js" />
     <Content Include="Scripts\colorbox\jquery.colorbox.js" />
     <Content Include="Scripts\content\ajax.html" />
@@ -149,6 +156,36 @@
     <Content Include="Scripts\content\ohoopee2.jpg" />
     <Content Include="Scripts\content\ohoopee3.jpg" />
     <Content Include="Scripts\colorbox.css" />
+    <Content Include="Scripts\css\redmond\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Scripts\css\redmond\images\ui-bg_flat_55_fbec88_40x100.png" />
+    <Content Include="Scripts\css\redmond\images\ui-bg_glass_75_d0e5f5_1x400.png" />
+    <Content Include="Scripts\css\redmond\images\ui-bg_glass_85_dfeffc_1x400.png" />
+    <Content Include="Scripts\css\redmond\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Scripts\css\redmond\images\ui-bg_gloss-wave_55_5c9ccc_500x100.png" />
+    <Content Include="Scripts\css\redmond\images\ui-bg_inset-hard_100_f5f8f9_1x100.png" />
+    <Content Include="Scripts\css\redmond\images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="Scripts\css\redmond\images\ui-icons_217bc0_256x240.png" />
+    <Content Include="Scripts\css\redmond\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Scripts\css\redmond\images\ui-icons_469bdd_256x240.png" />
+    <Content Include="Scripts\css\redmond\images\ui-icons_6da8d5_256x240.png" />
+    <Content Include="Scripts\css\redmond\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Scripts\css\redmond\images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="Scripts\css\redmond\images\ui-icons_f9bd01_256x240.png" />
+    <Content Include="Scripts\css\redmond\jquery-ui-1.8.custom.css" />
+    <Content Include="Scripts\css\smoothness\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Scripts\css\smoothness\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Scripts\css\smoothness\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Scripts\css\smoothness\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Scripts\css\smoothness\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Scripts\css\smoothness\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Scripts\css\smoothness\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Scripts\css\smoothness\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Scripts\css\smoothness\images\ui-icons_222222_256x240.png" />
+    <Content Include="Scripts\css\smoothness\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Scripts\css\smoothness\images\ui-icons_454545_256x240.png" />
+    <Content Include="Scripts\css\smoothness\images\ui-icons_888888_256x240.png" />
+    <Content Include="Scripts\css\smoothness\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Scripts\css\smoothness\jquery-ui-1.8.custom.css" />
     <Content Include="Scripts\images\border.png" />
     <Content Include="Scripts\images\controls.png" />
     <Content Include="Scripts\images\internet_explorer\borderBottomCenter.png" />
@@ -166,6 +203,16 @@
     <Content Include="Scripts\jquery.js" />
     <Content Include="Scripts\JQueryTest.aspx" />
     <Content Include="Scripts\JQueryTest.htm" />
+    <Content Include="Scripts\js\jquery-1.4.2.min.js" />
+    <Content Include="Scripts\js\jquery-ui-1.8.custom.min.js" />
+    <Content Include="Scripts\lavalamp-0.2.0\bg.gif" />
+    <Content Include="Scripts\lavalamp-0.2.0\demo.html" />
+    <Content Include="Scripts\lavalamp-0.2.0\jquery-1.2.3.min.js" />
+    <Content Include="Scripts\lavalamp-0.2.0\jquery.easing.min.js" />
+    <Content Include="Scripts\lavalamp-0.2.0\jquery.lavalamp.js" />
+    <Content Include="Scripts\lavalamp-0.2.0\jquery.lavalamp.min.js" />
+    <Content Include="Scripts\lavalamp-0.2.0\lava.gif" />
+    <Content Include="Scripts\lavalamp-0.2.0\lavalamp_test.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -378,6 +425,13 @@
     <Compile Include="Backoffice\MiriMargolin\GuestBook.aspx.designer.cs">
       <DependentUpon>GuestBook.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Backoffice\MiriMargolin\Newsletter.aspx.cs">
+      <DependentUpon>Newsletter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backoffice\MiriMargolin\Newsletter.aspx.designer.cs">
+      <DependentUpon>Newsletter.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Backoffice\OrganisationInfo.aspx.cs">
       <DependentUpon>OrganisationInfo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -475,6 +529,13 @@
     </Compile>
     <Compile Include="Backoffice\UserControls\Albums.ascx.designer.cs">
       <DependentUpon>Albums.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Backoffice\UserControls\FakeUsers.ascx.cs">
+      <DependentUpon>FakeUsers.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backoffice\UserControls\FakeUsers.ascx.designer.cs">
+      <DependentUpon>FakeUsers.ascx</DependentUpon>
     </Compile>
     <Compile Include="Backoffice\UserControls\Feedbacks.ascx.cs">
       <DependentUpon>Feedbacks.ascx</DependentUpon>
@@ -675,6 +736,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="OrganisationSite\JqueryTests.aspx.cs">
+      <DependentUpon>JqueryTests.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrganisationSite\JqueryTests.aspx.designer.cs">
+      <DependentUpon>JqueryTests.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -759,6 +827,13 @@
     </Compile>
     <Compile Include="OrganisationSite\PlayerSubscription.aspx.designer.cs">
       <DependentUpon>PlayerSubscription.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OrganisationSite\PrintTournament.aspx.cs">
+      <DependentUpon>PrintTournament.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrganisationSite\PrintTournament.aspx.designer.cs">
+      <DependentUpon>PrintTournament.aspx</DependentUpon>
     </Compile>
     <Compile Include="OrganisationSite\Rules.aspx.cs">
       <DependentUpon>Rules.aspx</DependentUpon>
@@ -1009,7 +1084,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>53699</DevelopmentServerPort>
+          <DevelopmentServerPort>51946</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

@@ -4,6 +4,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>StrongerOrg [LogIn]</title>
+    
+    <link type="text/css" href="scripts/css/redmond/jquery-ui-1.8.custom.css" rel="stylesheet" />	
+		<script type="text/javascript" src="scripts/js/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="scripts/js/jquery-ui-1.8.custom.min.js"></script>
+        <script type="text/javascript">
+            $(function () {
+                $('.date').button();
+
+            });
+            </script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -23,9 +33,13 @@
                     <InstructionTextStyle Font-Italic="True" ForeColor="Black" />
                     <TitleTextStyle BackColor="#507CD1" Font-Bold="True" Font-Size="0.9em" ForeColor="White" />
                 </asp:Login>
+                
+               <%-- <asp:Button CssClass="date" Text="hello wolrd" Height="80" Width="180" 
+                    ID="btnTest" runat="server" onclick="btnTest_Click" />--%>
             </td>
         </tr>
     </table>
+   
     </form>
 </body>
 </html>

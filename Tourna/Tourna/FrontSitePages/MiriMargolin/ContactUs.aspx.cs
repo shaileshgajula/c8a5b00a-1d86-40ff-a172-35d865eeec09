@@ -11,7 +11,7 @@ namespace StrongerOrg.FrontSitePages.MiriMargolin
 {
     public partial class ContactUs : System.Web.UI.Page
     {
-        private const string RECIPIENTS = "piniusha@gmail.com";
+        private const string RECIPIENTS = "piniusha@gmail.com,inbarmargolin@gmail.com";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!this.IsPostBack && Request.QueryString["Item"] != null) 
@@ -39,7 +39,7 @@ namespace StrongerOrg.FrontSitePages.MiriMargolin
             try
             {
                 client.Send(msgHtml);
-                this.lblMsg.Text = "Your message has been send and will be adress shortly";
+                this.lblMsg.Text = "Your message has been sent and will be address shortly";
                 this.lbSend.Enabled = false;
             }
             catch (Exception)

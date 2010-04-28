@@ -43,7 +43,7 @@ namespace StrongerOrg.Backoffice.UserControls
 
         protected void lvFeedbacks_ItemCreated(object sender, ListViewItemEventArgs e)
         {
-            LinkButton lb = e.Item.FindControl("lbDelete") as LinkButton;
+            ImageButton lb = e.Item.FindControl("ibDelete") as ImageButton;
             lb.Visible = this.IsEditMode;
             Label l = e.Item.FindControl("lblFeedbackWriterEmail") as Label;
             l.Visible = this.IsEditMode;

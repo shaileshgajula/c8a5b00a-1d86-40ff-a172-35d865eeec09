@@ -14,7 +14,7 @@ using StrongerOrg.Backoffice.DataLayer;
 
 namespace StrongerOrg.OrganisationSite
 {
-    //http://localhost:21106/OrganisationSite/StandingUpdate.aspx?OrgId=28f7a6b6-abfb-4544-b700-3363ce4bb1d9&PlayerId=843c2f2a-33e6-42c1-9b3f-30d99bf51800&MatchupId=111
+    //http://localhost:53699/OrganisationSite/StandingUpdate.aspx?OrgId=57baf8c4-3524-4273-a12b-c6cea946e920&PlayerId=1929bd8e-1da8-48be-a50a-2e15d7248114&MatchupId=83&fdd
 
     public partial class StandingUpdate : System.Web.UI.Page
     {
@@ -44,45 +44,51 @@ namespace StrongerOrg.OrganisationSite
                     this.btnPlayerB.CommandArgument = matchUp.PlayerBId.ToString();
                     this.dvGameDetails.DataSource = matchUps;
                     this.dvGameDetails.DataBind();
-                    if (matchUp.End < DateTime.Now)
+
+                    //if (matchUp.End < DateTime.Now)
                     {
                         if (matchUp.Winner.HasValue)
                         {
-                            if (matchUp.Winner.Equals(matchUp.PlayerAId))
-                            {
-                                this.btnPlayerA.CssClass = "playerSelected";
-                                this.btnPlayerB.CssClass = "playerNotSelected";
-                            }
-                            else
-                            {
-                                this.btnPlayerB.CssClass = "playerSelected";
-                                this.btnPlayerA.CssClass = "playerNotSelected";
-                            }
+                            SelectButton(matchUp.Winner.Equals(matchUp.PlayerAId) ? this.btnPlayerA : this.btnPlayerB);
+
                             this.btnPlayerB.Enabled = false;
                             this.btnPlayerA.Enabled = false;
+                            this.lblClickOnWinner.Visible = false;
                             string scoreUpdatedBy = (matchUp.UpdatedBy.Value.Equals(matchUp.PlayerAId)) ? matchUp.PlayerAName : matchUp.PlayerBName;
-                            this.lblUpdateMessage.Text = string.Format("The score was updated by <b>{0}</b>", scoreUpdatedBy);
+
+                            this.lblUpdateMessage.Text = string.Format("The score was updated by <i>{0}</i>. In case of descrepency contact moderator", scoreUpdatedBy);
+                        }
+                        else
+                        {
+                            this.btnPlayerB.Enabled = true;
+                            this.btnPlayerA.Enabled = true;
                         }
                     }
-                    else
-                    {
-                        this.btnPlayerA.CssClass = "playerNotSelected";
-                        this.btnPlayerB.CssClass = "playerNotSelected";
-                        this.btnPlayerB.Enabled = false;
-                        this.btnPlayerA.Enabled = false;
-                        this.lblUpdateMessage.Text = string.Format("The score update will be open from {0:f}", matchUp.End);
-                    }
+                    //else
+                    //{
+                        
+                    //    this.btnPlayerB.Enabled = true;
+                    //    this.btnPlayerA.Enabled = false;
+
+                    //    this.lblUpdateMessage.Text = string.Format("The score update will be open from {0:f}", matchUp.End);
+                    //}
                 }
                 else
                 {
+
                     this.lblUpdateMessage.Text = "The Link is not valid any more, contact your moderator to find out why";
-                    this.btnPlayerA.CssClass = "playerNotSelected";
-                    this.btnPlayerB.CssClass = "playerNotSelected";
                     this.btnPlayerB.Enabled = false;
                     this.btnPlayerA.Enabled = false;
                 }
-                
+
             }
+        }
+
+        private void SelectButton(Button btn)
+        {
+            btn.Style.Add(HtmlTextWriterStyle.BorderColor, "#FFD729");
+            btn.Style.Add(HtmlTextWriterStyle.BorderWidth, "3px");
+            btn.Text += " ( Winner )";
         }
 
 
@@ -121,21 +127,25 @@ namespace StrongerOrg.OrganisationSite
                             StrongerOrg.BL.Jobs.TournamentMatchupManager.NotifyFinalMatchup(matchupToNotify);
                         }
                     }
+
                     this.lblUpdateMessage.Text = "Thank you for update the score and congratulations to the winner";
                 }
                 else
                 {
                     tdc.Tournaments.First(t => t.Id == tm.TournamentId).IsTournamentOver = true;
+
                     this.lblUpdateMessage.Text = "The winner of the tournament !!!";
                     tdc.SubmitChanges();
                 }
-                
-                
+
+
                 this.btnPlayerB.Enabled = false;
                 this.btnPlayerA.Enabled = false;
             }
 
-            
+
         }
+
+        
     }
 }

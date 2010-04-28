@@ -3,6 +3,15 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     
 </asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="MenuContentPlaceHolder" runat="server">
+    <ul class="lavaLampBottomStyle" id="M1">
+        <li></li>
+        <li class="current"><a href="ContactModerator.aspx?orgId=<%= Request.QueryString["OrgId"].ToString()%>">Contact Moderator</a></li>
+        <li ><a href="Rules.aspx?orgId=<%= Request.QueryString["OrgId"].ToString() %>" >Rules</a></li>
+        <li ><a href="EventGallery.aspx?orgId=<%= Request.QueryString["OrgId"].ToString() %>">Event Gallery</a></li>
+        <li ><a href="Leagues.aspx?orgId=<%= Request.QueryString["OrgId"].ToString() %>">Tournaments</a></li>
+    </ul>
+</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <table >
         <tr>
@@ -35,7 +44,8 @@
             <td style="vertical-align:top">
                 Message</td>
             <td>
-                <asp:TextBox ID="txtMessage" runat="server" Height="109px" Width="300px"></asp:TextBox>
+                <asp:TextBox ID="txtMessage" runat="server" Height="109px" Width="300px" 
+                    TextMode="MultiLine"></asp:TextBox>
             </td>
         </tr>
         <tr>

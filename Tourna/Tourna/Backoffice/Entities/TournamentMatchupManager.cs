@@ -90,15 +90,44 @@ namespace StrongerOrg.Backoffice.Entities
             }
         }
 
-        internal static void UpdateStartDate(Guid tournamentId, int matchUpId, DateTime newStartDate)
+        internal static void UpdateMatchup(Guid tournamentId, int matchUpId, DateTime newStartDate, Guid playerAId, Guid playerBId, Guid winnerId)
         {
             using (TournaDataContext db = new TournaDataContext())
             {
-                db.TournamentMatchups.Single(tm => tm.TournamentId == tournamentId && tm.MatchUpId == matchUpId).Start = newStartDate;
+                TournamentMatchup tmu = db.TournamentMatchups.Single(tm => tm.TournamentId == tournamentId && tm.MatchUpId == matchUpId);
+                tmu.Start = newStartDate;
+                tmu.PlayerA = playerAId;
+                tmu.PlayerB = playerBId;
+                if (winnerId == Guid.Empty)
+                {
+                    tmu.Winner = null;
+                }
+                else
+                {
+                    tmu.Winner = winnerId;
+                }
                 db.SubmitChanges();
             }
         }
-
+        internal static void SetNextMatchup(Guid tournamentId, int nextMatchId, Guid winnerPlayerId)
+        {
+            using (TournaDataContext tdc = new TournaDataContext())
+            {
+                if (nextMatchId != 0)
+                {
+                    TournamentMatchup nextTm = tdc.TournamentMatchups.Single(tmu => tmu.TournamentId == tournamentId && tmu.MatchUpId == nextMatchId);
+                    if (nextTm.PlayerA == Guid.Empty) // Fill the first empty spot (A or B) with the winner id from the last round
+                    {
+                        nextTm.PlayerA = winnerPlayerId;
+                    }
+                    else
+                    {
+                        nextTm.PlayerB = winnerPlayerId;
+                    }
+                    tdc.SubmitChanges();
+                }
+            }
+        }
         internal static void ResetScore(int id)
         {
             using (TournaDataContext db = new TournaDataContext())

@@ -11,12 +11,14 @@
 }
 a
 {
+    font-size:13px;
 	color: #01baec;
 	text-decoration: none;
 }
 a:hover
 {
-	text-decoration: underline;
+	text-decoration: nont;
+    color: #E74194;
 }
 a:visited
 {
@@ -67,3 +69,13 @@ opacity : 0.4;
 {
 	background-color:#f7f7f6;
 }
+.playerText
+{
+    color: #444444;
+    font-size:15px;
+    font-weight:bold;
+}
+input[type=text], input[type=file], select, textarea {
+width: 220px;
+border:1px solid gray;
+} 

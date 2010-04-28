@@ -49,12 +49,13 @@ namespace StrongerOrg.Backoffice
                 this.lblOrganisationName.Text = value;
             }
         }
+        
         public string OrganisationId
         {
             set
             {
                 this.lblOrganisationId.Text = value;
-                this.hlOpenSite.NavigateUrl = string.Format("~/OrganisationSite/Default.aspx?OrgId={0}", value);
+                this.hlOpenSite.NavigateUrl = string.Format("~/OrganisationSite/Leagues.aspx?OrgId={0}", value);
             }
         }
     }

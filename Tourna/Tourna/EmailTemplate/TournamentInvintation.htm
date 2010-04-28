@@ -1,0 +1,90 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+        a
+        {
+            color: #1886D6;
+            text-decoration: none;
+        }
+        a:hover
+        {
+            color: #EF4942;
+        }
+    </style>
+</head>
+<body >
+    <br />
+    <br />
+    <table align="center" border="0" cellpadding="4" cellspacing="0" style="-moz-border-radius: 15px;
+        -webkit-border-radius: 10px; border-radius: 10px; height: 350px; width: 700px;
+        border: 2px solid white; background-color: White;font-family: Courier New;">
+        <tr>
+            <td style="font-weight: bold; color: #211C21; text-align: center; font-size: 25px;
+                height: 50px" colspan="2">
+               <% TournamentName %>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>Starts:</b>
+            </td>
+            <td>
+                <% When %>
+                every day from
+                <% StartTime %>
+                -
+                <% EndTime %>
+                PM
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>Where:</b>
+            </td>
+            <td>
+                <% Where %>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>Game:</b>
+            </td>
+            <td>
+                <% GameName %>(<% ConsoleName %>)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>Tournament Type:</b>
+            </td>
+            <td>
+                <a href="http://en.wikipedia.org/wiki/Single-elimination_tournament" target="_blank">Single elimination</a>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <% Abstract %>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: center; height: 120px" colspan="2">
+                <a href="http://www.strongerorg.com/OrganisationSite/PlayerSubscription.aspx?OrgId=<% OrgId %>&TournamentId=<% TournamentId %>" target="_blank" style="font-size: 30px; font-weight: bold">Join Tournomant</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: center" colspan="2">
+                <b>First Prize:</b> <% FirstPrize %> <b>Second Prize:</b> <% SecondPrize %> <b>Third Prize:</b>
+                <% ThirdPrize %>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: center" colspan="2">
+                <a href="http://www.strongerorg.com/OrganisationSite/Rules.aspx?OrgId=<% OrgId %>">Tournament rules</a> | 
+                <a href="http://www.strongerorg.com/OrganisationSite/ContactModerator.aspx?orgId=<% OrgId %>" >Contact moderator</a> | 
+                <a href="http://www.strongerorg.com">StrongerOrg</a>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

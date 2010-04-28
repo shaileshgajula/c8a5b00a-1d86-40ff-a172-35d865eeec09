@@ -11,13 +11,14 @@ namespace StrongerOrg.Backoffice
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack && Page.Request.QueryString["TournamentName"] != null)
+            if (Page.Request.QueryString["TournamentName"] != null)
             {
-                this.lblTitle.Text = string.Format("Tournament name : {0}", Page.Request.QueryString["TournamentName"].ToString());
+                this.hlTournamentTitle.Text = string.Format("{0}", Page.Request.QueryString["TournamentName"].ToString());
+                this.hlTournamentTitle.NavigateUrl = "~/backoffice/Tournament.aspx?TournamentId=" + Page.Request.QueryString["TournamentId"].ToString();
             }
             else
             {
-                this.lblTitle.Text = string.Format("{0} Players[from all tournaments]", Master.OrgBasicInfo.Name);
+                this.hlTournamentTitle.Text = string.Format("{0} Players[from all tournaments]", Master.OrgBasicInfo.Name);
             }
         }
         protected string BuildUrl()
