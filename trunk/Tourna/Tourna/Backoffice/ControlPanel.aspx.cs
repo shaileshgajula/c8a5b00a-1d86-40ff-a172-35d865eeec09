@@ -11,6 +11,7 @@ using System.Configuration;
 using StrongerOrg.BackOffice.PairsAlgorithm;
 using StrongerOrg.BackOffice.Scheduler;
 using StrongerOrg.Backoffice.DataLayer;
+using System.Data.OleDb;
 
 namespace StrongerOrg.Backoffice
 {
@@ -18,9 +19,52 @@ namespace StrongerOrg.Backoffice
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!this.Page.IsPostBack)
+            {
+                readCsv("100");
+            }
         }
 
+        public DataTable readCsv(string count)
+        {
+            try
+            {
+                string strPath = @"C:\Users\Administrator\Documents\Visual Studio 2010\Projects\StrongerOrg\Tourna\Tourna\App_Data";
+                string ConnectionString =
+                        string.Format(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0};
+                                Extended Properties=""text;HDR=Yes;FMT=Delimited"";"
+                                        , strPath);
+                string orgId = this.Master.OrgBasicInfo.Id.ToString();
+                string CommandText = string.Format(@"SELECT top {0} [first name] + ' ' + [last name] as name, [username]+ '@strongerorg.com' as email  FROM StrongerOrgDemoUserList.csv", count);
+                DataSet CSVDataSet = new DataSet();
+                OleDbConnection CSVConnection = new OleDbConnection(ConnectionString);
+                OleDbDataAdapter CSVAdapter = new OleDbDataAdapter(CommandText, CSVConnection);
+                CSVConnection.Open();
+                CSVAdapter.Fill(CSVDataSet, "StrongerOrgDemoUserList.csv");
+                CSVConnection.Close();
+                SqlCommand insertCommand = new SqlCommand("FakeUserInsert", new SqlConnection(ConfigurationManager.ConnectionStrings["StrongerOrgString"].ConnectionString));
+                insertCommand.CommandType = CommandType.StoredProcedure;
+                insertCommand.Connection.Open();
+                foreach (DataRow dr in CSVDataSet.Tables[0].Rows)
+                {
+
+                    insertCommand.Parameters.Add("@name", SqlDbType.NVarChar, 150).Value = dr[0];
+                    insertCommand.Parameters.Add("@email", SqlDbType.NVarChar, 150).Value = dr[1];
+                    insertCommand.ExecuteNonQuery();
+                    insertCommand.Parameters.Clear();
+                }
+
+                GVcsv.DataSource = CSVDataSet;
+                GVcsv.DataBind();
+                return CSVDataSet.Tables[0];
+            }
+            catch (Exception ex)
+            {
+                //lblerror.Text = ex.Message;
+                throw ex;
+            }
+
+        }
         private void CreatePlayers(Guid organisationId, Guid tournamentId, int numberOfPlayersToCreate, string orgName)
         {
             DataTable dt = CreateDataTable();
@@ -47,18 +91,26 @@ namespace StrongerOrg.Backoffice
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["StrongerOrgString"].ConnectionString))
             {
                 SqlDataAdapter adapter = new SqlDataAdapter();
-                SqlCommand insertCmd = new SqlCommand("PlayerInsert", conn);
-                insertCmd.CommandType = CommandType.StoredProcedure;
-                insertCmd.Parameters.Add("@organisationId", SqlDbType.UniqueIdentifier).SourceColumn = "organisationId";
-                insertCmd.Parameters.Add("@name", SqlDbType.VarChar).SourceColumn = "name";
-                insertCmd.Parameters.Add("@email", SqlDbType.VarChar).SourceColumn = "email";
-                insertCmd.Parameters.Add("@TournamentId", SqlDbType.UniqueIdentifier).SourceColumn = "TournamentId";
                 conn.Open();
-                insertCmd.UpdatedRowSource = UpdateRowSource.None;
-                adapter.InsertCommand = insertCmd;
-                adapter.UpdateBatchSize = 10;
-                adapter.Update(dt);
-                conn.Close();
+                foreach (DataRow row in dt.Rows)
+                {
+                    SqlCommand insertCmd = new SqlCommand("PlayerInsert", conn);
+                    insertCmd.CommandType = CommandType.StoredProcedure;
+                    insertCmd.Parameters.Add("@organisationId", SqlDbType.UniqueIdentifier).Value = this.Master.OrgBasicInfo.Id;
+                    insertCmd.Parameters.Add("@name", SqlDbType.VarChar).Value = row["name"];
+                    insertCmd.Parameters.Add("@email", SqlDbType.VarChar).Value = row["email"];
+                    insertCmd.Parameters.Add("@TournamentId", SqlDbType.UniqueIdentifier).Value = new Guid(this.drpDownTournamentList.SelectedValue);
+                    insertCmd.ExecuteNonQuery();
+                }
+
+
+                //insertCmd.UpdatedRowSource = UpdateRowSource.None;
+                //adapter.InsertCommand = insertCmd;
+                //adapter.UpdateBatchSize = 5;
+                //adapter.RowUpdating += (s, e) => { int x = 4; };
+
+                //adapter.Update(dt);
+
             }
         }
 
@@ -238,38 +290,38 @@ namespace StrongerOrg.Backoffice
             Guid tournamentId = new Guid(this.drpDownTournamentList.SelectedValue);
 
             //for now..straight database kick
-            IEnumerable<DateTime> dates;                       
+            IEnumerable<DateTime> dates;
             using (TournaDataContext db = new TournaDataContext())
             {
-               var  dateInfo = db.TournamentMatchups.Where(y => y.TournamentId == tournamentId).
-                    Select(y =>
-                        new 
-                            {
-                                StartDate = y.Start,
-                                PlayerA = db.Players.Where( p => p.Id == y.PlayerA).Select( n => n.Name).First(),
-                                PlayerB = db.Players.Where(p => p.Id == y.PlayerB).Select(n => n.Name).First(),
-                            })
-                    .ToList();
+                var dateInfo = db.TournamentMatchups.Where(y => y.TournamentId == tournamentId).
+                     Select(y =>
+                         new
+                             {
+                                 StartDate = y.Start,
+                                 PlayerA = db.Players.Where(p => p.Id == y.PlayerA).Select(n => n.Name).First(),
+                                 PlayerB = db.Players.Where(p => p.Id == y.PlayerB).Select(n => n.Name).First(),
+                             })
+                     .ToList();
 
 
 
-               schedDatesGrid.DataSource = dateInfo.Select((x, i) => 
-                   new
-                       {
-                           StartDate = x.StartDate,
-                           GameName = String.Format("Game {0} - {1}:{2}",i+1,x.PlayerA,x.PlayerB),
-                           PlayerA = x.PlayerA,
-                           PlayerB = x.PlayerB
-                       }
-                   );
-               schedDatesGrid.DataBind();
+                schedDatesGrid.DataSource = dateInfo.Select((x, i) =>
+                    new
+                        {
+                            StartDate = x.StartDate,
+                            GameName = String.Format("Game {0} - {1}:{2}", i + 1, x.PlayerA, x.PlayerB),
+                            PlayerA = x.PlayerA,
+                            PlayerB = x.PlayerB
+                        }
+                    );
+                schedDatesGrid.DataBind();
 
-               dates = dateInfo.Select(x => x.StartDate);
+                dates = dateInfo.Select(x => x.StartDate);
             }
 
 
             //if (dates.Count() == 0)
-                //this.RunScheduler();
+            //this.RunScheduler();
 
             CalendarVisualizer vis = new CalendarVisualizer(dates);
             vis.Display(schedulesPlaceHolder);
@@ -290,10 +342,17 @@ namespace StrongerOrg.Backoffice
             Guid tournamentId = new Guid(this.drpDownTournamentList.SelectedValue);
             int numberOfPlayersToCreate = int.Parse(this.txtNumPlayer.Text);
 
-            string orgName = (this.Master as BackOffice).OrgBasicInfo.Name;
-            this.CreatePlayers(orgId, tournamentId, numberOfPlayersToCreate, orgName);
+            string orgName = this.Master.OrgBasicInfo.Name;
+            this.CreatePlayersFromCSV();
+            //this.CreatePlayers(orgId, tournamentId, numberOfPlayersToCreate, orgName);
 
             this.PlayerViewActivate();
+        }
+
+        private void CreatePlayersFromCSV()
+        {
+            DataTable dt = readCsv(this.txtNumPlayer.Text);
+            UpdateDB(dt);
         }
 
         protected void drpPairAlgo_SelectedIndexChanged(object sender, EventArgs e)
@@ -340,7 +399,7 @@ namespace StrongerOrg.Backoffice
             this.RunScheduler();
         }
 
-       
+
 
         protected void drpDownTournamentList_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -354,16 +413,16 @@ namespace StrongerOrg.Backoffice
 
         protected void lbRunSchuler_Click(object sender, EventArgs e)
         {
-            StrongerOrg.BL.Jobs.TournamentMatchupManager.Build(new Guid(this.drpDownTournamentList.SelectedValue), this.Master.OrgBasicInfo.Id );
+            StrongerOrg.BL.Jobs.TournamentMatchupManager.Build(new Guid(this.drpDownTournamentList.SelectedValue), this.Master.OrgBasicInfo.Id);
         }
 
         protected void lbNotifyPlayers_Click(object sender, EventArgs e)
         {
-           List<StrongerOrg.BL.DL.MatchupsToNotifyGetResult> result= StrongerOrg.BL.Jobs.TournamentMatchupManager.GetMatchupsToNotify(new Guid(this.drpDownTournamentList.SelectedValue));
-           foreach (StrongerOrg.BL.DL.MatchupsToNotifyGetResult item in result)
-           {
-               StrongerOrg.BL.Jobs.TournamentMatchupManager.NotifyPlayers(item);
-           }
+            List<StrongerOrg.BL.DL.MatchupsToNotifyGetResult> result = StrongerOrg.BL.Jobs.TournamentMatchupManager.GetMatchupsToNotify(new Guid(this.drpDownTournamentList.SelectedValue));
+            foreach (StrongerOrg.BL.DL.MatchupsToNotifyGetResult item in result)
+            {
+                StrongerOrg.BL.Jobs.TournamentMatchupManager.NotifyPlayers(item);
+            }
         }
 
         protected void lblClearMatchups_Click(object sender, EventArgs e)

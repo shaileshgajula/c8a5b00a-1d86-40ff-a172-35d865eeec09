@@ -1,8 +1,8 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Feedbacks.ascx.cs" Inherits="StrongerOrg.Backoffice.UserControls.Feedbacks" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajax" %>
 <asp:LinkButton ID="lbShowAddNew" runat="server" OnClientClick="return false">
-    <asp:Image ID="Image1" runat="server" />&nbsp
-    <asp:Label ID="lblFeedbackHeader" runat="server" Text="Leave a message"></asp:Label></asp:LinkButton>
+    <asp:Image ID="Image1" runat="server" style="vertical-align: middle;padding-right:5px"/>
+    <asp:Label ID="lblFeedbackHeader" runat="server" Text="Leave a message" style="vertical-align: middle;"></asp:Label></asp:LinkButton>
 <asp:Panel ID="Panel1" runat="server" Width="450">
     <table border="0" cellpadding="2" cellspacing="2" id="addNewFeedback">
         <tr>
@@ -66,7 +66,9 @@
                 <%# Eval("FeedbackContent")%>
             </td>
             <td style="vertical-align:top;text-align:right">
-                <asp:LinkButton ID="lbDelete" runat="server" CommandName="Delete">Delete</asp:LinkButton>
+                <asp:ImageButton ID="ibDelete" runat="server" ImageUrl="~/Images/Icons/trash.gif"
+                        CommandName="Delete" OnClientClick="return confirm('Are you sure you want to delete')"  />
+                
             </td>
         </tr>
         <tr>
@@ -78,7 +80,7 @@
     </ItemTemplate>
 </asp:ListView>
 
-<asp:DataPager ID="DataPager1" runat="server" PagedControlID="lvFeedbacks" PageSize="5">
+<asp:DataPager ID="DataPager1" runat="server" PagedControlID="lvFeedbacks" PageSize="10">
     <Fields>
         <asp:NumericPagerField ButtonCount="10" NextPageText="..." PreviousPageText="..." />
         <asp:NextPreviousPagerField FirstPageText="First" LastPageText="Last" NextPageText="Next"

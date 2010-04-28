@@ -13,6 +13,7 @@ body
 	color: #43431f;
 	font-family: Verdana, Helvetica, sans-serif;
 	border-top: 5px solid #cafde0;
+    font-size:14px;
 }
  
 a
@@ -181,5 +182,9 @@ opacity : 0.4;
 input[type=text], input[type=file], select, textarea {
 
 border:1px solid gray;
+}
+.ThemeTitle
+{
+    color:#00BAEF;
 } 
 

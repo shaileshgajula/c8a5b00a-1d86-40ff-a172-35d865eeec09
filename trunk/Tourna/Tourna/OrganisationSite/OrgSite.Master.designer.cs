@@ -58,13 +58,13 @@ namespace StrongerOrg.OrganisationSite {
         protected global::System.Web.UI.WebControls.Image imgOrgLogo;
         
         /// <summary>
-        /// Menu1 control.
+        /// MenuContentPlaceHolder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Menu Menu1;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder MenuContentPlaceHolder;
         
         /// <summary>
         /// ContentPlaceHolder1 control.

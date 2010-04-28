@@ -54,7 +54,7 @@ namespace StrongerOrg
             if (validateUser)
             {
                 this.LoginUser(userName);
-                Response.Redirect("~/backoffice/default.aspx");
+                Response.Redirect("~/backoffice/Organisations.aspx");
             }
             else
             {

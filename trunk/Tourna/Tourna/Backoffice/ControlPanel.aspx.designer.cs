@@ -13,6 +13,15 @@ namespace StrongerOrg.Backoffice {
     public partial class ControlPanel {
         
         /// <summary>
+        /// GVcsv control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GVcsv;
+        
+        /// <summary>
         /// TournamentSource control.
         /// </summary>
         /// <remarks>
@@ -29,6 +38,33 @@ namespace StrongerOrg.Backoffice {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList drpDownTournamentList;
+        
+        /// <summary>
+        /// lblNumOfPlayers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNumOfPlayers;
+        
+        /// <summary>
+        /// lbtnPlayersExport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtnPlayersExport;
+        
+        /// <summary>
+        /// playersGrid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView playersGrid;
         
         /// <summary>
         /// navMenu control.
@@ -101,33 +137,6 @@ namespace StrongerOrg.Backoffice {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lblClearMatchups;
-        
-        /// <summary>
-        /// lblNumOfPlayers control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNumOfPlayers;
-        
-        /// <summary>
-        /// lbtnPlayersExport control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbtnPlayersExport;
-        
-        /// <summary>
-        /// playersGrid control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView playersGrid;
         
         /// <summary>
         /// PairView control.

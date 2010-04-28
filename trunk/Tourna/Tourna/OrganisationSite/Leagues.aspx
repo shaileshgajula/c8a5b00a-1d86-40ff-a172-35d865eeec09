@@ -1,22 +1,32 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/OrganisationSite/OrgSite.Master"
+﻿<%@ Page Title="Tournaments" Language="C#" MasterPageFile="~/OrganisationSite/OrgSite.Master"
     AutoEventWireup="true" CodeBehind="Leagues.aspx.cs" Inherits="StrongerOrg.OrganisationSite.Leagues"
     Theme="OrganisationSite" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="MenuContentPlaceHolder" runat="server">
+    <ul class="lavaLampBottomStyle" id="M1">
+        <li></li>
+        <li><a href="ContactModerator.aspx?orgId=<%= Request.QueryString["OrgId"].ToString()%>">Contact Moderator</a></li>
+        <li ><a href="Rules.aspx?orgId=<%= Request.QueryString["OrgId"].ToString() %>" >Rules</a></li>
+        <li><a href="EventGallery.aspx?orgId=<%= Request.QueryString["OrgId"].ToString() %>">Event Gallery</a></li>
+        <li class="current"><a href="Leagues.aspx?orgId=<%= Request.QueryString["OrgId"].ToString() %>">Tournaments</a></li>
+    </ul>
+</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" BorderWidth="0px"
-        BorderStyle="Dashed" RepeatColumns="2" Width="100%">
-        <ItemStyle BorderStyle="Dotted" BorderWidth="1px" />
+         RepeatColumns="2"  HorizontalAlign="Center" CellPadding="0" CellSpacing="25" >
+        <ItemStyle BorderStyle="Dotted" BorderWidth="1px" VerticalAlign="Top" />
+        
         <ItemTemplate>
-            <table border="0" cellpadding="3" cellspacing="3" style="vertical-align:top">
+            <table border="0" cellpadding="3" cellspacing="3" style="vertical-align:top;height:100%" align="center">
                 <tr>
-                    <td align="center" colspan="2" class="H1Title" >
-                        <%#Eval("TournamentName")%>
+                    <td align="center" colspan="2" class="H1Title" style="height:40px" >
+                        <asp:HyperLink ID="HyperLink2" runat="server"  NavigateUrl='<%# BuildNavigaionUrl ("Schedules.aspx", Eval("Id").ToString()) %>'><%#Eval("TournamentName")%></asp:HyperLink>
                     </td>
                 </tr>
                 <tr>
-                    <td align="center" colspan="2">
+                    <td align="center" colspan="2" style="height:150px">
                         <asp:Image ID="Image1" runat="server" ImageUrl='<%#Eval("GameImage", "~/Images/GamesImages/{0}")%>' />
                     </td>
                 </tr>
@@ -50,14 +60,6 @@
                     </td>
                     <td>
                         Not started yet
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# BuildNavigaionUrl ("Standings.aspx", Eval("Id").ToString()) %>'>Standings</asp:HyperLink>
-                    </td>
-                    <td>
-                        <asp:HyperLink ID="HyperLink2" runat="server"  NavigateUrl='<%# BuildNavigaionUrl ("Schedules.aspx", Eval("Id").ToString()) %>'>Schedules</asp:HyperLink>
                     </td>
                 </tr>
             </table>

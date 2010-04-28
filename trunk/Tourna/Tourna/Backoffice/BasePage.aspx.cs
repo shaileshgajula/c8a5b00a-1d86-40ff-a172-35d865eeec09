@@ -35,7 +35,7 @@ namespace StrongerOrg.Backoffice
             }
             else if (Context.User.IsInRole("MiriMargolinDelegate"))
             {
-                this.UserRole = "Miri Margolin Delegate";
+                this.UserRole = "Miri Margolin's Delegate";
                 this.Theme = "Moderator";
             }
             base.OnPreInit(e);

@@ -78,6 +78,7 @@
         <siteMapNode title="Gallery" url="~\Backoffice\eventGallery.aspx?m"/>
         <siteMapNode title="About Miri" url="~\Backoffice\MiriMargolin\about.aspx"/>
         <siteMapNode title="Guest Book" url="~\Backoffice\MiriMargolin\GuestBook.aspx"/>
+        <siteMapNode title="Newsletter" url="~\Backoffice\MiriMargolin\Newsletter.aspx"/>
       </siteMapNode>
       
     </siteMapNode>

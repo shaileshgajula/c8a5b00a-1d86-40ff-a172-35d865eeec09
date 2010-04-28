@@ -82,12 +82,12 @@
         <asp:TemplateField ShowHeader="false" InsertVisible="true" ItemStyle-HorizontalAlign="Right">
             <ItemStyle CssClass="ThemeBorder" />
             <ItemTemplate>
-                <asp:LinkButton ID="lbEdit" runat="server" CommandName="Edit">Edit</asp:LinkButton>
+                <asp:LinkButton ID="lbEdit" runat="server" CommandName="Edit">Edit</asp:LinkButton> |
                 <asp:LoginView ID="LoginView2" runat="server">
                     <RoleGroups>
                         <asp:RoleGroup Roles="Administrator">
                             <ContentTemplate>
-                                <asp:LinkButton ID="lbNew" runat="server" CommandName="New">New</asp:LinkButton>
+                                <asp:LinkButton ID="lbNew" runat="server" CommandName="New">New</asp:LinkButton> | 
                                 <asp:LinkButton ID="lbDelete" runat="server" OnClientClick="return confirm('Are you certain you want to delete this organisation?')"
                                     CommandName="Delete">Delete</asp:LinkButton>
                             </ContentTemplate>
@@ -96,11 +96,11 @@
                 </asp:LoginView>
             </ItemTemplate>
             <EditItemTemplate>
-                <asp:LinkButton ID="LinkButton22" runat="server" CommandName="Update">Update</asp:LinkButton>
+                <asp:LinkButton ID="LinkButton22" runat="server" CommandName="Update">Update</asp:LinkButton> |
                 <asp:LinkButton ID="LinkButton42" runat="server" CommandName="Cancel">Cancel</asp:LinkButton>
             </EditItemTemplate>
             <InsertItemTemplate>
-                <asp:LinkButton ID="LinkButton23" runat="server" CommandName="Insert">Insert</asp:LinkButton>
+                <asp:LinkButton ID="LinkButton23" runat="server" CommandName="Insert">Insert</asp:LinkButton> |
                 <asp:LinkButton ID="LinkButton43" runat="server" CommandName="Cancel">Cancel</asp:LinkButton>
             </InsertItemTemplate>
             <ItemStyle HorizontalAlign="Right"></ItemStyle>

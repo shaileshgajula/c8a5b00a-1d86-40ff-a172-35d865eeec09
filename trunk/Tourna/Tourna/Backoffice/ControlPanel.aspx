@@ -1,8 +1,30 @@
 <%@ Page Title="Control Panel" Language="C#" MasterPageFile="~/Backoffice/BackOffice.Master"
     AutoEventWireup="true" CodeBehind="ControlPanel.aspx.cs" Inherits="StrongerOrg.Backoffice.ControlPanel" %>
+
 <%@ MasterType VirtualPath="~/Backoffice/BackOffice.Master" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <script type="text/javascript">
+        // increase the default animation speed to exaggerate the effect
+        $.fx.speeds._default = 1000;
+        $(function () {
+            $('#dialog').dialog({
+                autoOpen: false,
+                show: 'scale',
+                hide: 'scale',
+                width: 500
+            });
+
+            $('#opener').click(function () {
+                $('#dialog').dialog('open');
+                return false;
+            });
+        });
+    </script>
     <br />
+    <div id="dialog" title="Fake users for testing" >
+        <asp:GridView ID="GVcsv" runat="server">
+        </asp:GridView>
+    </div>
     <asp:LinqDataSource ID="TournamentSource" runat="server" ContextTypeName="StrongerOrg.Backoffice.DataLayer.TournaDataContext"
         TableName="Tournaments" Select="new (TournamentName, Id)" OnSelecting="TournamentSource_Selecting">
     </asp:LinqDataSource>
@@ -14,13 +36,31 @@
             <td style="text-align: right">
                 Select Tournament:
                 <asp:DropDownList ID="drpDownTournamentList" runat="server" DataSourceID="TournamentSource"
-                    DataTextField="TournamentName" DataValueField="Id" AutoPostBack="True" 
-                    onselectedindexchanged="drpDownTournamentList_SelectedIndexChanged">
+                    DataTextField="TournamentName" DataValueField="Id" AutoPostBack="True" OnSelectedIndexChanged="drpDownTournamentList_SelectedIndexChanged">
                 </asp:DropDownList>
             </td>
         </tr>
         <tr>
             <td style="text-align: center">
+                        <table style="width: 100%" __designer:mapid="5da">
+                            <tr __designer:mapid="5db">
+                                <td style="text-align: right" __designer:mapid="5dc">
+                                    Number of Players:
+                                    <asp:Label ID="lblNumOfPlayers" Text="0" Font-Bold="true" runat="server" />
+                                    <asp:LinkButton ID="lbtnPlayersExport" Text="Export" runat="server" 
+                                        OnClick="lbtnPlayersExport_Click" />
+                                </td>
+                            </tr>
+                            <tr __designer:mapid="5df">
+                                <td __designer:mapid="5e0">
+                                    <asp:GridView ID="playersGrid" runat="server">
+                                        <EmptyDataTemplate>
+                                            No players were assigned to the tournament
+                                        </EmptyDataTemplate>
+                                    </asp:GridView>
+                                </td>
+                            </tr>
+                        </table>
                 <asp:Menu ID="navMenu" runat="server" Orientation="Horizontal" BorderStyle="Dotted"
                     BorderWidth="1px" OnMenuItemClick="navMenu_MenuItemClick" Width="100%">
                     <StaticSelectedStyle BackColor="#F4F4F4" />
@@ -36,35 +76,15 @@
             <td>
                 <asp:MultiView ID="PageView" runat="server" ActiveViewIndex="0">
                     <asp:View ID="PlayersView" runat="server">
-                        Add <asp:TextBox ID="txtNumPlayer" runat="server" Height="21px" Width="36px" />
-                        players <asp:LinkButton ID="lbtnAddPlayers" runat="server" Text="Add" 
-                            OnClick="lbtnAddPlayers_Click" />
+                        Add
+                        <asp:TextBox ID="txtNumPlayer" runat="server" Height="21px" Width="36px" />
+                        first players from demo <a href="#" id="opener">csv file</a> ||
+                        <asp:LinkButton ID="lbtnAddPlayers" runat="server" Text="Add" OnClick="lbtnAddPlayers_Click" />
                         <br />
-                        <asp:LinkButton ID="lbRunSchuler" runat="server" onclick="lbRunSchuler_Click">Run scheduler</asp:LinkButton>
-                        &nbsp;|&nbsp;<asp:LinkButton ID="lbNotifyPlayers" runat="server" 
-                            onclick="lbNotifyPlayers_Click">Notify Players</asp:LinkButton>
-                            &nbsp;|&nbsp;<asp:LinkButton ID="lblClearMatchups" runat="server" 
-                            onclick="lblClearMatchups_Click">Clear matchups</asp:LinkButton>
+                        <asp:LinkButton ID="lbRunSchuler" runat="server" OnClick="lbRunSchuler_Click">Run scheduler</asp:LinkButton>
+                        &nbsp;|&nbsp;<asp:LinkButton ID="lbNotifyPlayers" runat="server" OnClick="lbNotifyPlayers_Click">Notify Players</asp:LinkButton>
+                        &nbsp;|&nbsp;<asp:LinkButton ID="lblClearMatchups" runat="server" OnClick="lblClearMatchups_Click">Clear matchups</asp:LinkButton>
                         <br />
-                        <table style="width: 100%">
-                            <tr>
-                                <td style="text-align: right">
-                                    Number of Players:
-                                    <asp:Label ID="lblNumOfPlayers" Text="0" Font-Bold="true" runat="server" />
-                                    <asp:LinkButton ID="lbtnPlayersExport" Text="Export" runat="server" OnClick="lbtnPlayersExport_Click" />
-                                    
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <asp:GridView ID="playersGrid" runat="server">
-                                        <EmptyDataTemplate>
-                                            No players were assigned to the tournament
-                                        </EmptyDataTemplate>
-                                    </asp:GridView>
-                                </td>
-                            </tr>
-                        </table>
                     </asp:View>
                     <asp:View ID="PairView" runat="server">
                         <table>
@@ -91,12 +111,10 @@
                                     <asp:Label ID="lblMultiGame" Text="Number of Games:" runat="server" />
                                 </td>
                                 <td>
-                                    <asp:TextBox ID="txtMultiGame" runat="server" Text="1" Height="21px" 
-                                        Width="36px" />
+                                    <asp:TextBox ID="txtMultiGame" runat="server" Text="1" Height="21px" Width="36px" />
                                 </td>
                                 <td>
-                                    <asp:LinkButton ID="lbtnPairUp" runat="server" Text="Pair" 
-                                        OnClick="lbtnPairUp_Click" />
+                                    <asp:LinkButton ID="lbtnPairUp" runat="server" Text="Pair" OnClick="lbtnPairUp_Click" />
                                 </td>
                             </tr>
                         </table>
@@ -105,8 +123,7 @@
                                 <td style="text-align: right">
                                     Number of Games:
                                     <asp:Label ID="lblNumActiveGames" runat="server" Font-Bold="true" />
-                                    <asp:LinkButton ID="lBtnSave" Text="Save" runat="server" 
-                                        onclick="lBtnSave_Click"  />
+                                    <asp:LinkButton ID="lBtnSave" Text="Save" runat="server" OnClick="lBtnSave_Click" />
                                     <asp:LinkButton ID="lbtnPairsExport" Text="Export" runat="server" OnClick="lbtnPairsExport_Click" />
                                 </td>
                             </tr>
@@ -136,8 +153,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <asp:LinkButton ID="lbtnForceReschedule" runat="server" Text="Run scheduler" 
-                                        onclick="lbtnForceReschedule_Click" />
+                                    <asp:LinkButton ID="lbtnForceReschedule" runat="server" Text="Run scheduler" OnClick="lbtnForceReschedule_Click" />
                                 </td>
                             </tr>
                             <tr>
@@ -149,9 +165,8 @@
                                         <asp:View runat="server" ID="schedGridView">
                                             <table style="width: 100%">
                                                 <tr>
-                                                    <td style="text-align:right">
-                                                        <asp:LinkButton ID="lbtnExportSchedules" Text="Export" runat="server" onclick="lbtnExportSchedules_Click"
-                                                         />
+                                                    <td style="text-align: right">
+                                                        <asp:LinkButton ID="lbtnExportSchedules" Text="Export" runat="server" OnClick="lbtnExportSchedules_Click" />
                                                     </td>
                                                 </tr>
                                                 <tr>

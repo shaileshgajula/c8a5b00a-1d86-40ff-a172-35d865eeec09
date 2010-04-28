@@ -3,10 +3,28 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+    <link rel="stylesheet" href="../scripts/lavalamp-0.2.0/lavalamp_test.css" type="text/css"
+        media="screen" />
+    <link type="text/css" href="../scripts/css/redmond/jquery-ui-1.8.custom.css" rel="stylesheet" />
+    <script type="text/javascript" src="../scripts/js/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="../scripts/js/jquery-ui-1.8.custom.min.js"></script>
+    <script type="text/javascript" src="../scripts/lavalamp-0.2.0/jquery.easing.min.js"></script>
+    <script type="text/javascript" src="../scripts/lavalamp-0.2.0/jquery.lavalamp.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#M1").lavaLamp({
+                fx: "backout",
+                speed: 700,
+                click: function (event, menuItem) {
+                    //return false;
+                }
+            });
+        });
+    </script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
+<body >
     <script type="text/javascript">
         var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
         document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
@@ -19,28 +37,37 @@
     <form id="form1" runat="server">
     <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
     </telerik:RadScriptManager>
-    <table style="width: 100%; height: 750px;" cellpadding="0" cellspacing="0" border="0">
+    <table style="width: 100%;height:800px" cellpadding="0" cellspacing="0" border="0">
         <tr>
-        <td></td>
-            <td style="height: 35px" >
-                <asp:Label ID="lblOrgLotoText" runat="server" Text=""></asp:Label>
-                <asp:Image ID="imgOrgLogo" runat="server" ImageUrl="" />
+            <td>
             </td>
-            <td></td>
+            <td style="height:75px">
+                <table border="0" cellpadding="0" cellspacing="0" style="width: 100%">
+                    <tr>
+                        <td>
+                            <asp:Label ID="lblOrgLotoText" runat="server" Text=""></asp:Label><asp:Image ID="imgOrgLogo"
+                                runat="server" ImageUrl="" />
+                        </td>
+                        <td align="left" valign="bottom">
+                            <asp:ContentPlaceHolder ID="MenuContentPlaceHolder" runat="server">
+                               
+                            </asp:ContentPlaceHolder>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+            </td>
         </tr>
         <tr>
-            <td  style="height: 25px; border-top-color: #aaa2fe; border-top-width: 1px; border-top-style: solid;
-            background-color: #ebe9ff">
+            <td style="height: 5px; border-top-color: #aaa2fe; border-top-width: 1px; border-top-style: solid;
+                background-color: #ebe9ff">
             </td>
-            <td  align="right"  style="height: 25px; border-top-color: #aaa2fe; border-top-width: 1px; border-top-style: solid;
-            background-color: #ebe9ff;width: 800px;">
-                <asp:Menu ID="Menu1" runat="server" DataSourceID="SiteMapDataSource1" Orientation="Horizontal"
-                    OnMenuItemDataBound="Menu1_MenuItemDataBound" StaticMenuItemStyle-HorizontalPadding="5"
-                    StaticBottomSeparatorImageUrl="~/Images/Icons/Seperator.gif" Font-Size="Small">
-                </asp:Menu>
+            <td align="right" style="height: 5px; border-top-color: #aaa2fe; border-top-width: 1px;
+                border-top-style: solid; background-color: #ebe9ff; width: 900px;">
             </td>
-            <td  style="height: 25px; border-top-color: #aaa2fe; border-top-width: 1px; border-top-style: solid;
-            background-color: #ebe9ff">
+            <td style="height: 5px; border-top-color: #aaa2fe; border-top-width: 1px; border-top-style: solid;
+                background-color: #ebe9ff">
             </td>
         </tr>
         <tr>
@@ -54,7 +81,8 @@
             </td>
         </tr>
         <tr>
-            <td align="center" style="height: 45px;border-top-color: #aaa2fe; border-top-width: 1px;border-top-style: solid;" colspan="3">
+            <td align="center" style="height: 45px; border-top-color: #aaa2fe; border-top-width: 1px;
+                border-top-style: solid;" colspan="3">
                 All Rights Reserved. | <a href="">Terms of Use</a> | <a href="">Trademarks</a> |
                 <a href="">Privacy Statement</a> © 2009 USHA Corporation.
             </td>

@@ -3,15 +3,23 @@
 <%@ MasterType VirtualPath="~/Backoffice/BackOffice.Master" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:Label ID="lblTitle" runat="server" Text="" CssClass="GrayTitle"></asp:Label>
+    <asp:HyperLink ID="hlTournamentTitle" runat="server"></asp:HyperLink>
     <br /><br />
     <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False"
         DataKeyNames="Id" DataSourceID="SqlDataSource1" PageSize="20">
         <Columns>
-            <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
+            <asp:CommandField ShowEditButton="true" HeaderText="Edit" />
             <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name"  />
             <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email"  />
-            <asp:BoundField DataField="NickName" HeaderText="Nick Name" SortExpression="NickName"  />
-            <asp:BoundField DataField="Department" HeaderText="Department" SortExpression="Department" />
+            <%--<asp:BoundField DataField="NickName" HeaderText="Nick Name" SortExpression="NickName"  />
+            <asp:BoundField DataField="Department" HeaderText="Department" SortExpression="Department" />--%>
+             <asp:TemplateField HeaderText="Delete" HeaderStyle-HorizontalAlign="Center">
+                <ItemStyle HorizontalAlign="Center" />
+                <ItemTemplate>
+                    <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Images/Icons/trash.gif"
+                        CommandName="Delete" OnClientClick="return confirm('Are you sure you want to delete')" />
+                </ItemTemplate>
+            </asp:TemplateField>
         </Columns>
         <EmptyDataTemplate>
             No players found

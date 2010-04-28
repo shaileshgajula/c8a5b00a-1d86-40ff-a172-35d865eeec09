@@ -17,3 +17,6 @@ Default skin template. The following skins are provided as examples only.
     <AlternatingRowStyle CssClass="AlternatingRow" />
     
 </asp:DetailsView>
+<asp:GridView runat="server"  GridLines="None" Width="100%" HeaderStyle-BackColor="#afafae" HeaderStyle-ForeColor="White" AutoGenerateRows="False">
+    
+</asp:GridView>
