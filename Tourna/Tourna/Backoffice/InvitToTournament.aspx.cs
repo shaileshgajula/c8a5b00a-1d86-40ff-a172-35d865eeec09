@@ -52,16 +52,16 @@ namespace StrongerOrg.Backoffice
                 replacements.Add("<% OrgId %>", this.Master.OrgBasicInfo.Id.ToString());
                 replacements.Add("<% TournamentName %>", tournametInfo.TournamentName);
                 replacements.Add("<% When %>", tournametInfo.StartDate.ToString("D"));
-                replacements.Add("<% StartTime %>", tournametInfo.TimeWindowStart.ToString());
-                replacements.Add("<% EndTime %>", tournametInfo.TimeWindowEnd.ToString());
-                replacements.Add("<% Where %>", tournametInfo.Locations);
-                replacements.Add("<% GameName %>", tournametInfo.Title);
+                replacements.Add("<% StartTime %>", tournametInfo.TimeWindowStart.TruncateSeconds());
+                replacements.Add("<% EndTime %>", tournametInfo.TimeWindowEnd.TruncateSeconds());
+                replacements.Add("<% Where %>", tournametInfo.Locations ?? string.Empty);
+                replacements.Add("<% GameName %>", tournametInfo.Title ?? string.Empty);
                 replacements.Add("<% FirstPrize %>", string.IsNullOrEmpty(tournametInfo.FirstPrize) ? "N/A" : tournametInfo.FirstPrize);
                 replacements.Add("<% SecondPrize %>", string.IsNullOrEmpty(tournametInfo.SecondPrize) ? "N/A" : tournametInfo.SecondPrize);
                 replacements.Add("<% ThirdPrize %>", string.IsNullOrEmpty(tournametInfo.ThirdPrize) ? "N/A" : tournametInfo.ThirdPrize);
                 replacements.Add("<% TournamentId %>", Request.QueryString["TournamentId"].ToString());
-                replacements.Add("<% Abstract %>", tournametInfo.Abstract);
-                replacements.Add("<% ConsoleName %>", tournametInfo.ConsoleName);
+                replacements.Add("<% Abstract %>", tournametInfo.Abstract ?? string.Empty);
+                replacements.Add("<% ConsoleName %>", tournametInfo.ConsoleName ?? string.Empty);
             }
 
 

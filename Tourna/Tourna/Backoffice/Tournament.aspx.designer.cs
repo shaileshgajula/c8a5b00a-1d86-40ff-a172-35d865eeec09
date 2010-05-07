@@ -265,6 +265,15 @@ namespace StrongerOrg.Backoffice {
         protected global::System.Web.UI.WebControls.View View3;
         
         /// <summary>
+        /// bdPlayOffs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::StrongerOrg.Backoffice.UserControls.BracketsDisplay bdPlayOffs;
+        
+        /// <summary>
         /// lbEditPicksMode control.
         /// </summary>
         /// <remarks>
@@ -290,15 +299,6 @@ namespace StrongerOrg.Backoffice {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink HyperLink2;
-        
-        /// <summary>
-        /// BracketTournamentMatchups control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::TourneyLogic.Web.UI.WebControls.Bracket BracketTournamentMatchups;
         
         /// <summary>
         /// View4 control.

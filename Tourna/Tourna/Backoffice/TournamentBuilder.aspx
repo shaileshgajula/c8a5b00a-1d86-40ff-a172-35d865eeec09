@@ -14,14 +14,35 @@
                 min: 1,
                 max: 10,
                 slide: function (event, ui) {
-                    $("#amount").val( ui.value );
+                    $("#amount").val(ui.value);
                 }
             });
-            $("#amount").val( $("#slider-range-min").slider("value"));
-        });
-	</script>
+            $("#amount").val($("#slider-range-min").slider("value"));
 
-    <script type="text/javascript">
+            $("#slider-range").slider({
+                range: true,
+                values: [13, 17],
+                min: 0,
+                max: 44,
+                slide: function (event, ui) {
+                    $("#timeFrame").val(BuildTime(ui.values[0]) + ' - '+ BuildTime(ui.values[1]));
+                }
+            });
+            $("#timeFrame").val(BuildTime($("#slider-range").slider("values", 0)) + ' - ' + BuildTime($("#slider-range").slider("values", 1)));
+
+
+        });
+        function BuildTime(t) {
+            var h;
+            var m;
+            h = 9 + parseInt(t / 4);
+            if ((t * 15) % 60 == 0)
+            { m = "00"; }
+            else {
+                m = (t * 15) % 60;
+            }
+            return h + ':' + m;
+        }
         $(function () {
             $(".datepicker").datepicker({
                 showOn: 'button',
@@ -127,7 +148,7 @@
                             <label for="amount">
                                 </label>
                             <input type="text" id="amount" name="amount" style="border: 0; color: #f6931f; font-weight: bold;width:25px" />
-                            <div id="slider-range-min"></div>
+                            <div id="slider-range-min" style="width:150px"></div>
 
                         </td>
                     </tr>
@@ -136,12 +157,14 @@
                             Time frame
                         </td>
                         <td>
-                            <asp:CheckBox ID="cbIsOpenAllDay" runat="server" Text="Is Open All Day" />
-                            <telerik:RadSlider ID="rsTimeWindow" runat="server" ItemType="Tick" IsSelectionRangeEnabled="True"
+                            <asp:CheckBox ID="cbIsOpenAllDay" runat="server" Text="Is Open All Day" /> | Open from
+                             <input type="text" id="timeFrame" name="timeFrame" style="border: 0; color: #f6931f; font-weight: bold;width:150px" />
+                             <div id="slider-range" style="width:450px"></div>
+                            <%--<telerik:RadSlider ID="rsTimeWindow" runat="server" ItemType="Tick" IsSelectionRangeEnabled="True"
                                 SelectionEnd="14" Height="40px" Width="350px" SelectionStart="12" SmallChange="1"
                                 LargeChange="1" MinimumValue="7" MaximumValue="19" AnimationDuration="400" CssClass="TicksSlider"
                                 TrackPosition="TopLeft">
-                            </telerik:RadSlider>
+                            </telerik:RadSlider>--%>
                         </td>
                     </tr>
                 </table>

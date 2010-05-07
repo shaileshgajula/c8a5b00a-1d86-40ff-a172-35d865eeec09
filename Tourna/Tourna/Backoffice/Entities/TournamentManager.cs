@@ -13,7 +13,7 @@ public class TournamentManager
     //}
 
     internal static string BuildTournament(Guid organisationId, string tournamentName, string tournamentAbstract, string locations,
-        int numberOfPlayersLimit, int gameId, string matchingAlgo,int gamesPerDay, int timeWindowStart, int timeWindowEnd, bool isOpenAllDay,
+        int numberOfPlayersLimit, int gameId, string matchingAlgo, int gamesPerDay, TimeSpan timeWindowStart, TimeSpan timeWindowEnd, bool isOpenAllDay,
         string firstPrize, string secondPrize, string thirdPrize, DateTime startDate, DateTime lastRegistrationDate)
     {
         using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["StrongerOrgString"].ConnectionString))
@@ -28,8 +28,8 @@ public class TournamentManager
             command.Parameters.Add("@GameId", SqlDbType.Int, 4).Value = gameId;
             command.Parameters.Add("@MatchingAlgo", SqlDbType.NVarChar, 150).Value = matchingAlgo;
             command.Parameters.Add("@GamesPerDay", SqlDbType.Int).Value = gamesPerDay;
-            command.Parameters.Add("@TimeWindowStart", SqlDbType.Int, 4).Value = timeWindowStart;
-            command.Parameters.Add("@TimeWindowEnd", SqlDbType.Int, 4).Value = timeWindowEnd;
+            command.Parameters.Add("@TimeWindowStart", SqlDbType.Time, 4).Value = timeWindowStart;
+            command.Parameters.Add("@TimeWindowEnd", SqlDbType.Time, 4).Value = timeWindowEnd;
             command.Parameters.Add("@IsOpenAllDay", SqlDbType.Bit).Value = isOpenAllDay;
             command.Parameters.Add("@FirstPrize", SqlDbType.NVarChar, 150).Value = firstPrize;
             command.Parameters.Add("@SecondPrize", SqlDbType.NVarChar, 150).Value = secondPrize;

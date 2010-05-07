@@ -6,7 +6,7 @@
     <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Backoffice/TournamentBuilder.aspx">+ Compose a new tournament</asp:HyperLink><br />
     &nbsp
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Id, TournamentName"
-        DataSourceID="SqlDataSource1">
+        DataSourceID="SqlDataSource1" onrowcreated="GridView1_RowCreated">
         <Columns>
             <asp:TemplateField HeaderText="Tournament Name">
                 <ItemTemplate>

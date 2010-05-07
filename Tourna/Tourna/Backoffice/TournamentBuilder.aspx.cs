@@ -34,8 +34,12 @@ namespace StrongerOrg.Backoffice
             int gameId = int.Parse(this.rbGame.SelectedValue);
             string matchingAlog = this.rbMatchingAlog.SelectedValue;
             int gamesPerDay = int.Parse(Request.Form["amount"].ToString());
-            int timeWindowStart = rsTimeWindow.SelectionStart;
-            int timeWindowEnd = rsTimeWindow.SelectionEnd;
+            string[] timeFrames = Request.Form["timeFrame"].ToString().Split('-');
+
+            TimeSpan timeWindowStart = TimeSpan.Parse(timeFrames[0]);
+            TimeSpan timeWindowEnd = TimeSpan.Parse(timeFrames[1]);
+                
+           
             bool isOpenAllDay = this.cbIsOpenAllDay.Checked;
             string firstPrize = this.txtFirstPrize.Text;
             string secondPrize = this.txtSecondPrize.Text;
