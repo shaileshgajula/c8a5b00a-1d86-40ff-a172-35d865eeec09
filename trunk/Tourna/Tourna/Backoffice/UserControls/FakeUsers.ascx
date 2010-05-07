@@ -45,7 +45,8 @@
 Select <b>Fake Users</b>: <a class="CheckAll" href="#">All</a>, <a class="UnCheckAll"
     href="#">None</a>
 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Id"
-    DataSourceID="SqlDataSource1" EnableModelValidation="True">
+    DataSourceID="SqlDataSource1" EnableModelValidation="True" 
+    onrowcreated="GridView1_RowCreated">
     <Columns>
         <asp:TemplateField>
         <ItemStyle Width="20px" />

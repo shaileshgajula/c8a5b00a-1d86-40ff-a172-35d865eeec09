@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Backoffice/BackOffice.Master" AutoEventWireup="true"
-    CodeBehind="Tournament.aspx.cs" Inherits="StrongerOrg.Backoffice.Tournament" Theme="Moderator" %>
+    CodeBehind="Tournament.aspx.cs" Inherits="StrongerOrg.Backoffice.Tournament"
+    Theme="Moderator" %>
 
 <%@ Register Src="UserControls/Feedbacks.ascx" TagName="Feedbacks" TagPrefix="uc1" %>
 <%@ Register Src="UserControls/FakeUsers.ascx" TagName="FakeUsers" TagPrefix="fu1" %>
@@ -7,8 +8,7 @@
 <%@ Register Src="UserControls/TournamentDetails.ascx" TagName="TournamentDetails"
     TagPrefix="uc1" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajax" %>
-<%@ Register Assembly="TourneyLogic.Web.UI.BracketControl.v2" Namespace="TourneyLogic.Web.UI.WebControls"
-    TagPrefix="tl" %>
+<%@ Register src="UserControls/BracketsDisplay.ascx" tagname="BracketsDisplay" tagprefix="uc2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <table style="width: 100%;" cellpadding="0" cellspacing="5">
         <tr>
@@ -52,52 +52,7 @@
                         <uc1:TournamentDetails ID="TournamentDetails1" runat="server" />
                     </asp:View>
                     <asp:View ID="View2" runat="server">
-                        <%-- <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataKeyNames="Id"
-                            DataSourceID="standingsSqlDataSource">
-                            <EmptyDataTemplate>
-                            </EmptyDataTemplate>
-                            <Columns>
-                                <asp:BoundField DataField="Start" HeaderText="Start" SortExpression="Start" ReadOnly="true" />
-                                <asp:TemplateField HeaderText="Game">
-                                    <ItemTemplate>
-                                        <asp:HyperLink ID="hlScoreUpdatePlayerA" runat="server" Target="_blank" NavigateUrl='<%#BuildNavigateUrl(Eval("Id"), Eval("PlayerAId")) %>'><%#Eval("PlayerAName") %></asp:HyperLink>
-                                        vs. 
-                                        <asp:HyperLink ID="hlScoreUpdatePlayerB" runat="server" Target="_blank" NavigateUrl='<%#BuildNavigateUrl(Eval("Id"), Eval("PlayerBId")) %>'><%# Eval("PlayerBName")%></asp:HyperLink>
-                                        
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField>
-                                    <HeaderTemplate>
-                                        Score</HeaderTemplate>
-                                    <ItemTemplate>
-                                        <%# ScoreDisplay(Eval("ScoreA"), Eval("ScoreB")) %>
-                                    </ItemTemplate>
-                                    <EditItemTemplate>
-                                        <%#Eval("PlayerAName")%>
-                                        <asp:TextBox ID="TextBox1" runat="server" Width="20" Text='<%# Bind("ScoreA") %>'></asp:TextBox>
-                                        <%#Eval("PlayerBName")%>
-                                        <asp:TextBox ID="TextBox2" runat="server" Width="20" Text='<%# Bind("ScoreB")%>'></asp:TextBox></EditItemTemplate>
-                                </asp:TemplateField>
-                                <asp:CommandField ButtonType="Image" EditImageUrl="~/Images/Icons/Trophy.gif" HeaderText="Set Score"
-                                    ShowEditButton="True" ItemStyle-HorizontalAlign="Center" HeaderStyle-HorizontalAlign="Center"
-                                    UpdateText="Save">
-                                    <HeaderStyle HorizontalAlign="Center" />
-                                    <ItemStyle HorizontalAlign="Center" CssClass="navigate" />
-                                </asp:CommandField>
-                            </Columns>
-                        </asp:GridView>
-                        <asp:SqlDataSource ID="standingsSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:StrongerOrgString %>"
-                            SelectCommand="StandingsGet" SelectCommandType="StoredProcedure" UpdateCommand="StandingUpdate"
-                            UpdateCommandType="StoredProcedure">
-                            <SelectParameters>
-                                <asp:ControlParameter ControlID="GridView1" PropertyName="SelectedValue" Name="TournamentId"
-                                    ConvertEmptyStringToNull="true" DbType="Object" />
-                            </SelectParameters>
-                            <UpdateParameters>
-                                <asp:Parameter Name="ScoreA" Type="Int32" />
-                                <asp:Parameter Name="ScoreB" Type="Int32" />
-                            </UpdateParameters>
-                        </asp:SqlDataSource>--%>
+                       
                         <ajax:ModalPopupExtender ID="ModalPopupExtender1" runat="server" PopupControlID="pnlImageDisplay"
                             TargetControlID="hiddenTargetControlForModalPopup" CancelControlID="btnCancel"
                             BackgroundCssClass="modalBackground" BehaviorID="imgAssociatedModal">
@@ -108,13 +63,11 @@
                                     <td colspan="2" class="GrayTitle">
                                         Update matchup
                                     </td>
-                                    
                                 </tr>
                                 <tr>
                                     <td colspan="2" class="ThemeBorder">
                                         Update matchup
                                     </td>
-                                    
                                 </tr>
                                 <tr>
                                     <td>
@@ -225,12 +178,23 @@
                                             OnCommand="lbStartDate_Command">Edit</asp:LinkButton>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                
-                                
+                                <asp:TemplateField HeaderText="Score Update" ItemStyle-HorizontalAlign="Center" HeaderStyle-HorizontalAlign="Center">
+                                    <ItemTemplate>
+                                        <a href="../OrganisationSite/StandingUpdate.aspx?OrgId=<%# Master.OrgBasicInfo.Id.ToString() %>&PlayerId=<%# Guid.Empty.ToString() %>&MatchupId=<%# Eval("Id") %>"
+                                            target="_blank">...</a>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
                             </Columns>
                             <EmptyDataTemplate>
-                                There are no matchup to show. This can happen if the scheduler hasn't run yet or
-                                no one register to the tournament.
+                                <div id="Div1" class="ui-widget" runat="server">
+                                    <div class="ui-state-highlight ui-corner-all" style="margin-top: 20px; padding: 0 .7em;">
+                                        <p>
+                                            <span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>
+                                            <strong>Alert:</strong> There are no matchup to show. This can happen if the scheduler
+                                            hasn't run yet or no one register to the tournament.
+                                        </p>
+                                    </div>
+                                </div>
                             </EmptyDataTemplate>
                         </asp:GridView>
                     </asp:View>
@@ -247,14 +211,14 @@
                     </asp:View>
                     <asp:View ID="View3" runat="server">
                         <div style="text-align: right">
+                            <uc2:BracketsDisplay ID="bdPlayOffs" runat="server" />
                             <asp:LinkButton ID="lbEditPicksMode" runat="server" OnClick="lbEditPicksMode_Click">Edit</asp:LinkButton>
                             <img src="../Images/Icons/PrinterIcon.gif" />
                             <asp:HyperLink ID="hlPrint" runat="server">Print</asp:HyperLink>
                             <img src="../Images/Icons/PdfIcon.gif" />
                             <asp:HyperLink ID="HyperLink2" runat="server">Export to pdf</asp:HyperLink>
                         </div>
-                        <tl:Bracket ID="BracketTournamentMatchups" runat="server">
-                        </tl:Bracket>
+                        
                     </asp:View>
                     <asp:View ID="View4" runat="server">
                         <uc1:Feedbacks ID="Feedbacks1" runat="server" TextContentName="Feedbacks" IsEditMode="True" />

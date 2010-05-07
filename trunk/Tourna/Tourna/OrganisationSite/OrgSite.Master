@@ -83,8 +83,8 @@
         <tr>
             <td align="center" style="height: 45px; border-top-color: #aaa2fe; border-top-width: 1px;
                 border-top-style: solid;" colspan="3">
-                All Rights Reserved. | <a href="">Terms of Use</a> | <a href="">Trademarks</a> |
-                <a href="">Privacy Statement</a> © 2009 USHA Corporation.
+                <a href="TermsOfUse.aspx?orgId=<%= Request.QueryString["OrgId"] %>">Terms of Use</a> |
+                <a href="http://www.strongerorg.com" target="_blank">StrongerOrg.com</a> © 2009 .
             </td>
         </tr>
     </table>

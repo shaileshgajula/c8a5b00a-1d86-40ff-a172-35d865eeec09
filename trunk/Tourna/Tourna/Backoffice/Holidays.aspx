@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="Organisation Holidays" Language="C#" MasterPageFile="~/Backoffice/BackOffice.Master"
     AutoEventWireup="true" CodeBehind="Holidays.aspx.cs" Inherits="StrongerOrg.Backoffice.Holidyas" %>
+
 <%@ MasterType VirtualPath="~/Backoffice/BackOffice.Master" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <table style="width: 100%">
@@ -10,7 +11,13 @@
                     <Columns>
                         <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
                         <asp:BoundField DataField="Date" HeaderText="Date" SortExpression="Date" DataFormatString="{0:d}" />
-                        <asp:CommandField ShowDeleteButton="True" HeaderText="Remove" DeleteText="Remove" />
+                        <asp:TemplateField HeaderText="Delete" HeaderStyle-HorizontalAlign="Center">
+                            <ItemStyle HorizontalAlign="Center" />
+                            <ItemTemplate>
+                                <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Images/Icons/trash.gif"
+                                    CommandName="Delete" OnClientClick="return confirm('Are you sure you want to delete')" />
+                            </ItemTemplate>
+                        </asp:TemplateField>
                     </Columns>
                     <EmptyDataTemplate>
                         No holidays found for this organisation
@@ -19,9 +26,8 @@
                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:StrongerOrgString %>"
                     DeleteCommand="DELETE FROM [OrganisationHolidays] WHERE [Id] = @Id" InsertCommand="INSERT INTO [OrganisationHolidays] ([Name], [Date], [OrganisationId]) VALUES (@Name, @Date, @OrganisationId)"
                     SelectCommand="SELECT [Name], [Date], [OrganisationId], [Id] FROM [OrganisationHolidays] WHERE ([OrganisationId] = @OrganisationId) order by [Date] desc"
-                    
-                    UpdateCommand="UPDATE [OrganisationHolidays] SET [Name] = @Name, [Date] = @Date, [OrganisationId] = @OrganisationId WHERE [Id] = @Id" 
-                    ondeleted="SqlDataSource1_Deleted">
+                    UpdateCommand="UPDATE [OrganisationHolidays] SET [Name] = @Name, [Date] = @Date, [OrganisationId] = @OrganisationId WHERE [Id] = @Id"
+                    OnDeleted="SqlDataSource1_Deleted">
                     <SelectParameters>
                         <asp:CookieParameter CookieName="OrganisationId" Name="OrganisationId" Type="String" />
                     </SelectParameters>
@@ -53,7 +59,7 @@
         <tr>
             <td>
                 <asp:FormView ID="FormView1" runat="server" DataKeyNames="Id" DataSourceID="SqlDataSource1"
-                    DefaultMode="Insert" oniteminserted="FormView1_ItemInserted">
+                    DefaultMode="Insert" OnItemInserted="FormView1_ItemInserted">
                     <InsertItemTemplate>
                         <table>
                             <tr>

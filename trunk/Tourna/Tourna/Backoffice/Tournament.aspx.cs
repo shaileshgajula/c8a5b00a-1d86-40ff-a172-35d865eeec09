@@ -61,34 +61,34 @@ namespace StrongerOrg.Backoffice
                 {
                     this.calSchedules.SelectedDates.Add(date);
                 }
+                this.bdPlayOffs.TournamentId = this.TournamentId;
 
+                //this.BracketTournamentMatchups.Competitors.Clear();
+                //this.BracketTournamentMatchups.Results.Clear();
+                //BracketControlCollection<BracketCompetitor> bcc = new BracketControlCollection<BracketCompetitor>();
+                //BracketCollection<BracketMatchupResult> bcBm = new BracketCollection<BracketMatchupResult>();
+                //int i = 1;
+                ////var playoffFirstRoundCompetitors = (from m in matchups
+                ////        group m by m.Round into g
+                ////        where g.Count() == 8
+                ////        select new { MatchupRound = g}).FirstOrDefault();
+                //foreach (Matchup matchup in matchups)
+                //{
 
-                this.BracketTournamentMatchups.Competitors.Clear();
-                this.BracketTournamentMatchups.Results.Clear();
-                BracketControlCollection<BracketCompetitor> bcc = new BracketControlCollection<BracketCompetitor>();
-                BracketCollection<BracketMatchupResult> bcBm = new BracketCollection<BracketMatchupResult>();
-                int i = 1;
-                //var playoffFirstRoundCompetitors = (from m in matchups
-                //        group m by m.Round into g
-                //        where g.Count() == 8
-                //        select new { MatchupRound = g}).FirstOrDefault();
-                foreach (Matchup matchup in matchups)
-                {
+                //    //    if (item.WinnerId != -1)
+                //    //    {
+                //    //        bcBm.Add(new BracketMatchupResult() { MatchupID = item.MatchupId, WinningCompetitorId = "BracketCompetitor" + (i + item.WinnerId).ToString() });
+                //    //    }
+                //    if (matchup.PlayerAId != Guid.Empty)
+                //    {
+                //        bcc.Add(new BracketCompetitor() { CompetitorId = matchup.PlayerAId.ToString(), CompetitorName = matchup.PlayerA });
+                //        bcc.Add(new BracketCompetitor() { CompetitorId = matchup.PlayerBId.ToString(), CompetitorName = matchup.PlayerB });
+                //    }
+                //    //    i += 2;
 
-                    //    if (item.WinnerId != -1)
-                    //    {
-                    //        bcBm.Add(new BracketMatchupResult() { MatchupID = item.MatchupId, WinningCompetitorId = "BracketCompetitor" + (i + item.WinnerId).ToString() });
-                    //    }
-                    if (matchup.PlayerAId != Guid.Empty)
-                    {
-                        bcc.Add(new BracketCompetitor() { CompetitorId = matchup.PlayerAId.ToString(), CompetitorName = matchup.PlayerA });
-                        bcc.Add(new BracketCompetitor() { CompetitorId = matchup.PlayerBId.ToString(), CompetitorName = matchup.PlayerB });
-                    }
-                    //    i += 2;
-
-                }
-                //this.Bracket1.Results = bcBm;
-                this.BracketTournamentMatchups.Competitors = bcc;
+                //}
+                ////this.Bracket1.Results = bcBm;
+                //this.BracketTournamentMatchups.Competitors = bcc;
 
                 //this.Bracket1.Competitors.Add(new BracketCompetitor() { CompetitorName = "pini", CompetitorId = "5" });
                 //this.brcStandings.DataSource = dateInfo.Select((x) => new
@@ -158,18 +158,38 @@ namespace StrongerOrg.Backoffice
                 {
                     e.Row.Cells[3].ForeColor = Color.Red;
                 }
+               
                 if ((round % 2) == 0)
                 {
                     e.Row.BackColor = System.Drawing.ColorTranslator.FromHtml("#F0F0FC");
+                    e.Row.Attributes.Add("onmouseover", "this.style.backgroundColor='#effff6'");
+                    e.Row.Attributes.Add("onmouseout", "this.style.backgroundColor='#F0F0FC'");
                 }
                 else
                 {
                     e.Row.BackColor = System.Drawing.Color.White;
+                    e.Row.Attributes.Add("onmouseover", "this.style.backgroundColor='#effff6'");
+                    e.Row.Attributes.Add("onmouseout", "this.style.backgroundColor='White'");
                 }
                 roudPlayers.Add(playerAName);
                 roudPlayers.Add(playerBName);
                 currentRound = round;
+
+
+                
+                //e.Row.Attributes.Add("onmouseout", "this.style.backgroundColor=" + System.Drawing.ColorTranslator.ToHtml(e.Row.BackColor));
+
+
             }
+
+            //string onmouseoverStyle = "this.style.backgroundColor='blue'"; 
+            //string onmouseoutStyle = "this.style.backgroundColor='@BackColor'"; 
+            //string rowBackColor = String.Empty; if (e.Row.RowType == DataControlRowType.DataRow) 
+            //{ if (e.Row.RowState == DataControlRowState.Alternate) 
+            //    rowBackColor = System.Drawing.ColorTranslator.ToHtml(MyGridView.AlternatingRowStyle.BackColor).ToString(); 
+            //else 
+            //    rowBackColor = System.Drawing.ColorTranslator.ToHtml(MyGridView.RowStyle.BackColor).ToString();
+            //    e.Row.Attributes.Add("onmouseover", onmouseoverStyle); e.Row.Attributes.Add("onmouseout", onmouseoutStyle.Replace("@BackColor", rowBackColor)); }
         }
 
 
@@ -211,12 +231,12 @@ namespace StrongerOrg.Backoffice
             this.hfNextMatchupId.Value = nextMatchupId;
             this.ModalPopupExtender1.Show();
         }
-        protected void lbResetScore_Command(object sender, CommandEventArgs e)
-        {
-            int id = int.Parse(e.CommandArgument.ToString());
-            TournamentMatchupManager.ResetScore(id);
-            this.ScheduleViewActivate();
-            this.mvTournament.ActiveViewIndex = 1;
-        }
+        //protected void lbResetScore_Command(object sender, CommandEventArgs e)
+        //{
+        //    int id = int.Parse(e.CommandArgument.ToString());
+        //    TournamentMatchupManager.ResetScore(id);
+        //    this.ScheduleViewActivate();
+        //    this.mvTournament.ActiveViewIndex = 1;
+        //}
     }
 }

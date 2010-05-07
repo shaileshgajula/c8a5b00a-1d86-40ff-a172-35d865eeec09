@@ -7,18 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace StrongerOrg.Backoffice {
+namespace StrongerOrg.Backoffice.UserControls {
     
     
-    public partial class PaymentsManagement {
+    public partial class BracketsDisplay {
         
         /// <summary>
-        /// Div1 control.
+        /// BracketTest control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div1;
+        protected global::TourneyLogic.Web.UI.WebControls.Bracket BracketTest;
     }
 }

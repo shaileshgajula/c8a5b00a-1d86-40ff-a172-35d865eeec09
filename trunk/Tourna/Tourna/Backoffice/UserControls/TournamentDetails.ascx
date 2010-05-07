@@ -33,8 +33,30 @@
         <asp:BoundField DataField="NumberOfPlayersLimit" HeaderText="Limit Of Players" SortExpression="NumberOfPlayersLimit" />
         <asp:BoundField DataField="MatchingAlgo" HeaderText="MatchingAlgo"/>
          <asp:BoundField DataField="GamesPerDay" HeaderText="Games Per Day"/>
-        <asp:BoundField DataField="TimeWindowStart" HeaderText="Time Window Start" />
-        <asp:BoundField DataField="TimeWindowEnd" HeaderText="Time Window End" />
+        
+        <asp:TemplateField>
+            <HeaderTemplate>
+                Time Window Start</HeaderTemplate>
+            <ItemTemplate>
+                <%# ((TimeSpan)Eval("TimeWindowStart")).TruncateSeconds()%>
+            </ItemTemplate>
+            <EditItemTemplate>
+                <asp:TextBox ID="txtTimeWindowStart" runat="server" 
+                    Text='<%# ((TimeSpan)Eval("TimeWindowStart")).TruncateSeconds()%>'></asp:TextBox>
+            </EditItemTemplate>
+        </asp:TemplateField>
+        <asp:TemplateField>
+            <HeaderTemplate>
+                Time Window End</HeaderTemplate>
+            <ItemTemplate>
+                <%# ((TimeSpan)Eval("TimeWindowEnd")).TruncateSeconds()%>
+            </ItemTemplate>
+           <EditItemTemplate>
+                <asp:TextBox ID="txtTimeWindowEnd" runat="server" 
+                    Text='<%# ((TimeSpan)Eval("TimeWindowEnd")).TruncateSeconds()%>'></asp:TextBox>
+            </EditItemTemplate>
+        </asp:TemplateField>
+        
         <asp:BoundField DataField="FirstPrize" HeaderText="First Prize" />
         <asp:BoundField DataField="SecondPrize" HeaderText="Second Prize" />
         <asp:BoundField DataField="ThirdPrize" HeaderText="Third Prize" />
@@ -106,8 +128,8 @@
         <asp:Parameter Name="NumberOfPlayersLimit" Type="Int32" />
         <asp:Parameter Name="GameId" Type="Int32" />
         <asp:Parameter Name="MatchingAlgo" Type="String" />
-        <asp:Parameter Name="TimeWindowStart" Type="Int32" />
-        <asp:Parameter Name="TimeWindowEnd" Type="Int32" />
+        <asp:Parameter Name="TimeWindowStart" Type="DateTime" />
+        <asp:Parameter Name="TimeWindowEnd" Type="DateTime" />
         <asp:Parameter Name="IsOpenAllDay" Type="Boolean" />
         <asp:Parameter Name="FirstPrize" Type="String" />
         <asp:Parameter Name="SecondPrize" Type="String" />
@@ -128,8 +150,8 @@
         <asp:Parameter Name="NumberOfPlayersLimit" Type="Int32" />
         <asp:Parameter Name="GameId" Type="Int32" />
         <asp:Parameter Name="MatchingAlgo" Type="String" />
-        <asp:Parameter Name="TimeWindowStart" Type="Int32" />
-        <asp:Parameter Name="TimeWindowEnd" Type="Int32" />
+        <asp:Parameter Name="TimeWindowStart" Type="DateTime" />
+        <asp:Parameter Name="TimeWindowEnd" Type="DateTime" />
         <asp:Parameter Name="GamesPerDay" Type="Int32" />
         <asp:Parameter Name="IsOpenAllDay" Type="Boolean" />
         <asp:Parameter Name="FirstPrize" Type="String" />

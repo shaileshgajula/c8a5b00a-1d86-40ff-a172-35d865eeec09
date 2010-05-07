@@ -83,19 +83,23 @@
     <Content Include="Backoffice\MiriMargolin\About.aspx" />
     <Content Include="Backoffice\MiriMargolin\GuestBook.aspx" />
     <Content Include="Backoffice\MiriMargolin\Newsletter.aspx" />
+    <Content Include="Backoffice\TermsOfUse.aspx" />
     <Content Include="Backoffice\Tournament.aspx" />
     <Content Include="Backoffice\TournamentBuilder.aspx" />
     <Content Include="Backoffice\UserControls\Albums.ascx" />
+    <Content Include="Backoffice\UserControls\BracketsDisplay.ascx" />
     <Content Include="Backoffice\UserControls\FakeUsers.ascx" />
     <Content Include="Backoffice\UserControls\Feedbacks.ascx" />
     <Content Include="Backoffice\UserControls\GalleryUploader.ascx" />
     <Content Include="Backoffice\UserControls\GalleryViewer.ascx" />
     <Content Include="Backoffice\UserControls\ImageViewer.ascx" />
+    <Content Include="Backoffice\UserControls\TermsOfUse.ascx" />
     <Content Include="Backoffice\UserControls\TextContent.ascx" />
     <Content Include="EmailTemplate\MiriMargolinShareWithAFriend.htm" />
     <Content Include="EmailTemplate\MiriMargolinContact.htm" />
     <Content Include="EmailTemplate\RecoverPassword.htm" />
     <Content Include="EmailTemplate\TournamentInvintation.htm" />
+    <Content Include="FrontSitePages\FreeTrial.aspx" />
     <Content Include="FrontSitePages\MiriMargolin\About.aspx" />
     <Content Include="FrontSitePages\MiriMargolin\Albums.aspx" />
     <Content Include="FrontSitePages\MiriMargolin\ContactUs.aspx" />
@@ -105,6 +109,7 @@
     <Content Include="FrontSitePages\MiriMargolin\ImageViewer.aspx" />
     <Content Include="FrontSitePages\MiriMargolin\Press.aspx" />
     <Content Include="FrontSitePages\MiriMargolin\ShowCase.aspx" />
+    <Content Include="FrontSitePages\UserContorls\FeeTrailForm.ascx" />
     <Content Include="googlehostedservice.html" />
     <Content Include="Images\background_slice_lighterblue.jpg" />
     <Content Include="Images\GamesImages\bowling_01wii.jpg" />
@@ -146,6 +151,7 @@
     <Content Include="OrganisationSite\EventGallery.aspx" />
     <Content Include="OrganisationSite\ImageViewer.aspx" />
     <Content Include="OrganisationSite\PrintTournament.aspx" />
+    <Content Include="OrganisationSite\TermsOfUse.aspx" />
     <Content Include="Scripts\colorbox\jquery.colorbox-min.js" />
     <Content Include="Scripts\colorbox\jquery.colorbox.js" />
     <Content Include="Scripts\content\ajax.html" />
@@ -329,6 +335,7 @@
     <Compile Include="Backoffice\Entities\Scheduler\SchedulerAlgo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Backoffice\Entities\StorngerOrgExtentions.cs" />
     <Compile Include="Backoffice\Entities\TournamentMatchupManager.cs" />
     <Compile Include="Backoffice\Entities\TextContentManager.cs" />
     <Compile Include="Backoffice\Entities\TournamentAlgorithm\Competitor.cs" />
@@ -502,6 +509,13 @@
     <Compile Include="Backoffice\Standings.aspx.designer.cs">
       <DependentUpon>Standings.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Backoffice\TermsOfUse.aspx.cs">
+      <DependentUpon>TermsOfUse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backoffice\TermsOfUse.aspx.designer.cs">
+      <DependentUpon>TermsOfUse.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Backoffice\Tournament.aspx.cs">
       <DependentUpon>Tournament.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -529,6 +543,13 @@
     </Compile>
     <Compile Include="Backoffice\UserControls\Albums.ascx.designer.cs">
       <DependentUpon>Albums.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Backoffice\UserControls\BracketsDisplay.ascx.cs">
+      <DependentUpon>BracketsDisplay.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backoffice\UserControls\BracketsDisplay.ascx.designer.cs">
+      <DependentUpon>BracketsDisplay.ascx</DependentUpon>
     </Compile>
     <Compile Include="Backoffice\UserControls\FakeUsers.ascx.cs">
       <DependentUpon>FakeUsers.ascx</DependentUpon>
@@ -578,6 +599,13 @@
     </Compile>
     <Compile Include="Backoffice\Administrator\WhoIsOnline.aspx.designer.cs">
       <DependentUpon>WhoIsOnline.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backoffice\UserControls\TermsOfUse.ascx.cs">
+      <DependentUpon>TermsOfUse.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backoffice\UserControls\TermsOfUse.ascx.designer.cs">
+      <DependentUpon>TermsOfUse.ascx</DependentUpon>
     </Compile>
     <Compile Include="Backoffice\UserControls\TextContent.ascx.cs">
       <DependentUpon>TextContent.ascx</DependentUpon>
@@ -641,6 +669,13 @@
     </Compile>
     <Compile Include="FrontSitePages\FAQ.aspx.designer.cs">
       <DependentUpon>FAQ.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrontSitePages\FreeTrial.aspx.cs">
+      <DependentUpon>FreeTrial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrontSitePages\FreeTrial.aspx.designer.cs">
+      <DependentUpon>FreeTrial.aspx</DependentUpon>
     </Compile>
     <Compile Include="FrontSitePages\Join.aspx.cs">
       <DependentUpon>Join.aspx</DependentUpon>
@@ -732,6 +767,13 @@
     </Compile>
     <Compile Include="FrontSitePages\TermOfUser.aspx.designer.cs">
       <DependentUpon>TermOfUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrontSitePages\UserContorls\FeeTrailForm.ascx.cs">
+      <DependentUpon>FeeTrailForm.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrontSitePages\UserContorls\FeeTrailForm.ascx.designer.cs">
+      <DependentUpon>FeeTrailForm.ascx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -862,6 +904,13 @@
     </Compile>
     <Compile Include="OrganisationSite\StandingUpdate.aspx.designer.cs">
       <DependentUpon>StandingUpdate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OrganisationSite\TermsOfUse.aspx.cs">
+      <DependentUpon>TermsOfUse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrganisationSite\TermsOfUse.aspx.designer.cs">
+      <DependentUpon>TermsOfUse.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Backoffice\SiteMap.aspx.cs">
@@ -1084,7 +1133,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>51946</DevelopmentServerPort>
+          <DevelopmentServerPort>49472</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

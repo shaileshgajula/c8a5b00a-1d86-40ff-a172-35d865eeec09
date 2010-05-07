@@ -39,9 +39,15 @@
             <asp:BoundField DataField="Name" HeaderText="Organisation" SortExpression="Name" />
             <asp:BoundField DataField="RoleName" HeaderText="Role Name" SortExpression="RoleName" />
             <asp:BoundField DataField="LastActivityDate" HeaderText="Last Activity Date" SortExpression="LastActivityDate"
-                DataFormatString="{0:d}" />
+                DataFormatString="{0:f}" />
             <asp:BoundField DataField="Email" HeaderText="Role Description" SortExpression="Description" />
-            <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" />
+            <asp:TemplateField HeaderText="Delete" HeaderStyle-HorizontalAlign="Center">
+                <ItemStyle HorizontalAlign="Center" />
+                <ItemTemplate>
+                    <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Images/Icons/trash.gif"
+                        CommandName="Delete" OnClientClick="return confirm('Are you sure you want to delete')" />
+                </ItemTemplate>
+            </asp:TemplateField>
         </Columns>
         <EmptyDataTemplate>
             No Records found

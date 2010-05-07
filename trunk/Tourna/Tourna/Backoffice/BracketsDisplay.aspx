@@ -4,11 +4,12 @@
 <%@ Register Assembly="TourneyLogic.Web.UI.BracketControl.v2" Namespace="TourneyLogic.Web.UI.WebControls"
     TagPrefix="tl" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:LinkButton ID="LinkButton2" runat="server" onclick="LinkButton2_Click1">LinkButton</asp:LinkButton>
+    <asp:LinkButton ID="LinkButton2" runat="server" OnClick="LinkButton2_Click1">LinkButton</asp:LinkButton>
     <br />
     <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">Switch to edit mode</asp:LinkButton>
     <br />
     <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+   
     <br />
     <%--<tl:Bracket ID="brackets" runat="server" readonly="True" RoundWidth="130" Font-Bold="False"
         Font-Italic="False" Font-Names="Arial" Font-Size="Small" ForeColor="Blue" incorrectpickappearance-forecolor="Red"
@@ -26,5 +27,7 @@
             <asp:QueryStringParameter Name="TournamentId" QueryStringField="TournamentId" Type="String" />
         </SelectParameters>
     </asp:SqlDataSource>--%>
-    <tl:Bracket ID="BracketTest" runat="server" DisplayMode="EditPicksMode" Width="100" MatchupTextStyle-BorderWidth=5></tl:Bracket>
+    <tl:Bracket ID="BracketTest" runat="server" DisplayMode="ViewMode" Width="100" MatchupTextStyle-BorderWidth="5">
+
+    </tl:Bracket>
 </asp:Content>

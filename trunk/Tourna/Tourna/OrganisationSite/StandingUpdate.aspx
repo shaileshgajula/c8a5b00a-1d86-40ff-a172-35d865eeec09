@@ -19,12 +19,15 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MenuContentPlaceHolder" runat="server">
-    <ul class="lavaLampBottomStyle" id="M1">
+     <ul class="lavaLampBottomStyle" id="M1">
         <li></li>
-        <li><a href="">Tournaments</a></li>
+        <li><a href="ContactModerator.aspx?orgId=<%= Request.QueryString["OrgId"].ToString()%>">
+            Contact Moderator</a></li>
         <li><a href="Rules.aspx?orgId=<%= Request.QueryString["OrgId"].ToString() %>">Rules</a></li>
-        <li><a href="#">Event Gallery</a></li>
-        <li><a href="#">Contact Moderator</a></li>
+        <li><a href="EventGallery.aspx?orgId=<%= Request.QueryString["OrgId"].ToString() %>">
+            Event Gallery</a></li>
+        <li ><a href="Leagues.aspx?orgId=<%= Request.QueryString["OrgId"].ToString() %>">
+            Tournaments</a></li>
     </ul>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
