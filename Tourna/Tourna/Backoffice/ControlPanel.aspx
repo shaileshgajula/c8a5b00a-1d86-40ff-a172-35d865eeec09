@@ -4,187 +4,43 @@
 <%@ MasterType VirtualPath="~/Backoffice/BackOffice.Master" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script type="text/javascript">
-        // increase the default animation speed to exaggerate the effect
-        $.fx.speeds._default = 1000;
         $(function () {
-            $('#dialog').dialog({
-                autoOpen: false,
-                show: 'scale',
-                hide: 'scale',
-                width: 500
-            });
-
-            $('#opener').click(function () {
-                $('#dialog').dialog('open');
-                return false;
-            });
+            $('#format').buttonset();
         });
     </script>
-    <br />
-    <div id="dialog" title="Fake users for testing" >
-        <asp:GridView ID="GVcsv" runat="server">
-        </asp:GridView>
+    <div id="format" align="left">
+        <a href="https://spreadsheets.google.com/ccc?key=0AnH0jDGOn2Z1dHFaQzFZaDBvYXZzWEdUejg3NjJteGc&hl=en"
+            target="_blank">Open user spread sheet...</a> 
+            <a href="playersChart.aspx">Players Chart</a>
+        <asp:Button ID="btnImport" runat="server" Text="Import fake users from spread sheet"
+            OnClick="btnImport_Click" />
     </div>
-    <asp:LinqDataSource ID="TournamentSource" runat="server" ContextTypeName="StrongerOrg.Backoffice.DataLayer.TournaDataContext"
-        TableName="Tournaments" Select="new (TournamentName, Id)" OnSelecting="TournamentSource_Selecting">
-    </asp:LinqDataSource>
     <br />
     <br />
-    <br />
-    <table style="border: thin dotted #0099FF; width: 100%">
-        <tr>
-            <td style="text-align: right">
-                Select Tournament:
-                <asp:DropDownList ID="drpDownTournamentList" runat="server" DataSourceID="TournamentSource"
-                    DataTextField="TournamentName" DataValueField="Id" AutoPostBack="True" OnSelectedIndexChanged="drpDownTournamentList_SelectedIndexChanged">
-                </asp:DropDownList>
-            </td>
-        </tr>
-        <tr>
-            <td style="text-align: center">
-                        <table style="width: 100%" __designer:mapid="5da">
-                            <tr __designer:mapid="5db">
-                                <td style="text-align: right" __designer:mapid="5dc">
-                                    Number of Players:
-                                    <asp:Label ID="lblNumOfPlayers" Text="0" Font-Bold="true" runat="server" />
-                                    <asp:LinkButton ID="lbtnPlayersExport" Text="Export" runat="server" 
-                                        OnClick="lbtnPlayersExport_Click" />
-                                </td>
-                            </tr>
-                            <tr __designer:mapid="5df">
-                                <td __designer:mapid="5e0">
-                                    <asp:GridView ID="playersGrid" runat="server">
-                                        <EmptyDataTemplate>
-                                            No players were assigned to the tournament
-                                        </EmptyDataTemplate>
-                                    </asp:GridView>
-                                </td>
-                            </tr>
-                        </table>
-                <asp:Menu ID="navMenu" runat="server" Orientation="Horizontal" BorderStyle="Dotted"
-                    BorderWidth="1px" OnMenuItemClick="navMenu_MenuItemClick" Width="100%">
-                    <StaticSelectedStyle BackColor="#F4F4F4" />
-                    <Items>
-                        <asp:MenuItem Text="Show Players" Value="0"></asp:MenuItem>
-                        <asp:MenuItem Value="1" Text="Show Pairs"></asp:MenuItem>
-                        <asp:MenuItem Text=" Scheduled Games" Value="2"></asp:MenuItem>
-                    </Items>
-                </asp:Menu>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <asp:MultiView ID="PageView" runat="server" ActiveViewIndex="0">
-                    <asp:View ID="PlayersView" runat="server">
-                        Add
-                        <asp:TextBox ID="txtNumPlayer" runat="server" Height="21px" Width="36px" />
-                        first players from demo <a href="#" id="opener">csv file</a> ||
-                        <asp:LinkButton ID="lbtnAddPlayers" runat="server" Text="Add" OnClick="lbtnAddPlayers_Click" />
-                        <br />
-                        <asp:LinkButton ID="lbRunSchuler" runat="server" OnClick="lbRunSchuler_Click">Run scheduler</asp:LinkButton>
-                        &nbsp;|&nbsp;<asp:LinkButton ID="lbNotifyPlayers" runat="server" OnClick="lbNotifyPlayers_Click">Notify Players</asp:LinkButton>
-                        &nbsp;|&nbsp;<asp:LinkButton ID="lblClearMatchups" runat="server" OnClick="lblClearMatchups_Click">Clear matchups</asp:LinkButton>
-                        <br />
-                    </asp:View>
-                    <asp:View ID="PairView" runat="server">
-                        <table>
-                            <tr>
-                                <td>
-                                    Player Matching:
-                                </td>
-                                <td>
-                                    <asp:DropDownList ID="drpPairAlgo" runat="server" AutoPostBack="True" OnSelectedIndexChanged="drpPairAlgo_SelectedIndexChanged">
-                                    </asp:DropDownList>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Pairing:
-                                </td>
-                                <td>
-                                    <asp:DropDownList ID="drpPairing" runat="server" AutoPostBack="True" OnSelectedIndexChanged="drpPairing_SelectedIndexChanged">
-                                    </asp:DropDownList>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <asp:Label ID="lblMultiGame" Text="Number of Games:" runat="server" />
-                                </td>
-                                <td>
-                                    <asp:TextBox ID="txtMultiGame" runat="server" Text="1" Height="21px" Width="36px" />
-                                </td>
-                                <td>
-                                    <asp:LinkButton ID="lbtnPairUp" runat="server" Text="Pair" OnClick="lbtnPairUp_Click" />
-                                </td>
-                            </tr>
-                        </table>
-                        <table style="width: 100%">
-                            <tr>
-                                <td style="text-align: right">
-                                    Number of Games:
-                                    <asp:Label ID="lblNumActiveGames" runat="server" Font-Bold="true" />
-                                    <asp:LinkButton ID="lBtnSave" Text="Save" runat="server" OnClick="lBtnSave_Click" />
-                                    <asp:LinkButton ID="lbtnPairsExport" Text="Export" runat="server" OnClick="lbtnPairsExport_Click" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <asp:GridView ID="pairGrid" runat="server">
-                                        <EmptyDataTemplate>
-                                            No players were assigned to the tournament
-                                        </EmptyDataTemplate>
-                                    </asp:GridView>
-                                </td>
-                            </tr>
-                        </table>
-                    </asp:View>
-                    <asp:View ID="ScheduleView" runat="server">
-                        <table style="width: 100%">
-                            <tr>
-                                <td>
-                                    <asp:Menu ID="schedMenu" runat="server" Width="100%" Orientation="Horizontal" OnMenuItemClick="schedMenu_MenuItemClick">
-                                        <StaticSelectedStyle BackColor="#F4F4F4" />
-                                        <Items>
-                                            <asp:MenuItem Text="Calendar View" Value="0"></asp:MenuItem>
-                                            <asp:MenuItem Text="Grid View" Value="1"></asp:MenuItem>
-                                        </Items>
-                                    </asp:Menu>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <asp:LinkButton ID="lbtnForceReschedule" runat="server" Text="Run scheduler" OnClick="lbtnForceReschedule_Click" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <asp:MultiView ID="scheduleMultiView" runat="server" ActiveViewIndex="0">
-                                        <asp:View runat="server" ID="schedCalendarView">
-                                            <asp:PlaceHolder ID="schedulesPlaceHolder" runat="server"></asp:PlaceHolder>
-                                        </asp:View>
-                                        <asp:View runat="server" ID="schedGridView">
-                                            <table style="width: 100%">
-                                                <tr>
-                                                    <td style="text-align: right">
-                                                        <asp:LinkButton ID="lbtnExportSchedules" Text="Export" runat="server" OnClick="lbtnExportSchedules_Click" />
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <asp:GridView ID="schedDatesGrid" runat="server">
-                                                        </asp:GridView>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </asp:View>
-                                    </asp:MultiView>
-                                </td>
-                            </tr>
-                        </table>
-                    </asp:View>
-                </asp:MultiView>
-            </td>
-        </tr>
-    </table>
-    <asp:HyperLink ID="hplPlayerCharts" runat="server" NavigateUrl="~/Backoffice/PlayersChart.aspx">Players Chart</asp:HyperLink>
+    Fake users(shared with all clients)
+    <asp:GridView ID="GVcsv" runat="server" AutoGenerateColumns="False" DataKeyNames="Id"
+        DataSourceID="SqlDataSource1">
+        <Columns>
+            <asp:TemplateField>
+                <ItemTemplate>
+                    <%= (++i).ToString() + "." %>
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
+            <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
+        </Columns>
+        <EmptyDataTemplate>
+            <div id="Div1" class="ui-widget" runat="server">
+                <div class="ui-state-highlight ui-corner-all" style="margin-top: 20px; padding: 0 .7em;">
+                    <p>
+                        <span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>
+                        <strong>Alert:</strong> No fake users have been found
+                    </p>
+                </div>
+            </div>
+        </EmptyDataTemplate>
+    </asp:GridView>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:StrongerOrgConnectionString %>"
+        SelectCommand="SELECT [Name], [Email], [Id] FROM [FakeUsers] ORDER BY [Name]">
+    </asp:SqlDataSource>
 </asp:Content>
