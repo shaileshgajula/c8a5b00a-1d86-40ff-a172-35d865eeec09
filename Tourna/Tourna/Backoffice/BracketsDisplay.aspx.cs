@@ -15,39 +15,39 @@ namespace StrongerOrg.Backoffice
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
-            {
-                List<StrongerOrg.Backoffice.TournamentAlgorithm.Matchup> matchups = TournamentMatchupManager.GetTournamentMatchups(new Guid("4ede643f-0d83-467a-b779-61744991a076"));
-                int lastround = matchups.Max(m => m.Round);
-                IEnumerable<StrongerOrg.Backoffice.TournamentAlgorithm.Matchup> playOffs = matchups.Where(m => m.Round == lastround - 3 && m.PlayerAId != Guid.Empty && m.PlayerBId != Guid.Empty);
-                if (playOffs.Count() == 8)
-                {
-                    int i = 0;
-                    foreach (var item in playOffs)
-                    {
-                        i++;
-                        BracketTest.Competitors.Add(new TourneyLogic.Web.UI.WebControls.BracketCompetitor() { CompetitorName = item.PlayerA });
-                        BracketTest.Competitors.Add(new TourneyLogic.Web.UI.WebControls.BracketCompetitor() { CompetitorName = item.PlayerB});
-                        if (item.WinnerId.HasValue)
-                        {
+            //if (!Page.IsPostBack && false)
+            //{
+            //    List<StrongerOrg.Backoffice.TournamentAlgorithm.Matchup> matchups = TournamentMatchupManager.GetTournamentMatchups(new Guid("4ede643f-0d83-467a-b779-61744991a076"));
+            //    int lastround = matchups.Max(m => m.Round);
+            //    IEnumerable<StrongerOrg.Backoffice.TournamentAlgorithm.Matchup> playOffs = matchups.Where(m => m.Round == lastround - 3 && m.PlayerAId != Guid.Empty && m.PlayerBId != Guid.Empty);
+            //    if (playOffs.Count() == 8)
+            //    {
+            //        int i = 0;
+            //        foreach (var item in playOffs)
+            //        {
+            //            i++;
+            //            BracketTest.Competitors.Add(new TourneyLogic.Web.UI.WebControls.BracketCompetitor() { CompetitorName = item.PlayerA });
+            //            BracketTest.Competitors.Add(new TourneyLogic.Web.UI.WebControls.BracketCompetitor() { CompetitorName = item.PlayerB});
+            //            if (item.WinnerId.HasValue)
+            //            {
                            
-                            string BracketCompetitor = "BracketCompetitor" + ((item.WinnerId == item.PlayerAId) ? (i * 2 - 1).ToString() : (i * 2).ToString());
-                            this.BracketTest.Results.Add(new BracketMatchupResult() { MatchupID = "MatchUp" + i.ToString(), WinningCompetitorId = BracketCompetitor });
+            //                string BracketCompetitor = "BracketCompetitor" + ((item.WinnerId == item.PlayerAId) ? (i * 2 - 1).ToString() : (i * 2).ToString());
+            //                this.BracketTest.Results.Add(new BracketMatchupResult() { MatchupID = "MatchUp" + i.ToString(), WinningCompetitorId = BracketCompetitor });
 
-                        }
+            //            }
                        
-                    }
-                    IEnumerable<StrongerOrg.Backoffice.TournamentAlgorithm.Matchup> results = matchups.Where(m => m.Round > lastround - 3 && m.WinnerId.HasValue);
-                    foreach (var item in results)
-                    {
-                        if (item.WinnerId.HasValue)
-                        {
-                            int pId = FindIndex(item.WinnerId.Value, playOffs);
-                            string BracketCompetitor = "BracketCompetitor" + pId.ToString();
-                            this.BracketTest.Results.Add(new BracketMatchupResult() { MatchupID = "MatchUp" + i.ToString(), WinningCompetitorId = BracketCompetitor });
-                        }
-                    }
-                }
+            //        }
+            //        IEnumerable<StrongerOrg.Backoffice.TournamentAlgorithm.Matchup> results = matchups.Where(m => m.Round > lastround - 3 && m.WinnerId.HasValue);
+            //        foreach (var item in results)
+            //        {
+            //            if (item.WinnerId.HasValue)
+            //            {
+            //                int pId = FindIndex(item.WinnerId.Value, playOffs);
+            //                string BracketCompetitor = "BracketCompetitor" + pId.ToString();
+            //                this.BracketTest.Results.Add(new BracketMatchupResult() { MatchupID = "MatchUp" + i.ToString(), WinningCompetitorId = BracketCompetitor });
+            //            }
+            //        }
+            //    }
                 //List<StrongerOrg.Backoffice.TournamentAlgorithm.Competitor> competitors = new List<TournamentAlgorithm.Competitor>();
                 //foreach (StrongerOrg.Backoffice.TournamentAlgorithm.Matchup match in matchups)
                 //{
@@ -71,7 +71,7 @@ namespace StrongerOrg.Backoffice
                 //    char c = (char)(i);
                 //    BracketTest.Competitors.Add(new TourneyLogic.Web.UI.WebControls.BracketCompetitor() { CompetitorId = i.ToString(), CompetitorName = c.ToString() });
                 //}
-            }
+            //}
             //this.BracketTest.Results.Add(new BracketMatchupResult() { MatchupID = "MatchUp1", WinningCompetitorId = "BracketCompetitor1" });
         }
 
