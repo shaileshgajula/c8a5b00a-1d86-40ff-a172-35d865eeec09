@@ -113,7 +113,8 @@
                 <ComboBoxItem Content="Credit Card"/>
                 <ComboBoxItem Content="Check"/>
             </ComboBox>
-            <TextBox x:Name="_textBoxInfo" TextWrapping="Wrap" Grid.Row="14" Grid.Column="0"  Margin="5" Grid.ColumnSpan="4"/>
+            <TextBox x:Name="_textBoxInfo" TextWrapping="Wrap" Grid.Row="14" Grid.Column="0"  Margin="5" Grid.ColumnSpan="4"
+                     AcceptsReturn="True"/>
                 <Button x:Name="_buttonSave" 
                 Content="Save" Margin="5"
                 Grid.Row="15" Width="100" 
