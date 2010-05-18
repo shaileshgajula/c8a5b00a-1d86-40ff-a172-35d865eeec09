@@ -27,15 +27,15 @@ namespace Locksmith.Views
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            //ServiceReferenceTechnicians.ServiceLocksmithClient webService = new ServiceReferenceTechnicians.ServiceLocksmithClient();
-            //webService.GetJobsListCompleted += new EventHandler<ServiceReferenceTechnicians.GetJobsListCompletedEventArgs>(webService_GetJobsListCompleted);
-            //webService.GetJobsListAsync();
+            ServiceReferenceLocksmith.ServiceLocksmithClient webService = new ServiceReferenceLocksmith.ServiceLocksmithClient();
+            webService.GetJobsListCompleted += new EventHandler<ServiceReferenceLocksmith.GetJobsListCompletedEventArgs>(webService_GetJobsListCompleted);
+            webService.GetJobsListAsync();
         }
 
-        //void webService_GetJobsListCompleted(object sender, ServiceReferenceLocksmith.GetJobsListCompletedEventArgs e)
-        //{
-        //    _DataGridAllJobs.ItemsSource = e.Result;
-        //}
+        void webService_GetJobsListCompleted(object sender, ServiceReferenceLocksmith.GetJobsListCompletedEventArgs e)
+        {
+            _DataGridAllJobs.ItemsSource = e.Result;
+        }
 
         private void _DataGridAllJobs_CellEditEnded(object sender, DataGridCellEditEndedEventArgs e)
         {
