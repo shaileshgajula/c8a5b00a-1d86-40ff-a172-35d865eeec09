@@ -10,7 +10,7 @@
         </Columns>
     </asp:GridView>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
-        ConnectionString="<%$ ConnectionStrings:StrongerOrgConnectionString %>" 
+        ConnectionString="<%$ ConnectionStrings:StrongerOrgString %>" 
         DeleteCommand="DELETE FROM [Newsletter] WHERE [Id] = @Id" 
         InsertCommand="INSERT INTO [Newsletter] ([FullName], [Email]) VALUES (@FullName, @Email)" 
         SelectCommand="SELECT [FullName], [Email], [Id] FROM [Newsletter]" 

@@ -7,185 +7,192 @@
 
 body
 {
-	margin: 0;
-	padding-bottom: 2em;
-	background-color: #FFFFFF;
-	color: #43431f;
-	font-family: Verdana, Helvetica, sans-serif;
-	border-top: 5px solid #cafde0;
-    font-size:14px;
+    margin: 0;
+    padding-bottom: 2em;
+    background-color: #FFFFFF;
+    color: #43431f;
+    font-family: Verdana, Helvetica, sans-serif;
+    border-top: 5px solid #cafde0;
+    font-size: 14px;
 }
- 
+
 a
 {
-	color: #01baec;
-	text-decoration: none;
+    color: #01baec;
+    text-decoration: none;
 }
 a:hover
 {
-	text-decoration: underline;
+    text-decoration: underline;
 }
 a:visited
 {
-	color: #01baec;
+    color: #01baec;
 }
 a:active
 {
-	color: #027d9e;
+    color: #027d9e;
 }
-
+a[disabled='disabled']
+{
+    color: #43431f;
+    text-decoration: none;
+}
 .ThemeBorder
 {
-	border-top-color: #cafde0;
-	border-top-width:1px;
-	border-top-style:solid;
-	}
+    border-top-color: #cafde0;
+    border-top-width: 1px;
+    border-top-style: solid;
+}
 .FooterSeperator
 {
-	background-color: #cafde0;
-	height: 1px;
+    background-color: #cafde0;
+    height: 1px;
 }
 .AlternatingRow
 {
-	background-color:#f7f7f6;
+    background-color: #f7f7f6;
 }
 .RowBackColor
 {
-	background-color:#FFFFFF;
+    background-color: #FFFFFF;
 }
 
-	.HeaderStyle
-	{
-		text-align:left;
-		background-color:#afafae;
-		color:#FFFFFF;
-		}
+.HeaderStyle
+{
+    text-align: left;
+    background-color: #afafae;
+    color: #FFFFFF;
+}
 .SelectedRowStyle
 {
-	background-color:#effff6;
-	}
+    background-color: #effff6;
+}
 /*Rounded corners http://blog.benogle.com/2009/04/29/css-round-corners/ */
 .b1h, .b2h, .b3h, .b4h, .b2bh, .b3bh, .b4bh
 {
-	font-size: 1px;
-	overflow: hidden;
-	display: block;
+    font-size: 1px;
+    overflow: hidden;
+    display: block;
 }
 .b1h
 {
-	height: 1px;
-	background: #aaa;
-	margin: 0 5px;
+    height: 1px;
+    background: #aaa;
+    margin: 0 5px;
 }
 .b2h, .b2bh
 {
-	height: 1px;
-	background: #aaa;
-	border-right: 2px solid #aaa;
-	border-left: 2px solid #aaa;
-	margin: 0 3px;
+    height: 1px;
+    background: #aaa;
+    border-right: 2px solid #aaa;
+    border-left: 2px solid #aaa;
+    margin: 0 3px;
 }
 .b3h, .b3bh
 {
-	height: 1px;
-	background: #aaa;
-	border-right: 1px solid #aaa;
-	border-left: 1px solid #aaa;
-	margin: 0 2px;
+    height: 1px;
+    background: #aaa;
+    border-right: 1px solid #aaa;
+    border-left: 1px solid #aaa;
+    margin: 0 2px;
 }
 .b4h, .b4bh
 {
-	height: 2px;
-	background: #aaa;
-	border-right: 1px solid #aaa;
-	border-left: 1px solid #aaa;
-	margin: 0 1px;
+    height: 2px;
+    background: #aaa;
+    border-right: 1px solid #aaa;
+    border-left: 1px solid #aaa;
+    margin: 0 1px;
 }
 .b2bh, .b3bh, .b4bh
 {
-	background: #ddd;
+    background: #ddd;
 }
 .headh
 {
-	background: #aaa;
-	border-right: 1px solid #aaa;
-	border-left: 1px solid #aaa;
+    background: #aaa;
+    border-right: 1px solid #aaa;
+    border-left: 1px solid #aaa;
 }
 .headh h3
 {
-	margin: 0px 10px 0px 10px;
-	padding-bottom: 3px;
+    margin: 0px 10px 0px 10px;
+    padding-bottom: 3px;
 }
 .contenth
 {
-	background: #ddd;
-	border-right: 1px solid #aaa;
-	border-left: 1px solid #aaa;
+    background: #ddd;
+    border-right: 1px solid #aaa;
+    border-left: 1px solid #aaa;
 }
 .contenth div
 {
-	margin-left: 12px;
-	padding-top: 5px;
+    margin-left: 12px;
+    padding-top: 5px;
 }
 
 /*Back office style */
 .GrayTitle
 {
-	font-size: 17px;
-	font-weight: bold;
+    font-size: 17px;
+    font-weight: bold;
 }
 .GrayTitleNormal
 {
-	font-size: 15px;
-	font-weight: bold;
+    font-size: 15px;
+    font-weight: bold;
 }
 .GrayTextLight
 {
-	font-size: 13px;
-	font-style:italic;
-	}
+    font-size: 13px;
+    font-style: italic;
+}
 .LightGrayTextLight
 {
-	font-size: 13px;
-	font-style:italic;
-    color:#AAAAAA
-	}
+    font-size: 13px;
+    font-style: italic;
+    color: #AAAAAA;
+}
 .AlertText
 {
-font-size: 13px;
-	font-style:italic;
-    color:Red;
+    font-size: 13px;
+    font-style: italic;
+    color: Red;
 }
 .DisabledImage
 {
-opacity : 0.4;
-    filter: alpha(opacity=40);}
-    
+    opacity: 0.4;
+    filter: alpha(opacity=40);
+}
+
 /* Modal window settings*/
 
 .modalBackground
 {
-  background-color:#CCCCFF;
-  filter:alpha(opacity=70);
-  opacity:0.7;
+    background-color: #CCCCFF;
+    filter: alpha(opacity=70);
+    opacity: 0.7;
 }
 
 .ModalWindow
 {
-  border: solid 2px #cafde0;
-  background:#f0f0f0;
-  padding: 10px 10px 10px 10px;
-  position:absolute;
-  top:-1000px;
+    border: solid 2px #cafde0;
+    background: #f0f0f0;
+    padding: 10px 10px 10px 10px;
+    position: absolute;
+    top: -1000px;
 }
 /* ****************** */
 
-input[type=text], input[type=file], select, textarea {
-
-border:1px solid gray;
+input[type=text], input[type=file], select, textarea
+{
+    border: 1px solid gray;
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: 13px;
 }
 .ThemeTitle
 {
-    color:#00BAEF;
-} 
+    color: #00BAEF;
+}
 

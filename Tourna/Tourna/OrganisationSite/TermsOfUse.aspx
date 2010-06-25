@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/OrganisationSite/OrgSite.Master" AutoEventWireup="true" CodeBehind="TermsOfUse.aspx.cs" Inherits="StrongerOrg.OrganisationSite.TermsOfUse" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/OrganisationSite/OrgSite.Master" AutoEventWireup="true" CodeBehind="TermsOfUse.aspx.cs" Inherits="StrongerOrg.OrganisationSite.TermsOfUse" Theme="OrganisationSite" %>
 <%@ Register src="~/Backoffice/UserControls/TermsOfUse.ascx" tagname="TermsOfUse" tagprefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>

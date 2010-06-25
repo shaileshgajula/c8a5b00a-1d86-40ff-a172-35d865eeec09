@@ -13,12 +13,30 @@ namespace StrongerOrg.Backoffice.UserControls {
     public partial class BracketsDisplay {
         
         /// <summary>
-        /// BracketTest control.
+        /// Div1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::TourneyLogic.Web.UI.WebControls.Bracket BracketTest;
+        protected global::System.Web.UI.WebControls.Panel Div1;
+        
+        /// <summary>
+        /// bracket_base control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel bracket_base;
+        
+        /// <summary>
+        /// bracket_body control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel bracket_body;
     }
 }

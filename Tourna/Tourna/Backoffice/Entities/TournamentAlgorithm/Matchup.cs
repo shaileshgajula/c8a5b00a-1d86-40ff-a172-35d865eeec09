@@ -24,6 +24,7 @@ namespace StrongerOrg.Backoffice.TournamentAlgorithm
         public int? ScoreB { get; set; }
         public Guid? WinnerId { get; set; }
         public string WinnerName { get; set; }
+        public char NextMatchUpPosition { get; set; }
         
     }
 }

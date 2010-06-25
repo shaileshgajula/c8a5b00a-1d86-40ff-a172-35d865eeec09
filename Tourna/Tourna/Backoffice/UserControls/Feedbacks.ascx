@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Feedbacks.ascx.cs" Inherits="StrongerOrg.Backoffice.UserControls.Feedbacks" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajax" %>
 <asp:LinkButton ID="lbShowAddNew" runat="server" OnClientClick="return false">
-    <asp:Image ID="Image1" runat="server" style="vertical-align: middle;padding-right:5px"/>
+    <asp:Image ID="Image1" runat="server" style="vertical-align: middle;padding-right:5px"  ImageUrl="~/Images/Icons/expand.jpg"/>
     <asp:Label ID="lblFeedbackHeader" runat="server" Text="Leave a message" style="vertical-align: middle;"></asp:Label></asp:LinkButton>
 <asp:Panel ID="Panel1" runat="server" Width="450">
     <table border="0" cellpadding="2" cellspacing="2" id="addNewFeedback">
@@ -39,8 +39,8 @@
 </asp:Panel>
 <ajax:CollapsiblePanelExtender ID="CollapsiblePanelExtender1" runat="server" Collapsed="false"
     CollapsedSize="0" ExpandedSize="200" ExpandControlID="lbShowAddNew" CollapseControlID="lbShowAddNew"
-    AutoCollapse="False" AutoExpand="false" TextLabelID="lblFeedbackHeader" ExpandedImage="~/Images/Icons/expand.jpg"
-    CollapsedImage="~/Images/Icons/collapse.jpg" TargetControlID="Panel1" ExpandDirection="Vertical"
+    AutoCollapse="False" AutoExpand="false" TextLabelID="lblFeedbackHeader" ExpandedImage="http://www.strongerorg.com/Images/Icons/expand.jpg"
+    CollapsedImage="http://www.strongerorg.com/Images/Icons/collapse.jpg" TargetControlID="Panel1" ExpandDirection="Vertical"
     ImageControlID="Image1">
 </ajax:CollapsiblePanelExtender>
 <br />&nbsp

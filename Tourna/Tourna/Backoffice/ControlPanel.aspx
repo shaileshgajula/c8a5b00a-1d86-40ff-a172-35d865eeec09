@@ -11,7 +11,7 @@
     <div id="format" align="left">
         <a href="https://spreadsheets.google.com/ccc?key=0AnH0jDGOn2Z1dHFaQzFZaDBvYXZzWEdUejg3NjJteGc&hl=en"
             target="_blank">Open user spread sheet...</a> 
-            <a href="playersChart.aspx">Players Chart</a>
+            <a href="playersChart.aspx">Competitors Chart</a>
         <asp:Button ID="btnImport" runat="server" Text="Import fake users from spread sheet"
             OnClick="btnImport_Click" />
     </div>
@@ -40,7 +40,7 @@
             </div>
         </EmptyDataTemplate>
     </asp:GridView>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:StrongerOrgConnectionString %>"
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:StrongerOrgString %>"
         SelectCommand="SELECT [Name], [Email], [Id] FROM [FakeUsers] ORDER BY [Name]">
     </asp:SqlDataSource>
 </asp:Content>

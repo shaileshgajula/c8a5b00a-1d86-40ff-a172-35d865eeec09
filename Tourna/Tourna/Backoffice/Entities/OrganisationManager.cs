@@ -5,6 +5,8 @@ using StrongerOrg.Backoffice.Entities.OrganisationInfoTableAdapters;
 using StrongerOrg.Backoffice.Entities;
 using StrongerOrg.Backoffice.DataLayer;
 using System.Linq;
+using System.Web.Security;
+using System.Data;
 public class OrganisationManager
 {
     internal static OrganisationBasicInfo GetOrganisationInfo(Guid organisationId)
@@ -26,5 +28,20 @@ public class OrganisationManager
         public bool Active { get; set; }
         public string Logo { get; set; }
 
+    }
+
+    internal static DataTable GetModeratorsEmail(string orgId)
+    {
+        using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["StrongerOrgString"].ConnectionString))
+        {
+            SqlCommand cmd = new SqlCommand("OrgModeratorsEmailGet", connection);
+            cmd.CommandType= System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.Add("@OrganisationId",System.Data.SqlDbType.UniqueIdentifier).Value = new Guid(orgId);
+            connection.Open();
+            DataTable tbl = new DataTable();
+            tbl.Load(cmd.ExecuteReader());
+            return tbl;  
+        }
+       
     }
 }

@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="Tournament builder" Language="C#" AutoEventWireup="true" MasterPageFile="~/Backoffice/BackOffice.Master"
     CodeBehind="TournamentBuilder.aspx.cs" Inherits="StrongerOrg.Backoffice._Default" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajax" %>
 <%@ MasterType VirtualPath="~/Backoffice/BackOffice.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderHead" runat="server">
     <style type="text/css">
@@ -25,10 +26,20 @@
                 min: 0,
                 max: 44,
                 slide: function (event, ui) {
-                    $("#timeFrame").val(BuildTime(ui.values[0]) + ' - '+ BuildTime(ui.values[1]));
+                    $("#timeFrame").val(BuildTime(ui.values[0]) + ' - ' + BuildTime(ui.values[1]));
                 }
             });
             $("#timeFrame").val(BuildTime($("#slider-range").slider("values", 0)) + ' - ' + BuildTime($("#slider-range").slider("values", 1)));
+//            $('#rblDiv input').click(function () {
+//                if ($('#rblDiv input').index(this) == 0) {
+//                    $("#lnkPopup").css("visibility", "hidden")
+
+//                   
+//                }
+//                else {
+//                    $("#lnkPopup").css("visibility", "visible")
+//                }
+//            });
 
 
         });
@@ -55,7 +66,7 @@
             });
 
             $(".datepicker").datepicker('setDate', new Date());
-            
+
         });
     </script>
 </asp:Content>
@@ -64,19 +75,19 @@
         <%--FinishCompleteButtonType="Link" FinishPreviousButtonType="Link"--%>
         <WizardSteps>
             <asp:WizardStep runat="server" Title="Step 1">
-                <table>
+                <table cellpadding="0" cellspacing="1">
                     <tr>
-                        <td class="GrayTitleNormal">
+                        <td class="GrayTitleNormal" style="width: 40%">
                             Tournament name
                         </td>
                         <td>
-                            <telerik:RadTextBox ID="txtTournamentName" runat="server" LabelCssClass="" Width="250px">
-                            </telerik:RadTextBox>
+                            <asp:TextBox ID="txtTournamentName" runat="server" Width="248px" 
+                                ValidationGroup="G1"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtTournamentName"
-                                ErrorMessage="Required Field"></asp:RequiredFieldValidator>
+                                ErrorMessage="Required Field" ValidationGroup="G1"></asp:RequiredFieldValidator>
                         </td>
                     </tr>
-                    <tr>
+                    <tr class="AlternatingRow">
                         <td class="GrayTitleNormal">
                             Choose game
                         </td>
@@ -92,16 +103,29 @@
                                 </SelectParameters>
                             </asp:SqlDataSource>
                             <asp:Label ID="lblGames" runat="server" Text="No games have been opened. Contact us to open the games"
-                                Visible="False"></asp:Label>
+                                Visible="False" CssClass="AlertText"></asp:Label>
                         </td>
                     </tr>
                     <tr>
+                        <td class="GrayTitleNormal">
+                            Tournament mode
+                        </td>
+                        <td>
+                            <div id="rblDiv">
+                                <asp:RadioButtonList ID="rbTournamentMode" runat="server" RepeatDirection="Horizontal">
+                                    <asp:ListItem Text="Players" Value="P" Selected="True"></asp:ListItem>
+                                    <asp:ListItem Text="Teams" Value="T"></asp:ListItem>
+                                </asp:RadioButtonList>
+                            </div>
+                            
+                        </td>
+                    </tr>
+                    <tr class="AlternatingRow">
                         <td class="GrayTitleNormal">
                             Short description
                         </td>
                         <td>
                             <asp:TextBox ID="txtAbstract" runat="server" Width="249px" Height="61px" TextMode="MultiLine"></asp:TextBox>
-                            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="www.cnn.com" Enabled="false">[advanced edit]</asp:HyperLink>
                         </td>
                     </tr>
                     <tr>
@@ -113,16 +137,12 @@
                             &nbsp;you can seperate by comma
                         </td>
                     </tr>
-                    <tr>
+                    <tr class="AlternatingRow">
                         <td class="GrayTitleNormal">
-                            Limit number of players
+                            Limit number of Competitor
                         </td>
                         <td>
-                            <telerik:RadNumericTextBox ID="rntxtLimitPlayers" runat="server" Culture="English (United States)"
-                                EmptyMessage="Suggested: 32" LabelCssClass="" Value="32" Width="125px" ShowSpinButtons="true"
-                                MaxValue="128" MinValue="8">
-                                <NumberFormat DecimalDigits="0" />
-                            </telerik:RadNumericTextBox>
+                            <asp:TextBox ID="txtLimitNumberOfPlayers" runat="server" Text="32"></asp:TextBox>
                         </td>
                     </tr>
                 </table>
@@ -146,10 +166,11 @@
                         </td>
                         <td>
                             <label for="amount">
-                                </label>
-                            <input type="text" id="amount" name="amount" style="border: 0; color: #f6931f; font-weight: bold;width:25px" />
-                            <div id="slider-range-min" style="width:150px"></div>
-
+                            </label>
+                            <input type="text" id="amount" name="amount" style="border: 0; color: #f6931f; font-weight: bold;
+                                width: 25px" />
+                            <div id="slider-range-min" style="width: 150px">
+                            </div>
                         </td>
                     </tr>
                     <tr>
@@ -157,9 +178,12 @@
                             Time frame
                         </td>
                         <td>
-                            <asp:CheckBox ID="cbIsOpenAllDay" runat="server" Text="Is Open All Day" /> | Open from
-                             <input type="text" id="timeFrame" name="timeFrame" style="border: 0; color: #f6931f; font-weight: bold;width:150px" />
-                             <div id="slider-range" style="width:450px"></div>
+                            <asp:CheckBox ID="cbIsOpenAllDay" runat="server" Text="Is Open All Day" />
+                            | Open from
+                            <input type="text" id="timeFrame" name="timeFrame" style="border: 0; color: #f6931f;
+                                font-weight: bold; width: 150px" />
+                            <div id="slider-range" style="width: 450px">
+                            </div>
                             <%--<telerik:RadSlider ID="rsTimeWindow" runat="server" ItemType="Tick" IsSelectionRangeEnabled="True"
                                 SelectionEnd="14" Height="40px" Width="350px" SelectionStart="12" SmallChange="1"
                                 LargeChange="1" MinimumValue="7" MaximumValue="19" AnimationDuration="400" CssClass="TicksSlider"

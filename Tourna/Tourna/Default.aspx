@@ -40,8 +40,8 @@
                     </tr>
                     <tr>
                         <td class="GrayText">
-                            CREATE TOURNAMENT INSIDE YOUR ORGANISATION FOR BETTER NETWORKING AND SOCIALIZING
-                        </td>
+                            IMPROVE ORGANIZATIONAL OPENESS AND TEAM SPIRIT BY INTRODUCING TOURNAMENTS
+                            </td>
                         <td>
                             <img src="Images/PlanArrow.gif" alt="Go to plan details" />
                         </td>
@@ -62,7 +62,7 @@
                     </tr>
                     <tr>
                         <td class="GrayText">
-                            ENCHANCE YOUR NETWORKING WITH SATELITE OFFICES, CLIENTS AND OTHERS
+                            ENCHANCE YOUR NETWORKING WITH SATTELITE OFFICES, SUBSIDIARIES, CLIENTS AND OTHERS
                         </td>
                         <td>
                             <img src="Images/PlanArrow.gif" alt="Go to plan details" />
@@ -119,41 +119,47 @@
         </tr>
         <tr>
             <td class="GrayTextNormal" style="padding-left:10px;vertical-align:top">
-                “In our company we have a Wii in the dining room, however people are going to play
-                and no one is really interested of what is going on. When we decided to work with
-                Stornger org last summer we understood that when you arrange such a competition
-                during the lunch hours and people are registered to that, then there is more excitement,
-                people start talking with each other, not only with the people that they know and
-                like. We suddenly saw tat the people are more involve, people are not shy to talk
-                in companies meeting, something that wasn’t before. The value of having our employees
-                talking with us and telling us what they think is so valuable for us.”
+                “In our company we have a Wii in the dining room. 
+                When we decided to work with Stronger org last summer we realized the potential of 
+                arranging  competitions during the lunch hours.
+                Once employees have registered to take part, there is a build-up of excitement 
+                that pushes people to start talking with each other, outside their normal range of associates. 
+                We suddenly saw that employees were more involved, not only in the dining room 
+                but also in work meetings – a new development for usThe value of having our employees 
+                participating and communicating with us is invaluable.” 
+                CEO Gershon Aharon
+
                 <br />
                 CEO Garshon Aharon
             </td>
             <td>
             </td>
             <td class="GrayTextNormal" style="padding-left:10px;vertical-align:top">
-                “We have a building event every 6 months, this event is important for us to meet
-                the people. In the last event in which we brought Stronger org the number of tenants
-                that joined the event was higher by 80% from the previous times, this was amazing.
-                “ Says Debera shean” property manager. “ We had never had such a thing” Our brad
-                and image among our tenant increased dramatically, new tenants that came heard about
-                our building events and were very impressed and it helped us to increase our sales
-                by 10%.” “No doubt that I will do that again every year with different games”
+               “We have an event that we arrange for the tenants in the building, our customers. 
+                We do that every 6 months, this event is important for us to meet the tenants. 
+                In the last event in which we brought StrongerOorg the number of tenants that 
+                joined the event was 80% higher than previous events, this was amazing. 
+                “Says Debra shean” property manager. 
+                “We had never had such a thing” Our brand and image among our tenants increased dramatically, 
+                new tenants that came heard about our building events and were very impressed and it helped us to increase our sales by 10%.” 
+                “I will certainly repeat these tournaments every year with different games” 
+              
+
                 <br />
-                Debera shean” property manager.
+                "Debra shean” property manager.
             </td>
             <td>
             </td>
             <td class="GrayTextNormal" style="padding-left:10px;vertical-align:top">
-                “In Margolin bros the employees are working on the fields and I wasn’t sure that
-                a competition during the week can fit. However the guys in Stronger org came with
-                an idea to boost my holiday event and to have a Wii competition. I never played
-                with a Wii but my kids do. I wasn’t sure that the Wii can fit to my employees however
-                on the day of the events after we had so many registration to the competition we
-                had a great fun. People instead of just easting and coming again to a company event,
-                really enjoyed they were excited and appreciated the innovative idea that we brought
-                for lunch.” Says Maayan Margolin accountant “Everyone played”
+                “In Margolin Bros. the employees working outside of the office and I wasn’t sure that a competition during the week 
+                would be possible. 
+                However the guys in Stronger org came with an idea to boost my holiday event and to have a Wii competition. 
+                I never played with a Wii but my kids do. I wasn’t sure that the Wii would suit my employees but on event day we had hundreds? Dozens? 
+                of registrations to the competition we had a blast!  
+                People instead actively participated instead of just eating and leaving.  
+                They really enjoyed themselves and appreciated the innovative idea that we brought for lunch.” 
+                Says Maayan Margolin, CFO “Everyone joined in” 
+                Maayan Margolin CFO
                 <br>
                 Maayan Margolin CFO
             </td>

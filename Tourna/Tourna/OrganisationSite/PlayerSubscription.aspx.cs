@@ -55,14 +55,30 @@ namespace StrongerOrg
         {
 
             string name = this.txtName.Text;
-            //string nickName = this.txtNickName.Text; ;
             string email = this.txtEmail.Text;
-            //string department = this.txtDepartment.Text;
+            string teamId = this.ddlTeams.SelectedValue;
+            
             string tournamentId = Request.QueryString["TournamentId"].ToString();
-            PlayersManager.InsertPlayer(this.Master.OrgBasicInfo.Id.ToString(), name, string.Empty, email, string.Empty, tournamentId);
+            if (string.IsNullOrEmpty(teamId))
+            {
+                PlayersManager.InsertPlayer(this.Master.OrgBasicInfo.Id.ToString(), name, 'P', email, string.Empty, tournamentId);
+            }
+            else
+            {
+                PlayersManager.InsertTeamPlayer(this.Master.OrgBasicInfo.Id.ToString(), name, 'P', email, tournamentId, teamId);
+            }
             this.Panel1.Visible = false;
             this.phRegister.Visible = true;
-            this.lblMsg.Text = string.Format("Thank you for register. An invitaion for your first match will be sent to your email [{0}]", email);
+            this.lblMsg.Text = string.Format("Thanks for registering. An invitaion for your first match will be sent to your email [{0}]", email);
+        }
+
+        protected void SqlDataSource1_Selected(object sender, SqlDataSourceStatusEventArgs e)
+        {
+            if (e.AffectedRows == 0)
+            {
+                this.lblTeam.Visible = false;
+                this.ddlTeams.Visible = false;
+            }
         }
 
 

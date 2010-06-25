@@ -1,81 +1,77 @@
 ﻿body
 {
-	margin: 0;
-	padding-bottom: 2em;
-	background-color: #FFFFFF;
-	color: #43431f;
-	font-family: Verdana, Helvetica, sans-serif;
-	border-top: 5px solid #aaa2fe;
-    font-size:13px;
-	
+    margin: 0;
+    padding-bottom: 2em;
+    background-color: #FFFFFF;
+    color: #43431f;
+    font-family: Verdana, Helvetica, sans-serif;
+    border-top: 5px solid #aaa2fe;
+    font-size: 13px;
 }
 a
 {
-    font-size:13px;
-	color: #01baec;
-	text-decoration: none;
+    font-size: 13px;
+    color: #01baec;
+    text-decoration: none;
 }
 a:hover
 {
-	text-decoration: nont;
+    text-decoration: none;
     color: #E74194;
 }
-a:visited
-{
-	color: #01baec;
-}
-a:active
-{
-	color: #027d9e;
-}
+
 a[disabled='disabled']
 {
-    color:#43431f;
+    color: #43431f;
     text-decoration: none;
 }
 .H1Title
 {
-	font-size: 15px;
-	font-weight: bold;
+    font-size: 15px;
+    font-weight: bold;
 }
 .DisabledImage
 {
-opacity : 0.4;
-    filter: alpha(opacity=40);}
+    opacity: 0.4;
+    filter: alpha(opacity=40);
+}
 /* Modal window settings*/
 
 .modalBackground
 {
-  background-color:#CCCCFF;
-  filter:alpha(opacity=70);
-  opacity:0.7;
+    background-color: #CCCCFF;
+    filter: alpha(opacity=70);
+    opacity: 0.7;
 }
 
 .ModalWindow
 {
-  border: solid 2px #cafde0;
-  background:#f0f0f0;
-  padding: 10px 10px 10px 10px;
-  position:absolute;
-  top:-1000px;
+    border: solid 2px #cafde0;
+    background: #f0f0f0;
+    padding: 10px 10px 10px 10px;
+    position: absolute;
+    top: -1000px;
 }
 .AlertText
 {
     font-size: 13px;
-	font-style:italic;
-    color:Red;
+    font-style: italic;
+    color: Red;
 }
 .AlternatingRow
 {
-	background-color:#f7f7f6;
+    background-color: #f7f7f6;
 }
 .playerText
 {
     color: #444444;
-    font-size:15px;
-    font-weight:bold;
+    font-size: 15px;
+    font-weight: bold;
 }
-input[type=text], input[type=file], select, textarea {
-width: 220px;
-border:1px solid gray;
-} 
+input[type=text], input[type=file], select, textarea
+{
+    width: 220px;
+    border: 1px solid gray;
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: 13px;
+}

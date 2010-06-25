@@ -31,11 +31,33 @@ namespace StrongerOrg.Backoffice
                     e.Row.Attributes.Add("onmouseover", "this.className='SelectedRowStyle'");
                     e.Row.Attributes.Add("onmouseout", "this.className='RowBackColor'");
                 }
+              
             }
         }
 
-
-
+        protected string GetCompetitorType(object competitorType)
+        {
+            char c = Convert.ToChar(competitorType);
+            if (c == 'P')
+                return "../Images/Icons/Male.gif";
+            else
+            {
+                return "../Images/Icons/Group.gif";
+            }
+        }
+        public string BuildNavigationLink(object competitorType, object id)
+        {
+            char c = Convert.ToChar(competitorType);
+            if (c == 'P')
+            {
+                return string.Format("Tournament.aspx?TournamentId={0}", id);
+            }
+            else
+            {
+                return string.Format("TeamTournament.aspx?TournamentId={0}", id);
+            }
+        }
+        //Eval("Id", "Tournament.aspx?TournamentId={0}")
         //protected void schedDatesGrid_RowEditing(object sender, GridViewEditEventArgs e)
         //{
         //    schedDatesGrid.EditIndex = e.NewEditIndex;

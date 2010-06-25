@@ -193,6 +193,15 @@ namespace StrongerOrg.Backoffice {
         protected global::System.Web.UI.WebControls.Button hiddenTargetControlForModalPopup;
         
         /// <summary>
+        /// lbRefresh control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbRefresh;
+        
+        /// <summary>
         /// gvStandingsPreview control.
         /// </summary>
         /// <remarks>
@@ -200,15 +209,6 @@ namespace StrongerOrg.Backoffice {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvStandingsPreview;
-        
-        /// <summary>
-        /// lbStartDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbStartDate;
         
         /// <summary>
         /// View1 control.
@@ -220,40 +220,13 @@ namespace StrongerOrg.Backoffice {
         protected global::System.Web.UI.WebControls.View View1;
         
         /// <summary>
-        /// lblCalendarMatchupResult control.
+        /// CalendarDisplay1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCalendarMatchupResult;
-        
-        /// <summary>
-        /// lbCreateMatchUps control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbCreateMatchUps;
-        
-        /// <summary>
-        /// lblRememberEdit control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRememberEdit;
-        
-        /// <summary>
-        /// calSchedules control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar calSchedules;
+        protected global::StrongerOrg.Backoffice.UserControls.CalendarDisplay CalendarDisplay1;
         
         /// <summary>
         /// View3 control.
@@ -265,33 +238,6 @@ namespace StrongerOrg.Backoffice {
         protected global::System.Web.UI.WebControls.View View3;
         
         /// <summary>
-        /// bdPlayOffs control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::StrongerOrg.Backoffice.UserControls.BracketsDisplay bdPlayOffs;
-        
-        /// <summary>
-        /// lbEditPicksMode control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbEditPicksMode;
-        
-        /// <summary>
-        /// hlPrint control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlPrint;
-        
-        /// <summary>
         /// HyperLink2 control.
         /// </summary>
         /// <remarks>
@@ -299,6 +245,15 @@ namespace StrongerOrg.Backoffice {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink HyperLink2;
+        
+        /// <summary>
+        /// bdPlayOffs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::StrongerOrg.Backoffice.UserControls.BracketsDisplay bdPlayOffs;
         
         /// <summary>
         /// View4 control.

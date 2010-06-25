@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data.SqlClient;
+using System.Data;
+using System.Configuration;
 
 namespace StrongerOrg.Backoffice.UserControls
 {
@@ -31,6 +34,67 @@ namespace StrongerOrg.Backoffice.UserControls
             DateTime dtEnd = new DateTime(2000, 1, 1, tsEnd.Hours, tsEnd.Minutes, 0);
             e.NewValues["TimeWindowStart"] = dtStart;
             e.NewValues["TimeWindowEnd"] = dtEnd;
+        }
+        protected string CompetitorType(object competitorType)
+        {
+            char c = Convert.ToChar(competitorType);
+            if (c == 'P')
+                return "Players";
+            else
+            {
+                LinkButton hlEditTeams = this.DetailsView1.FindControl("lbEditTeams") as LinkButton;
+                if (hlEditTeams != null) hlEditTeams.Visible = true;
+                return "";
+            }
+        }
+        protected void btnAddTeam_Click(object sender, EventArgs e)
+        {
+            string teamName = this.txtTeamName.Text;
+            string tournamentId = Request.QueryString["TournamentId"].ToString();
+            PlayersManager.InsertTeam(((StrongerOrg.Backoffice.BackOffice)this.Page.Master).OrgBasicInfo.Id.ToString(), teamName, 'T', tournamentId);
+
+            this.cblTeams.DataBind();
+            this.ModalPopupExtender2.Show();
+        }
+        protected void lbEditTeams_Click(object sender, EventArgs e)
+        {
+            this.ModalPopupExtender2.Show();
+        }
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            string idsToDelete = string.Empty;
+            foreach (ListItem item in this.cblTeams.Items)
+            {
+                if (item.Selected)
+                {
+                    idsToDelete += string.Format("'{0}',", item.Value);
+                }
+            }
+            if (!string.IsNullOrEmpty(idsToDelete))
+            {
+                idsToDelete = idsToDelete.Substring(0, idsToDelete.Length - 1);
+                using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["StrongerOrgString"].ConnectionString))
+                {
+                    SqlCommand command = new SqlCommand(
+                        string.Format("Delete from players where id in ({0})", idsToDelete), conn);
+                    command.CommandType = CommandType.Text;
+                    conn.Open();
+                    command.ExecuteNonQuery();
+                    this.cblTeams.DataBind();
+                }
+            }
+            this.ModalPopupExtender2.Show();
+        }
+
+        protected string CompetitorsLink(object tournamentId, string tournamentName, object competitorType)
+        {
+            char c = Convert.ToChar(competitorType);
+            if (c == 'P')
+                return string.Format("OrganisationPlayers.aspx?TournamentId={0}&TournamentName={1}", tournamentId, tournamentName);
+            else
+            {
+                return string.Format("TournamentTeams.aspx?TournamentId={0}&TournamentName={1}", tournamentId, tournamentName);
+            }
         }
     }
 }

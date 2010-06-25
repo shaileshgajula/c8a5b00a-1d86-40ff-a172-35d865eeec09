@@ -22,7 +22,7 @@
     <table border="0" cellpadding="0" cellspacing="0" style="width:800px;" align="center">
         <tr>
             <td class="GrayTextLight">
-             Email invitation to the tournament
+             Email invitation to the <a href="Tournament.aspx?TournamentId=<%= Request.QueryString["TournamentId"].ToString() %>">tournament</a>
             </td>
         </tr>
         <tr>

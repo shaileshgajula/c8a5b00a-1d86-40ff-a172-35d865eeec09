@@ -77,21 +77,11 @@
                 <td align="right">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtName"
                         ErrorMessage="Required Field"></asp:RequiredFieldValidator>
-                    <telerik:RadTextBox runat="server" Columns="40" EmptyMessage="-- Your Name --" ID="txtName"
-                        Width="220px" CssClass="TextBoxClass">
-                        <EnabledStyle BorderColor="#aaa2fe" BorderStyle="Solid" />
-                        <EmptyMessageStyle ForeColor="#aaa2fe" />
-                    </telerik:RadTextBox>
+                    <asp:TextBox ID="txtName" runat="server" Width="220px"></asp:TextBox>
+                    
                 </td>
             </tr>
-            <%-- <tr>
-                <td>
-                    Nick Name:
-                </td>
-                <td>
-                    <asp:TextBox ID="txtNickName" runat="server"  />
-                </td>
-            </tr>--%>
+             
             <tr>
                 <td>
                     Email:
@@ -99,11 +89,30 @@
                 <td align="right">
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtEmail"
                         ErrorMessage="Email is not valid" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
-                    <telerik:RadTextBox runat="server" Columns="40" EmptyMessage="-- Your Email --" ID="txtEmail"
-                        Width="220px">
-                        <EnabledStyle BorderColor="#aaa2fe" BorderStyle="Solid" />
-                        <EmptyMessageStyle ForeColor="#aaa2fe" />
-                    </telerik:RadTextBox>
+                    <asp:TextBox ID="txtEmail" runat="server" Width="220px"></asp:TextBox>
+                    
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:Label ID="lblTeam" runat="server" Text="Team"></asp:Label>
+                </td>
+                <td align="right">
+                    <asp:DropDownList ID="ddlTeams" runat="server" DataSourceID="SqlDataSource1" 
+                        DataTextField="Name" DataValueField="Id">
+                    </asp:DropDownList>
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
+                        ConnectionString="<%$ ConnectionStrings:StrongerOrgString %>" 
+                        SelectCommand="PlayersGet" SelectCommandType="StoredProcedure" 
+                        onselected="SqlDataSource1_Selected">
+                        <SelectParameters>
+                            <asp:QueryStringParameter Name="OrganisationId" QueryStringField="OrgId" 
+                                Type="String" />
+                            <asp:QueryStringParameter Name="TournamentId" QueryStringField="TournamentId" 
+                                Type="String" />
+                            <asp:Parameter DefaultValue="T" Name="CompetitorType" Type="String" />
+                        </SelectParameters>
+                    </asp:SqlDataSource>
                 </td>
             </tr>
             <%--<tr>

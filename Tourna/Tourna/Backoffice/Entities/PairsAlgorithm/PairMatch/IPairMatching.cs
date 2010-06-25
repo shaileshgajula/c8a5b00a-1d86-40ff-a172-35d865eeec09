@@ -7,6 +7,6 @@ namespace StrongerOrg.BackOffice.PairsAlgorithm
 {
     internal interface IPairMatching
     {
-        List<PlayersEntity> Execute(List<MetaPlayer> playerList, int numOfRounds);
+        List<PlayersEntity> Execute(List<MetaPlayer> competitorList, int numOfRounds);
     }
 }

@@ -50,7 +50,7 @@
                 </tr>
                 <tr>
                     <td>
-                        Player A
+                        Competitor A
                     </td>
                     <td>
                         <asp:DropDownList ID="ddlPlayerA" runat="server" DataSourceID="SqlDataSourceTournamentPlayers"
@@ -60,7 +60,7 @@
                 </tr>
                 <tr>
                     <td>
-                        Player B
+                        Competitor B
                     </td>
                     <td>
                         <asp:DropDownList ID="ddlPlayerB" runat="server" DataSourceID="SqlDataSourceTournamentPlayers"
@@ -68,7 +68,7 @@
                         </asp:DropDownList>
                         <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="CompareValidator"
                             ControlToCompare="ddlPlayerB" ControlToValidate="ddlPlayerA" Operator="NotEqual"
-                            Text="Player A can't play itself. please select diffrent player to play against"></asp:CompareValidator>
+                            Text="Competitor A can't play itself. please select diffrent player to play against"></asp:CompareValidator>
                     </td>
                 </tr>
                 <tr>
