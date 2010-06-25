@@ -8,7 +8,8 @@
 <%@ Register Src="UserControls/TournamentDetails.ascx" TagName="TournamentDetails"
     TagPrefix="uc1" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajax" %>
-<%@ Register src="UserControls/BracketsDisplay.ascx" tagname="BracketsDisplay" tagprefix="uc2" %>
+<%@ Register Src="UserControls/BracketsDisplay.ascx" TagName="BracketsDisplay" TagPrefix="uc2" %>
+<%@ Register src="UserControls/CalendarDisplay.ascx" tagname="CalendarDisplay" tagprefix="uc3" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <table style="width: 100%;" cellpadding="0" cellspacing="5">
         <tr>
@@ -52,11 +53,9 @@
                         <uc1:TournamentDetails ID="TournamentDetails1" runat="server" />
                     </asp:View>
                     <asp:View ID="View2" runat="server">
-                       
                         <ajax:ModalPopupExtender ID="ModalPopupExtender1" runat="server" PopupControlID="pnlImageDisplay"
                             TargetControlID="hiddenTargetControlForModalPopup" CancelControlID="btnCancel"
-                            BackgroundCssClass="modalBackground" BehaviorID="imgAssociatedModal">
-                        </ajax:ModalPopupExtender>
+                            BackgroundCssClass="modalBackground" BehaviorID="imgAssociatedModal"></ajax:ModalPopupExtender>
                         <asp:Panel ID="pnlImageDisplay" runat="server" CssClass="ModalWindow" Width="500">
                             <table style="width: 100%" cellpadding="2" cellspacing="2">
                                 <tr>
@@ -76,8 +75,7 @@
                                     <td align="right">
                                         <asp:TextBox ID="tbStartDate" runat="server" Width="82"></asp:TextBox>
                                         <ajax:MaskedEditExtender ID="MaskedEditExtender1" runat="server" TargetControlID="tbStartDate"
-                                            Mask="99/99/9999" MaskType="Date" MessageValidatorTip="true">
-                                        </ajax:MaskedEditExtender>
+                                            Mask="99/99/9999" MaskType="Date" MessageValidatorTip="true"></ajax:MaskedEditExtender>
                                     </td>
                                 </tr>
                                 <tr>
@@ -86,6 +84,9 @@
                                     </td>
                                     <td align="right">
                                         <asp:DropDownList ID="ddlHours" runat="server">
+                                            <asp:ListItem>9</asp:ListItem>
+                                            <asp:ListItem>10</asp:ListItem>
+                                            <asp:ListItem>11</asp:ListItem>
                                             <asp:ListItem>12</asp:ListItem>
                                             <asp:ListItem>13</asp:ListItem>
                                             <asp:ListItem>14</asp:ListItem>
@@ -109,7 +110,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        Player A:
+                                        Competitor A:
                                     </td>
                                     <td align="right">
                                         <asp:DropDownList ID="ddlPlayerA" runat="server" DataSourceID="SqlDataSource1" DataTextField="Name"
@@ -120,7 +121,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        Player B:
+                                        Competitor B:
                                     </td>
                                     <td align="right">
                                         <asp:DropDownList ID="ddlPlayerB" runat="server" DataSourceID="SqlDataSource1" DataTextField="Name"
@@ -128,7 +129,7 @@
                                             <asp:ListItem Text="--" Value="00000000-0000-0000-0000-000000000000"></asp:ListItem>
                                         </asp:DropDownList>
                                         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:StrongerOrgString %>"
-                                            SelectCommand="SELECT p.Id, p.Name FROM Players2Tournaments AS p2t INNER JOIN Players AS p ON p2t.PlayerId = p.Id WHERE (p2t.TournamentId = @TournamentId)">
+                                            SelectCommand="SELECT p.Id, p.Name FROM Players2Tournaments AS p2t INNER JOIN Players AS p ON p2t.PlayerId = p.Id WHERE (p2t.TournamentId = @TournamentId) order by p.Name">
                                             <SelectParameters>
                                                 <asp:QueryStringParameter Name="TournamentId" QueryStringField="TournamentId" />
                                             </SelectParameters>
@@ -157,6 +158,8 @@
                         </asp:Panel>
                         <asp:Button runat="server" ID="hiddenTargetControlForModalPopup" Style="display: none" />
                         <div align="right">
+                            <asp:LinkButton ID="lbRefresh" runat="server" OnClick="lbRefresh_Click">Refresh</asp:LinkButton>
+                            <img src="../Images/Icons/Seperator.gif" />
                             <a href="../OrganisationSite/PrintTournament.aspx?TournamentId=<%= Request.QueryString["TournamentId"].ToString() %>"
                                 target="_blank">
                                 <img src="../Images/Icons/PrinterIcon.gif" alt="Print" title="Print" border="0" style="vertical-align: top;" />
@@ -174,7 +177,7 @@
                                 <asp:BoundField DataField="WinnerName" HeaderText="Winner Name" ReadOnly="True" />
                                 <asp:TemplateField HeaderText="Edit">
                                     <ItemTemplate>
-                                        <asp:LinkButton ID="lbStartDate" runat="server" CommandArgument='<%# Eval("Start") + "*" + Eval("MatchUpId") + "*" + Eval("PlayerAId") + "*" + Eval("PlayerBId")+ "*" + Eval("WinnerId") + "*" + Eval("NextMatchId") %>'
+                                        <asp:LinkButton ID="lbStartDate" runat="server" CommandArgument='<%# Eval("Start") + "*" + Eval("MatchUpId") + "*" + Eval("PlayerAId") + "*" + Eval("PlayerBId")+ "*" + Eval("WinnerId") + "*" + Eval("NextMatchId")  %>'
                                             OnCommand="lbStartDate_Command">Edit</asp:LinkButton>
                                     </ItemTemplate>
                                 </asp:TemplateField>
@@ -199,26 +202,20 @@
                         </asp:GridView>
                     </asp:View>
                     <asp:View ID="View1" runat="server">
-                        <div style="width: 100%" align="center">
-                            <asp:Label ID="lblCalendarMatchupResult" runat="server" Text="Label" Visible="false"
-                                CssClass="GrayTextLight"></asp:Label>
-                            <asp:LinkButton ID="lbCreateMatchUps" runat="server" Visible="false" CssClass="GrayTextLight">click here</asp:LinkButton>
-                            <asp:Label ID="lblRememberEdit" runat="server" CssClass="GrayTextLight" Text=".Remember, you can always edit the match up manually."
-                                Visible="false"></asp:Label>
-                            <asp:Calendar ID="calSchedules" runat="server" Visible="true" Width="50%" Height="250px">
-                            </asp:Calendar>
-                        </div>
+                        
+                        <uc3:CalendarDisplay ID="CalendarDisplay1" runat="server" />
+                        
                     </asp:View>
                     <asp:View ID="View3" runat="server">
                         <div style="text-align: right">
-                            <uc2:BracketsDisplay ID="bdPlayOffs" runat="server" />
-                            <asp:LinkButton ID="lbEditPicksMode" runat="server" OnClick="lbEditPicksMode_Click">Edit</asp:LinkButton>
-                            <img src="../Images/Icons/PrinterIcon.gif" />
-                            <asp:HyperLink ID="hlPrint" runat="server">Print</asp:HyperLink>
+                            <a href="../OrganisationSite/PrintBrackets.aspx?TournamentId=<%= Request.QueryString["TournamentId"].ToString() %>"
+                                target="_blank">
+                                <img src="../Images/Icons/PrinterIcon.gif" alt="Print" title="Print" border="0" style="vertical-align: top;" />
+                                Print</a>
                             <img src="../Images/Icons/PdfIcon.gif" />
-                            <asp:HyperLink ID="HyperLink2" runat="server">Export to pdf</asp:HyperLink>
+                            <asp:HyperLink ID="HyperLink2" runat="server" Enabled="false">Export to pdf</asp:HyperLink>
                         </div>
-                        
+                        <uc2:BracketsDisplay ID="bdPlayOffs" runat="server" />
                     </asp:View>
                     <asp:View ID="View4" runat="server">
                         <uc1:Feedbacks ID="Feedbacks1" runat="server" TextContentName="Feedbacks" IsEditMode="True" />

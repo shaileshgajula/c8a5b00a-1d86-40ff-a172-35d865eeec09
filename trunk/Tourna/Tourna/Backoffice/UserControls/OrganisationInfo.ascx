@@ -13,7 +13,7 @@
         <asp:CheckBoxField DataField="EmailReminders" HeaderText="Email Reminders" />
         <asp:TemplateField>
             <HeaderTemplate>
-                Culture Info
+                Cultural Info
             </HeaderTemplate>
             <ItemTemplate>
                 <%#Eval("CultureInfoName") %>
@@ -54,12 +54,7 @@
                     <RoleGroups>
                         <asp:RoleGroup Roles="Administrator">
                             <ContentTemplate>
-                                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Backoffice/OrganisationPlayers.aspx">Players</asp:HyperLink>
-                                |
-                                <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Backoffice/Schedules.aspx"
-                                    ToolTip="Schedules for all tournaments">Schedules</asp:HyperLink>
-                                |
-                                <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/Backoffice/Standings.aspx">Standings</asp:HyperLink>
+                                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Backoffice/OrganisationPlayers.aspx">Competitors</asp:HyperLink>
                                 |
                                 <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/Backoffice/ManageUsers.aspx">Manage Users</asp:HyperLink>
                                 |

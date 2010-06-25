@@ -7,7 +7,8 @@
     
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" AutoGenerateEditButton="false"
         DataKeyNames="Id,Name" DataSourceID="SqlDataSource1"
-        OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+        OnSelectedIndexChanged="GridView1_SelectedIndexChanged" 
+        onrowcreated="GridView1_RowCreated">
         <Columns>
             <asp:CommandField ShowSelectButton="True" />
             <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />

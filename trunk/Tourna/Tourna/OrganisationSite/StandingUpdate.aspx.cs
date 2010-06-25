@@ -32,7 +32,7 @@ namespace StrongerOrg.OrganisationSite
 
         private void SetPageValues(Guid orgId, int tournamentMatchupId)
         {
-            using (TournaDataContext tdc = new TournaDataContext())
+            using (TournaDataContext tdc = new TournaDataContext(ConfigurationManager.ConnectionStrings["StrongerOrgString"].ToString()))
             {
                 List<MatchupGetResult> matchUps = tdc.MatchupGet(tournamentMatchupId).ToList();
                 if (matchUps.Count > 0 && matchUps[0].PlayerBId.HasValue)
@@ -49,14 +49,22 @@ namespace StrongerOrg.OrganisationSite
                     {
                         if (matchUp.Winner.HasValue)
                         {
-                            SelectButton(matchUp.Winner.Equals(matchUp.PlayerAId) ? this.btnPlayerA : this.btnPlayerB);
+                            this.SelectButton(matchUp.Winner.Equals(matchUp.PlayerAId) ? this.btnPlayerA : this.btnPlayerB);
 
                             this.btnPlayerB.Enabled = false;
                             this.btnPlayerA.Enabled = false;
                             this.lblClickOnWinner.Visible = false;
-                            string scoreUpdatedBy = (matchUp.UpdatedBy.Value.Equals(matchUp.PlayerAId)) ? matchUp.PlayerAName : matchUp.PlayerBName;
+                            string scoreUpdatedBy = string.Empty;
+                            if (matchUp.UpdatedBy != null)
+                            {
+                                scoreUpdatedBy = (matchUp.UpdatedBy.Value.Equals(matchUp.PlayerAId)) ? matchUp.PlayerAName : matchUp.PlayerBName;
+                            }
+                            else
+                            {
+                                scoreUpdatedBy = "Moderator";
+                            }
 
-                            this.lblUpdateMessage.Text = string.Format("The score was updated by <i>{0}</i>. In case of descrepency contact moderator", scoreUpdatedBy);
+                            this.lblUpdateMessage.Text = string.Format("The score was updated by <i>{0}</i>. In case of discrepancy contact moderator", scoreUpdatedBy);
                         }
                         else
                         {
@@ -66,7 +74,7 @@ namespace StrongerOrg.OrganisationSite
                     }
                     //else
                     //{
-                        
+
                     //    this.btnPlayerB.Enabled = true;
                     //    this.btnPlayerA.Enabled = false;
 
@@ -97,26 +105,20 @@ namespace StrongerOrg.OrganisationSite
             Guid updatedByPlayerId = new Guid(Request.QueryString["PlayerId"].ToString());
             int tournamentMatchupId = int.Parse(Request.QueryString["MatchupId"].ToString());
             Button btn = sender as Button;
-            btn.CssClass = "playerSelected";
+            //btn.CssClass = "playerSelected";
 
             Guid winnerPlayerId = new Guid(btn.CommandArgument);
-            using (TournaDataContext tdc = new TournaDataContext())
+            using (TournaDataContext tdc = new TournaDataContext(ConfigurationManager.ConnectionStrings["StrongerOrgString"].ToString()))
             {
                 TournamentMatchup tm = tdc.TournamentMatchups.Single(tmu => tmu.Id == tournamentMatchupId);
                 tm.Winner = winnerPlayerId;
-                tm.UpdatedBy = updatedByPlayerId;
+                if (updatedByPlayerId != Guid.Empty)
+                    tm.UpdatedBy = updatedByPlayerId;
+                tdc.SubmitChanges();
                 if (tm.NextMatchId != 0)
                 {
                     TournamentMatchup nextTm = tdc.TournamentMatchups.Single(tmu => tmu.TournamentId == tm.TournamentId && tmu.MatchUpId == tm.NextMatchId);
-                    if (nextTm.PlayerA == Guid.Empty) // Fill the first empty spot (A or B) with the winner id from the last round
-                    {
-                        nextTm.PlayerA = winnerPlayerId;
-                    }
-                    else
-                    {
-                        nextTm.PlayerB = winnerPlayerId;
-                    }
-                    tdc.SubmitChanges();
+                    TournamentMatchupManager.SetNextMatchup(tm.TournamentId, tm.MatchUpId, tm.NextMatchId, winnerPlayerId);
 
                     if (nextTm.PlayerA != Guid.Empty && nextTm.PlayerB != Guid.Empty) // notify A & B 
                     {
@@ -141,11 +143,12 @@ namespace StrongerOrg.OrganisationSite
 
                 this.btnPlayerB.Enabled = false;
                 this.btnPlayerA.Enabled = false;
+                this.SelectButton(btn);
             }
 
 
         }
 
-        
+
     }
 }

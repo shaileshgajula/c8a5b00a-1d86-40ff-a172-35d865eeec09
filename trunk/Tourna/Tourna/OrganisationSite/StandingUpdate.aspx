@@ -34,7 +34,7 @@
     <table border="0" cellpadding="0" cellspacing="0" style="width: 80%; text-align: center"
         align="center">
         <tr>
-            <td colspan="3" style="height:50px">
+            <td colspan="3" style="font-size: 22px; color: #E74194; font-weight: bold;height:50px">
                 <asp:Label ID="lblClickOnWinner" runat="server" Text="">Click on the winner</asp:Label>
             </td>
         </tr>

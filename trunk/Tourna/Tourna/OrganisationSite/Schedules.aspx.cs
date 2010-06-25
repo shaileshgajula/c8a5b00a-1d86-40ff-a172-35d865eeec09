@@ -9,9 +9,11 @@ namespace StrongerOrg.OrganisationSite
 {
     public partial class Schedules : System.Web.UI.Page
     {
+        bool isTeamMode;
         protected void Page_Load(object sender, EventArgs e)
         {
             this.Feedbacks1.OrganisationId = Request.QueryString["TournamentId"].ToString();
+            isTeamMode = false;
         }
 
         protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -27,6 +29,8 @@ namespace StrongerOrg.OrganisationSite
                 {
                     e.Row.BackColor = System.Drawing.Color.White;
                 }
+                HyperLink hl = e.Row.Cells[2].Controls[0] as HyperLink;
+                hl.Enabled = isTeamMode;
             }
         }
 
@@ -39,8 +43,11 @@ namespace StrongerOrg.OrganisationSite
 
         protected void dvGameDetails_DataBound(object sender, EventArgs e)
         {
-            string x = this.dvGameDetails.Rows[0].Cells[1].Text;
-            this.lblTournamentTitle.Text = x;
+            if (this.dvGameDetails.Rows.Count > 0)
+            {
+                string x = this.dvGameDetails.Rows[0].Cells[1].Text;
+                this.lblTournamentTitle.Text = x;
+            }
         }
 
        

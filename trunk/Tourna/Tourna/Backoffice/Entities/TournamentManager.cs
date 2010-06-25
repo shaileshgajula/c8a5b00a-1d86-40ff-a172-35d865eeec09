@@ -13,7 +13,7 @@ public class TournamentManager
     //}
 
     internal static string BuildTournament(Guid organisationId, string tournamentName, string tournamentAbstract, string locations,
-        int numberOfPlayersLimit, int gameId, string matchingAlgo, int gamesPerDay, TimeSpan timeWindowStart, TimeSpan timeWindowEnd, bool isOpenAllDay,
+        int numberOfPlayersLimit, int gameId,char tournamentMode, string matchingAlgo, int gamesPerDay, TimeSpan timeWindowStart, TimeSpan timeWindowEnd, bool isOpenAllDay,
         string firstPrize, string secondPrize, string thirdPrize, DateTime startDate, DateTime lastRegistrationDate)
     {
         using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["StrongerOrgString"].ConnectionString))
@@ -26,6 +26,7 @@ public class TournamentManager
             command.Parameters.Add("@Locations", SqlDbType.NVarChar, 150).Value = locations;
             command.Parameters.Add("@NumberOfPlayersLimit", SqlDbType.Int, 4).Value = numberOfPlayersLimit;
             command.Parameters.Add("@GameId", SqlDbType.Int, 4).Value = gameId;
+            command.Parameters.Add("@TournamentMode", SqlDbType.Char, 1).Value = tournamentMode;
             command.Parameters.Add("@MatchingAlgo", SqlDbType.NVarChar, 150).Value = matchingAlgo;
             command.Parameters.Add("@GamesPerDay", SqlDbType.Int).Value = gamesPerDay;
             command.Parameters.Add("@TimeWindowStart", SqlDbType.Time, 4).Value = timeWindowStart;
@@ -123,8 +124,16 @@ public class TournamentManager
     {
         using (TournaDataContext db = new TournaDataContext())
         {
-            string tournamentName = db.Tournaments.Single(t => t.Id == tournamentId).TournamentName;
-            return tournamentName;
+            Tournament tournament = db.Tournaments.SingleOrDefault(t => t.Id == tournamentId);
+            if (tournament != null)
+            {
+                string tournamentName = tournament.TournamentName;
+                return tournamentName;
+            }
+            else
+            {
+                return string.Empty;
+            }
         }
     }
 }

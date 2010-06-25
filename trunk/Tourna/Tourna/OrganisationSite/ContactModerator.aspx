@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/OrganisationSite/OrgSite.Master" 
-    AutoEventWireup="true" CodeBehind="ContactModerator.aspx.cs" Inherits="StrongerOrg.OrganisationSite.ContactModerator" Theme="OrganisationSite" %>
+    AutoEventWireup="true" CodeBehind="ContactModerator.aspx.cs" Inherits="StrongerOrg.OrganisationSite.ContactModerator" Theme="OrganisationSite"  %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     
 </asp:Content>
@@ -11,7 +11,13 @@
         <li ><a href="EventGallery.aspx?orgId=<%= Request.QueryString["OrgId"].ToString() %>">Event Gallery</a></li>
         <li ><a href="Leagues.aspx?orgId=<%= Request.QueryString["OrgId"].ToString() %>">Tournaments</a></li>
     </ul>
+    <script type="text/javascript">
+        $(function () {
+            $("#myBtn").button();
+    });
+</script>
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <table >
         <tr>
@@ -51,8 +57,9 @@
         <tr>
             <td>
                 &nbsp;</td>
-            <td align="right">
-                <asp:LinkButton ID="lbSend" runat="server" onclick="lbSend_Click">Send</asp:LinkButton>
+            <td >
+                <asp:LinkButton ID="lbSend" runat="server" onclick="lbSend_Click" ClientIDMode="Static" Width="80px">Send</asp:LinkButton>
+                <input type="button" id="myBtn" value="get the " style="width:200px" />
             </td>
         </tr>
     </table>

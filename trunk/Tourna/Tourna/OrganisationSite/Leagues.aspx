@@ -40,7 +40,7 @@
                 </tr>
                 <tr>
                     <td>
-                        Players limit:
+                        Competitors limit:
                     </td>
                     <td>
                         <%#Eval("NumberOfPlayersLimit")%>
@@ -48,7 +48,7 @@
                 </tr>
                 <tr>
                     <td>
-                        Registered Players:
+                        Registered competitors:
                     </td>
                     <td>
                         <%#Eval("RegisteredPlayers")%>
@@ -56,7 +56,7 @@
                 </tr>
                 <tr>
                     <td>
-                        League status:
+                        Status:
                     </td>
                     <td>
                         Not started yet

@@ -67,6 +67,15 @@ namespace StrongerOrg.Backoffice.UserControls
             this.lblMsg.Text = "Match ups have been deleted";
             OnDataChange();
         }
+
+        protected void btnRemovePlayers2Tournaments_Click(object sender, EventArgs e)
+        {
+            Guid tournamentId = new Guid(this.Request.QueryString["TournamentId"].ToString());
+            StrongerOrg.Backoffice.Entities.TournamentMatchupManager.RemovePlayers2Tournament(tournamentId);
+            this.lblMsg.Text = "Tournament players have been removed";
+            OnDataChange();
+        }
+        
         public event Action OnDataChange;
         protected void btnCleanPlayers_Click(object sender, EventArgs e)
         {
@@ -102,16 +111,6 @@ namespace StrongerOrg.Backoffice.UserControls
             }
         }
 
-        //    protected void lbCheckAll_Click(object sender, EventArgs e)
-        //    {
-        //        foreach (GridViewRow row in this.GridView1.Rows)
-        //        {
-        //            CheckBox cb = row.Cells[0].FindControl("cbItem") as CheckBox;
-        //            if (cb != null)
-        //            {
-        //                cb.Checked = true;
-        //            }
-        //        }
-        //    }
+       
     }
 }

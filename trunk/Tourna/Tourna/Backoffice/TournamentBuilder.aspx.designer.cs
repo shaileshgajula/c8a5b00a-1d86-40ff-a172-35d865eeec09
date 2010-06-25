@@ -28,7 +28,7 @@ namespace StrongerOrg.Backoffice {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadTextBox txtTournamentName;
+        protected global::System.Web.UI.WebControls.TextBox txtTournamentName;
         
         /// <summary>
         /// RequiredFieldValidator1 control.
@@ -67,6 +67,15 @@ namespace StrongerOrg.Backoffice {
         protected global::System.Web.UI.WebControls.Label lblGames;
         
         /// <summary>
+        /// rbTournamentMode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList rbTournamentMode;
+        
+        /// <summary>
         /// txtAbstract control.
         /// </summary>
         /// <remarks>
@@ -74,15 +83,6 @@ namespace StrongerOrg.Backoffice {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtAbstract;
-        
-        /// <summary>
-        /// HyperLink1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
         
         /// <summary>
         /// txtLocations control.
@@ -94,13 +94,13 @@ namespace StrongerOrg.Backoffice {
         protected global::System.Web.UI.WebControls.TextBox txtLocations;
         
         /// <summary>
-        /// rntxtLimitPlayers control.
+        /// txtLimitNumberOfPlayers control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadNumericTextBox rntxtLimitPlayers;
+        protected global::System.Web.UI.WebControls.TextBox txtLimitNumberOfPlayers;
         
         /// <summary>
         /// rbMatchingAlog control.

@@ -11,6 +11,7 @@ namespace StrongerOrg
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            this.Form.Action = "Default.aspx";
             this.Master.ActiveHomeHyperLink();
         }
     }

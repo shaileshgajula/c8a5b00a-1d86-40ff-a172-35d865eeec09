@@ -3,10 +3,10 @@
     <windir>\Microsoft.NET\Framework\<ver>\CONFIG\Browsers
 -->
 <browsers>
-  <browser refID="Safari1Plus">
+  <!--<browser refID="Safari1Plus">
     <controlAdapters>
       <adapter controlType="System.Web.UI.WebControls.Menu"
                        adapterType="" />
     </controlAdapters>
-  </browser>
+  </browser>-->
 </browsers>

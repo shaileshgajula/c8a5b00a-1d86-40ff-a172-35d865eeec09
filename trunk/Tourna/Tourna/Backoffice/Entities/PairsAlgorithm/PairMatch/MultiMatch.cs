@@ -11,21 +11,21 @@ namespace StrongerOrg.BackOffice.PairsAlgorithm
 
         public List<PlayersEntity> Execute(List<MetaPlayer> playerList, int numOfRounds)
         {
-            int numOfPlayers = playerList.Count;
+            int numOfCompetitors = playerList.Count;
 
             if (playerList == null)
-                throw new ArgumentNullException("playerList");
-            if (numOfPlayers == 0)
+                throw new ArgumentNullException("competitorList is null");
+            if (numOfCompetitors == 0)
                 throw new ArgumentException("Players list is too small");
-            if (numOfRounds > numOfPlayers / 2)
+            if (numOfRounds > numOfCompetitors / 2)
                 throw new ArgumentException("Number of rounds exceeds given players list");
 
 
-            if (numOfPlayers % 2 != 0)
+            if (numOfCompetitors % 2 != 0)
                 playerList.Add(new MetaPlayer() { Id = Guid.Empty, PlayerName = "Computer" });
 
             //split the list in half.
-            int halfPlayerCount = numOfPlayers / 2;
+            int halfPlayerCount = numOfCompetitors / 2;
             IEnumerable<MetaPlayer> topHalf = playerList.Take(halfPlayerCount);
             MetaPlayer[] bottomHalf = playerList.Skip(halfPlayerCount).Take(halfPlayerCount).ToArray();
 

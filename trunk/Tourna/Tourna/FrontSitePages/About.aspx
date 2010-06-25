@@ -44,7 +44,7 @@
         </tr>
         <tr>
             <td style="padding: 15px;width:140px" rowspan="2">
-                <img src="../Images/msn_icon.JPG" />
+                <img src="../Images/Staff/PiniUsha.JPG" alt="Pini Usha"  title="Pini Usha"/>
             </td>
             <td style="padding: 5px;height:15px;vertical-align: top;color:#2e2e2e;font-size:15px;font-weight:bold">
                 Pini Usha, Founder & CTO
@@ -67,25 +67,6 @@ Pini holds a B.A from IDC in computer science and was the captain of his basketb
             </td>
             <td style="padding: 5px;height:15px;vertical-align: top;color:#2e2e2e;font-size:15px;font-weight:bold">
                 Inbar Margolin, founder & COO  
-            </td>
-            <tr>
-                <td style="padding: 15px;vertical-align: top" class="GrayTextNormal">
-                And we’d love to know what features you’d find useful -- please send your comments
-                to you have any feedback, feel free to shoot us an email at contact@StrongerOrg.com.
-                StrongerOrg is headquartered in New York City.
-                <br>
-                And we’d love to know what features you’d find useful <br>-- please send your comments
-                to you have any feedback, feel free to shoot us an email at contact@StrongerOrg.com.
-                StrongerOrg is headquartered in New York City.
-                </td>
-            </tr>
-        </tr>
-        <tr>
-            <td style="padding: 15px;width:140px" rowspan="2">
-                <img src="../Images/msn_icon.JPG" />
-            </td>
-            <td style="padding: 5px;height:15px;vertical-align: top;color:#2e2e2e;font-size:15px;font-weight:bold">
-                Stan Rozenberg, sr. software developer
             </td>
             <tr>
                 <td style="padding: 15px;vertical-align: top" class="GrayTextNormal">

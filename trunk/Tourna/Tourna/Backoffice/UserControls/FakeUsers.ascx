@@ -23,11 +23,11 @@
         <td>
             <div id="format" align="right">
                 <asp:Button runat="server" ID="btnMatchUpPlayers" Text="Matchup Players" OnClick="btnMatchUpPlayers_Click" />
-                <asp:Button ID="btnCleanPlayers" runat="server" Text="Delete tournaments Players..."
+                <asp:Button ID="btnCleanPlayers" runat="server" Text="Remove tournaments Players..."
                     OnClick="btnCleanPlayers_Click" />
-                <asp:Button ID="btnClearMatchups" runat="server" Text="Clear matchups" OnClick="btnClearMatchups_Click" />
-                <asp:Button ID="btnNotifyPlayers" runat="server" Text="Notify players" 
-                    onclick="btnNotifyPlayers_Click" />
+                <asp:Button ID="btnClearMatchups" runat="server" Text="Remove matchups" OnClick="btnClearMatchups_Click" />
+                <asp:Button ID="btnRemovePlayers2Tournaments" runat="server" Text="Remove Players 2 Tournaments" OnClick="btnRemovePlayers2Tournaments_Click" />
+                <asp:Button ID="btnNotifyPlayers" runat="server" Text="Notify players" OnClick="btnNotifyPlayers_Click" />
             </div>
         </td>
         <td>
@@ -42,21 +42,31 @@
         </td>
     </tr>
 </table>
-Select <b>Fake Users</b>: <a class="CheckAll" href="#">All</a>, <a class="UnCheckAll"
-    href="#">None</a>
+<table border="0" cellpadding="0" cellspacing="0" style="width: 100%">
+    <tr>
+        <td>
+            Select <b>Fake Users</b>: <a class="CheckAll" href="#">All</a>, <a class="UnCheckAll"
+                href="#">None</a>
+        </td>
+   
+        <td style="text-align:right">
+            <asp:LinkButton ID="LinkButton1" runat="server" OnClick="lbBindToTournament_Click">Register to tournament</asp:LinkButton></div>
+        </td>
+    </tr>
+</table>
 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Id"
-    DataSourceID="SqlDataSource1" EnableModelValidation="True" 
-    onrowcreated="GridView1_RowCreated">
+    DataSourceID="SqlDataSource1" EnableModelValidation="True" OnRowCreated="GridView1_RowCreated">
     <Columns>
         <asp:TemplateField>
-        <ItemStyle Width="20px" />
-        <HeaderTemplate>#</HeaderTemplate>
+            <ItemStyle Width="20px" />
+            <HeaderTemplate>
+                #</HeaderTemplate>
             <ItemTemplate>
-              <%= i++ %>.
+                <%= i++ %>.
             </ItemTemplate>
         </asp:TemplateField>
         <asp:TemplateField>
-        <ItemStyle HorizontalAlign="Center" />
+            <ItemStyle HorizontalAlign="Center" />
             <ItemTemplate>
                 <asp:CheckBox ID="cbItem" runat="server" />
             </ItemTemplate>

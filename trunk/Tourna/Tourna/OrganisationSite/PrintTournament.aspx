@@ -21,7 +21,7 @@
                 <asp:BoundField DataField="StartDate" HeaderText="Start:" DataFormatString="{0:f}"
                     HeaderStyle-Font-Bold="true" />
                 <asp:BoundField DataField="Title" HeaderText="Title:" HeaderStyle-Font-Bold="true" />
-                <asp:BoundField DataField="RegisteredPlayers" HeaderText="Registered Players:" HeaderStyle-Font-Bold="true" />
+                <asp:BoundField DataField="RegisteredPlayers" HeaderText="Registered Competitors:" HeaderStyle-Font-Bold="true" />
             </Fields>
         </asp:DetailsView>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:StrongerOrgString %>"
@@ -38,7 +38,7 @@
             <Columns>
                 <asp:BoundField DataField="MatchupId" HeaderText="Id" />
                 <asp:BoundField DataField="Round" HeaderText="Round" />
-                <asp:TemplateField HeaderText="Player" ItemStyle-HorizontalAlign="Right" ItemStyle-CssClass="playerText">
+                <asp:TemplateField HeaderText="Competitor" ItemStyle-HorizontalAlign="Right" ItemStyle-CssClass="playerText">
                     <ItemTemplate>
                         <%#Eval("PlayerA")%>
                     </ItemTemplate>
@@ -48,7 +48,7 @@
                         vs.
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="Player" ItemStyle-HorizontalAlign="Left" ItemStyle-CssClass="playerText">
+                <asp:TemplateField HeaderText="Competitor" ItemStyle-HorizontalAlign="Left" ItemStyle-CssClass="playerText">
                     <ItemTemplate>
                         <%# Eval("PlayerB")%>
                     </ItemTemplate>
