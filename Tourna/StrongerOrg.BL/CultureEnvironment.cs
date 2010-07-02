@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using StrongerOrg.BL.DL;
+using System.Configuration;
 
 
 namespace StrongerOrg.BL
@@ -38,7 +39,7 @@ namespace StrongerOrg.BL
 
             //cache and return
             IEnumerable<DateTime> holidays;
-            using (TournamentsDataContext db = new TournamentsDataContext())
+            using (TournamentsDataContext db = new TournamentsDataContext(ConfigurationManager.ConnectionStrings["StrongerOrgString"].ConnectionString))
             {
                  holidays = db.OrganisationHolidays.Where(x => x.OrganisationId == orgId)
                                                       .Select(y => y.Date).ToList();

@@ -1,24 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="StrongerOrg" Class="TournamentsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=.\sqlexpress;Initial Catalog=StrongerOrg;Integrated Security=True" SettingsObjectName="StrongerOrg.BL.Properties.Settings" SettingsPropertyName="StrongerOrgConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.TournamentMatchups" Member="TournamentMatchups">
-    <Type Name="TournamentMatchup">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="TournamentId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
-      <Column Name="PlayerA" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
-      <Column Name="PlayerB" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
-      <Column Name="Start" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="[End]" Member="End" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="Winner" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
-      <Column Name="ScoreA" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ScoreB" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="UpdatedBy" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
-      <Column Name="MatchUpId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Round" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="NextMatchId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="IsEmailSent" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="Tournament_TournamentMatchup" Member="Tournament" ThisKey="TournamentId" OtherKey="Id" Type="Tournament" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Players2Tournaments" Member="Players2Tournaments">
     <Type Name="Players2Tournament">
       <Column Name="PlayerId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
@@ -45,6 +26,26 @@
       <Column Name="Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
+  <Table Name="dbo.TournamentMatchups" Member="TournamentMatchups">
+    <Type Name="TournamentMatchup">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TournamentId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="PlayerA" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="PlayerB" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="Start" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="[End]" Member="End" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Winner" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="ScoreA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ScoreB" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="MatchUpId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Round" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NextMatchId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NextMatchUpPosition" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="IsEmailSent" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Tournament_TournamentMatchup" Member="Tournament" ThisKey="TournamentId" OtherKey="Id" Type="Tournament" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.Tournaments" Member="Tournaments">
     <Type Name="Tournament">
       <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -55,19 +56,21 @@
       <Column Name="NumberOfPlayersLimit" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="GameId" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="MatchingAlgo" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="TimeWindowStart" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="TimeWindowEnd" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="IsOpenAllDay" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="GamesPerDay" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TimeWindowStart" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="TimeWindowEnd" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="OpenDays" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="FirstPrize" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
       <Column Name="SecondPrize" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
       <Column Name="ThirdPrize" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
       <Column Name="LastRegistrationDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="StartDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="EmailTemplate" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Mode" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
       <Column Name="IsTournamentOver" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Association Name="Tournament_TournamentMatchup" Member="TournamentMatchups" ThisKey="Id" OtherKey="TournamentId" Type="TournamentMatchup" />
       <Association Name="Tournament_Players2Tournament" Member="Players2Tournaments" ThisKey="Id" OtherKey="TournamentId" Type="Players2Tournament" />
+      <Association Name="Tournament_TournamentMatchup" Member="TournamentMatchups" ThisKey="Id" OtherKey="TournamentId" Type="TournamentMatchup" />
     </Type>
   </Table>
   <Function Name="dbo.OrganisationUsersGet" Method="OrganisationUsersGet">
