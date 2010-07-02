@@ -25,10 +25,19 @@ namespace StrongerOrg.BL.Jobs
             IShuffle<Competitor> shuffleAlgo = Shuffle<Competitor>.TournamentFactory(ShuffleTypes.Random);
             List<Competitor> competitorsList =
                 shuffleAlgo.Execute(PlayersManager.GetPlayers(tournamentId));
-            List<Matchup> matchupList =
-                TournamentFactory.GetInstance(TournamentTypes.SingleElimination).Execute(competitorsList);
             Tournament tournamentInfo = GetTournamentInfo(tournamentId);
-            ScheduleGames(ref matchupList, tournamentInfo.StartDate, orgId);
+            List<Matchup> matchupList;
+            if (tournamentInfo.MatchingAlgo == "Single Elimination")
+            {
+                 matchupList =
+                    TournamentFactory.GetInstance(TournamentTypes.SingleElimination).Execute(competitorsList);
+            }
+            else
+            {
+                 matchupList =
+                    TournamentFactory.GetInstance(TournamentTypes.RoundRobin).Execute(competitorsList);
+            }
+            ScheduleGames(ref matchupList, tournamentInfo.StartDate, tournamentInfo.TimeWindowStart, tournamentInfo.GamesPerDay.Value, orgId, tournamentInfo.OpenDays.Value);
             SaveMatchUps(tournamentId, matchupList);
             NotifiModerator(tournamentId, orgId, tournamentInfo.TournamentName, tournamentInfo.StartDate);
         }
@@ -49,6 +58,7 @@ namespace StrongerOrg.BL.Jobs
                     End = ml.End,
                     Round = ml.Round,
                     NextMatchId = ml.NextMatchId
+                    
                 });
                 db.TournamentMatchups.InsertAllOnSubmit(e);
                 db.SubmitChanges();
@@ -56,32 +66,36 @@ namespace StrongerOrg.BL.Jobs
         }
         private static Tournament GetTournamentInfo(Guid tournamentId)
         {
-            using (TournamentsDataContext tdc = new TournamentsDataContext())
+            using (TournamentsDataContext tdc = new TournamentsDataContext(ConfigurationManager.ConnectionStrings["StrongerOrgString"].ConnectionString))
             {
                 return tdc.Tournaments.Single(t => t.Id == tournamentId);
             }
         }
-        internal static void ScheduleGames(ref List<Matchup> matchups, DateTime dts, Guid orgId)
+        internal static void ScheduleGames(ref List<Matchup> matchups, DateTime dts, TimeSpan timeWindowStart, int gamesPerDay, Guid orgId, int openDaysBitMask)
         {
-            int numberOfGamesPerDay = 3;
-            int numberOfGamesCounter = 0;
+
+            int numberOfGamesCounter = 1;
             int minutesPerGame = 15;
-            CultureManager cultureManager = new CultureManager(orgId);
+            CultureManager cultureManager = new CultureManager(orgId, openDaysBitMask);
             IEnumerator<DateTime> dayEnumerator = cultureManager.GetNextBusinessDay(dts).GetEnumerator();
             DateTime dt;
+            int currentRound = 0;
             foreach (Matchup mu in matchups)
             {
-                if (numberOfGamesCounter % numberOfGamesPerDay == 0)
+                if (numberOfGamesCounter == gamesPerDay || mu.Round != currentRound)
                 {
                     dayEnumerator.MoveNext();
                     dts = dayEnumerator.Current;
-                    dts = new DateTime(dts.Year, dts.Month, dts.Day, 12, 0, 0);
+                    dts = new DateTime(dts.Year, dts.Month, dts.Day);
+                    dts = dts.Add(timeWindowStart);
+                    numberOfGamesCounter = 0;
                 }
 
                 mu.Start = dts;
                 numberOfGamesCounter++;
                 dts = dts.AddMinutes(minutesPerGame);
                 mu.End = dts;
+                currentRound = mu.Round;
             }
         }
         public static List<TournamentOrganisation> GetTournamentForMatchups()
@@ -95,7 +109,7 @@ namespace StrongerOrg.BL.Jobs
         public static void NotifiModerator(Guid tournamentId, Guid organisationId, string tournamentName, DateTime startDate)
         {
 
-            using (TournamentsDataContext tdc = new TournamentsDataContext())
+            using (TournamentsDataContext tdc = new TournamentsDataContext(ConfigurationManager.ConnectionStrings["StrongerOrgString"].ConnectionString))
             {
                 var moderators = tdc.OrganisationUsersGet(organisationId).Where(ou => ou.RoleName == "Moderator").Select(ou => new { ou.Email, ou.Name });
 
@@ -133,7 +147,7 @@ namespace StrongerOrg.BL.Jobs
 
         public static List<MatchupsToNotifyGetResult> GetMatchupsToNotify(int tournamentMatchupId)
         {
-            using (TournamentsDataContext tdc = new TournamentsDataContext())
+            using (TournamentsDataContext tdc = new TournamentsDataContext(ConfigurationManager.ConnectionStrings["StrongerOrgString"].ToString()))
             {
                 List<MatchupsToNotifyGetResult> x = tdc.MatchupsToNotifyGet(null, false, tournamentMatchupId).ToList();
                 return x;
@@ -252,7 +266,7 @@ namespace StrongerOrg.BL.Jobs
             string templatePath = Path.Combine(ConfigurationManager.AppSettings["EmailTemplatePath"].ToString(), "UpdateScoreReminder.htm");
             string matchUpReadyTemplate = File.ReadAllText(templatePath);
 
-           
+
 
             using (TournamentsDataContext tdc = new TournamentsDataContext())
             {
@@ -272,9 +286,9 @@ namespace StrongerOrg.BL.Jobs
                     replacements.Add("<% PlayerId %>", item.PlayerAId);
                     replacements.Add("<% MatchupId %>", item.MatchupId);
                     SendEmail(replacements, matchUpReadyTemplate, item.PlayerAEmail, "Score Update - " + item.TournamentName);
-                    replacements["<% PlayerName %>"] =  item.PlayerB;
-                    replacements["<% Opponent %>"]= item.PlayerA;
-                    replacements["<% PlayerId %>"]= item.PlayerBId;
+                    replacements["<% PlayerName %>"] = item.PlayerB;
+                    replacements["<% Opponent %>"] = item.PlayerA;
+                    replacements["<% PlayerId %>"] = item.PlayerBId;
                     SendEmail(replacements, matchUpReadyTemplate, item.PlayerAEmail, "Score Update - " + item.TournamentName);
                 }
 

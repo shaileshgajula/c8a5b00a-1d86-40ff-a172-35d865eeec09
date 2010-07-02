@@ -9,11 +9,12 @@ namespace StrongerOrg.BL
     {
         private Guid _organistaionId;
         private IEnumerable<DateTime> _invalidDates;
+        private int _openDaysBitMask;
         private CultureEnvironment env;
-        public CultureManager(Guid orgId)
+        public CultureManager(Guid orgId, int openDaysBitMask)
         {
             this._organistaionId = orgId;
-
+            this._openDaysBitMask = openDaysBitMask;
             env = CultureEnvironment.Instance;
             this._invalidDates = env.GetInvalidDates(orgId);
         }
@@ -22,11 +23,11 @@ namespace StrongerOrg.BL
         {
             for (DateTime strtDt = startDate; ; strtDt = strtDt.AddDays(1))
             {
-                if (strtDt.DayOfWeek == DayOfWeek.Saturday)
+                if (!Convert.ToBoolean((int)Math.Pow(2,(int)strtDt.DayOfWeek) & this._openDaysBitMask))
                     continue;
 
-                if (strtDt.DayOfWeek == DayOfWeek.Sunday)
-                    continue;
+                //if (strtDt.DayOfWeek == DayOfWeek.Sunday)
+                //    continue;
 
                 if (this._invalidDates.FirstOrDefault(d => d.Date == strtDt.Date) != DateTime.MinValue)
                     continue;
